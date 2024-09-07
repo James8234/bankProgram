@@ -1,7 +1,4 @@
-
-#include <iostream> 
-#include <string>
-#include <iomanip>
+#include "header.h"
 #include "bankAccountType.h"
 
 using namespace std;

@@ -72,7 +72,7 @@ void certificateOfDepositType::withdraw(double amount)
 
 void certificateOfDepositType::withdraw()
 {
-	int balance;
+//	int balance;
 	if(cdMonth > maturityMonths)
 		balance = 0;
 	else

@@ -1,7 +1,8 @@
 #ifndef HEADER_H_
 #define HEADER_H_
 
-
+#include <string>
+#include <iomanip>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -22,6 +23,6 @@ struct NodeType
 
 };
 
-
+//void testFunction();
 
 #endif

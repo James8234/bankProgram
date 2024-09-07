@@ -1,8 +1,7 @@
 #ifndef BANKACCOUNTTYPE_H_
 #define BANKACCOUNTTYPE_H_
 
-#include <iostream>
-using namespace std;
+#include "header.h"
 
 class bankAccountType
 {
@@ -16,6 +15,8 @@ public:
 	void deposit(double amount);
 	virtual void createMonthlyStatement() = 0; // this makes it a pure virtual function meaning you can't create the base class object and need child CLASSES
 	virtual void print();
+	virtual ~bankAccountType() {}
+
 
 protected: //child classes have direct access but not int main
 	int accountNumber;
