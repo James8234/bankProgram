@@ -1,28 +1,26 @@
-#ifndef BANKACCOUNTTYPE_H_
-#define BANKACCOUNTTYPE_H_
+#ifndef BANKACCOUNTTYPE_H
+#define BANKACCOUNTTYPE_H
 
-#include "header.h"
+#include <string>
+using namespace std;
 
-class bankAccountType
-{
+class bankAccountType{
+
 public:
-	bankAccountType(string n = "", int acctNumber = 0, double bal = 0);
-	int getAccountNumber();
-	double getBalance();
-	string getName();
-	void setName(string n);
-	virtual void withdraw(double amount);
-	void deposit(double amount);
-	virtual void createMonthlyStatement() = 0; // this makes it a pure virtual function meaning you can't create the base class object and need child CLASSES
-	virtual void print();
-	virtual ~bankAccountType() {}
+        bankAccountType(string n = "", int acctNumber = 0, double bal = 0);
+        int getAccountNumber();
+        double getBalance();
+        string getName();
+        void setName(string n);
+        virtual void withdraw(double amount);
+        void deposit(double amount);
+        virtual void createMonthlyStatement() = 0;
+        virtual void print();
 
-
-protected: //child classes have direct access but not int main
-	int accountNumber;
-	string name;
-	double balance;
-
+protected:
+        int accountNumber;
+        string name;
+        double balance;
 };
 
 #endif
