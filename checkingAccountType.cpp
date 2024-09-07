@@ -1,3 +1,4 @@
+//implementation file
 
 #include <iostream>
 #include <string>
@@ -6,7 +7,6 @@
 using namespace std;
 
 checkingAccountType::checkingAccountType(string n, int acctNumber, double bal)
-							: bankAccountType(n , acctNumber, bal)
-
+                                                : bankAccountType(n, acctNumber, bal)
 {
 }
