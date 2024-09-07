@@ -1,27 +1,29 @@
-#ifndef SAVINGSACCOUNTTYPE_H_
-#define SAVINGSACCOUNTTYPE_H_
+#ifndef SAVINGSACCOUNTTYPE_H
+#define SAVINGSACCOUNTTYPE_H
 
-#include "header.h"
+#include <string>
 #include "bankAccountType.h"
+
+using namespace std;
 
 class savingsAccountType: public bankAccountType
 {
 public:
-	savingsAccountType(string n, int acctNumber, double bal);
+        savingsAccountType(string n, int acctNumber, double bal);
 
-	savingsAccountType(string n, int acctNumber, double bal, double intRate);
-
-	double getInterestRate();
-	void setInterestRate(double rate);
-	void postInterest();
-	virtual void createMonthlyStatement() override;
-	virtual void print();
+        savingsAccountType(string n, int acctNumber, double bal, double intRate);
+        double getInterestRate();
+        void setInterestRate(double rate);
+        void postInterest();
+        virtual void createMonthlyStatement();
+        virtual void print();
 
 protected:
-	double interestRate;
+        double interestRate;
 
 private:
-	static const double INTEREST_RATE; // = 0.03 //
+        static const double INTEREST_RATE; // = 0.3
+
 };
 
 #endif
