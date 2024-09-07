@@ -1,5 +1,5 @@
-#ifndef CHECKINGACCOUNTTYPE_H_
-#define CHECKINGACCOUNTTYPE_H_
+#ifndef CHECKINGACCOUNTTYPE_H
+#define CHECKINGACCOUNTTYPE_H
 
 #include <string>
 
@@ -9,11 +9,10 @@ using namespace std;
 
 class checkingAccountType: public bankAccountType
 {
-	public:
-		checkingAccountType(string n, int accNumber, double bal);
+        public:
+                checkingAccountType(string n, int acctNumber, double bal);
 
-		virtual void writeCheck(double amount) = 0;
-
+                virtual void writeCheck(double amount) = 0;
 };
 
 #endif
