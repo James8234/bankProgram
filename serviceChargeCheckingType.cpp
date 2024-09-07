@@ -1,3 +1,5 @@
+//implementation file
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -5,83 +7,79 @@
 
 using namespace std;
 
-
 const double serviceChargeCheckingType::ACCOUNT_SERVICE_CHARGE = 10.00;
-const int serviceChargeCheckingType::MAXIMUN_NUM_OF_CHECKS = 5;
+const int serviceChargeCheckingType::MAXIMUM_NUM_OF_CHECKS = 5;
 const double serviceChargeCheckingType::SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS = 5;
 
-serviceChargeCheckingType::serviceChargeCheckingType(string n, int accNumber, double bal)
-									:checkingAccountType(n, accNumber, bal)
+serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal)
+                                                                :checkingAccountType(n, acctNumber, bal)
 {
-	serviceChargeAmount  = ACCOUNT_SERVICE_CHARGE;
-	numberOfChecksWritten = 0;
-	serviceChargeCheck    = 0;
+        serviceChargeAccount = ACCOUNT_SERVICE_CHARGE;
+        numberOfChecksWritten = 0;
+        serviceChargeCheck = 0;
 }
 
-serviceChargeCheckingType::serviceChargeCheckingType(string n, int accNumber, double bal, 
-																	double servChargeAmount, double servChargeCheck)
-									:checkingAccountType(n, accNumber, bal)
+serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal, double servChargeAmount, double servChargeCheck)
+                                                                : checkingAccountType(n, acctNumber, bal)
 {
-	serviceChargeAmount  =  servChargeAmount;
-	numberOfChecksWritten = 0;
-	serviceChargeCheck    = servChargeCheck;
+        serviceChargeAccount = servChargeAmount;
+        serviceChargeCheck = servChargeCheck;
+        numberOfChecksWritten = 0;
 }
 
 double serviceChargeCheckingType::getServiceChargeAccount()
 {
-	return serviceChargeAmount;
+        return serviceChargeAccount;
 }
 
 void serviceChargeCheckingType::setServiceChargeAccount(double amount)
 {
-	serviceChargeAmount = amount;
+        serviceChargeAccount = amount;
 }
 
-double serviceChargeCheckingType::getServiceChargeChecks()
+double serviceChargeCheckingType::getServiceChargeCheck()
 {
-	return serviceChargeCheck;
+        return serviceChargeCheck;
 }
 
-void serviceChargeCheckingType::setServiceChargeChecks(double amount)
+void serviceChargeCheckingType::setServiceChargeCheck(double amount)
 {
-	serviceChargeCheck = amount;
+        serviceChargeCheck = amount;
 }
 
 int serviceChargeCheckingType::getNumberOfChecksWritten()
 {
-	return numberOfChecksWritten;
+        return numberOfChecksWritten;
 }
 
 void serviceChargeCheckingType::setNumberOfChecksWritten(int num)
 {
-	numberOfChecksWritten = num;
+        numberOfChecksWritten = num;
 }
 
 void serviceChargeCheckingType::postServiceCharge()
 {
-	balance = balance - serviceChargeAmount;
+        balance = balance - serviceChargeAccount;
 }
 
 void serviceChargeCheckingType::writeCheck(double amount)
 {
-	if(numberOfChecksWritten < MAXIMUN_NUM_OF_CHECKS)
-		balance = balance - amount;
-	else
-		balance = balance - amount - serviceChargeCheck;
+        if (numberOfChecksWritten < MAXIMUM_NUM_OF_CHECKS)
+                balance = balance - amount;
+        else
+                balance = balance - amount - serviceChargeCheck;
 
-	numberOfChecksWritten++;
+        numberOfChecksWritten++;
 }
 
 void serviceChargeCheckingType::createMonthlyStatement()
 {
-	postServiceCharge();
+        postServiceCharge();
 }
 
 void serviceChargeCheckingType::print()
 {
-	cout << fixed << showpoint << setprecision(2);
-	cout << "Service Charge Checking: " << getName() << "\t ACCT# "
-			<< getAccountNumber() << "\tBalance: $" << getBalance() << endl;
+        cout << fixed << showpoint << setprecision(2);
+        cout << "Service Charge Checking: " << getName() << "\t ACCT# "
+                        << getAccountNumber() << "\tBalance: $" << getBalance();
 }
-
-
