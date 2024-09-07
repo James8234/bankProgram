@@ -1,67 +1,45 @@
+//implementation file
+
+#include <iostream>
+#include <string>
+#include <iomanip>
 #include "highInterestSavingsType.h"
-#include "header.h"
-//Define static constants
-const double highInterestSavingsType::MINIMUM_BALANCE = 2500.000;
+
+using namespace std;
+
+const double highInterestSavingsType::MINIMUM_BALANCE = 2500.00;
 const double highInterestSavingsType::INTEREST_RATE = 0.05;
 
-
-
-
 highInterestSavingsType::highInterestSavingsType(string n, int acctNumber, double bal)
-							:savingsAccountType(n , acctNumber, bal)
+                                                : savingsAccountType(n, acctNumber, bal, INTEREST_RATE)
 {
-	minimumBalance = MINIMUM_BALANCE;
+        minimumBalance = MINIMUM_BALANCE;
 }
 
-//highInterestSavingsType::highInterestSavingsType(string n, int acctNumber, double bal, string last)
-//							: savingsAccountType(n , acctNumber, bal)
-//{
-//	name = n;
-//}
-
-highInterestSavingsType::highInterestSavingsType(string n, int acctNumber, double bal,
-														 double intRate, double minBalance)
-							: savingsAccountType( n , acctNumber, bal, intRate)
+highInterestSavingsType::highInterestSavingsType(string n, int acctN, double balance, double intRate, double minBalance)                                                :savingsAccountType(n, acctN, balance, intRate)
 {
-	minimumBalance = minBalance;
+        minimumBalance = minBalance;
 }
-
-//highInterestSavingsType::highInterestSavingsType(string n , int acctNumber, double bal, double intRate, string test)
-//							: savingAccountType( n , acctNumber, bal, intRate)
-//{
-
-//}
 
 double highInterestSavingsType::getMinimumBalance()
 {
-	return minimumBalance;
+        return minimumBalance;
 }
 
 bool highInterestSavingsType::verifyMinimumBalance(double amount)
 {
-	return (balance - amount >= minimumBalance);
+        return (balance - amount >= minimumBalance);
 }
 
-void  highInterestSavingsType::withdraw(double amount)
+void highInterestSavingsType::withdraw(double amount)
 {
-	if(verifyMinimumBalance(amount))
-		balance = balance - amount;
-}
-
-void highInterestSavingsType::createMonthlyStatement()
-{
-	cout << "highInterest account" << endl;
-//	postInterest();
+        if (verifyMinimumBalance(amount))
+                        balance = balance - amount;
 }
 
 void highInterestSavingsType::print()
 {
-	cout << fixed << showpoint << setprecision(2);
-	cout << "High interest savings: " << getName() << "\t ACCT# "
-			<< getAccountNumber() << "\tBalance: $" << getBalance() << endl;
+        cout << fixed << showpoint << setprecision(2);
+        cout << "High Interest Savings: " << getName() << "\t ACCT# "
+                        << getAccountNumber() << "\tBalance: $" << getBalance();
 }
-
-//void testFunction()
-//{
-//	cout << "this file is linked" << endl;
-//}
