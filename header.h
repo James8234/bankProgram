@@ -1,28 +1,32 @@
-#ifndef HEADER_H_
-#define HEADER_H_
+#ifndef HEADER_H
+#define HEADER_H
 
-#include <string>
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 #include <vector>
+#include "bankAccountType.h"
+#include "savingsAccountType.h"
+#include "highInterestSavingsType.h"
+#include "noServiceChargeCheckingType.h"
+#include "serviceChargeCheckingType.h"
+#include "highInterestCheckingType.h"
+#include "certificateOfDepositType.h"
+#include "checkingAccountType.h"
+
 using namespace std;
 
-struct studentType
-{
-	char name[26];
-	double gpa;
-	int sID;
-	char grade;
+//Account menu to add/delete/edit accounts
+void account(vector<bankAccountType*> &);
 
-};
+//menu's
+void printMainMenu();
+void printAcctMenu();
+void printAddAcctMenu();
 
-struct NodeType
-{
-	int num;
-	int *numptr;
+//add delete and edit accounts
+void addAccount(vector<bankAccountType*> &);
+//void deleteAccount();
+//void editAccount();
 
-};
-
-//void testFunction();
 
 #endif
