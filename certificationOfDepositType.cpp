@@ -1,95 +1,90 @@
+//implementation file
+
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "certificationOfDepositType.h"
+#include "certificateOfDepositType.h"
 
 using namespace std;
 
 const double certificateOfDepositType::INTEREST_RATE = 0.05;
-const int    certificateOfDepositType::NUMBER_OF_MATURITY_MONTHS = 0;
-//const int certificateOfDeposit::NUM = 0;
+const int certificateOfDepositType::NUMBER_OF_MATURITY_MONTHS = 6;
 
-certificateOfDepositType::certificateOfDepositType(string n , int acctNumber, double bal)
-							: bankAccountType(n, acctNumber, bal)
+certificateOfDepositType::certificateOfDepositType(string n, int acctNumber, double bal)
+                                                : bankAccountType(n, acctNumber, bal)
 {
-	interestRate = INTEREST_RATE;
-	maturityMonths = 0;
-	cdMonth = 0;
-
+        interestRate = INTEREST_RATE;
+        maturityMonths = 0;
+        cdMonth = 0;
 }
 
-certificateOfDepositType::certificateOfDepositType(string n , int acctNumber, double bal, double intRate, int maturityMon)
-							: bankAccountType(n, acctNumber, bal)
+certificateOfDepositType::certificateOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon)
+                                                : bankAccountType(n, acctNumber, bal)
 {
-	interestRate = intRate;
-	maturityMonths = maturityMon;
-	cdMonth = 0;
-
+        interestRate = intRate;
+        maturityMonths = maturityMon;
+        cdMonth = 0;
 }
 
 double certificateOfDepositType::getInterestRate()
 {
-	return interestRate;
+        return interestRate;
 }
-
 
 void certificateOfDepositType::setInterestRate(double rate)
 {
-	interestRate = rate;
+        interestRate = rate;
 }
-
-
 
 double certificateOfDepositType::getCurrentCDMonth()
 {
-	return cdMonth;
+        return cdMonth;
 }
 
 void certificateOfDepositType::setCurrentCDMonth(int month)
 {
-	cdMonth = month;
+        cdMonth = month;
 }
 
-double certificateOfDepositType::getMaturityMonths()
+int certificateOfDepositType::getMaturityMonths()
 {
-	return maturityMonths ;
+        return maturityMonths;
 }
 
 void certificateOfDepositType::setMaturityMonths(int month)
 {
-	maturityMonths = month;
+        maturityMonths = month;
 }
 
 void certificateOfDepositType::postInterest()
 {
-	balance = balance + balance * interestRate;
+        balance = balance + balance * interestRate;
 }
 
 void certificateOfDepositType::withdraw(double amount)
 {
-	//no withdrawl untill maturity
+        //no withdraw until maturity
 }
 
 void certificateOfDepositType::withdraw()
 {
-//	int balance;
-	if(cdMonth > maturityMonths)
-		balance = 0;
-	else
-		cout << "CD has not been matured. No withdrawal" << endl;
+        if (cdMonth > maturityMonths)
+                balance = 0;
+        else
+                cout << "CD has not been matured. No withdrawal." << endl;
 }
 
 void certificateOfDepositType::createMonthlyStatement()
 {
-	postInterest();
-	cdMonth++;
+        postInterest();
+        cdMonth++;
 }
 
 void certificateOfDepositType::print()
 {
-	cout << fixed << showpoint << setprecision(2);
-	cout << "Certuificate of Deposit " << getName() << "\t ACCT# "
-			<< getAccountNumber() << "\tBalance: $" << getBalance();
+        cout << fixed << showpoint << setprecision(2);
+        cout << "Certificate of Deposit: " << getName() << "\t ACCT# "
+                << getAccountNumber() << "\tBalance: $" << getBalance();
 }
 
 
