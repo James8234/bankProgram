@@ -1,52 +1,87 @@
 #include "header.h"
+/**
+ * 
+ *
+ *
+ */
+
+
 
 int main()
 {
-        vector<bankAccountType *> accountsList;
+	vector<bankAccountType *> accountsList;
         
-         cout << "\033c";
-                char userChoice = 0;
-                do  {
-                   printMainMenu();
-                   cout  << "Enter your choice: " << endl;
-                        cin  >> userChoice;
+   cout << "\033c"; //clears to screen
+	//variables
+   int userChoice = 0;
 
-                        //fixes input failure and does not allow the "enter correct choice" screen to repeat
-                        while (userChoice < 49 || userChoice > 51 ) {
-                                cout << "\033c";
-                                printMainMenu();
-                                cout << "Please enter a correct choice" << endl << endl;
-                                cout << "Enter your choice:"  << endl;
-                                cin  >> userChoice;
-                        }
-                        cout << "\033c";
-                        switch (userChoice) {
-                                case '1':
-                                        account(accountsList);
-                                        break;
-                                case '2':
-                                        cout << "Receipt Menu" << endl;
-                                        //receipt();
-                                        break;
-                                case '3':
-                                        break;
-                                }
-                        cout << endl;
-                } while (userChoice != 51);
+   do
+	{
+   	printMainMenu();
+      
+		cout  << "Enter your choice -->: " << endl;
+     //fixes input failure and does not allow the "enter correct choice" screen to repeat
+    	userChoice = checkVaildInteger(0 , 4);
+		
+		cout << "\033c";
+                      
+		switch (userChoice)
+		{
+	   	case '1':
+		   	account(accountsList);
+		   	break;
+	   	case '2':
+				cout << "Receipt Menu" << endl;
+  		   	//receipt();
+	   	   break;
+  		   case '3':
+		      break;
+	    } //switch (userChoice)
+      
+	    cout << endl;
+   
+	} while (userChoice >= 1 || userChoice <= 3);
 
                 return 0;
+} //int main()
+
+
+void printMainMenu() 
+{
+	cout << "Main Menu" << endl;
+   cout << "1. Account" << endl;
+   cout << "2. Receipt" << endl;
+   cout << "3. Exit" << endl;
 }
 
+int checkVaildInteger(int max, int min)
+{
+	//variables
+	int num;
+	bool vaildInput = false;
+	
+	do
+	{
+		cout << "Please enter a integer between (1,3)" << endl;
+	
+		if(!(cin >> num))
+		{
+			cin.clear();
+			cin.ignore(10000 , '\n');
+			cout << "Error: please enter a integer" << endl;
+		}
+		else if(min > num || num > max)
+		{
+			cout << "Error: input is out of range. Please enter between: " << max << "/" << min << endl;
+		}		
+		else	
+		{
+			vaildInput = true;
+		}
 
-void printMainMenu() {
-                cout << "Main Menu" << endl;
-                cout << "1. Account" << endl;
-                cout << "2. Receipt" << endl;
-                cout << "3. Exit" << endl;
+	}while(!vaildInput)	
+
 }
-
-
-
 
 
 
