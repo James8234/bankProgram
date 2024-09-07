@@ -1,16 +1,16 @@
-#ifndef CERTIFICATEOFDEPOSITTYPE_H
-#define CERTIFICATEOFDEPOSITTYPE_H
+#ifndef CERTIFICATIONOFDEPOSITTYPE_H
+#define CERTIFICATIONOFDEPOSITTYPE_H
 
 #include "bankAccountType.h"
 #include <string>
 
 using namespace std;
 
-class certificateOfDepositType: public bankAccountType
+class certificationOfDepositType: public bankAccountType
 {
 public:
-        certificateOfDepositType(string n, int acctNumber, double bal);
-        certificateOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon);
+        certificationOfDepositType(string n, int acctNumber, double bal);
+        certificationOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon);
 
         double getInterestRate();
         void setInterestRate(double rate);

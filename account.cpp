@@ -1,6 +1,14 @@
 #include "header.h"
+#include "savingsAccountType.h"
+#include "highInterestSavingsType.h"
+#include "noServiceChargeCheckingType.h"
+#include "serviceChargeCheckingType.h"
+#include "highInterestCheckingType.h"
+#include "certificationOfDepositType.h"
 
-void account(vector<bankAccountType*>& accountsList){
+
+void account(vector<bankAccountType*>& accountsList)
+{
   
   
   cout << "\033c";
@@ -85,7 +93,7 @@ void printAddAcctMenu(){
 //              Add Account
 //
 //
-//****************************************
+//****************************************/
 
 void addAccount(vector<bankAccountType*>& accountsList){
         string name;
@@ -149,7 +157,7 @@ void addAccount(vector<bankAccountType*>& accountsList){
                                   break;
                           case '6':
                                   //Certificate of Deposit Account
-                                  accountsList.push_back(new certificateOfDepositType(name, accountNumber, balance));
+                                  accountsList.push_back(new certificationOfDepositType(name, accountNumber, balance));
                                   cout << "Account Added";
                                   break;
                           case '7':

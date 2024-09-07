@@ -1,19 +1,30 @@
 #include "header.h"
+#include "bankAccountType.h"
+#include "certificationOfDepositType.h"
+#include "checkingAccountType.h"
+#include "highInterestSavingsType.h"
+#include "savingsAccountType.h"
+#include "serviceChargeCheckingType.h"
+#include "highInterestCheckingType.h"
+#include "noServiceChargeCheckingType.h"
+
 /**
  * 
  *
  *
  */
 
-
-
 int main()
 {
 	vector<bankAccountType *> accountsList;
         
-   cout << "\033c"; //clears to screen
 	//variables
    int userChoice = 0;
+	bool exitProgram = false;
+
+
+
+   cout << "\033c"; //clears to screen
 
    do
 	{
@@ -21,67 +32,30 @@ int main()
       
 		cout  << "Enter your choice -->: " << endl;
      //fixes input failure and does not allow the "enter correct choice" screen to repeat
-    	userChoice = checkVaildInteger(0 , 4);
+    	userChoice = checkVaildInteger(4, 0);
 		
 		cout << "\033c";
                       
 		switch (userChoice)
 		{
-	   	case '1':
+	   	case 1:
 		   	account(accountsList);
 		   	break;
-	   	case '2':
+	   	case 2:
 				cout << "Receipt Menu" << endl;
   		   	//receipt();
 	   	   break;
-  		   case '3':
+  		   case 3:
+				exitProgram = true;
 		      break;
 	    } //switch (userChoice)
-      
-	    cout << endl;
-   
-	} while (userChoice >= 1 || userChoice <= 3);
+  
+	} while (!(exitProgram));
 
-                return 0;
+	return 0;
 } //int main()
 
 
-void printMainMenu() 
-{
-	cout << "Main Menu" << endl;
-   cout << "1. Account" << endl;
-   cout << "2. Receipt" << endl;
-   cout << "3. Exit" << endl;
-}
-
-int checkVaildInteger(int max, int min)
-{
-	//variables
-	int num;
-	bool vaildInput = false;
-	
-	do
-	{
-		cout << "Please enter a integer between (1,3)" << endl;
-	
-		if(!(cin >> num))
-		{
-			cin.clear();
-			cin.ignore(10000 , '\n');
-			cout << "Error: please enter a integer" << endl;
-		}
-		else if(min > num || num > max)
-		{
-			cout << "Error: input is out of range. Please enter between: " << max << "/" << min << endl;
-		}		
-		else	
-		{
-			vaildInput = true;
-		}
-
-	}while(!vaildInput)	
-
-}
 
 
 

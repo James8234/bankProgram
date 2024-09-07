@@ -4,19 +4,19 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "bankAccountType.h"
-#include "savingsAccountType.h"
-#include "highInterestSavingsType.h"
-#include "noServiceChargeCheckingType.h"
-#include "serviceChargeCheckingType.h"
-#include "highInterestCheckingType.h"
-#include "certificateOfDepositType.h"
-#include "checkingAccountType.h"
+
+//global variables
+const int SCREEN_SIZE = 120;
+
+class bankAccountType; //forward declear
 
 using namespace std;
 
+//checking function
+int checkVaildInteger(int max, int min);
+
 //Account menu to add/delete/edit accounts
-void account(vector<bankAccountType*> &);
+void account(vector<bankAccountType*> & accountsList);
 
 //menu's
 void printMainMenu();

@@ -3,16 +3,16 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o testFunction.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o 
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o account.o checkVaildInteger.o printMainMenu.o
 
 default: run
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-main.o: main.cpp header.h testFunction.h serviceChargeCheckingType.h  highInterestCheckingType.h bankAccountType.h savingsAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h 
+main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h
 
-bankAccountType.o: bankAccountType.cpp header.h bankAccountType.h
+bankAccountType.o: bankAccountType.cpp bankAccountType.h
 
 certificationOfDepositType.o: certificationOfDepositType.cpp certificationOfDepositType.h
 
@@ -28,7 +28,11 @@ highInterestCheckingType.o:  highInterestCheckingType.cpp  highInterestCheckingT
 
 noServiceChargeCheckingType.o: noServiceChargeCheckingType.cpp noServiceChargeCheckingType.h
 
-testFunction.o: testFunction.cpp testFunction.h header.h
+account.o: account.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h
+
+checkVaildInteger.o: checkVaildInteger.cpp header.h
+
+printMainMenu.o: printMainMenu.cpp header.h
 
 # Clean up
 clean:
