@@ -1,28 +1,26 @@
-#ifndef HIGHINTERESTSAVINGSTYPE_H_
-#define HIGHINTERESTSAVINGSTYPE_H_
+#ifndef HIGHINTERESTCHECKINGTYPE_H
+#define HIGHINTERESTCHECKINGTYPE_H
 
 #include <string>
 #include "noServiceChargeCheckingType.h"
+
 using namespace std;
 
 class highInterestCheckingType: public noServiceChargeCheckingType
 {
-public:
-	highInterestCheckingType(string n, int acctNumber, double bal);
-	highInterestCheckingType(string n, int acctNumber, double bal, 
-								double minBal, double intRate );
-	
-	double getInterestRate();
-	void   setInterestRate(double intRate);
-	void	 postInterest();
-	void 	 createMonthlyStatement();
-	virtual void print();
+        public:
+                highInterestCheckingType(string n, int acctNumber, double bal);
+                highInterestCheckingType(string n, int acctNumber, double bal,
+                                                                                        double minBal, double intRate);
+                double getInterestRate();
+                void setInterestRate(double intRate);
+                void postInterest();
+                void createMonthlyStatement();
+                virtual void print();
 
-private:
-	static const double MIN_BALANCE; //2500.00
-	static const double INTEREST_RATE; // 0.05		
-
-
+        private:
+                static const double INTEREST_RATE; // = 0.05;
+                static const double MIN_BALANCE; // = 5000.00;
 };
 
 #endif
