@@ -1,36 +1,27 @@
-#ifndef HIGHINTERESTSAVINGSTYPE_H_
-#define HIGHINTERESTSAVINGSTYPE_H_
+#ifndef HIGHINTERESTSAVINGSTYPE_H
+#define HIGHINTERESTSAVINGSTYPE_H
 
-#include "header.h"
+#include <string>
 #include "savingsAccountType.h"
 
-class  highInterestSavingsType: public savingsAccountType
+using namespace std;
+
+class highInterestSavingsType: public savingsAccountType
 {
 public:
-	//uber constructors
-	highInterestSavingsType(string n, int acctNumber, double bal);
-//	highInterestSavingsType(string n, int acctNumber, double bal, string last);
-	highInterestSavingsType(string n, int acctNumber, double bal, 
-								double intRate, double minBalance);
-//	highInterestSavingsType(string n, int acctNumber, double bal, double intRate, string test);
-
-//	highInterestSavingsType();
-	
-	double getMinimumBalance();
-	bool verifyMinimumBalance(double amount);
-	virtual void createMonthlyStatement() override;
-	virtual void withdraw(double amount) override;
-	virtual void print();
+        highInterestSavingsType(string n, int acctNumber, double bal);
+        highInterestSavingsType(string n, int acctN, double balance, double intRate, double minBalance);
+        double getMinimumBalance();
+        bool verifyMinimumBalance(double amount);
+        virtual void withdraw(double amount);
+        virtual void print();
 
 protected:
-	double minimumBalance;
+        double minimumBalance;
 
 private:
-	static const double MINIMUM_BALANCE; //2500.00
-	static const double INTEREST_RATE; // 0.05		
-
+        static const double MINIMUM_BALANCE; // = 2500.00
+        static const double INTEREST_RATE; // = 0.05
 };
-
-//void testFunction();
 
 #endif
