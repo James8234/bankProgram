@@ -23,12 +23,14 @@ void printMainMenu()
 	string s2 = "<1> Account";
 	string s3 = "<2> Receipt";
 	string s4 = "<3> Exit";
-
+	string s5 = "Please enter your choice ->: ";
 
 	cout << left;
-	cout << setw((SCREEN_SIZE - s1.size())/2) << " " << s1 << endl;
+	cout << setw((SCREEN_SIZE - s1.size())/2) << " " << s1 << endl << endl << endl;
 	cout << setw((SCREEN_SIZE - s2.size())/2) << " " << s2 << endl;
 	cout << setw((SCREEN_SIZE - s3.size())/2) << " " << s3 << endl;
 	cout << setw((SCREEN_SIZE - s4.size())/2) << " " << s4 << endl;
+	cout << setw((SCREEN_SIZE - s5.size())/2) << " " << s5;
 	cout << right;
 }
+

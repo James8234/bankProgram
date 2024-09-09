@@ -9,6 +9,7 @@
 const int SCREEN_SIZE = 120;
 
 class bankAccountType; //forward declear
+class doublyLinkedListType;
 
 using namespace std;
 
@@ -16,7 +17,7 @@ using namespace std;
 int checkVaildInteger(int max, int min);
 
 //Account menu to add/delete/edit accounts
-void account(vector<bankAccountType*> & accountsList);
+void account(doublyLinkedListType accountsList);
 
 //menu's
 void printMainMenu();
@@ -24,7 +25,7 @@ void printAcctMenu();
 void printAddAcctMenu();
 
 //add delete and edit accounts
-void addAccount(vector<bankAccountType*> &);
+void addAccount(doublyLinkedListType accountsList);
 //void deleteAccount();
 //void editAccount();
 

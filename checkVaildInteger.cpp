@@ -28,7 +28,6 @@ int checkVaildInteger(int max, int min)
 	
 	do
 	{
-		cout << "Please enter a integer between (1,3)" << endl;
 	
 		if(!(cin >> num))
 		{

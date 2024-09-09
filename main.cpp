@@ -8,6 +8,7 @@
 #include "highInterestCheckingType.h"
 #include "noServiceChargeCheckingType.h"
 #include "nodeType.h"
+#include "doublyLinkedListType.h"
 
 /**
  * 
@@ -18,13 +19,12 @@
 
 int main()
 {
-	vector<bankAccountType *> accountsList;
-
-//	accountType
+//	vector<bankAccountType *> accountsList;
         
 	//variables
    int userChoice = 0;
 	bool exitProgram = false;
+	doublyLinkedListType accountsList;
 
    cout << "\033c"; //clears to screen
 
@@ -32,7 +32,7 @@ int main()
 	{
    	printMainMenu();
       
-		cout  << "Enter your choice -->: " << endl;
+//		cout  << "Enter your choice -->: " << endl;
      //fixes input failure and does not allow the "enter correct choice" screen to repeat
     	userChoice = checkVaildInteger(4, 0);
 		
@@ -53,6 +53,10 @@ int main()
 	    } //switch (userChoice)
   
 	} while (!(exitProgram));
+
+
+
+//	accountsLists.deleteNodeType();
 
 	return 0;
 } //int main()

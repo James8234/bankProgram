@@ -4,7 +4,8 @@
 #include <string>
 using namespace std;
 
-class bankAccountType{
+class bankAccountType
+{
 
 public:
         bankAccountType(string n = "", int acctNumber = 0, double bal = 0);
@@ -16,6 +17,8 @@ public:
         void deposit(double amount);
         virtual void createMonthlyStatement() = 0;
         virtual void print();
+			
+			virtual ~bankAccountType() {} //virtual destructor for proper cleanup
 
 protected:
         int accountNumber;
