@@ -7,6 +7,7 @@
 #include "serviceChargeCheckingType.h"
 #include "highInterestCheckingType.h"
 #include "noServiceChargeCheckingType.h"
+#include "nodeType.h"
 
 /**
  * 
@@ -14,15 +15,16 @@
  *
  */
 
+
 int main()
 {
 	vector<bankAccountType *> accountsList;
+
+//	accountType
         
 	//variables
    int userChoice = 0;
 	bool exitProgram = false;
-
-
 
    cout << "\033c"; //clears to screen
 
@@ -54,68 +56,3 @@ int main()
 
 	return 0;
 } //int main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        // accountsList.push_back(new savingsAccountType("Bill", 10200, 2500));
-        // accountsList.push_back(new highInterestSavingsType("Susan", 10210, 2000));
-        // accountsList.push_back(new noServiceChargeCheckingType("John", 20100, 3500));
-        // accountsList.push_back(new serviceChargeCheckingType("Ravi", 30100, 1800));
-        // accountsList.push_back(new highInterestCheckingType("Sheila", 20200, 6000));
-        // accountsList.push_back(new certificateOfDepositType("Hamid", 51001, 18000, 0.075, 18));
-
-
-        //in order for this to work I had to change the for loops from (int i = 0;) to the (vector<bankAccountType*>::size_type i = 0;)
-
-    //     cout << "January:\n-------------" << endl;
-    //     for (vector<bankAccountType*>::size_type i = 0; i < accountsList.size(); i++)
-    //     {
-    //             accountsList[i]->createMonthlyStatement();
-    //             accountsList[i]->print();
-    //             cout << endl;
-    // }
-
-    //     cout << "\nFebruary:\n-------------" << endl;
-    //     for (vector<bankAccountType*>::size_type i = 0; i < accountsList.size(); i++)
-    //     {
-    //             accountsList[i]->createMonthlyStatement();
-    //             accountsList[i]->print();
-    //             cout << endl;
-    //     }
-
-    //     for (vector<bankAccountType*>::size_type i = 0; i < accountsList.size(); i++)
-    //     {
-    //             accountsList[i]->withdraw(500);
-    //     }
-
-    //     cout << "\nMarch:\n-------------" << endl;
-    //     for (vector<bankAccountType*>::size_type i = 0; i < accountsList.size(); i++)
-    //     {
-    //             accountsList[i]->createMonthlyStatement();
-    //             accountsList[i]->print();
-    //             cout << endl;
-    //     }

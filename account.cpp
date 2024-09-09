@@ -64,7 +64,7 @@ void account(vector<bankAccountType*>& accountsList)
 //
 //
 //
-//**************************************
+//**************************************/
 
 
 void printAcctMenu(){

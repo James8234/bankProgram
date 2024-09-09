@@ -3,14 +3,14 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o account.o checkVaildInteger.o printMainMenu.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o account.o checkVaildInteger.o printMainMenu.o #nodeType.o
 
 default: run
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h
+main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h
 
 bankAccountType.o: bankAccountType.cpp bankAccountType.h
 
@@ -33,6 +33,8 @@ account.o: account.cpp header.h savingsAccountType.h highInterestSavingsType.h n
 checkVaildInteger.o: checkVaildInteger.cpp header.h
 
 printMainMenu.o: printMainMenu.cpp header.h
+
+#nodeType.o: 
 
 # Clean up
 clean:
