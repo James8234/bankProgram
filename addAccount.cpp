@@ -28,7 +28,7 @@ void printAddAcctMenu(){
 //
 //****************************************/
 
-void addAccount(doublyLinkedListType accountsList)
+void addAccount(doublyLinkedListType &accountsList)
 {
 	//variables
 	string name;
@@ -91,5 +91,6 @@ void addAccount(doublyLinkedListType accountsList)
 			exitAddAccount = true;
        break;
       }
-  
+//	cout << "heres the headptr " << accountsList.getHead() << endl;
+//	cin.ignore(1000 , '\n');  
 } 

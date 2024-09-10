@@ -2,28 +2,26 @@
 #define BANKACCOUNTTYPE_H
 
 #include <string>
-using namespace std;
 
 class bankAccountType
 {
 
 public:
-        bankAccountType(string n = "", int acctNumber = 0, double bal = 0);
-        int getAccountNumber();
-        double getBalance();
-        string getName();
-        void setName(string n);
-        virtual void withdraw(double amount);
-        void deposit(double amount);
-        virtual void createMonthlyStatement() = 0;
-        virtual void print();
-			
-			virtual ~bankAccountType() {} //virtual destructor for proper cleanup
+	bankAccountType(std::string n = "", int acctNumber = 0, double bal = 0);
+	int getAccountNumber();
+   double getBalance();
+   std::string getName();
+   void setName(std::string n);
+   virtual void withdraw(double amount);
+   void deposit(double amount);
+   virtual void createMonthlyStatement() = 0;
+   virtual void print();
+	virtual ~bankAccountType() {} //virtual destructor for proper cleanup
 
 protected:
-        int accountNumber;
-        string name;
-        double balance;
+   int accountNumber;
+   std::string name;
+   double balance;
 };
 
 #endif

@@ -7,7 +7,7 @@
 #include "certificationOfDepositType.h"
 #include "doublyLinkedListType.h"
 
-void account(doublyLinkedListType accountsList)
+void account(doublyLinkedListType &accountsList)
 {
 	//variables  
 	int userChoice = 0;
@@ -49,7 +49,7 @@ void account(doublyLinkedListType accountsList)
 				exitAccount = true;
 				break;
 		}
-
+	
   } while (!(exitAccount));
   
 }

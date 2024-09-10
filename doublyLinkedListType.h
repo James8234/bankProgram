@@ -10,7 +10,9 @@ class doublyLinkedListType
 	public:
 	//functions
 	void createNodeType(bankAccountType *objData);
-
+	void traverseLinkedList();
+	//testingFunction
+	void getHead();
 
 	//clean function
 	doublyLinkedListType();

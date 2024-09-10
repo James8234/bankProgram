@@ -45,10 +45,12 @@ int main()
 		   	break;
 	   	case 2:
 				cout << "Receipt Menu" << endl;
+				accountsList.traverseLinkedList();
   		   	//receipt();
 	   	   break;
   		   case 3:
-				exitProgram = true;
+				exitProgram = true;	
+	//			accountsList.traverseLinkedList();
 		      break;
 	    } //switch (userChoice)
   

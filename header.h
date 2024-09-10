@@ -17,7 +17,7 @@ using namespace std;
 int checkVaildInteger(int max, int min);
 
 //Account menu to add/delete/edit accounts
-void account(doublyLinkedListType accountsList);
+void account(doublyLinkedListType &accountsList);
 
 //menu's
 void printMainMenu();
@@ -25,7 +25,7 @@ void printAcctMenu();
 void printAddAcctMenu();
 
 //add delete and edit accounts
-void addAccount(doublyLinkedListType accountsList);
+void addAccount(doublyLinkedListType &accountsList);
 //void deleteAccount();
 //void editAccount();
 
