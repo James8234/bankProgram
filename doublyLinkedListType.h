@@ -24,7 +24,7 @@ class doublyLinkedListType
 		nodeType *head;
 		nodeType *tail;
 
-
+	bool lookUpAccount(int acctNum);
 
 };
 

@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o account.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o account.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o
 
 default: run
 
@@ -37,6 +37,8 @@ printMainMenu.o: printMainMenu.cpp header.h
 doublyLinkedListType.o: doublyLinkedListType.cpp doublyLinkedListType.h nodeType.h bankAccountType.h 
 
 addAccount.o: addAccount.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h doublyLinkedListType.h
+
+nodeType.o: nodeType.cpp nodeType.h
 
 # Clean up
 clean:
