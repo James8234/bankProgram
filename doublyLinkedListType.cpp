@@ -165,6 +165,16 @@ void doublyLinkedListType::getHead()
 	}
 }
 
-void doublyLinkedListType::lookUpAccount()
+bool doublyLinkedListType::lookUpAccount(Node* head, int key)
 {
+	Node* temp = head;
+	while (temp != nullptr)
+		{ if (temp->data == acctNum)
+		{	return true;
+		}
+		 temp = temp->next;
+		}
+	return false;
+}
+	
   
