@@ -112,7 +112,7 @@ void doublyLinkedListType::deleteAccount()
 		cin.get(choice);
 		choice = toupper(choice);
 
-		if(choice = 'N')
+		if(choice == 'N')
 		{
 			current = nullptr;
 		} 
@@ -165,11 +165,11 @@ void doublyLinkedListType::getHead()
 	}
 }
 
-bool doublyLinkedListType::lookUpAccount(Node* head, int key)
+bool doublyLinkedListType::lookUpAccount(int acctNum)
 {
-	Node* temp = head;
+	nodeType* temp = head;
 	while (temp != nullptr)
-		{ if (temp->data == acctNum)
+		{ if (temp->data->getAccountNumber() == acctNum)
 		{	return true;
 		}
 		 temp = temp->next;
