@@ -10,7 +10,7 @@ class noServiceChargeCheckingType: public checkingAccountType
         public:
                 noServiceChargeCheckingType(string n, int acctNumber, double bal);
                 noServiceChargeCheckingType(string n, int acctNumber, double bal,
-                                                                                                double minBalance, double intRate);
+                                               double minBalance, double intRate);
 
                 double getMinimumBalance();
                 void setMinimumBalance(double minBalance);

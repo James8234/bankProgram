@@ -11,6 +11,7 @@ class doublyLinkedListType
 	//functions
 	void createNodeType(bankAccountType *objData);
 	void traverseLinkedList();
+	void deleteAccount();
 	//testingFunction
 	void getHead();
 

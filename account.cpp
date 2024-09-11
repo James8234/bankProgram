@@ -17,6 +17,7 @@ void account(doublyLinkedListType &accountsList)
   
 	do
 	{
+		system("clear");
 		printAcctMenu();
 		cout  << "Enter your choice: " << endl;
 
@@ -37,8 +38,8 @@ void account(doublyLinkedListType &accountsList)
             //Edit Account();
             break;
          case 3:
-            cout << "Delete Account" << endl;
-				//deleteAccount();
+//            cout << "Delete Account" << endl;
+				accountsList.deleteAccount();
 				break;
 			case 4:
 				cout << "View Account" << endl;
