@@ -14,6 +14,7 @@ class doublyLinkedListType
 	void deleteAccount();
 	//testingFunction
 	void getHead();
+	void lookUpAccount();
 
 	//clean function
 	doublyLinkedListType();
