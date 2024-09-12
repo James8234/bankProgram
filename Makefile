@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o account.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o
 
 default: run
 
@@ -28,8 +28,6 @@ highInterestCheckingType.o:  highInterestCheckingType.cpp  highInterestCheckingT
 
 noServiceChargeCheckingType.o: noServiceChargeCheckingType.cpp noServiceChargeCheckingType.h
 
-account.o: account.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h doublyLinkedListType.h
-
 checkVaildInteger.o: checkVaildInteger.cpp header.h
 
 printMainMenu.o: printMainMenu.cpp header.h
@@ -43,6 +41,8 @@ nodeType.o: nodeType.cpp nodeType.h
 printAccountList.o: printAccountList.cpp header.h nodeType.h doublyLinkedListType.h
 
 printAccountInfo.o: printAccountInfo.cpp header.h nodeType.h doublyLinkedListType.h
+
+accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h
 
 # Clean up
 clean:

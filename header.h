@@ -26,6 +26,7 @@ void printAcctMenu();
 void printAddAcctMenu();
 void printAccountList(doublyLinkedListType accountsList);
 void printAccountInfo(nodeType *node);
+void accountUI(doublyLinkedListType &accountsList, nodeType *&node);
 //add delete and edit accounts
 void addAccount(doublyLinkedListType &accountsList);
 //void deleteAccount();

@@ -16,7 +16,6 @@
  *
  */
 
-
 int main()
 {
 
@@ -33,7 +32,7 @@ int main()
 	do
 	{
 	
-	   system("clear"); //clears to screen
+	   cout << "\033[2J\033[H"; //clears to screen
 
 		printAccountList(accountsList);
 	
@@ -48,61 +47,19 @@ int main()
 
 			if(nodeAddress != nullptr)
 			{
-				printAccountInfo(nodeAddress);
+				accountUI(accountsList, nodeAddress);
 			}
 		}
 		else if(userChoice == 1)
 		{
 			addAccount(accountsList);
-		
-//		accountsList.getHead()->next;
-
 		}
 		else if(userChoice == 0)
 		{
 			exitProgram = true;
 		}
 
-
-
 	}while(!(exitProgram));
-
-//	cout << "LOOPED" << endl;
-//	cin.ignore(10000 , '\n');
-
-
-//   do
-//	{
-  // 	printMainMenu();
-      
-//		cout  << "Enter your choice -->: " << endl;
-     //fixes input failure and does not allow the "enter correct choice" screen to repeat
-//    	userChoice = checkVaildInteger(3, 1);
-		
-//		cout << "\033c";
-                      
-//		switch (userChoice)
-//		{
-//	   	case 1:
-//		   	account(accountsList);
-//		   	break;
-//	   	case 2:
-//				cout << "Receipt Menu" << endl;
-//				accountsList.traverseLinkedList();
-				
-  		   	//receipt();
-//	   	   break;
-  //		   case 3:
-	//			exitProgram = true;	
-	//			accountsList.traverseLinkedList();
-//		      break;
-	  //  } //switch (userChoice)
-  
-//	} while (!(exitProgram));
-
-
-
-//	accountsLists.deleteNodeType();
 
 	return 0;
 } //int main()

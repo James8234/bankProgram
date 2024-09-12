@@ -97,15 +97,16 @@ void doublyLinkedListType::traverseLinkedList()
  * And then it delete the current pointer 
  */
 
-void doublyLinkedListType::deleteAccount()
+void doublyLinkedListType::deleteAccount(nodeType *&node)
 {
 	//variables
 	nodeType *current = nullptr;
 	char choice;
 	//clear the screen
-	system("clear");
+	cout << "\033[2J\033[H";
 
 //	current = findNode(); //findNode returns a nullptr if no object is found	
+	current = node;
 
 	if(current != nullptr)
 	{
@@ -143,7 +144,7 @@ void doublyLinkedListType::deleteAccount()
 		}
 		
 		delete current;
-
+		nodeType::decNodeCount();
 	}
 	else
 	{
