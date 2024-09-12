@@ -12,13 +12,25 @@ class nodeType
 	bankAccountType *data;
 	nodeType *prev;
 
-	static int nodeCount;
- 	~nodeType() {};
+	
+ 	~nodeType() 
+	{
+//		if(data)
+//		{
+//			delete data;
+//			data = nullptr;
+//		}
+	}
 
+	//static variable functions
+	static int getNodeCount();
 	static void incNodeCount();
 	static void decNodeCount();	
 
 	private:
+
+	static int nodeCount;
+
 
 };
 

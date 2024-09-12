@@ -18,6 +18,8 @@ public:
         virtual void createMonthlyStatement();
         virtual void print();
 
+//			~savingsAccountType() override {}
+
 protected:
         double interestRate;
 

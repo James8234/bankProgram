@@ -11,3 +11,8 @@ void nodeType::decNodeCount()
 {
 	nodeCount--;
 }
+
+int nodeType::getNodeCount()
+{
+	return nodeCount;
+}

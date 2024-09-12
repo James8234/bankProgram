@@ -20,7 +20,7 @@ doublyLinkedListType::doublyLinkedListType()
 
 doublyLinkedListType::~doublyLinkedListType()
 {
-	deleteNodeType();
+//	deleteNodeType();
 }
 
 /**
@@ -52,14 +52,15 @@ void doublyLinkedListType::createNodeType(bankAccountType *objData)
 		newNode->prev = tail;
 		tail = newNode;
 	}
+	
+	nodeType::incNodeCount();
 
 }
 
 void doublyLinkedListType::deleteNodeType()
 {
-	nodeType *current;
-	nodeType *nextNode;
-	current = head;
+	nodeType *current = head;
+	nodeType *nextNode = nullptr;
 
 	while(current != nullptr)
 	{
@@ -155,16 +156,9 @@ void doublyLinkedListType::deleteAccount()
 
 
 //testing function
-void doublyLinkedListType::getHead()
+nodeType* doublyLinkedListType::getHead()
 {
-	if (head != nullptr) 
-	{
-		cout << "head exists." << endl;
-	}
-	else
-	{
-		cout << "Head is nullptr" << endl;
-	}
+	return head;
 }
 
 bool doublyLinkedListType::lookUpAccount(int acctNum)

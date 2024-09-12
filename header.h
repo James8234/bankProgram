@@ -23,7 +23,7 @@ void account(doublyLinkedListType &accountsList);
 void printMainMenu();
 void printAcctMenu();
 void printAddAcctMenu();
-
+void printAccountList(doublyLinkedListType accountsList);
 //add delete and edit accounts
 void addAccount(doublyLinkedListType &accountsList);
 //void deleteAccount();

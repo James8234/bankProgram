@@ -46,6 +46,8 @@ int checkVaildInteger(int max, int min)
 		}
 		cout << "loop" << endl;
 
+	cin.ignore(1000 , '\n');
+
 	}while(!(vaildInput));	
 
 	return num;

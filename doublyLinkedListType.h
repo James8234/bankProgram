@@ -13,7 +13,7 @@ class doublyLinkedListType
 	void traverseLinkedList();
 	void deleteAccount();
 	//testingFunction
-	void getHead();
+	nodeType *getHead();
 	bool lookUpAccount();
 
 	//clean function

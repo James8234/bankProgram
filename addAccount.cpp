@@ -37,21 +37,24 @@ void addAccount(doublyLinkedListType &accountsList)
 	int userChoice = 0;
 	bool exitAddAccount = false;
         
-   cout << "\033c";
+   system("clear");
    // Ask the user for their name, account number, and balance
    cout << "Enter account holder's name: " << endl;
-   cin.ignore();  // To handle any newline characters left in the buffer
+ //  cin.ignore(10000 , '\n');  // To handle any newline characters left in the buffer
    getline(cin, name);
 
    cout << "Enter account number: " << endl;
    cin >> accountNumber;
+	cin.ignore(100000 , '\n');
 
    cout << "Enter initial balance: " << endl;
    cin >> balance;
+	cin.ignore(1000 , '\n');
 
+		cout << "\033c";
 		printAddAcctMenu();
       cout  << "Enter your choice: " << endl;
-      userChoice = checkVaildInteger(8, 0);
+      userChoice = checkVaildInteger(7, 0);
 
 		cout << "\033c";
 		switch (userChoice)
@@ -59,37 +62,35 @@ void addAccount(doublyLinkedListType &accountsList)
 		case 1:
       	//savings account 
       	accountsList.createNodeType(new savingsAccountType(name, accountNumber, balance));
-      	cout << "Account Added";
+ //     	cout << "Account Added";
       	break;
       case 2:
         	//high interest savings account
          accountsList.createNodeType(new highInterestSavingsType(name, accountNumber, balance));
-         cout << "Account Added";
+   //      cout << "Account Added";
          break;
       case 3:
         //No Service Charge Checking Account
         accountsList.createNodeType(new noServiceChargeCheckingType(name, accountNumber, balance));
-        cout << "Account Added";
+   //     cout << "Account Added";
         break;
       case 4:
         //Service Charge Checking Account
         accountsList.createNodeType(new serviceChargeCheckingType(name, accountNumber, balance));
-        cout << "Account Added";
+     //   cout << "Account Added";
         break;
       case 5:
         //High Interest Checking Account
         accountsList.createNodeType(new highInterestCheckingType(name, accountNumber, balance));
-        cout << "Account Added";
+       // cout << "Account Added";
         break;
       case 6:
         //Certificate of Deposit Account
         accountsList.createNodeType(new certificationOfDepositType(name, accountNumber, balance));
-        cout << "Account Added";
+ //       cout << "Account Added";
         break;
-      case 7:
-        //exit
-			exitAddAccount = true;
-       break;
+      default:
+			cout << "input error" << endl;
       }
 //	cout << "heres the headptr " << accountsList.getHead() << endl;
 //	cin.ignore(1000 , '\n');  
