@@ -10,6 +10,8 @@ class checkingAccountType: public bankAccountType
    	checkingAccountType(std::string n, int acctNumber, double bal);
 
       virtual void writeCheck(double amount) = 0;
+
+		virtual std::string getAccountType() const override;
 };
 
 #endif

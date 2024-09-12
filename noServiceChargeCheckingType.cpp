@@ -62,3 +62,8 @@ void noServiceChargeCheckingType::print()
         cout << "No Service Charge Check: " << getName() << "\t ACCTN# "
                         << getAccountNumber() << "\tBalance: $" << getBalance();
 }
+
+string noServiceChargeCheckingType::getAccountType() const
+{
+	return "No Service charge checking account" ;
+}

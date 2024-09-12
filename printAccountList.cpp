@@ -9,6 +9,7 @@ void printAccountList(doublyLinkedListType accountList)
 	int index = 0;
 	int row = 2;
 	int totalAccounts = 0;
+	cout << "Saucy Banking " << endl;
 	cout << setfill ('-') << setw(25) << " " << setfill(' ') << endl;
 	cout << "Select an Account!" << endl;
 	cout << setfill('-') << setw(25) << " "  << setfill(' ') << endl;
@@ -21,7 +22,7 @@ void printAccountList(doublyLinkedListType accountList)
 	
 	while(totalAccounts >= index && current != nullptr)
 	{
-		cout << "<" << row << "> " << "Name: " << current->data->getName() << "ID: " << current->data->getAccountNumber() << endl;
+		cout << "<" << row << "> " << "Name: " << current->data->getName() << " " << "ID: " << current->data->getAccountNumber() << endl;
 		current = current->next;
 		index++;
 		row++;

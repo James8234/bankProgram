@@ -83,3 +83,8 @@ void serviceChargeCheckingType::print()
         cout << "Service Charge Checking: " << getName() << "\t ACCT# "
                         << getAccountNumber() << "\tBalance: $" << getBalance();
 }
+
+string serviceChargeCheckingType::getAccountType() const 
+{
+	return "Service charge checking account";
+}

@@ -4,13 +4,12 @@
 #include <string>
 #include "checkingAccountType.h"
 
-using namespace std;
 
 class serviceChargeCheckingType: public checkingAccountType
 {
         public:
-                serviceChargeCheckingType(string n, int acctNumber, double bal);
-                serviceChargeCheckingType(string n, int acctNumber, double bal,
+                serviceChargeCheckingType(std::string n, int acctNumber, double bal);
+                serviceChargeCheckingType(std::string n, int acctNumber, double bal,
                                                                                         double servChargeAmount, double servChargeCheck);
 
                 double getServiceChargeAccount();
@@ -23,6 +22,8 @@ class serviceChargeCheckingType: public checkingAccountType
                 void writeCheck(double amount);
                 virtual void createMonthlyStatement();
                 virtual void print();
+
+					virtual std::string getAccountType() const override;
 
         protected:
                 double serviceChargeAccount;

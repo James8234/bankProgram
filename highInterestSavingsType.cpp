@@ -43,3 +43,8 @@ void highInterestSavingsType::print()
         cout << "High Interest Savings: " << getName() << "\t ACCT# "
                         << getAccountNumber() << "\tBalance: $" << getBalance();
 }
+
+string highInterestSavingsType::getAccountType() const
+{
+	return "High interest saving account";
+}

@@ -3,13 +3,12 @@
 
 #include <string>
 #include "checkingAccountType.h"
-using namespace std;
 
 class noServiceChargeCheckingType: public checkingAccountType
 {
         public:
-                noServiceChargeCheckingType(string n, int acctNumber, double bal);
-                noServiceChargeCheckingType(string n, int acctNumber, double bal,
+                noServiceChargeCheckingType(std::string n, int acctNumber, double bal);
+                noServiceChargeCheckingType(std::string n, int acctNumber, double bal,
                                                double minBalance, double intRate);
 
                 double getMinimumBalance();
@@ -19,6 +18,8 @@ class noServiceChargeCheckingType: public checkingAccountType
                 void withdraw(double amount);
                 virtual void createMonthlyStatement();
                 virtual void print();
+
+						virtual std::string getAccountType() const override;
 
         protected:
                 double minimumBalance;

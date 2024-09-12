@@ -24,6 +24,7 @@ int main()
    int userChoice = 0;
 	bool exitProgram = false;
 	int totalNodes = 0;
+	nodeType *nodeAddress = nullptr;
 	doublyLinkedListType accountsList;
 
 
@@ -32,30 +33,35 @@ int main()
 	do
 	{
 	
-   system("clear"); //clears to screen
+	   system("clear"); //clears to screen
 
-	printAccountList(accountsList);
+		printAccountList(accountsList);
 	
-	totalNodes = nodeType::getNodeCount();
+		totalNodes = nodeType::getNodeCount();
 
-	cout << "Please enter a number -->:";
-	userChoice = checkVaildInteger(totalNodes + 1, 0);
+		cout << "Please enter a number -->:";
+		userChoice = checkVaildInteger(totalNodes + 1, 0);
 
-	if(userChoice >= 2)
-	{
-		
-	}
-	else if(userChoice == 1)
-	{
-		addAccount(accountsList);
+		if(userChoice >= 2)
+		{
+			nodeAddress = accountsList.getAccountByIndex(userChoice);
+
+			if(nodeAddress != nullptr)
+			{
+				printAccountInfo(nodeAddress);
+			}
+		}
+		else if(userChoice == 1)
+		{
+			addAccount(accountsList);
 		
 //		accountsList.getHead()->next;
 
-	}
-	else if(userChoice == 0)
-	{
-		exitProgram = true;
-	}
+		}
+		else if(userChoice == 0)
+		{
+			exitProgram = true;
+		}
 
 
 

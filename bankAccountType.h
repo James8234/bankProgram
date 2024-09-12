@@ -18,6 +18,11 @@ public:
    virtual void print();
 	virtual ~bankAccountType() {} //virtual destructor for proper cleanup
 
+	virtual std::string getAccountType() const
+	{
+		return "Bank Account";
+	}
+
 protected:
    int accountNumber;
    std::string name;

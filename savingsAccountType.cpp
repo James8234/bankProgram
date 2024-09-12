@@ -48,3 +48,8 @@ void savingsAccountType::print()
                         << getAccountNumber() << "\tBalance: $" << getBalance();
 
 }
+
+string savingsAccountType::getAccountType() const
+{
+	return "SavingAccount";
+}

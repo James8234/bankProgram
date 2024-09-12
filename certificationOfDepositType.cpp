@@ -87,5 +87,9 @@ void certificationOfDepositType::print()
                 << getAccountNumber() << "\tBalance: $" << getBalance();
 }
 
+string certificationOfDepositType::getAccountType() const
+{
+	return "Certification of deposit account";
+}
 
 

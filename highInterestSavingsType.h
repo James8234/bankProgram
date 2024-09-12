@@ -4,17 +4,18 @@
 #include <string>
 #include "savingsAccountType.h"
 
-using namespace std;
 
 class highInterestSavingsType: public savingsAccountType
 {
 public:
-        highInterestSavingsType(string n, int acctNumber, double bal);
-        highInterestSavingsType(string n, int acctN, double balance, double intRate, double minBalance);
+        highInterestSavingsType(std::string n, int acctNumber, double bal);
+        highInterestSavingsType(std::string n, int acctN, double balance, double intRate, double minBalance);
         double getMinimumBalance();
         bool verifyMinimumBalance(double amount);
         virtual void withdraw(double amount);
         virtual void print();
+
+			virtual std::string getAccountType() const override;
 
 protected:
         double minimumBalance;

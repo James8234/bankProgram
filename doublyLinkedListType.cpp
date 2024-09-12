@@ -155,6 +155,39 @@ void doublyLinkedListType::deleteAccount()
 }
 
 
+/**
+ * @file getAccountByIndex
+ *  
+ * @brief
+ * The purpose of this function is to get the user input and 
+ * tranver to the desired account.
+ *
+ * @return *nodeType
+ */
+
+nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
+{
+	nodeType *current = head;
+	nodeType *previous = nullptr;
+	accountIndex = accountIndex - 1; //gets the accerate index sense the user choice start at one
+	int index = 0;
+
+	while(accountIndex >= index && current != nullptr)
+	{
+		previous = current;
+		index++;
+		current = current->next;
+	}
+
+	if(accountIndex == index)
+	{
+		current = previous;
+	}
+
+	return current;
+}
+
+
 //testing function
 nodeType* doublyLinkedListType::getHead()
 {
@@ -165,9 +198,11 @@ bool doublyLinkedListType::lookUpAccount(int acctNum)
 {
 	nodeType* temp = head;
 	while (temp != nullptr)
-		{ if (temp->data->getAccountNumber() == acctNum)
-		{	return true;
-		}
+		{ 
+			if (temp->data->getAccountNumber() == acctNum)
+			{	
+				 return true;
+			}
 		 temp = temp->next;
 		}
 	return false;

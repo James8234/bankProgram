@@ -4,13 +4,11 @@
 #include "bankAccountType.h"
 #include <string>
 
-using namespace std;
-
 class certificationOfDepositType: public bankAccountType
 {
 public:
-        certificationOfDepositType(string n, int acctNumber, double bal);
-        certificationOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon);
+        certificationOfDepositType(std::string n, int acctNumber, double bal);
+        certificationOfDepositType(std::string n, int acctNumber, double bal, double intRate, int maturityMon);
 
         double getInterestRate();
         void setInterestRate(double rate);
@@ -25,6 +23,7 @@ public:
 
         void print();
 
+			virtual std::string getAccountType() const override;
 private:
         static const double INTEREST_RATE;
         static const int NUMBER_OF_MATURITY_MONTHS;
