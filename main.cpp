@@ -32,7 +32,7 @@ int main()
 	do
 	{
 	
-	   cout << "\033[2J\033[H"; //clears to screen
+	   cout << "\033c"; //clears to screen
 
 		printAccountList(accountsList);
 	
