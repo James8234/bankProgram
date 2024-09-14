@@ -7,8 +7,8 @@
 class certificationOfDepositType: public bankAccountType
 {
 public:
-        certificationOfDepositType(std::string n, int acctNumber, double bal);
-        certificationOfDepositType(std::string n, int acctNumber, double bal, double intRate, int maturityMon);
+        certificationOfDepositType(std::string n, std::string acctNumber, double bal);
+        certificationOfDepositType(std::string n, std::string acctNumber, double bal, double intRate, int maturityMon);
 
         double getInterestRate();
         void setInterestRate(double rate);

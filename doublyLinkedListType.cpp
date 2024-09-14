@@ -57,22 +57,11 @@ void doublyLinkedListType::createNodeType(bankAccountType *objData)
 
 }
 
-void doublyLinkedListType::deleteNodeType()
-{
-	nodeType *current = head;
-	nodeType *nextNode = nullptr;
-
-	while(current != nullptr)
-	{
-		nextNode = current->next;
-		delete current->data; //deletes the account
-		delete current; //deletes the node
-		current = nextNode;
-	}
-	
-	head = nullptr;
-	tail = nullptr; //just in case
-}
+/**
+ * @function traverseLinkedList
+ * @brief
+ * This function purpose is traverse the link list
+ */
 
 void doublyLinkedListType::traverseLinkedList()
 {
@@ -84,9 +73,6 @@ void doublyLinkedListType::traverseLinkedList()
 		currentPtr->data->print();
 		currentPtr = currentPtr->next;
 	}
-//	cout << "Here is your head pointer" << head << " " << (head != nullptr) << endl;
-//	cout << "Hello" << endl;
-	cout << "head:" << (head != nullptr) << endl;
 	cin.ignore(10000 , '\n');
 }
 
@@ -103,18 +89,20 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 	nodeType *current = nullptr;
 	char choice;
 	//clear the screen
-	cout << "\033[2J\033[H";
+	cout << "\033c";
 
-//	current = findNode(); //findNode returns a nullptr if no object is found	
+   //findNode returns a nullptr if no object is found	
 	current = node;
 
 	if(current != nullptr)
 	{
-		cout << "Delete Account" << endl;
-		
-		cout << "Are you sure you want to delete your account <y/n>" << endl;
+		//display UI
+		printDeleteAccount(node);
+
+		//get user input
 		cin.get(choice);
 		choice = toupper(choice);
+		cin.ignore(100000 , '\n');
 
 		if(choice == 'N')
 		{
@@ -148,11 +136,24 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 	}
 	else
 	{
-		cout << "account was not found enter anything to contine" << endl;
-		cin.ignore(10000 , '\n');
-		cin.ignore(10000 , '\n');
+		if(choice == 'Y')
+		{
+			cout << "account was not found enter anything to contine" << endl;
+			cin.ignore(10000 , '\n');
+		}
 	}
 
+} //void
+
+void doublyLinkedListType::printDeleteAccount(nodeType *&node)
+{
+		cout << "Delete Account" << endl;
+		cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+		cout << node->data->getAccountType() << endl;
+		cout << node->data->getName() << endl;
+		cout << node->data->getAccountNumber() << endl;
+		cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+		cout << "Are you sure you want to delete your account <y/n> -->: ";
 }
 
 
@@ -189,13 +190,101 @@ nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
 }
 
 
+/**
+ * @file editAccount.cpp
+ *  
+ * @brief
+ * The purpose of this function is to get the user input and 
+ * tranver to the desired account.
+ *
+ * @return void
+ */
+
+void doublyLinkedListType::editAccount(nodeType *&node)
+{
+	//variables
+	string tempName = node->data->getName();
+	string    tempID   = node->data->getAccountNumber();
+	bool exitProgram = false;
+	bool unsavedData = false;
+	int choice = 0;
+	char exit;
+
+	while(node != nullptr && !(exitProgram))
+	{
+		//clears the screen
+		cout << "\033c";
+		//prints the UI
+		printEditAccount(tempName, tempID);
+
+		choice = checkVaildInteger(5, -1);
+
+		switch(choice)
+		{
+			case 0:
+				getline(cin,tempName);
+				unsavedData = true;
+				break;
+			case 1:
+				getline(cin, tempID);
+				unsavedData = true;
+				break;
+			case 2:
+				unsavedData = false;
+				exitProgram = true;
+				node->data->setName(tempName);
+				node->data->setAccountNumber(tempID);
+			case 3:
+				if(unsavedData == true)
+				{
+					cout << "Are you sure you want to leave unsaved data? <Y/N> ";
+					cin.get(exit);
+					exit = toupper(exit);
+					cin.ignore(10000 , '\n');
+					if(exit == 'Y')
+					{
+						exitProgram = true;
+					}
+				}
+				else
+				{
+					exitProgram = true;
+				}
+
+		}
+
+
+
+
+	}
+
+	
+
+
+}	//edutAccount
+
+void doublyLinkedListType::printEditAccount(string tempName, string tempID)
+{
+	cout << "Edit your account " << endl;	
+	cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+	cout << "<0> Name    -> " << tempName << endl;
+	cout << "<1> Account -> " << tempID   << endl;
+	cout << "<2> SaveData" << endl;
+	cout << "<3> Exit" << endl;
+	cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+	cout << "Please enter here ->: ";
+}
+
+
+
+
 //testing function
 nodeType* doublyLinkedListType::getHead()
 {
 	return head;
 }
 
-bool doublyLinkedListType::lookUpAccount(int acctNum)
+bool doublyLinkedListType::lookUpAccount(string acctNum)
 {
 	nodeType* temp = head;
 	while (temp != nullptr)
@@ -210,3 +299,19 @@ bool doublyLinkedListType::lookUpAccount(int acctNum)
 }
 	
 
+void doublyLinkedListType::deleteNodeType()
+{
+	nodeType *current = head;
+	nodeType *nextNode = nullptr;
+
+	while(current != nullptr)
+	{
+		nextNode = current->next;
+		delete current->data; //deletes the account
+		delete current; //deletes the node
+		current = nextNode;
+	}
+	
+	head = nullptr;
+	tail = nullptr; //just in case
+}

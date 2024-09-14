@@ -10,14 +10,14 @@ using namespace std;
 const double noServiceChargeCheckingType::MIN_BALANCE = 1000.00;
 const double noServiceChargeCheckingType::INTEREST_RATE = 0.02;
 
-noServiceChargeCheckingType::noServiceChargeCheckingType(string n, int acctNumber, double bal)
+noServiceChargeCheckingType::noServiceChargeCheckingType(string n, string acctNumber, double bal)
                                                                         : checkingAccountType(n, acctNumber, bal)
 {
         minimumBalance = MIN_BALANCE;
         interestRate = INTEREST_RATE;
 }
 
-noServiceChargeCheckingType::noServiceChargeCheckingType(string n, int acctNumber, double bal,
+noServiceChargeCheckingType::noServiceChargeCheckingType(string n, string acctNumber, double bal,
                                                                                                                        double minBalance, double intRate)
                                                                         : checkingAccountType(n, acctNumber, bal)
 {

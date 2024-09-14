@@ -16,7 +16,7 @@ void printAccountInfo(nodeType *node)
 	cout << "<2> withdraw" << endl;
 	cout << "<3> Deposit " << endl;
 	cout << "<4> edit account" << endl;
-	cout << "<5> delet account" << endl;
+	cout << "<5> delete account" << endl;
 	cout << "<6> exit account" << endl;
 	cout << setfill('-') << setw(25) << " " << endl;
 	cout << "please enter a number here-->: " ;

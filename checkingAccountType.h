@@ -7,7 +7,7 @@
 class checkingAccountType: public bankAccountType
 {
 	public:
-   	checkingAccountType(std::string n, int acctNumber, double bal);
+   	checkingAccountType(std::string n, std::string acctNumber, double bal);
 
       virtual void writeCheck(double amount) = 0;
 

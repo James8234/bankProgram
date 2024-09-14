@@ -32,7 +32,7 @@ void addAccount(doublyLinkedListType &accountsList)
 {
 	//variables
 	string name;
-	int accountNumber;
+	string accountNumber;
    double balance;
 	int userChoice = 0;
 	bool exitAddAccount = false;
@@ -44,8 +44,8 @@ void addAccount(doublyLinkedListType &accountsList)
    getline(cin, name);
 
    cout << "Enter account number: " << endl;
-   cin >> accountNumber;
-	cin.ignore(100000 , '\n');
+   getline(cin, accountNumber);
+	
 
    cout << "Enter initial balance: " << endl;
    cin >> balance;

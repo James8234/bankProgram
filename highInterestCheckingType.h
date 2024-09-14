@@ -7,8 +7,8 @@
 class highInterestCheckingType: public noServiceChargeCheckingType
 {
         public:
-                highInterestCheckingType(std::string n, int acctNumber, double bal);
-                highInterestCheckingType(std::string n, int acctNumber, double bal,
+                highInterestCheckingType(std::string n, std::string acctNumber, double bal);
+                highInterestCheckingType(std::string n, std::string acctNumber, double bal,
                                                                                         double minBal, double intRate);
                 double getInterestRate();
                 void setInterestRate(double intRate);

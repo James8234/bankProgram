@@ -8,8 +8,8 @@
 class highInterestSavingsType: public savingsAccountType
 {
 public:
-        highInterestSavingsType(std::string n, int acctNumber, double bal);
-        highInterestSavingsType(std::string n, int acctN, double balance, double intRate, double minBalance);
+        highInterestSavingsType(std::string n, std::string acctNumber, double bal);
+        highInterestSavingsType(std::string n, std::string acctN, double balance, double intRate, double minBalance);
         double getMinimumBalance();
         bool verifyMinimumBalance(double amount);
         virtual void withdraw(double amount);
