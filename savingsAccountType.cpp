@@ -43,9 +43,13 @@ void savingsAccountType::createMonthlyStatement()
 
 void savingsAccountType::print()
 {
-        cout << fixed << showpoint << setprecision(2);
-        cout << "Savings Account: " << getName() << "\t ACCT#"
-                        << getAccountNumber() << "\tBalance: $" << getBalance();
+	cout << "\033c";
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Savings Account: " << getName() << endl
+		  << "\t ACCT#" << getAccountNumber() << endl
+		  << "\tBalance: $" << getBalance() << endl
+		  << "Interest Rate: " << getInterestRate() << endl;
+	cin.ignore(10000 , '\n');
 
 }
 
