@@ -7,8 +7,8 @@
 class noServiceChargeCheckingType: public checkingAccountType
 {
         public:
-                noServiceChargeCheckingType(std::string n, int acctNumber, double bal);
-                noServiceChargeCheckingType(std::string n, int acctNumber, double bal,
+                noServiceChargeCheckingType(std::string n, std::string acctNumber, double bal);
+                noServiceChargeCheckingType(std::string n, std::string acctNumber, double bal,
                                                double minBalance, double intRate);
 
                 double getMinimumBalance();

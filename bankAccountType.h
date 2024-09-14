@@ -7,8 +7,9 @@ class bankAccountType
 {
 
 public:
-	bankAccountType(std::string n = "", int acctNumber = 0, double bal = 0);
-	int getAccountNumber();
+	bankAccountType(std::string n = "", std::string acctNumber = 0, double bal = 0);
+	std::string getAccountNumber();
+	void setAccountNumber(std::string num);
    double getBalance();
    std::string getName();
    void setName(std::string n);
@@ -23,8 +24,13 @@ public:
 		return "Bank Account";
 	}
 
+	virtual double getRate() const
+	{
+		return 0;
+	}
+
 protected:
-   int accountNumber;
+   std::string accountNumber;
    std::string name;
    double balance;
 };

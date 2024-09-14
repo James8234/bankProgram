@@ -29,7 +29,7 @@ void accountUI(doublyLinkedListType &accountList, nodeType *&node)
 
 	while(node != nullptr && !(exitProgram))
 	{
-		cout << "\033[2J\033[H";
+		cout << "\033c";
 
 		printAccountInfo(node);
 	
@@ -38,7 +38,8 @@ void accountUI(doublyLinkedListType &accountList, nodeType *&node)
 		switch(choice)
 		{
 			case 1:
-				cout << "view Rate" << endl;
+				cout << "view Account" << endl;
+				//viewAccount();
 				break;
 			case 2:
 				amount = checkVaildInteger(node->data->getBalance(), -1);
@@ -49,7 +50,7 @@ void accountUI(doublyLinkedListType &accountList, nodeType *&node)
 				node->data->deposit(amount);
 				break;
 			case 4:
-				cout << "editAccount" << endl;
+				accountList.editAccount(node);
 				break;
 			case 5:
 				cout << "deleteAccount" << endl;

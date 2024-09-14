@@ -10,7 +10,7 @@ using namespace std;
 const double certificationOfDepositType::INTEREST_RATE = 0.05;
 const int certificationOfDepositType::NUMBER_OF_MATURITY_MONTHS = 6;
 
-certificationOfDepositType::certificationOfDepositType(string n, int acctNumber, double bal)
+certificationOfDepositType::certificationOfDepositType(string n, string acctNumber, double bal)
                                                 : bankAccountType(n, acctNumber, bal)
 {
         interestRate = INTEREST_RATE;
@@ -18,7 +18,7 @@ certificationOfDepositType::certificationOfDepositType(string n, int acctNumber,
         cdMonth = 0;
 }
 
-certificationOfDepositType::certificationOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon)
+certificationOfDepositType::certificationOfDepositType(string n, string acctNumber, double bal, double intRate, int maturityMon)
                                                 : bankAccountType(n, acctNumber, bal)
 {
         interestRate = intRate;

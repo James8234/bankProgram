@@ -10,15 +10,14 @@ using namespace std;
 const double highInterestCheckingType::INTEREST_RATE = 0.05;
 const double highInterestCheckingType::MIN_BALANCE = 5000.00;
 
-highInterestCheckingType::highInterestCheckingType(string n, int acctNumber, double bal)
+highInterestCheckingType::highInterestCheckingType(string n, string acctNumber, double bal)
                                                                 :noServiceChargeCheckingType(n, acctNumber, bal)
 {
         minimumBalance = MIN_BALANCE;
         interestRate = INTEREST_RATE;
 }
 
-highInterestCheckingType::highInterestCheckingType(string n, int acctNumber,  double bal,
-                                                                                                                       double minBal, double intRate)
+highInterestCheckingType::highInterestCheckingType(string n, string acctNumber,  double bal, double minBal, double intRate)
                                                                 : noServiceChargeCheckingType(n, acctNumber, bal, minBal, intRate)
 {
 }

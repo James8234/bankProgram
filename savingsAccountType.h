@@ -4,13 +4,12 @@
 #include <string>
 #include "bankAccountType.h"
 
-
 class savingsAccountType: public bankAccountType
 {
 public:
-        savingsAccountType(std::string n, int acctNumber, double bal);
+        savingsAccountType(std::string n, std::string acctNumber, double bal);
 
-        savingsAccountType(std::string n, int acctNumber, double bal, double intRate);
+        savingsAccountType(std::string n, std::string acctNumber, double bal, double intRate);
         double getInterestRate();
         void setInterestRate(double rate);
         void postInterest();
@@ -18,8 +17,6 @@ public:
         virtual void print();
 			
 			virtual std::string getAccountType() const override;
-
-//			~savingsAccountType() override {}
 
 protected:
         double interestRate;

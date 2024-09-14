@@ -11,8 +11,13 @@ class doublyLinkedListType
 	//functions
 	void createNodeType(bankAccountType *objData);
 	void traverseLinkedList();
+	void editAccount(nodeType *&node);
 	void deleteAccount(nodeType *&node);
 	nodeType *getAccountByIndex(int accountIndex);
+
+	//print Functions
+	void printDeleteAccount(nodeType *&node);
+	void printEditAccount(string tempName, string tempID);
 
 	//testingFunction
 	nodeType *getHead();
@@ -27,7 +32,7 @@ class doublyLinkedListType
 		nodeType *head;
 		nodeType *tail;
 
-	bool lookUpAccount(int acctNum);
+	bool lookUpAccount(string acctNum);
 
 };
 

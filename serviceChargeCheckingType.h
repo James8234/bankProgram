@@ -4,13 +4,12 @@
 #include <string>
 #include "checkingAccountType.h"
 
-
 class serviceChargeCheckingType: public checkingAccountType
 {
-        public:
-                serviceChargeCheckingType(std::string n, int acctNumber, double bal);
-                serviceChargeCheckingType(std::string n, int acctNumber, double bal,
-                                                                                        double servChargeAmount, double servChargeCheck);
+	public:
+		serviceChargeCheckingType(std::string n, std::string acctNumber, double bal);
+     	serviceChargeCheckingType(std::string n, std::string acctNumber, double bal,
+                                                           double servChargeAmount, double servChargeCheck);
 
                 double getServiceChargeAccount();
                 void setServiceChargeAccount(double amount);
@@ -21,19 +20,19 @@ class serviceChargeCheckingType: public checkingAccountType
                 void postServiceCharge();
                 void writeCheck(double amount);
                 virtual void createMonthlyStatement();
-                virtual void print();
+		virtual void print();
 
-					virtual std::string getAccountType() const override;
+		virtual std::string getAccountType() const override;
 
-        protected:
-                double serviceChargeAccount;
-                double serviceChargeCheck;
-                int numberOfChecksWritten;
+	protected:
+		double serviceChargeAccount;
+		double serviceChargeCheck;
+		int numberOfChecksWritten;
 
-        private:
-                static const double ACCOUNT_SERVICE_CHARGE; // = 10.00;
-                static const int MAXIMUM_NUM_OF_CHECKS; // = 5;
-                static const double SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS; // = 5;
+	private:
+		static const double ACCOUNT_SERVICE_CHARGE; // = 10.00;
+		static const int MAXIMUM_NUM_OF_CHECKS; // = 5;
+		static const double SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS; // = 5;
 };
 
 #endif

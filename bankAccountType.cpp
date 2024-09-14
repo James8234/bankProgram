@@ -7,14 +7,14 @@
 
 using namespace std;
 
-bankAccountType::bankAccountType(string n, int acctNumber, double bal)
+bankAccountType::bankAccountType(string n, string acctNumber, double bal)
 {
         name = n;
         accountNumber = acctNumber;
         balance = bal;
 }
 
-int bankAccountType::getAccountNumber()
+string bankAccountType::getAccountNumber()
 {
         return accountNumber;
 }
@@ -32,6 +32,11 @@ string bankAccountType::getName()
 void bankAccountType::setName(string n)
 {
         name = n;
+}
+
+void bankAccountType::setAccountNumber(string num)
+{
+	accountNumber = num;
 }
 
 void bankAccountType::withdraw(double amount)

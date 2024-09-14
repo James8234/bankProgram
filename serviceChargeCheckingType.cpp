@@ -11,7 +11,7 @@ const double serviceChargeCheckingType::ACCOUNT_SERVICE_CHARGE = 10.00;
 const int serviceChargeCheckingType::MAXIMUM_NUM_OF_CHECKS = 5;
 const double serviceChargeCheckingType::SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS = 5;
 
-serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal)
+serviceChargeCheckingType::serviceChargeCheckingType(string n, string acctNumber, double bal)
                                                                 :checkingAccountType(n, acctNumber, bal)
 {
         serviceChargeAccount = ACCOUNT_SERVICE_CHARGE;
@@ -19,7 +19,7 @@ serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, d
         serviceChargeCheck = 0;
 }
 
-serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal, double servChargeAmount, double servChargeCheck)
+serviceChargeCheckingType::serviceChargeCheckingType(string n, string acctNumber, double bal, double servChargeAmount, double servChargeCheck)
                                                                 : checkingAccountType(n, acctNumber, bal)
 {
         serviceChargeAccount = servChargeAmount;
