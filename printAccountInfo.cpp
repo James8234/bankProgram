@@ -12,14 +12,14 @@ void printAccountInfo(nodeType *node)
 	cout << " -  Balance     $ " << node->data->getBalance() << endl;
 	cout << setfill('-') << setw(25) << " " << endl;
 	cout << "Options : " << endl;
-	cout << "<1> view rate" << endl;
-	cout << "<2> withdraw" << endl;
+	cout << "<1> View account" << endl;
+	cout << "<2> Withdraw" << endl;
 	cout << "<3> Deposit " << endl;
-	cout << "<4> edit account" << endl;
-	cout << "<5> delete account" << endl;
-	cout << "<6> exit account" << endl;
+	cout << "<4> Edit account" << endl;
+	cout << "<5> Delete account" << endl;
+	cout << "<6> Exit account" << endl;
 	cout << setfill('-') << setw(25) << " " << endl;
-	cout << "please enter a number here-->: " ;
+	cout << "Please enter a number here-->: " ;
 
 }
 

@@ -14,7 +14,7 @@ class highInterestCheckingType: public noServiceChargeCheckingType
                 void setInterestRate(double intRate);
                 void postInterest();
                 void createMonthlyStatement();
-                virtual void print();
+                virtual void print() override;
 
 					virtual std::string getAccountType() const override;
         private:

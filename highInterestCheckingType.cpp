@@ -4,6 +4,7 @@
 #include <string>
 #include <iomanip>
 #include "highInterestCheckingType.h"
+#include "header.h"
 
 using namespace std;
 
@@ -44,9 +45,20 @@ void highInterestCheckingType::createMonthlyStatement()
 
 void highInterestCheckingType::print()
 {
-        cout << fixed << showpoint << setprecision(2);
-        cout << "Higher Interest Checking: " << getName() << "\t ACCTN# "
-                        << getAccountNumber() << "\tBalance: $" << getBalance();
+   cout << "\033c";
+   cout << fixed << showpoint << setprecision(2);
+
+   cout << "< View account > " << endl;
+   printLine();
+   cout << "Account type:    " << getAccountType()    << endl
+        << "Savings Account: " << getName()           << endl
+        << "ACCT#            " << getAccountNumber()  << endl
+        << "Balance:        $" << getBalance()        << endl
+        << "Interest Rate:   " << getInterestRate()   << endl
+        << "Minimum balance  " << getMinimumBalance() << endl;
+   printLine();
+   cout << "Enter anything to continue: ";
+   cin.ignore(10000 , '\n');
 }
 
 string highInterestCheckingType::getAccountType() const

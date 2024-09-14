@@ -20,7 +20,7 @@ class serviceChargeCheckingType: public checkingAccountType
                 void postServiceCharge();
                 void writeCheck(double amount);
                 virtual void createMonthlyStatement();
-		virtual void print();
+		virtual void print() override;
 
 		virtual std::string getAccountType() const override;
 

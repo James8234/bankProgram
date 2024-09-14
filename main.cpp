@@ -44,10 +44,18 @@ int main()
 		if(userChoice >= 2)
 		{
 			nodeAddress = accountsList.getAccountByIndex(userChoice);
+	//		cout << nodeType::getNodeCount();
+	//		accountsList.traverseLinkedList();
+	//		cin.ignore(10000 , '\n');
 
 			if(nodeAddress != nullptr)
 			{
 				accountUI(accountsList, nodeAddress);
+			}
+			else
+			{
+				cout << "A null was returned enter anything to continue" << endl;
+				cin.ignore(10000 , '\n');
 			}
 		}
 		else if(userChoice == 1)

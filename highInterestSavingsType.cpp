@@ -4,6 +4,7 @@
 #include <string>
 #include <iomanip>
 #include "highInterestSavingsType.h"
+#include "header.h"
 
 using namespace std;
 
@@ -39,10 +40,25 @@ void highInterestSavingsType::withdraw(double amount)
 
 void highInterestSavingsType::print()
 {
+        cout << "\033c";
         cout << fixed << showpoint << setprecision(2);
-        cout << "High Interest Savings: " << getName() << "\t ACCT# "
-                        << getAccountNumber() << "\tBalance: $" << getBalance();
+
+        cout << "< View account > " << endl;
+        printLine();
+        cout << "Account type:    " << getAccountType() << endl
+                  << "Savings Account: " << getName() << endl
+                  << "ACCT#            " << getAccountNumber() << endl
+                  << "Balance:        $" << getBalance() << endl
+                  << "Interest Rate:   " << getInterestRate() << endl
+						<< "Minimum balance  " << getMinimumBalance() << endl;
+        printLine();
+        cout << "Enter anything to continue: ";
+        cin.ignore(10000 , '\n');
 }
+
+
+
+
 
 string highInterestSavingsType::getAccountType() const
 {

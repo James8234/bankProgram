@@ -10,11 +10,11 @@ public:
         savingsAccountType(std::string n, std::string acctNumber, double bal);
 
         savingsAccountType(std::string n, std::string acctNumber, double bal, double intRate);
-        double getInterestRate();
+        virtual double getInterestRate();
         void setInterestRate(double rate);
         void postInterest();
         virtual void createMonthlyStatement();
-        virtual void print();
+        virtual void print() override;
 			
 			virtual std::string getAccountType() const override;
 

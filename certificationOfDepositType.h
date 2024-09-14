@@ -21,7 +21,7 @@ public:
         void withdraw();
         void createMonthlyStatement();
 
-        void print();
+        virtual void print() override;
 
 			virtual std::string getAccountType() const override;
 private:

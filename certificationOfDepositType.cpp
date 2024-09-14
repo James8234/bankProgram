@@ -4,6 +4,7 @@
 #include <string>
 #include <iomanip>
 #include "certificationOfDepositType.h"
+#include "header.h"
 
 using namespace std;
 
@@ -82,9 +83,22 @@ void certificationOfDepositType::createMonthlyStatement()
 
 void certificationOfDepositType::print()
 {
+        cout << "\033c";
         cout << fixed << showpoint << setprecision(2);
-        cout << "Certificate of Deposit: " << getName() << "\t ACCT# "
-                << getAccountNumber() << "\tBalance: $" << getBalance();
+
+        cout << "< View account > " << endl;
+        printLine();
+        cout << "Account type: " << getAccountType()    << endl
+        << "Savings Account:   " << getName()           << endl
+        << "ACCT#              " << getAccountNumber()  << endl
+        << "Balance:          $" << getBalance()        << endl
+        << "Interest Rate:     " << getInterestRate()   << endl
+        << "MaturityMonths     " << getMaturityMonths() << endl
+		  << "cdMonths           " << getCurrentCDMonth() << endl;
+
+        printLine();
+        cout << "Enter anything to continue: ";
+        cin.ignore(10000 , '\n');
 }
 
 string certificationOfDepositType::getAccountType() const

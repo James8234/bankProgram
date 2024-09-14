@@ -4,6 +4,7 @@
 #include <string>
 #include <iomanip>
 #include "serviceChargeCheckingType.h"
+#include "header.h"
 
 using namespace std;
 
@@ -79,9 +80,21 @@ void serviceChargeCheckingType::createMonthlyStatement()
 
 void serviceChargeCheckingType::print()
 {
+        cout << "\033c";
         cout << fixed << showpoint << setprecision(2);
-        cout << "Service Charge Checking: " << getName() << "\t ACCT# "
-                        << getAccountNumber() << "\tBalance: $" << getBalance();
+
+        cout << "< View account > " << endl;
+        printLine();
+        cout << "Account type:     " << getAccountType()    << endl
+        << "Savings Account:       " << getName()           << endl
+        << "ACCT#                  " << getAccountNumber()  << endl
+        << "Balance:              $" << getBalance()        << endl
+        << "SericeChargeAccount:   " << getServiceChargeAccount()   << endl
+        << "ServiceChargeCheck:    " << getServiceChargeCheck() << endl
+		  << "numberOfChecksWritten: " << getNumberOfChecksWritten() << endl;
+        printLine();
+        cout << "Enter anything to continue: ";
+        cin.ignore(10000 , '\n');
 }
 
 string serviceChargeCheckingType::getAccountType() const 

@@ -38,10 +38,10 @@ void accountUI(doublyLinkedListType &accountList, nodeType *&node)
 		switch(choice)
 		{
 			case 1:
-				node->data->print();
+				node->data->print(); //view account
 				break;
 			case 2:
-				amount = checkVaildInteger(node->data->getBalance(), -1);
+				amount = checkVaildInteger(node->data->getBalance(), -1); //withdraw
 				node->data->withdraw(amount);
 				break;
 			case 3:

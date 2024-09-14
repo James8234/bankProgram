@@ -4,6 +4,7 @@
 #include <string>
 #include <iomanip>
 #include "noServiceChargeCheckingType.h"
+#include "header.h"
 
 using namespace std;
 
@@ -35,6 +36,16 @@ void noServiceChargeCheckingType::setMinimumBalance(double minBalance)
         minimumBalance = minBalance;
 }
 
+double noServiceChargeCheckingType::getInterestRate()
+{
+	return interestRate;
+}
+
+void noServiceChargeCheckingType::setInterestRate(double rate)
+{
+	interestRate = rate;
+}
+
 bool noServiceChargeCheckingType::verifyMinimumBalance(double amount)
 {
         return (balance - amount >= minimumBalance);
@@ -58,9 +69,20 @@ void noServiceChargeCheckingType::createMonthlyStatement()
 
 void noServiceChargeCheckingType::print()
 {
-        cout << fixed << showpoint << setprecision(2);
-        cout << "No Service Charge Check: " << getName() << "\t ACCTN# "
-                        << getAccountNumber() << "\tBalance: $" << getBalance();
+	cout << "\033c";
+	cout << fixed << showpoint << setprecision(2);
+
+	cout << "< View account > " << endl;
+	printLine();
+	cout << "Account type:    " << getAccountType()    << endl
+        << "Savings Account: " << getName()           << endl
+        << "ACCT#            " << getAccountNumber()  << endl
+        << "Balance:        $" << getBalance()        << endl
+        << "Interest Rate:   " << getInterestRate()   << endl
+   	  << "Minimum balance  " << getMinimumBalance() << endl;
+	printLine();
+	cout << "Enter anything to continue: ";
+	cin.ignore(10000 , '\n');
 }
 
 string noServiceChargeCheckingType::getAccountType() const

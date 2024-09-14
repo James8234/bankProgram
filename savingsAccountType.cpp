@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include "header.h"
 #include "savingsAccountType.h"
 
 using namespace std;
@@ -45,10 +46,16 @@ void savingsAccountType::print()
 {
 	cout << "\033c";
 	cout << fixed << showpoint << setprecision(2);
-	cout << "Savings Account: " << getName() << endl
-		  << "\t ACCT#" << getAccountNumber() << endl
-		  << "\tBalance: $" << getBalance() << endl
-		  << "Interest Rate: " << getInterestRate() << endl;
+
+	cout << "< View account > " << endl;
+	printLine();
+	cout << "Account type:    " << getAccountType() << endl
+		  << "Savings Account: " << getName() << endl
+		  << "ACCT#            " << getAccountNumber() << endl
+		  << "Balance:        $" << getBalance() << endl
+		  << "Interest Rate:   " << getInterestRate() << endl;
+	printLine();
+	cout << "Enter anything to continue: ";
 	cin.ignore(10000 , '\n');
 
 }

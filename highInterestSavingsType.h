@@ -13,7 +13,7 @@ public:
         double getMinimumBalance();
         bool verifyMinimumBalance(double amount);
         virtual void withdraw(double amount);
-        virtual void print();
+        virtual void print() override;
 
 			virtual std::string getAccountType() const override;
 

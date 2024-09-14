@@ -5,6 +5,8 @@
 #include "bankAccountType.h"
 #include <iostream>
 
+
+
 /**
  * file doublyLinkedListType.cpp
  *
@@ -171,7 +173,7 @@ nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
 {
 	nodeType *current = head;
 	nodeType *previous = nullptr;
-	accountIndex = accountIndex - 1; //gets the accerate index sense the user choice start at one
+	accountIndex = accountIndex - ACCOUNT_OFFSET; //gets the accerate index sense the user choice start at one
 	int index = 0;
 
 	while(accountIndex >= index && current != nullptr)
@@ -181,10 +183,13 @@ nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
 		current = current->next;
 	}
 
-	if(accountIndex == index)
-	{
+
 		current = previous;
-	}
+
+	cout << "Here is accountIndex and index " << accountIndex << "/" << index << endl;
+	cin.ignore(10000 , '\n');
+
+	
 
 	return current;
 }

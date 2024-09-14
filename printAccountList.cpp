@@ -13,7 +13,7 @@ void printAccountList(doublyLinkedListType accountList)
 	cout << "Saucy Banking " << endl;
 	cout << setfill ('-') << setw(25) << " " << setfill(' ') << endl;
 	cout << "Select an Account!" << endl;
-	cout << setfill('-') << setw(25) << " "  << setfill(' ') << endl;
+	printLine();
 	cout << "<0> Exit account: " << endl;
 	cout << "<1> Create an account: " << endl;
 	
