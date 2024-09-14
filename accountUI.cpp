@@ -38,8 +38,7 @@ void accountUI(doublyLinkedListType &accountList, nodeType *&node)
 		switch(choice)
 		{
 			case 1:
-				cout << "view Account" << endl;
-				//viewAccount();
+				node->data->print();
 				break;
 			case 2:
 				amount = checkVaildInteger(node->data->getBalance(), -1);
