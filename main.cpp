@@ -44,9 +44,6 @@ int main()
 		if(userChoice >= 2)
 		{
 			nodeAddress = accountsList.getAccountByIndex(userChoice);
-	//		cout << nodeType::getNodeCount();
-	//		accountsList.traverseLinkedList();
-	//		cin.ignore(10000 , '\n');
 
 			if(nodeAddress != nullptr)
 			{

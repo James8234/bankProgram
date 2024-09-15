@@ -184,10 +184,10 @@ nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
 	}
 
 
-		current = previous;
+	current = previous;
 
-	cout << "Here is accountIndex and index " << accountIndex << "/" << index << endl;
-	cin.ignore(10000 , '\n');
+//	cout << "Here is accountIndex and index " << accountIndex << "/" << index << endl;
+//	cin.ignore(10000 , '\n');
 
 	
 
