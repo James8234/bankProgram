@@ -16,82 +16,123 @@ void printAddAcctMenu(){
   cout << "4. Service Charge Checking Account" << endl;
   cout << "5. High Interest Checking Account" << endl;
   cout << "6. Certificate of Deposit Account" << endl;
-  cout << "7. Exit" << endl;        
+  cout << "7. Exit" << endl;
 }
 
 
-//****************************************
-//
-//
-//              Add Account
-//
-//
-//****************************************/
+void addAccount(doublyLinkedListType &accountsList) {
+    // variables
+    string name;
+    string accountNumber;
+    double balance = 0.0;
+    int accountTypeChoice;
+    int choice;
+    bool exitAddAccount = false;
 
-void addAccount(doublyLinkedListType &accountsList)
-{
-	//variables
-	string name;
-	string accountNumber;
-   double balance;
-	int userChoice = 0;
-	bool exitAddAccount = false;
-        
-   system("clear");
-   // Ask the user for their name, account number, and balance
-   cout << "Enter account holder's name: " << endl;
- //  cin.ignore(10000 , '\n');  // To handle any newline characters left in the buffer
-   getline(cin, name);
+    // Dynamically create a base account object
+    bankAccountType* newAccount = nullptr;
 
-   cout << "Enter account number: " << endl;
-   getline(cin, accountNumber);
-	
+    do {
+        cout << "\033c"; // Clear screen
 
-   cout << "Enter initial balance: " << endl;
-   cin >> balance;
-	cin.ignore(1000 , '\n');
+        // Display current entered information
+        cout << "------------------------" << endl;
+        cout << "Enter Initial Information" << endl;
+        cout << "------------------------" << endl;
+        cout << "<1> Account Holder's Name: " << name << endl;
+        cout << "<2> Account Number: " << accountNumber << endl;
+        cout << "<3> Initial Balance: $" << balance << endl;
+        cout << "<4> Choose Account Type: ";
+        switch (accountTypeChoice) {
+            case 1: cout << "Savings Account" << endl;
+                                                  break;
+            case 2: cout << "High Interest Savings" << endl;
+                                                  break;
+            case 3: cout << "No Service Charge Checking" << endl;
+                                                  break;
+            case 4: cout << "Service Charge Checking" << endl;
+                                                  break;
+            case 5: cout << "High Interest Checking" << endl;
+                                                  break;
+            case 6: cout << "Certificate of Deposit" << endl;
+                                                  break;
+            default: cout << "Not Selected" << endl;
+        }
+        cout << "<5> Save Account" << endl;
+        cout << "<0> Return to Account Menu" << endl;
+        cout << "------------------------" << endl;
 
-		cout << "\033c";
-		printAddAcctMenu();
-      cout  << "Enter your choice: " << endl;
-      userChoice = checkVaildInteger(7, 0);
+        // Ask user what they want to modify
+        cout << "please enter a number here-->: ";
 
-		cout << "\033c";
-		switch (userChoice)
-		{                                 
-		case 1:
-      	//savings account 
-      	accountsList.createNodeType(new savingsAccountType(name, accountNumber, balance));
- //     	cout << "Account Added";
-      	break;
-      case 2:
-        	//high interest savings account
-         accountsList.createNodeType(new highInterestSavingsType(name, accountNumber, balance));
-   //      cout << "Account Added";
-         break;
-      case 3:
-        //No Service Charge Checking Account
-        accountsList.createNodeType(new noServiceChargeCheckingType(name, accountNumber, balance));
-   //     cout << "Account Added";
-        break;
-      case 4:
-        //Service Charge Checking Account
-        accountsList.createNodeType(new serviceChargeCheckingType(name, accountNumber, balance));
-     //   cout << "Account Added";
-        break;
-      case 5:
-        //High Interest Checking Account
-        accountsList.createNodeType(new highInterestCheckingType(name, accountNumber, balance));
-       // cout << "Account Added";
-        break;
-      case 6:
-        //Certificate of Deposit Account
-        accountsList.createNodeType(new certificationOfDepositType(name, accountNumber, balance));
- //       cout << "Account Added";
-        break;
-      default:
-			cout << "input error" << endl;
-      }
-//	cout << "heres the headptr " << accountsList.getHead() << endl;
-//	cin.ignore(1000 , '\n');  
-} 
+        // Input validation for choice
+        choice = checkVaildInteger(5,0);
+
+        // Switch case for user choices
+        switch (choice) {
+            case 1:
+                cout << endl;
+                cout << "Enter account holder's name: ";
+                getline(cin, name);
+                break;
+            case 2:
+                cout << endl;
+                cout << "Enter account number: ";
+                getline(cin, accountNumber);
+                break;
+            case 3:
+                cout << endl;
+                cout << "Enter initial balance: ";
+                cin >> balance;
+                break;
+            case 4:
+                cout << endl;
+                printAddAcctMenu();  // Show account type options
+                cout << "Enter account type: ";
+                accountTypeChoice = checkVaildInteger(6, 1);
+                break;
+            case 5:
+                // Create the correct account type and add it to the list
+                switch (accountTypeChoice) {
+                    case 1:
+                        newAccount = new savingsAccountType(name, accountNumber, balance);
+                        break;
+                    case 2:
+                        newAccount = new highInterestSavingsType(name, accountNumber, balance);
+                        break;
+                    case 3:
+                        newAccount = new noServiceChargeCheckingType(name, accountNumber, balance);
+                        break;
+                    case 4:
+                        newAccount = new serviceChargeCheckingType(name, accountNumber, balance);
+                        break;
+                    case 5:
+                        newAccount = new highInterestCheckingType(name, accountNumber, balance);
+                        break;
+                    case 6:
+                        newAccount = new certificationOfDepositType(name, accountNumber, balance);
+                        break;
+                    default:
+                        cout << "Please select a valid account type before saving." << endl;
+                        continue;
+                }
+
+                // Add the new account to the list
+                accountsList.createNodeType(newAccount);
+                cout << "Account saved successfully." << endl;
+
+                // Reset for adding a new account
+                newAccount = nullptr;
+                name = "";
+                accountNumber = "";
+                balance = 0.0;
+                accountTypeChoice = 0;
+                break;
+            case 0:
+                // Return to previous menu
+                cout << "Returning to Account Menu." << endl;
+                exitAddAccount = true;
+                break;
+        }
+    } while (!exitAddAccount);
+}
