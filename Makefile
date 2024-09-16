@@ -12,6 +12,7 @@ run: $(OBJECTS)
 
 main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h
 
+
 bankAccountType.o: bankAccountType.cpp bankAccountType.h
 
 certificationOfDepositType.o: certificationOfDepositType.cpp header.h certificationOfDepositType.h
@@ -48,4 +49,4 @@ printLine.o: printLine.cpp header.h
 
 # Clean up
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJECTS) $(TARGET)

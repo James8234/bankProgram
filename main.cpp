@@ -10,6 +10,7 @@
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
 
+
 /**
  * 
  *
@@ -29,6 +30,23 @@ int main()
 
 	//there should be a function for login here
 
+//	doublyLinkedListType accountList;
+//	userAccount user;
+
+//	user = login();
+//
+//	accountList = *(user->getLinkedList());
+
+	//the function isVaild will make sure that the data matchs and 
+//	if(user.isVaild())
+//	{ 
+//
+		//the rest of the code go's here
+//	}
+
+
+
+
 	do
 	{
 	
@@ -38,8 +56,7 @@ int main()
 	
 		totalNodes = nodeType::getNodeCount();
 
-		cout << "Please enter a number -->:";
-		userChoice = checkVaildInteger(totalNodes + 1, 0);
+		userChoice = checkVaildInteger(totalNodes + 1, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 
 		if(userChoice >= 2)
 		{

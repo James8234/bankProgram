@@ -20,6 +20,9 @@ int checkVaildInteger(int max, int min);
 //Account menu to add/delete/edit accounts
 void account(doublyLinkedListType &accountsList);
 
+//main menu
+void accountList();
+
 //menu's
 void printMainMenu();
 void printAcctMenu();
