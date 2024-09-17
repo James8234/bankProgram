@@ -17,6 +17,8 @@ public:
     User(const string& usr, const string& pswd, int id);
 
     void displayLoginMenu(vector<User>& users);
+    
+    void createAccount(vector<User>& users) 
 
    //bool validLogin(const string& usr, const string& pswd, int id);
 };
