@@ -9,6 +9,7 @@
 #include "noServiceChargeCheckingType.h"
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
+#include "login.h"
 
 
 /**
@@ -27,8 +28,24 @@ int main()
 	nodeType *nodeAddress = nullptr;
 	doublyLinkedListType accountsList;
 
-
 	//there should be a function for login here
+	int index = -1;
+	vector<User> userList;
+	User initialUser;
+   index = initialUser.displayLoginMenu(userList);
+
+
+	if(index <= -1)
+	{
+		return 0; //ends program
+	}
+
+	accountsList = *(userList[index].getLinkList());
+
+	
+
+
+//	initialUser.print();
 
 //	doublyLinkedListType accountList;
 //	userAccount user;
