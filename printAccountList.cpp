@@ -19,6 +19,16 @@ void printAccountList(doublyLinkedListType accountList)
 	
 	totalAccounts = nodeType::getNodeCount();
 
+
+//	cout << "The account list will be output" << endl;
+//	cin.ignore(10000 , '\n');
+
+//	if(current == nullptr)
+//	{
+//		cout << "The current varible is nullptr";
+//		cin.ignore(10000 , '\n');
+//	}
+
 	while(totalAccounts >= index && current != nullptr)
 	{
 		cout << "<" << row << "> " << "Name: " << current->data->getName() << " " << "ID: " << current->data->getAccountNumber() << endl;
@@ -28,5 +38,7 @@ void printAccountList(doublyLinkedListType accountList)
 	}
 	
 	cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+
+	cout << "Please enter a number here -->: ";
 	
 }

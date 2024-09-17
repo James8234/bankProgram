@@ -22,7 +22,10 @@ doublyLinkedListType::doublyLinkedListType()
 
 doublyLinkedListType::~doublyLinkedListType()
 {
+//	cout << "Within doublelinkedlist deconstructor " << endl;
+
 //	deleteNodeType();
+//	cout << "After delete node type has been called " << endl;
 }
 
 /**
@@ -306,17 +309,31 @@ bool doublyLinkedListType::lookUpAccount(string acctNum)
 
 void doublyLinkedListType::deleteNodeType()
 {
+//	cout << "The deconstructor has been called" << endl;
+//	cin.ignore(10000, '\n');
+
 	nodeType *current = head;
 	nodeType *nextNode = nullptr;
 
+
+
 	while(current != nullptr)
 	{
+	 //  nextNode->data->print();
+//		current->data->print();
+//		cin.ignore(10000 , '\n');
 		nextNode = current->next;
+//		cout << "Deleting data\n"
+
+
+
+
 		delete current->data; //deletes the account
 		delete current; //deletes the node
+
 		current = nextNode;
 	}
 	
-	head = nullptr;
-	tail = nullptr; //just in case
+	
+	
 }
