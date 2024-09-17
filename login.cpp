@@ -21,7 +21,22 @@ void User::displayLoginMenu(vector<User> &users)
 
         switch (choice) {
             case 1:
-                //createAccount(users);
+                void createAccount(vector<User>& users) 
+                {
+                    std::string username, password;
+                    int id;
+
+                    std::cout << "Enter a username: ";
+                    std::cin >> username;
+                    std::cout << "Enter a password: ";
+                    std::cin >> password;
+                    std::cout << "Enter an ID: ";
+                    std::cin >> id;
+
+                    users.emplace_back(username, password, id);
+                
+                    std::cout << "Account created successfully!\n";
+                }
                 break;
             case 2:
                 if (validLogin(user)) {
