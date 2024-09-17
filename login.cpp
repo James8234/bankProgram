@@ -2,10 +2,10 @@
 
 User::User(const string& usr, const string& pswd, int id) : username(usr), password(pswd), id(id){}
 
-/*bool User::validLogin(const string &usr, const string &pswd, int id)
+bool User::validLogin(const string &usr, const string &pswd, int id)
 {
     return (usr == username && pswd == password);
-}*/
+}
 
 void User::displayLoginMenu(vector<User> &users)
 {
@@ -21,7 +21,7 @@ void User::displayLoginMenu(vector<User> &users)
 
         switch (choice) {
             case 1:
-                createAccount(users)
+                createAccount(users);
                 break;
             case 2:
                 if (validLogin(user)) {
@@ -38,6 +38,3 @@ void User::displayLoginMenu(vector<User> &users)
         }
     } while (choice != 3);
 }
-
-
-
