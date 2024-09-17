@@ -6,7 +6,22 @@ bool User::validLogin(const string &usr, const string &pswd, int id)
 {
     return (usr == username && pswd == password);
 }
+void User::createAccount(vector<User> &users)
+{
+        string usr, pswd;
+        int id;
 
+        cout << "Enter a username: ";
+        cin >> username;
+        cout << "Enter a password: ";
+        cin >> password;
+        cout << "Enter an ID: ";
+        cin >> id;
+
+        users.emplace_back(username, password, id);
+        
+        std::cout << "Account created successfully!\n";
+}
 void User::displayLoginMenu(vector<User> &users)
 {
     int choice;
