@@ -4,7 +4,9 @@
 #include<string>
 #include<iostream>
 #include<vector>
+
 #include "doublyLinkedListType.h"
+
 using namespace std;
 
 class User
@@ -13,6 +15,7 @@ public:
     string username;
     string password;
     int id;
+
 	doublyLinkedListType *linkList;
 
 
@@ -37,6 +40,7 @@ public:
 
     bool validLogin(const string& usr, const string& pswd, int id);
 private:
+
 
 };
 

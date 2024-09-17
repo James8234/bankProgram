@@ -30,9 +30,11 @@ doublyLinkedListType* User::getLinkList()
 }
 
 
+
 bool User::validLogin(const string &usr, const string &pswd, int id)
 {
     return (usr == username && pswd == password);
+
 	
 }
 
@@ -118,11 +120,15 @@ int User::loginAccount(vector<User> users)
 
 }
 
+
+
 void User::createAccount(vector<User> &users)
 {
         string usr, pswd;
         int id;
+
 			doublyLinkedListType *newLinkList;
+
 
         cout << "Enter a username: ";
         cin >> username;
@@ -130,6 +136,7 @@ void User::createAccount(vector<User> &users)
         cin >> password;
         cout << "Enter an ID: ";
         cin >> id;
+
 
 			
 
@@ -152,17 +159,21 @@ int User::displayLoginMenu(vector<User> &users)
     int choice;
 	bool exitProgram = false;
 
+
     do {
         std::cout << "Welcome! Choose an option:\n";
         std::cout << "1. Create an account\n";
         std::cout << "2. Login\n";
         std::cout << "3. Exit\n";
         std::cout << "Enter your choice: ";
+
         choice = checkVaildInteger(4 , 0);
+
 
         switch (choice) {
             case 1:
                 createAccount(users);
+
 						return (users.size() - 1);
                 break;
             case 2:
@@ -176,11 +187,13 @@ int User::displayLoginMenu(vector<User> &users)
             case 3:
                 std::cout << "Exiting...\n";
 					exitProgram = true;
+
                 break;
             default:
                 std::cout << "Invalid choice! Please try again.\n";
         }
-    } while (!(exitProgram));
+
+ } while (!(exitProgram));
 	
 	return -1;
 
@@ -191,4 +204,5 @@ void User::print()
 {
 
 	cout << "TEST" << endl;
+
 }
