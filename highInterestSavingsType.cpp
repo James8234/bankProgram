@@ -19,12 +19,9 @@ highInterestSavingsType::highInterestSavingsType(string n, string acctNumber, do
 
 highInterestSavingsType::highInterestSavingsType(string n, string acctN, double balance, double intRate, double minBalance)                                                :savingsAccountType(n, acctN, balance, intRate)
 {
+		cout << "This constructor was called" << endl;
+		cin.ignore(10000 , '\n');
         minimumBalance = minBalance;
-}
-
-double highInterestSavingsType::getMinimumBalance()
-{
-        return minimumBalance;
 }
 
 bool highInterestSavingsType::verifyMinimumBalance(double amount)
@@ -56,7 +53,10 @@ void highInterestSavingsType::print()
         cin.ignore(10000 , '\n');
 }
 
-
+double highInterestSavingsType::getMinimumBalance()
+{
+		return MINIMUM_BALANCE;
+}
 
 
 

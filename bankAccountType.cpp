@@ -55,3 +55,8 @@ void bankAccountType::print()
         cout << name << " " << accountNumber << " balance: $"
                         << balance;
 }
+
+double bankAccountType::getMinimumBalance()
+{
+	return 0;
+}

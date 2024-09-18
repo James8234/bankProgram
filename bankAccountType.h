@@ -17,6 +17,7 @@ public:
    void deposit(double amount);
    virtual void createMonthlyStatement() = 0;
    virtual void print();
+	virtual double getMinimumBalance();
 	virtual ~bankAccountType() {} //virtual destructor for proper cleanup
 
 	virtual std::string getAccountType() const

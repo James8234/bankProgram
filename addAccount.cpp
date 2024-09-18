@@ -46,6 +46,7 @@ void addAccount(doublyLinkedListType *&accountsList)
         bool unsavedData = false;
         string accountType = "EMPTY";
         char leaveData;
+			bool correctData = true;
 
     // Dynamically create a base account object
     bankAccountType* newAccount = nullptr;
@@ -74,23 +75,23 @@ void addAccount(doublyLinkedListType *&accountsList)
         // Switch case for user choices
                 switch (choice)
                 {
-                        case 0:
+                		case 0:
          // Return to previous menu
-                                        if(unsavedData == true)
-                                        {
-                                                cout << "Are you sure you want to leave unsavedData? y/n: ";
-                                                cin.get(leaveData);
-                                                leaveData = toupper(leaveData);
-                                                cin.ignore(10000 , '\n'); //clea input buffer
-                                                if(leaveData = 'Y')
-                                                {
-                                                        exitAddAccount = true;
-                                                }
-                                        }
-                                        else
-                                        {
-                                                exitAddAccount = true;
-                                        }
+                  	 if(unsavedData == true)
+                      {
+                      	 cout << "Are you sure you want to leave unsavedData? y/n: ";
+                         cin.get(leaveData);
+                         leaveData = toupper(leaveData);
+                         cin.ignore(10000 , '\n'); //clea input buffer
+                         if(leaveData = 'Y')
+                         {
+                              exitAddAccount = true;
+                         }
+                      }
+                      else
+                      {
+                          exitAddAccount = true;
+                      }
                break;
             case 1:
                 cout << endl;
@@ -102,6 +103,10 @@ void addAccount(doublyLinkedListType *&accountsList)
                 cout << endl;
                 cout << "Enter initial balance: ";
                 cin >> balance;
+					//	if(!(accountsList->getHead()->data->checkMinimumBalance(balance))); //returns 1 if true and 0 if false
+					//	{
+							
+					//	}				
                                          cin.ignore(10000 , '\n');
                                          unsavedData = true;
                 break;
@@ -114,42 +119,79 @@ void addAccount(doublyLinkedListType *&accountsList)
                 break;
             case 4:
                 // Create the correct account type and add it to the list
-                                        if(unsavedData && accountTypeChoice > 0)
-                                        {
+              if(unsavedData && accountTypeChoice > 0)
+              {
                 switch (accountTypeChoice)
-                                                {
+                {
                      case 1:
                         newAccount = new savingsAccountType(name, accountNumber, balance);
                         break;
                      case 2:
-                        newAccount = new highInterestSavingsType(name, accountNumber, balance);
+								if(balance >= 2500)
+								{
+                        	newAccount = new highInterestSavingsType(name, accountNumber, balance);
+									correctData = true;
+								}
+								else
+								{
+									cout << "Please enter an amount higher than -> 2500. enter anything to continue" << endl;
+									cin.ignore(10000 , '\n');
+									correctData = false;
+									
+								}
                         break;
                      case 3:
-                        newAccount = new noServiceChargeCheckingType(name, accountNumber, balance);
+								if(balance >= 1000)
+								{
+                        	newAccount = new noServiceChargeCheckingType(name, accountNumber, balance);
+									correctData = true;
+								}
+								else
+								{
+									cout << "Please enter an amount higher than -> 1000. enter anything to continue" << endl;
+									cin.ignore(10000 , '\n');
+									correctData = false;
+									
+								}
                         break;
                      case 4:
                         newAccount = new serviceChargeCheckingType(name, accountNumber, balance);
                         break;
                      case 5:
-                        newAccount = new highInterestCheckingType(name, accountNumber, balance);
+								if(balance >= 5000)
+								{
+                        	newAccount = new highInterestSavingsType(name, accountNumber, balance);
+									correctData = true;
+								}
+								else
+								{
+									cout << "Please enter an amount higher than -> 5000. enter anything to continue" << endl;
+									cin.ignore(10000 , '\n');
+									correctData = false;
+								}
+                        
                         break;
                      case 6:
                         newAccount = new certificationOfDepositType(name, accountNumber, balance);
                         break;
                      default:
                         cout << "Please select a valid account type before saving." << endl;
-                                                }//switch(accountTypeChoice)
+                   }//switch(accountTypeChoice)
                                                 // Add the new account to the list
-                                accountsList->createNodeType(newAccount);
-                                                exitAddAccount = true;//exits after account is created
-                                        }
-                                        else
-                                        {
-                                                cout << "No data has been entered error enter anything to continue:" << endl;
-                                                cin.ignore(10000 , '\n');
-                                        }
-                                        break;
-                                default: cout << "an input error has happened" << endl;
+							if(correctData == true)
+							{
+                          accountsList->createNodeType(newAccount);
+                          exitAddAccount = true;//exits after account is created
+							}
+                 }
+					else 
+					{
+							cout << "an error has accor enter anything to continue " << endl;
+							cin.ignore(10000 , '\n');
+					}                      
+        
+              break;
+              default: cout << "an input error has happened" << endl;
 
         }//swich(choice)
 
