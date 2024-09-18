@@ -6,6 +6,8 @@
 #include "highInterestCheckingType.h"
 #include "certificationOfDepositType.h"
 #include "doublyLinkedListType.h"
+#include <random>
+#include <ctime>
 
 
 void printAddAcctMenu()
@@ -23,95 +25,98 @@ void printAddAcctMenu()
 }
 
 
-void addAccount(doublyLinkedListType &accountsList) 
+string generateRandomAccountNumber() {
+    random_device rd;  // Random number generator
+    mt19937 gen(rd()); // Seed the generator with a random device
+    uniform_int_distribution<> dist(10000, 99999); // Distribution in the range [10000, 99999]
+
+    return to_string(dist(gen));  // Convert the generated number to a string
+}
+
+
+void addAccount(doublyLinkedListType &accountsList)
 {
     // variables
     string name = "EMPTY ";
-    string accountNumber = "EMPTY ";
+    string accountNumber = generateRandomAccountNumber();
     double balance = 0.0;
     int accountTypeChoice = 0;
     int choice = 0;
    bool exitAddAccount = false;
-	bool unsavedData = false;
-	string accountType = "EMPTY";
-	char leaveData;
+        bool unsavedData = false;
+        string accountType = "EMPTY";
+        char leaveData;
 
     // Dynamically create a base account object
     bankAccountType* newAccount = nullptr;
 
-	do
-	{
-		cout << "\033c"; // Clear screen
+        do
+        {
+                cout << "\033c"; // Clear screen
 
         // Display current entered information
         cout << "------------------------" << endl;
         cout << "Enter Initial Information" << endl;
         cout << "------------------------" << endl;
-        cout << "<1> Account Holder's Name: " << name << endl;
-        cout << "<2> Account Number: " << accountNumber << endl;
-        cout << "<3> Initial Balance: $" << balance << endl;
-        cout << "<4> Choose Account Type: " << accountType << endl;
-        cout << "<5> Save Account" << endl;
+        cout << "    Account Number: " << accountNumber << endl;
+                  cout << "<1> Account Holder's Name: " << name << endl;
+        cout << "<2> Initial Balance: $" << balance << endl;
+        cout << "<3> Choose Account Type: " << accountType << endl;
+        cout << "<4> Save Account" << endl;
         cout << "<0> Return to Account Menu" << endl;
         cout << "------------------------" << endl;
         cout << "please enter a number here-->: ";  // Ask user what they want to modify
 
         // Input validation for choice
-        choice = checkVaildInteger(5,0);
+        choice = checkVaildInteger(4,0);
 
         // Switch case for user choices
-		switch (choice) 
-		{
-			case 0:
+                switch (choice)
+                {
+                        case 0:
          // Return to previous menu
-					if(unsavedData == true)
-					{
-						cout << "Are you sure you want to leave unsavedData? y/n: ";
-						cin.get(leaveData);
-						leaveData = toupper(leaveData);
-						cin.ignore(10000 , '\n'); //clea input buffer
-						if(leaveData = 'Y')
-						{
-							exitAddAccount = true;
-						}
-					}
-					else
-					{
-						exitAddAccount = true;
-					}
+                                        if(unsavedData == true)
+                                        {
+                                                cout << "Are you sure you want to leave unsavedData? y/n: ";
+                                                cin.get(leaveData);
+                                                leaveData = toupper(leaveData);
+                                                cin.ignore(10000 , '\n'); //clea input buffer
+                                                if(leaveData = 'Y')
+                                                {
+                                                        exitAddAccount = true;
+                                                }
+                                        }
+                                        else
+                                        {
+                                                exitAddAccount = true;
+                                        }
                break;
             case 1:
                 cout << endl;
                 cout << "Enter account holder's name: ";
                 getline(cin, name);
-					 unsavedData = true;
+                                         unsavedData = true;
                 break;
             case 2:
                 cout << endl;
-                cout << "Enter account number: ";
-                getline(cin, accountNumber);
-					 unsavedData = true;
-                break;
-            case 3:
-                cout << endl;
                 cout << "Enter initial balance: ";
                 cin >> balance;
-					 cin.ignore(10000 , '\n');
-					 unsavedData = true;
+                                         cin.ignore(10000 , '\n');
+                                         unsavedData = true;
                 break;
-            case 4:
+            case 3:
                 cout << "\033c";
                 printAddAcctMenu();  // Show account type options
                 cout << "Enter account type: ";
                 accountTypeChoice = checkVaildInteger(6, 1);
-					 unsavedData = true;
+                                         unsavedData = true;
                 break;
-            case 5:
+            case 4:
                 // Create the correct account type and add it to the list
-					if(unsavedData && accountTypeChoice > 0)
-					{
-               	switch (accountTypeChoice)
-						{
+                                        if(unsavedData && accountTypeChoice > 0)
+                                        {
+                switch (accountTypeChoice)
+                                                {
                      case 1:
                         newAccount = new savingsAccountType(name, accountNumber, balance);
                         break;
@@ -132,48 +137,46 @@ void addAccount(doublyLinkedListType &accountsList)
                         break;
                      default:
                         cout << "Please select a valid account type before saving." << endl;
-						}//switch(accountTypeChoice)
-						// Add the new account to the list
- 	         	  	accountsList.createNodeType(newAccount);
-						exitAddAccount = true;//exits after account is created
-					}
-					else
-					{
-						cout << "No data has been entered error enter anything to continue:" << endl;
-						cin.ignore(10000 , '\n');
-					}
-					break;
-				default: cout << "an input error has happened" << endl;
+                                                }//switch(accountTypeChoice)
+                                                // Add the new account to the list
+                                accountsList.createNodeType(newAccount);
+                                                exitAddAccount = true;//exits after account is created
+                                        }
+                                        else
+                                        {
+                                                cout << "No data has been entered error enter anything to continue:" << endl;
+                                                cin.ignore(10000 , '\n');
+                                        }
+                                        break;
+                                default: cout << "an input error has happened" << endl;
 
         }//swich(choice)
 
 
-		//get accountType display from user unput
-		switch (accountTypeChoice)
-		{
-            case 1: 
-					accountType = "Savings Account";
+                //get accountType display from user unput
+                switch (accountTypeChoice)
+                {
+            case 1:
+                                        accountType = "Savings Account";
                break;
-            case 2: 
-					accountType = "High Interest Savings";
+            case 2:
+                                        accountType = "High Interest Savings";
                break;
-            case 3: 
-					accountType = "No Service Charge Checking";
-					break;
-            case 4: 
-					accountType = "Service Charge Checking";
+            case 3:
+                                        accountType = "No Service Charge Checking";
+                                        break;
+            case 4:
+                                        accountType = "Service Charge Checking";
                break;
             case 5:
-					accountType = "High Interest Checking";
+                                        accountType = "High Interest Checking";
                break;
-            case 6: 
-					accountType = "Certificate of Deposit";
-			break;
-			default: cout << "Not Selected" << endl;
-		}
+            case 6:
+                                        accountType = "Certificate of Deposit";
+                        break;
+                        default: cout << "Not Selected" << endl;
+                }
 
 
-	} while (!exitAddAccount);
+        } while (!exitAddAccount);
 };
-
- 
