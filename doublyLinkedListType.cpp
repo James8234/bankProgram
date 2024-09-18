@@ -16,6 +16,8 @@
 
 doublyLinkedListType::doublyLinkedListType()
 {
+//	cout << "THe link list contructor is called" << endl;
+//	cin.ignore(10000 , '\n');
 	head = nullptr;
 	tail = nullptr;
 }

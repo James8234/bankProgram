@@ -2,9 +2,9 @@
 #include "doublyLinkedListType.h"
 #include "nodeType.h"
 
-void printAccountList(doublyLinkedListType accountList)
+void printAccountList(doublyLinkedListType *accountList)
 {
-	nodeType *current = accountList.getHead();
+	nodeType *current = accountList->getHead();
 	int userChoice = 0;
 	int index = 0;
 	int row = 2;

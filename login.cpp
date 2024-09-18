@@ -57,7 +57,7 @@ int User::findAccountIndex(vector<User> users, string username, string password)
 
 
 
-int User::loginAccount(vector<User> users)
+int User::loginAccount(vector<User> &users)
 {
         //variables
         bool exitProgram = false;
@@ -76,11 +76,11 @@ int User::loginAccount(vector<User> users)
 					
              	cout << "Login page" << endl;
 					printLine();
-					cout << "<0> enter user " << username << endl;
-					cout << "<1> enter a password " << password << endl;
+					cout << "<0> enter user: " << usr << endl;
+					cout << "<1> enter a password: " << pass << endl;
 					cout << "<2> push user/password " << endl;
 					cout << "<3> exit login " << endl;
-				
+					printLine();
 					cout << "please enter a number -->:" << endl;
 
                 choice = checkVaildInteger(4, -1);
@@ -97,7 +97,7 @@ int User::loginAccount(vector<User> users)
                                 break;
                         case 2:
 									index = findAccountIndex(users, usr , pass);
-									if(index > 0)
+									if(index >= 0)
 									{
 										return index;
 										exitProgram = true;
@@ -159,13 +159,17 @@ int User::displayLoginMenu(vector<User> &users)
     int choice;
 	bool exitProgram = false;
 
+	cout << "\033c";
 
-    do {
+    do 
+	{
         std::cout << "Welcome! Choose an option:\n";
+			printLine();
         std::cout << "1. Create an account\n";
         std::cout << "2. Login\n";
         std::cout << "3. Exit\n";
-        std::cout << "Enter your choice: ";
+			printLine();
+        std::cout << "Enter your choice: -->: ";
 
         choice = checkVaildInteger(4 , 0);
 

@@ -21,7 +21,7 @@
  * return void
  */
 
-void accountUI(doublyLinkedListType &accountList, nodeType *&node)
+void accountUI(doublyLinkedListType *&accountList, nodeType *&node)
 {
 	int choice = 0;
 	int amount = 0;
@@ -49,11 +49,11 @@ void accountUI(doublyLinkedListType &accountList, nodeType *&node)
 				node->data->deposit(amount);
 				break;
 			case 4:
-				accountList.editAccount(node);
+				accountList->editAccount(node);
 				break;
 			case 5:
 				cout << "deleteAccount" << endl;
-				accountList.deleteAccount(node);
+				accountList->deleteAccount(node);
 				exitProgram = true;
 				break;
 			case 6:

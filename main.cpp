@@ -26,48 +26,45 @@ int main()
 	bool exitProgram = false;
 	int totalNodes = 0;
 	nodeType *nodeAddress = nullptr;
-	doublyLinkedListType accountsList;
+	doublyLinkedListType *accountsList;
 
 	//there should be a function for login here
-	int index = -1;
+	int index = 0;
 	vector<User> userList;
 	User initialUser;
-   index = initialUser.displayLoginMenu(userList);
 
 
-	if(index <= -1)
+
+	while(index >= 0)
 	{
-		return 0; //ends program
-	}
-
-	accountsList = *(userList[index].getLinkList());
-
 	
+	  index = initialUser.displayLoginMenu(userList);
 
 
-//	initialUser.print();
+		if(index <= -1)
+		{
+			return 0; //ends program
+		}
+		
+		if(userList[index].getLinkList() != nullptr)
+		{
+			accountsList = userList[index].getLinkList();
+		}
+		else
+		{
+			cout << "Error: linked list pointer is null" << endl; //just to prevent crashes
+		}
+		
+//		cout << accountsList.getHead();
+//		cin.ignore(10000 , '\n');
 
-//	doublyLinkedListType accountList;
-//	userAccount user;
-
-//	user = login();
-//
-//	accountList = *(user->getLinkedList());
-
-	//the function isVaild will make sure that the data matchs and 
-//	if(user.isVaild())
-//	{ 
-//
-		//the rest of the code go's here
-//	}
-
-
-
+	exitProgram = false; // sets it back to false
 
 	do
 	{
-	
+
 	   cout << "\033c"; //clears to screen
+
 
 		printAccountList(accountsList);
 	
@@ -77,7 +74,7 @@ int main()
 
 		if(userChoice >= 2)
 		{
-			nodeAddress = accountsList.getAccountByIndex(userChoice);
+			nodeAddress = accountsList->getAccountByIndex(userChoice);
 
 			if(nodeAddress != nullptr)
 			{
@@ -99,6 +96,9 @@ int main()
 		}
 
 	}while(!(exitProgram));
+
+	}
+
 
 	return 0;
 } //int main()

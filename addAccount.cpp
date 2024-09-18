@@ -34,7 +34,7 @@ string generateRandomAccountNumber() {
 }
 
 
-void addAccount(doublyLinkedListType &accountsList)
+void addAccount(doublyLinkedListType *&accountsList)
 {
     // variables
     string name = "EMPTY ";
@@ -59,7 +59,8 @@ void addAccount(doublyLinkedListType &accountsList)
         cout << "Enter Initial Information" << endl;
         cout << "------------------------" << endl;
         cout << "    Account Number: " << accountNumber << endl;
-                  cout << "<1> Account Holder's Name: " << name << endl;
+		  printLine();
+        cout << "<1> Account Holder's Name: " << name << endl;
         cout << "<2> Initial Balance: $" << balance << endl;
         cout << "<3> Choose Account Type: " << accountType << endl;
         cout << "<4> Save Account" << endl;
@@ -139,7 +140,7 @@ void addAccount(doublyLinkedListType &accountsList)
                         cout << "Please select a valid account type before saving." << endl;
                                                 }//switch(accountTypeChoice)
                                                 // Add the new account to the list
-                                accountsList.createNodeType(newAccount);
+                                accountsList->createNodeType(newAccount);
                                                 exitAddAccount = true;//exits after account is created
                                         }
                                         else
