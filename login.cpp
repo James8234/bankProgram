@@ -38,6 +38,10 @@ bool User::validLogin(const string &usr, const string &pswd, int id)
 	
 }
 
+/**
+ * Function findAccountIndex
+ */
+
 int User::findAccountIndex(vector<User> users, string username, string password)
 {
 	int i = 0;
@@ -45,112 +49,112 @@ int User::findAccountIndex(vector<User> users, string username, string password)
 	{
 		if(users[i].getUsername() == username && users[i].getPassword() == password)
 		{
-			return i;
+			return i; //when accoun is found
 		}
 
 		i++;
 	}
 
-	return -1;
-
+	return -1; //if no account is found
 }
 
-
+/**
+ * Function loginAccount
+ */
 
 int User::loginAccount(vector<User> &users)
 {
-        //variables
-        bool exitProgram = false;
-			string usr = " ";
-			string pass = " ";
-  //      bool unsavedData = false;
-        int choice = 0;
-			int index = -1;
- //       char exit;
+   //variables
+	bool exitProgram = false;
+	string usr = " ";
+	string pass = " ";
+   int choice = 0;
+	int index = -1;
 
-        while(!(exitProgram))
-        {
-                //clears the screen
-                cout << "\033c";
-                //prints the UI
-					
-             	cout << "Login page" << endl;
-					printLine();
-					cout << "<0> enter user: " << usr << endl;
-					cout << "<1> enter a password: " << pass << endl;
-					cout << "<2> push user/password " << endl;
-					cout << "<3> exit login " << endl;
-					printLine();
-					cout << "please enter a number -->:" << endl;
+   while(!(exitProgram))
+   {
+		//clears the screen
+		cout << "\033c";
+                
+		//prints the UI
+		printLoginAccount(usr, pass);
+		
+		//gets the user input
+		choice = checkVaildInteger(4, -1);
 
-                choice = checkVaildInteger(4, -1);
-
-                switch(choice)
-                {
-                        case 0:
-                                getline(cin,usr);
-                            
-                                break;
-                        case 1:
-                                getline(cin, pass);
-                              
-                                break;
-                        case 2:
-									index = findAccountIndex(users, usr , pass);
-									if(index >= 0)
-									{
-										return index;
-										exitProgram = true;
-									}
-									else
-									{
-										cout << "Incorrect username or password enter anything to continue" << endl;
-										cin.ignore(10000 , '\n');
-									}
+		switch(choice)
+		{
+			case 0:
+				getline(cin,usr);
+         	break;
+			case 1:
+         	getline(cin, pass);
+            break;
+         case 2:
+				index = findAccountIndex(users, usr , pass);
 									
-									break;
-								case 3:
-                            exitProgram = true;
-                }
-				//findAccountIndex(user , username, password)
-				
+				if(index >= 0)
+				{
+					return index; //returns the index of the uesr account
+					exitProgram = true;
+				}
+				else
+				{
+					cout << "The username or password is Incorrect enter anything to continue" << endl;
+					cin.ignore(10000 , '\n');
+				}
+									
+				break;
+			case 3:
+         	exitProgram = true;
+      }//switch(choice)
 
-        }// while
-		return -1;
+	}// while
+	return -1; //used to end the program if no account is selected
+}
 
+void User::printLoginAccount(string usr, string pass) //prints the ui for login
+{
+		cout << "Login page" << endl;
+		printLine();
+		cout << "<0> enter user: " << usr << endl;
+		cout << "<1> enter a password: " << pass << endl;
+		cout << "<2> push user/password " << endl;
+		cout << "<3> exit login " << endl;
+		printLine();
+		cout << "please enter a number -->:" << endl;
 }
 
 
 
 void User::createAccount(vector<User> &users)
 {
-        string usr, pswd;
-        int id;
+	//variables
+	string usr, pswd;
+	int id;
+	doublyLinkedListType *newLinkList;
 
-			doublyLinkedListType *newLinkList;
-
-
-        cout << "Enter a username: ";
-        cin >> username;
-        cout << "Enter a password: ";
-        cin >> password;
-        cout << "Enter an ID: ";
-        cin >> id;
-
-
+	//get user input
+	cout << "Enter a username: ";
+	getline(cin, username);
+	cout << "Enter a password: ";
+	getline(cin, password);
+	cout << "Enter an ID: ";
+	cin >> id;
+	cin.ignore(10000 , '\n'); //clear input buffer
 			
 
-		if(0 > findAccountIndex(users, usr, password))
-		{
-			newLinkList = new doublyLinkedListType;
-        users.emplace_back(username, password, id, newLinkList);
-			        
-        std::cout << "Account created successfully!\n";
-		}
-		else
-		{
-			cout << "Sorry the account already exist" << endl;
-		}
+			
+	//checks if the account already exist. returns a findAccountIndex returns a -1 when it dose not already exist
+	if(0 > findAccountIndex(users, usr, password))
+	{
+		newLinkList = new doublyLinkedListType;
+      users.emplace_back(username, password, id, newLinkList);
+	}
+	else
+	{
+		cout << "Sorry the account already exist. Enter anything to continue ->" << endl;
+	}
 }
 
 int User::displayLoginMenu(vector<User> &users)

@@ -1,11 +1,10 @@
-
 #include "nodeType.h" 
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
 #include "bankAccountType.h"
 #include <iostream>
 
-
+const int doublyLinkedListType::ACCOUNT_OFFSET = 2;
 
 /**
  * file doublyLinkedListType.cpp
@@ -16,8 +15,6 @@
 
 doublyLinkedListType::doublyLinkedListType()
 {
-//	cout << "THe link list contructor is called" << endl;
-//	cin.ignore(10000 , '\n');
 	head = nullptr;
 	tail = nullptr;
 }
@@ -26,7 +23,7 @@ doublyLinkedListType::~doublyLinkedListType()
 {
 //	cout << "Within doublelinkedlist deconstructor " << endl;
 
-//	deleteNodeType();
+	deleteNodeType();
 //	cout << "After delete node type has been called " << endl;
 }
 
@@ -43,7 +40,7 @@ void doublyLinkedListType::createNodeType(bankAccountType *objData)
 	nodeType *newNode;
 
 	newNode = new nodeType;
-	newNode->data = objData;
+	newNode->data = objData->clone();
 	
 	newNode->next = nullptr;
 	newNode->prev = nullptr; //prevents errors
@@ -152,14 +149,15 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 
 } //void
 
-void doublyLinkedListType::printDeleteAccount(nodeType *&node)
+void doublyLinkedListType::printDeleteAccount(nodeType *node)
 {
 		cout << "Delete Account" << endl;
-		cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
-		cout << node->data->getAccountType() << endl;
+		printLine();
+//		cout << node->data->getAccountType() << endl;
+//		node->data->print();
 		cout << node->data->getName() << endl;
 		cout << node->data->getAccountNumber() << endl;
-		cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+		printLine();
 		cout << "Are you sure you want to delete your account <y/n> -->: ";
 }
 
@@ -188,13 +186,7 @@ nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
 		current = current->next;
 	}
 
-
 	current = previous;
-
-//	cout << "Here is accountIndex and index " << accountIndex << "/" << index << endl;
-//	cin.ignore(10000 , '\n');
-
-	
 
 	return current;
 }
@@ -260,31 +252,23 @@ void doublyLinkedListType::editAccount(nodeType *&node)
 				{
 					exitProgram = true;
 				}
+		} //switch(choice)
 
-		}
+	} //while(node != nullptr && !(exitProgram))
 
-
-
-
-	}
-
-	
-
-
-}	//edutAccount
+}	//editAccount
 
 void doublyLinkedListType::printEditAccount(string tempName, string tempID)
 {
 	cout << "Edit your account " << endl;	
-	cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+	printLine();
 	cout << "<0> Name    -> " << tempName << endl;
 	cout << "<1> Account -> " << tempID   << endl;
 	cout << "<2> SaveData" << endl;
 	cout << "<3> Exit" << endl;
-	cout << setfill('-') << setw(25) << " " << setfill(' ') << endl;
+	printLine();
 	cout << "Please enter here ->: ";
 }
-
 
 
 
@@ -294,41 +278,38 @@ nodeType* doublyLinkedListType::getHead()
 	return head;
 }
 
+/**
+ *
+ */
+
 bool doublyLinkedListType::lookUpAccount(string acctNum)
 {
 	nodeType* temp = head;
 	while (temp != nullptr)
-		{ 
-			if (temp->data->getAccountNumber() == acctNum)
-			{	
-				 return true;
-			}
-		 temp = temp->next;
+	{ 
+		if (temp->data->getAccountNumber() == acctNum)
+		{	
+			 return true;
 		}
+		temp = temp->next;
+	}
 	return false;
 }
 	
+/**
+ * The purpose of this function is to clear all the nodes in linkedList when the program terminates
+ */
 
 void doublyLinkedListType::deleteNodeType()
 {
-//	cout << "The deconstructor has been called" << endl;
-//	cin.ignore(10000, '\n');
 
 	nodeType *current = head;
 	nodeType *nextNode = nullptr;
 
-
-
 	while(current != nullptr)
 	{
-	 //  nextNode->data->print();
-//		current->data->print();
-//		cin.ignore(10000 , '\n');
+
 		nextNode = current->next;
-//		cout << "Deleting data\n"
-
-
-
 
 		delete current->data; //deletes the account
 		delete current; //deletes the node

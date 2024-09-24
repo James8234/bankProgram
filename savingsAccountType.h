@@ -18,6 +18,16 @@ public:
 			
 			virtual std::string getAccountType() const override;
 
+	//copy constructor
+	savingsAccountType(const savingsAccountType& object);
+
+
+
+	virtual bankAccountType* clone() const override
+	{
+		return new savingsAccountType(*this);
+	}
+
 protected:
         double interestRate;
 

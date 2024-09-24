@@ -28,7 +28,9 @@ public:
 	string getPassword();
 	doublyLinkedListType* getLinkList();
 
+	//print functions
 	void print();
+	void printLoginAccount(string usr, string pass);
 
 	int loginAccount(vector<User> &users);
 
@@ -39,6 +41,8 @@ public:
 	int findAccountIndex(vector<User> users, string username, string password);
 
     bool validLogin(const string& usr, const string& pswd, int id);
+
+	~User() {}
 private:
 
 

@@ -26,6 +26,13 @@ noServiceChargeCheckingType::noServiceChargeCheckingType(string n, string acctNu
         interestRate = intRate;
 }
 
+noServiceChargeCheckingType::noServiceChargeCheckingType(const noServiceChargeCheckingType &object)
+	:checkingAccountType(object)
+{
+        minimumBalance = MIN_BALANCE;
+        interestRate = INTEREST_RATE;
+}
+
 double noServiceChargeCheckingType::getMinimumBalance()
 {
         return minimumBalance;

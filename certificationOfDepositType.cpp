@@ -27,6 +27,15 @@ certificationOfDepositType::certificationOfDepositType(string n, string acctNumb
         cdMonth = 0;
 }
 
+//copy constructor
+certificationOfDepositType::certificationOfDepositType(const certificationOfDepositType &object)
+	:bankAccountType(object)
+{
+       interestRate = INTEREST_RATE;
+        maturityMonths = 0;
+        cdMonth = 0;
+}
+
 double certificationOfDepositType::getInterestRate()
 {
         return interestRate;

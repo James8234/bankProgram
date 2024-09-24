@@ -52,7 +52,6 @@ void accountUI(doublyLinkedListType *&accountList, nodeType *&node)
 				accountList->editAccount(node);
 				break;
 			case 5:
-				cout << "deleteAccount" << endl;
 				accountList->deleteAccount(node);
 				exitProgram = true;
 				break;

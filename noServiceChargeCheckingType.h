@@ -10,6 +10,8 @@ class noServiceChargeCheckingType: public checkingAccountType
 		noServiceChargeCheckingType(std::string n, std::string acctNumber, double bal);
 		noServiceChargeCheckingType(std::string n, std::string acctNumber, double bal,
                                                double minBalance, double intRate);
+		//copy constructor
+		noServiceChargeCheckingType(const noServiceChargeCheckingType &object);
 
 		double getMinimumBalance();
 		void setMinimumBalance(double minBalance);
@@ -21,6 +23,11 @@ class noServiceChargeCheckingType: public checkingAccountType
 		virtual void createMonthlyStatement();
 		virtual void print() override;
 		virtual std::string getAccountType() const override;
+
+		virtual bankAccountType *clone() const override
+		{
+			return new noServiceChargeCheckingType(*this);
+		}
 
 	protected:
 		double minimumBalance;

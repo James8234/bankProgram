@@ -10,7 +10,7 @@
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
 #include "login.h"
-
+#include <stdexcept>
 
 /**
  * 
@@ -26,25 +26,23 @@ int main()
 	bool exitProgram = false;
 	int totalNodes = 0;
 	nodeType *nodeAddress = nullptr;
-	doublyLinkedListType *accountsList;
+	doublyLinkedListType *accountsList = nullptr;
 
 	//there should be a function for login here
 	int index = 0;
 	vector<User> userList;
 	User initialUser;
 
-
-
-	while(index >= 0)
+	try
 	{
-	
-	  index = initialUser.displayLoginMenu(userList);
-
-
-		if(index <= -1)
+		while(index >= 0)
 		{
-			return 0; //ends program
-		}
+	
+			index = initialUser.displayLoginMenu(userList);
+	
+			if(index <= -1)
+				throw std::runtime_error(" ");
+		
 		
 		if(userList[index].getLinkList() != nullptr)
 		{
@@ -54,9 +52,6 @@ int main()
 		{
 			cout << "Error: linked list pointer is null" << endl; //just to prevent crashes
 		}
-		
-//		cout << accountsList.getHead();
-//		cin.ignore(10000 , '\n');
 
 	exitProgram = false; // sets it back to false
 
@@ -64,7 +59,6 @@ int main()
 	{
 
 	   cout << "\033c"; //clears to screen
-
 
 		printAccountList(accountsList);
 	
@@ -97,8 +91,19 @@ int main()
 
 	}while(!(exitProgram));
 
-	}
+	} //while(index >= 0)
 
+	}
+	catch(const std::runtime_error &e)
+	{
+
+	}
+	catch(...)
+	{
+
+	}
+	
+	delete accountsList;
 
 	return 0;
 } //int main()

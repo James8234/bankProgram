@@ -9,7 +9,12 @@ class checkingAccountType: public bankAccountType
 	public:
    	checkingAccountType(std::string n, std::string acctNumber, double bal);
 
+		//copy constructor
+		checkingAccountType(const checkingAccountType &object);
+
       virtual void writeCheck(double amount) = 0;
+
+		virtual bankAccountType *clone() const override = 0;
 
 		virtual std::string getAccountType() const override;
 };

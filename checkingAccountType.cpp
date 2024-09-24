@@ -11,6 +11,10 @@ checkingAccountType::checkingAccountType(string n, std::string acctNumber, doubl
 {
 }
 
+//copy constructor
+checkingAccountType::checkingAccountType(const checkingAccountType &object)
+	:bankAccountType(object) {}
+
 string checkingAccountType::getAccountType() const
 {
 	return "Checking account";

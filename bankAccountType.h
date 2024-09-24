@@ -20,12 +20,16 @@ public:
 	virtual double getMinimumBalance();
 	virtual ~bankAccountType() {} //virtual destructor for proper cleanup
 
+	//constructor
+	virtual bankAccountType* clone() const = 0;
+
+
 	virtual std::string getAccountType() const
 	{
 		return "Bank Account";
 	}
 
-	virtual double getRate() const
+	virtual double getRate() const //not used
 	{
 		return 0;
 	}

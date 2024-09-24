@@ -11,10 +11,11 @@ using namespace std;
 const double savingsAccountType::INTEREST_RATE = 0.03;
 
 savingsAccountType::savingsAccountType(string n, string acctNumber, double bal)
-                                : bankAccountType(n, acctNumber, bal)
-{
-        interestRate = INTEREST_RATE;
-}
+                                : bankAccountType(n, acctNumber, bal) , interestRate(INTEREST_RATE) {}
+
+// copy constructor
+savingsAccountType::savingsAccountType(const savingsAccountType& object)
+	: bankAccountType(object), interestRate(INTEREST_RATE) {} // Initialize with INTERSET_RATE
 
 savingsAccountType::savingsAccountType(string n, string acctNumber, double bal, double intRate)
                                 : bankAccountType(n, acctNumber, bal)
@@ -49,11 +50,11 @@ void savingsAccountType::print()
 
 	cout << "< View account > " << endl;
 	printLine();
-	cout << "Account type:    " << getAccountType() << endl
-		  << "Savings Account: " << getName() << endl
-		  << "ACCT#            " << getAccountNumber() << endl
-		  << "Balance:        $" << getBalance() << endl
-		  << "Interest Rate:   " << getInterestRate() << endl;
+	cout << "Account type:    " << getAccountType() << endl;
+	cout << "Savings Account: " << getName() << endl;
+	cout << "ACCT#            " << getAccountNumber() << endl;
+	cout << "Balance:        $" << getBalance() << endl;
+	cout << "Interest Rate:   " << getInterestRate() << endl;
 	printLine();
 	cout << "Enter anything to continue: ";
 	cin.ignore(10000 , '\n');

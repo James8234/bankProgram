@@ -23,6 +23,16 @@ highInterestCheckingType::highInterestCheckingType(string n, string acctNumber, 
 {
 }
 
+//copy constructor
+highInterestCheckingType::highInterestCheckingType(const highInterestCheckingType &object)
+	:noServiceChargeCheckingType(object)
+{
+
+        minimumBalance = MIN_BALANCE;
+        interestRate = INTEREST_RATE;
+
+}
+
 double highInterestCheckingType::getInterestRate()
 {
         return interestRate;

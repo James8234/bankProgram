@@ -10,8 +10,10 @@ class serviceChargeCheckingType: public checkingAccountType
 		serviceChargeCheckingType(std::string n, std::string acctNumber, double bal);
      	serviceChargeCheckingType(std::string n, std::string acctNumber, double bal,
                                                            double servChargeAmount, double servChargeCheck);
-
-                double getServiceChargeAccount();
+		//copy constructor
+		serviceChargeCheckingType(const serviceChargeCheckingType &object);
+	
+      double getServiceChargeAccount();
                 void setServiceChargeAccount(double amount);
                 double getServiceChargeCheck();
                 void setServiceChargeCheck(double amount);
@@ -21,8 +23,12 @@ class serviceChargeCheckingType: public checkingAccountType
                 void writeCheck(double amount);
                 virtual void createMonthlyStatement();
 		virtual void print() override;
-
 		virtual std::string getAccountType() const override;
+
+		virtual bankAccountType *clone() const override
+		{
+			return new serviceChargeCheckingType(*this);
+		}
 
 	protected:
 		double serviceChargeAccount;

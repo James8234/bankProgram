@@ -28,6 +28,12 @@ serviceChargeCheckingType::serviceChargeCheckingType(string n, string acctNumber
         numberOfChecksWritten = 0;
 }
 
+//copy constructor
+serviceChargeCheckingType::serviceChargeCheckingType(const serviceChargeCheckingType &object)
+	:checkingAccountType(object), serviceChargeAccount(ACCOUNT_SERVICE_CHARGE), numberOfChecksWritten(0), serviceChargeCheck(0) {}
+
+
+
 double serviceChargeCheckingType::getServiceChargeAccount()
 {
         return serviceChargeAccount;

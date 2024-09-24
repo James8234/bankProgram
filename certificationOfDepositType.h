@@ -6,9 +6,12 @@
 
 class certificationOfDepositType: public bankAccountType
 {
-public:
+	public:
         certificationOfDepositType(std::string n, std::string acctNumber, double bal);
         certificationOfDepositType(std::string n, std::string acctNumber, double bal, double intRate, int maturityMon);
+
+		//copy constructor
+		certificationOfDepositType(const certificationOfDepositType &object);
 
         double getInterestRate();
         void setInterestRate(double rate);
@@ -22,6 +25,11 @@ public:
         void createMonthlyStatement();
 
         virtual void print() override;
+		virtual bankAccountType *clone() const override
+		{
+			return new certificationOfDepositType(*this);
+		}
+
 
 			virtual std::string getAccountType() const override;
 private:
