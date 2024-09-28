@@ -3,15 +3,14 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o login.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o managerAccount.o
 
 default: run
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h login.h
-
+main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h managerAccount.h
 
 bankAccountType.o: bankAccountType.cpp bankAccountType.h
 
@@ -47,7 +46,9 @@ accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h
 
 printLine.o: printLine.cpp header.h
 
-login.o: login.cpp login.h header.h
+userAccount.o: userAccount.cpp userAccount.h header.h
+
+managerAccount.o: managerAccount.cpp managerAccount.h header.h doublyLinkedListType.h userAccount.h
 
 # Clean up
 clean:

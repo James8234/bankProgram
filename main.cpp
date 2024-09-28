@@ -9,35 +9,50 @@
 #include "noServiceChargeCheckingType.h"
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
-#include "login.h"
+#include "userAccount.h"
+#include "managerAccount.h"
 #include <stdexcept>
 
-/**
- * 
+
+ /**
  *
  *
  */
 
 int main()
 {
+	//makes sure it exist and can be make to slove corrup files
+	createSubdirectory();
 
 	//variables
    int userChoice = 0;
 	bool exitProgram = false;
 	int totalNodes = 0;
+	//memory variables
 	nodeType *nodeAddress = nullptr;
 	doublyLinkedListType *accountsList = nullptr;
 
+
+
+	vector<userAccount> userList; //make sure the account is recognized here
+	userAccount initialUser; //constructor with default values wwill be used
+
 	//there should be a function for login here
 	int index = 0;
-	vector<User> userList;
-	User initialUser;
+
+	readCredatialsFile(userList);
+	
+//	userList[0].print();
+
+	return 0;
 
 	try
 	{
 		while(index >= 0)
 		{
-	
+		
+			
+			//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
 			index = initialUser.displayLoginMenu(userList);
 	
 			if(index <= -1)
@@ -46,6 +61,7 @@ int main()
 		
 		if(userList[index].getLinkList() != nullptr)
 		{
+			//this gets the linked list. a function is needed to read in the text file
 			accountsList = userList[index].getLinkList();
 		}
 		else

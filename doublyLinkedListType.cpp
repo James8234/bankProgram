@@ -206,7 +206,7 @@ void doublyLinkedListType::editAccount(nodeType *&node)
 {
 	//variables
 	string tempName = node->data->getName();
-	string    tempID   = node->data->getAccountNumber();
+	string tempID   = node->data->getAccountNumber();
 	bool exitProgram = false;
 	bool unsavedData = false;
 	int choice = 0;

@@ -1,0 +1,52 @@
+#ifndef USEREACCOUNT_H_
+#define USERACCOUNT_H_
+
+#include<string>
+#include<iostream>
+#include<vector>
+#include "doublyLinkedListType.h"
+
+using namespace std;
+
+class userAccount
+{
+	public:
+		string username;
+	   string password;
+	   string id;
+
+		doublyLinkedListType *linkList;
+
+
+		//constructors
+		//	User();
+   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr);
+	
+		//geters
+		string getUsername();
+		string getPassword();
+		doublyLinkedListType* getLinkList();
+
+		//print functions
+		void print();
+		void printLoginAccount(string usr, string pass);
+	
+		int loginAccount(vector<userAccount> &users);
+	
+	   int displayLoginMenu(vector<userAccount>& users);
+	
+	   void createAccount(vector<userAccount>& users);
+	
+		int findAccountIndex(vector<userAccount> users, string username, string password);
+
+	   bool validLogin(const string& usr, const string& pswd, string id);
+		
+		//deconstructor
+		~userAccount() {}
+	private:
+
+
+};
+
+
+#endif
