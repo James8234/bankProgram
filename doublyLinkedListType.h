@@ -28,6 +28,9 @@ class doublyLinkedListType
 		~doublyLinkedListType();
 		void deleteNodeType();
 
+		//copy constructor
+		doublyLinkedListType(const doublyLinkedListType* type);
+
 	private:
 		nodeType *head;
 		nodeType *tail;

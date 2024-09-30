@@ -37,5 +37,7 @@ void addAccount(doublyLinkedListType *&accountsList);
 //void deleteAccount();
 //void editAccount();
 
+//utils function
+string generateRandomAccountNumber();
 
 #endif

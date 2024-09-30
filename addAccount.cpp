@@ -120,7 +120,7 @@ void addAccount(doublyLinkedListType *&accountsList)
 				cout << "\033c";
 				printAddAcctMenu();  // Show account type options
 				cout << "Enter account type: ";
-				accountTypeChoice = checkVaildInteger(6, 1);
+				accountTypeChoice = checkVaildInteger(7, 1);
 				unsavedData = true;
 				break;
 

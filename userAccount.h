@@ -14,6 +14,7 @@ class userAccount
 		string username;
 	   string password;
 	   string id;
+		string userType;
 
 		doublyLinkedListType *linkList;
 
@@ -31,16 +32,23 @@ class userAccount
 		void print();
 		void printLoginAccount(string usr, string pass);
 	
-		int loginAccount(vector<userAccount> &users);
+		int loginAccount(vector<userAccount*> &users);
 	
-	   int displayLoginMenu(vector<userAccount>& users);
+	   int displayLoginMenu(vector<userAccount*>& users);
 	
-	   void createAccount(vector<userAccount>& users);
+	   int createAccount(vector<userAccount*>& users);
 	
-		int findAccountIndex(vector<userAccount> users, string username, string password);
+		int findAccountIndex(vector<userAccount*> users, string username, string password);
 
 	   bool validLogin(const string& usr, const string& pswd, string id);
-		
+
+/**
+ * FUNCTION void deleteAllAccounts
+ * clean functino
+ */
+void deleteAllAccounts(vector<userAccount*> &userList);
+
+
 		//deconstructor
 		~userAccount() {}
 	private:

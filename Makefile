@@ -46,7 +46,7 @@ accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h
 
 printLine.o: printLine.cpp header.h
 
-userAccount.o: userAccount.cpp userAccount.h header.h
+userAccount.o: userAccount.cpp userAccount.h header.h managerAccount.h
 
 managerAccount.o: managerAccount.cpp managerAccount.h header.h doublyLinkedListType.h userAccount.h
 

@@ -4,6 +4,90 @@
 #include "userAccount.h"
 
 
+
+
+/**
+ * Function voidCreateAccountFile
+ * 
+ * The function will create an user bank file connected to thier account
+ * And then it will login the user into this text file
+ */
+
+void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId)
+{
+	string subdirectory = "./data/credentials.dat";
+	string newAccountInfo = username + ":" + userPassword + ":" + userId;
+	string newAccountFile = "./data/" + username + ".dat";
+
+	ofstream outfile(subdirectory.c_str(), ios::app);
+
+	if(outfile)
+	{
+		outfile << newAccountInfo << endl;
+	}
+
+	outfile.close();
+	
+	//creates the user text file
+	ofstream userfile(newAccountFile);
+	
+	userfile.close();
+
+	//write a function readUserBankInfo which will set the linkedList
+	
+}
+
+/**
+ * function readAccountFile
+ *
+ * Purpose is to read in the user data. This function will open the text file username.dat and read the data into a doublyLinkedList 
+ * the object will have the head pointer. the doublyLinkedList will be a deep copy as it populates in this function and saves its pointer
+ * the the userAccount member function. The function will get the user name using the index and open the file using the user name + .dat 
+ * Then it will load the string object, string nane, string balance, string id. and create a node . next it will loop again untill no more
+ * text.
+ */
+
+void readAccountFile(vector<userAccount*> userList, int index)
+{
+	string name = userList[index]->getUsername();
+	string filepath = "./data/" + name + ".dat";	
+	string line = " ";
+	//variables
+	string strObject = " ";
+	string username = "";
+	string strBalance = "";
+	string userId = "";
+	bankAccountType *newAccount = nullptr;
+
+
+	ifstream outfile(filepath.c_str(), ios::app);
+
+	if(outfile)
+	{
+		while(getline(outfile, line))
+		{
+			if(strObject == "savingsAccount")
+			{
+				
+			}
+				userList[index]->getLinkList()->createNodeType(newAccount);
+	
+		}
+	}
+	else
+	{
+		cout << "error was not able to open file : " << filepath << endl;
+		cout << "enter anything to continue ->: " << endl;
+		cin.ignore(100000 , '\n');
+	}
+
+
+	outfile.close();
+
+}
+
+
+
 /**
  * function createSubdirtory
  *
@@ -39,7 +123,7 @@ void createSubdirectory()
  * credentials into the vector
  */
 
-void readCredatialsFile(vector<userAccount> &accountList)
+void readCredatialsFile(vector<userAccount*> &accountList)
 {
 	//sets the dirtory
 //"./data/credentials.dat"
@@ -72,12 +156,10 @@ void readCredatialsFile(vector<userAccount> &accountList)
 			userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
 			userId = line.substr(secondPosition + 1);
 			//creates the elements of the vector
-   		accountList.emplace_back(userAccount(userName,userPassword,userId,new doublyLinkedListType));
+   		accountList.emplace_back(new userAccount(userName,userPassword,userId,new doublyLinkedListType));
 		}
 
 	}
-
-	
 //	int elementCount = accountList.size();
 //	int index = 0;
 

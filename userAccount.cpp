@@ -1,4 +1,5 @@
 #include "userAccount.h"
+#include "managerAccount.h"
 #include "header.h"
 
 userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList)
@@ -24,6 +25,38 @@ doublyLinkedListType* userAccount::getLinkList()
 	return linkList;
 }
 
+/**
+ * FUNCTION void deleteAllAccounts
+ * 
+ * The purpose of this function is to clear the vector memory and the link list along
+ * It will also reset the vector so that you can reload the vector with updated info from the database
+ */
+void userAccount::deleteAllAccounts(vector<userAccount*> &userList)
+{
+	//variables
+	int element = 0;
+	int index = 0;
+
+	element = userList.size();
+
+	while(element > index)
+	{
+		//a check because linklist pointer should be null unless the uesr login or created a account.
+		if(userList[index]->getLinkList() != nullptr)
+		{
+			delete userList[index]->getLinkList();
+		}
+
+		delete userList[index];
+		index++;
+	}
+	//reset the vector back to an empty state
+	userList.clear();
+}
+
+
+
+
 bool userAccount::validLogin(const string &usr, const string &pswd, string id)
 {
     return (usr == username && pswd == password);
@@ -33,19 +66,24 @@ bool userAccount::validLogin(const string &usr, const string &pswd, string id)
  * Function findAccountIndex
  */
 
-int userAccount::findAccountIndex(vector<userAccount> users, string username, string password)
+int userAccount::findAccountIndex(vector<userAccount*> users, string username, string password)
 {
 	int i = 0;
+
 	while( i < users.size())
 	{
-		if(users[i].getUsername() == username && users[i].getPassword() == password)
+		if(users[i]->getUsername() == username && users[i]->getPassword() == password)
 		{
 			return i; //when accoun is found
 		}
-
+		else if(users[i]->getUsername() == username || users[i]->getPassword() == password)
+		{
+//			cout << "second case" << endl;
+//			cin.ignore(10000 , '\n');
+			return -2; //this function returns if one is true while the other is false
+		}
 		i++;
 	}
-
 	return -1; //if no account is found
 }
 
@@ -53,7 +91,7 @@ int userAccount::findAccountIndex(vector<userAccount> users, string username, st
  * Function loginAccount
  */
 
-int userAccount::loginAccount(vector<userAccount> &users)
+int userAccount::loginAccount(vector<userAccount*> &users)
 {
    //variables
 	bool exitProgram = false;
@@ -62,11 +100,16 @@ int userAccount::loginAccount(vector<userAccount> &users)
    int choice = 0;
 	int index = -1;
 
+	//gets memory up to date
+	deleteAllAccounts(users);
+	readCredatialsFile(users);
+
+
    while(!(exitProgram))
    {
 		//clears the screen
 		cout << "\033c";
-                
+
 		//prints the UI
 		printLoginAccount(usr, pass);
 		
@@ -118,44 +161,62 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 
 
 
-void userAccount::createAccount(vector<userAccount> &users)
+int userAccount::createAccount(vector<userAccount*> &users)
 {
 	//variables
-	string usr, pswd;
+	string usr;
+	string pswd;
 	string id;
 	doublyLinkedListType *newLinkList;
+	int index = 0;
 
 	//get user input
 	cout << "Enter a username: ";
 	getline(cin, usr);
 	cout << "Enter a password: ";
 	getline(cin, pswd);
-	cout << "Enter an ID: ";
-	getline(cin, id);
-	cin.ignore(10000 , '\n'); //clear input buffer
+	id = generateRandomAccountNumber();
+
+	//gets memory up to date
+	deleteAllAccounts(users);
+	readCredatialsFile(users);
+                
+	index = findAccountIndex(users, usr, pswd);
+
+//	cout << "in create account function ->: " << index << endl;
+//	cin.ignore(10000 , '\n');
 				
 	//checks if the account already exist. returns a findAccountIndex returns a -1 when it dose not already exist
-	if(0 > findAccountIndex(users, usr, pswd))
+	if(0 > index && index != -2)
 	{
 		newLinkList = new doublyLinkedListType;
-      users.emplace_back(usr, pswd, id, newLinkList);
+      users.emplace_back(new userAccount(usr, pswd, id, newLinkList));
+		createAccountFile(users, usr, pswd, id);
+		index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
 	}
 	else
 	{
 		cout << "Sorry the account already exist. Enter anything to continue ->" << endl;
+		index = -1; //to make sure it dosn't pick an account 
+		cin.ignore(10000 , '\n');
 	}
+
+	return index;
 }
 
-int userAccount::displayLoginMenu(vector<userAccount> &users)
+/**
+ * Function DisplayLoginMenu
+ */
+
+int userAccount::displayLoginMenu(vector<userAccount*> &users)
 {
 	int index = -1;
    int choice;
 	bool exitProgram = false;
 
-	cout << "\033c";
-
 	do 
 	{
+		cout << "\033c";
 		cout << "Welcome! Choose an option:\n";
 		printLine();
 		cout << "1. Create an account\n";
@@ -169,8 +230,11 @@ int userAccount::displayLoginMenu(vector<userAccount> &users)
 		switch (choice) 
 		{      
 			case 1:               
-				createAccount(users);
-				return (users.size() - 1);
+				index = createAccount(users);
+				if(index > -1)
+				{
+					return index;
+				}
             break;
          case 2:
 				index = loginAccount(users);
@@ -186,6 +250,9 @@ int userAccount::displayLoginMenu(vector<userAccount> &users)
 			default:
 				cout << "Invalid choice! Please try again.\n";	
 		}//switch(chioce)
+	
+//		cout << "The index is " << index << endl;
+//		cin.ignore(10000 , '\n');
 
  } while (!(exitProgram));
 	

@@ -317,6 +317,16 @@ void doublyLinkedListType::deleteNodeType()
 		current = nextNode;
 	}
 	
-	
-	
 }
+
+/**
+ * copy constructor
+ */
+
+//doublyLinkedListType::doublyLinkedListType(const doublyLinkedListType &object)
+//{
+//	if(object
+
+
+
+//}
