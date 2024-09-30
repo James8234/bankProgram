@@ -70,6 +70,7 @@ void readAccountFile(vector<userAccount*> userList, int index)
 			{
 				
 			}
+				//once the object is read in
 				userList[index]->getLinkList()->createNodeType(newAccount);
 	
 		}

@@ -1,3 +1,4 @@
+//#include "counteract.h"
 #include "userAccount.h"
 #include "managerAccount.h"
 #include "header.h"
@@ -75,6 +76,7 @@ int userAccount::findAccountIndex(vector<userAccount*> users, string username, s
 		if(users[i]->getUsername() == username && users[i]->getPassword() == password)
 		{
 			return i; //when accoun is found
+
 		}
 		else if(users[i]->getUsername() == username || users[i]->getPassword() == password)
 		{
@@ -119,9 +121,11 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 		switch(choice)
 		{
 			case 0:
+				cout << "Enter user name here ->: ";
 				getline(cin,usr);
          	break;
 			case 1:
+				cout << "Enter password here ->: ";
          	getline(cin, pass);
             break;
          case 2:
@@ -149,6 +153,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 
 void userAccount::printLoginAccount(string usr, string pass) //prints the ui for login
 {
+		cout << "\033[1;32m";
 		cout << "Login page" << endl;
 		printLine();
 		cout << "<0> enter user: " << usr << endl;
@@ -157,6 +162,7 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 		cout << "<3> exit login " << endl;
 		printLine();
 		cout << "please enter a number -->:" << endl;
+		cout << "\033[0m";
 }
 
 
@@ -207,7 +213,6 @@ int userAccount::createAccount(vector<userAccount*> &users)
 /**
  * Function DisplayLoginMenu
  */
-
 int userAccount::displayLoginMenu(vector<userAccount*> &users)
 {
 	int index = -1;
@@ -216,14 +221,10 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 
 	do 
 	{
+		//clear the screen
 		cout << "\033c";
-		cout << "Welcome! Choose an option:\n";
-		printLine();
-		cout << "1. Create an account\n";
-      cout << "2. Login\n";
-      cout << "3. Exit\n";
-		printLine();
-      cout << "Enter your choice: -->: ";
+
+		printMainMenu();
 
      	choice = checkVaildInteger(4 , 0);
 
@@ -254,18 +255,34 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 //		cout << "The index is " << index << endl;
 //		cin.ignore(10000 , '\n');
 
- } while (!(exitProgram));
+	} while (!(exitProgram));
 	
 	return -1;
 
 }
 
+void userAccount::printMainMenu()
+{
+	cout << "\033[1;32m";
+	cout << "Welcome! Choose an option:\n";
+	printLine();
+	cout << "1. Create an account\n";
+   cout << "2. Login\n";
+   cout << "3. Exit\n";
+	printLine();
+	cout << "\033[5;1;32m";
+   cout << "Enter your choice: -->: ";
+	cout << "\033[0m";
+}
+
 
 void userAccount::print()
 {
-
+	cout << "\033[1;32m";
+//	cout << "\033[1;32m";
 	cout << "The username" << username << endl;
 	cout << "The password" << password << endl;
 	cout << "The id " << id << endl;
+	cout << "\033[0m";
 }
 

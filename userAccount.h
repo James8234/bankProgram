@@ -31,6 +31,7 @@ class userAccount
 		//print functions
 		void print();
 		void printLoginAccount(string usr, string pass);
+		void printMainMenu();
 	
 		int loginAccount(vector<userAccount*> &users);
 	
