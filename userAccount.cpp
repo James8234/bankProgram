@@ -171,12 +171,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 				getline(cin,usr);
          	break;
 			case 1:
-<<<<<<< HEAD
-				cout << "Enter password here ->: ";
-         	getline(cin, pass);
-=======
          	pass = hidePassword();
->>>>>>> refs/remotes/origin/main
             break;
          case 2:
 				index = findAccountIndex(users, usr , pass);
@@ -203,14 +198,11 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 
 void userAccount::printLoginAccount(string usr, string pass) //prints the ui for login
 {
-<<<<<<< HEAD
 		cout << "\033[1;32m";
-=======
 		string str;
-                int length = pass.length();
-                str = string(length, '*');
+      int length = pass.length();
+      str = string(length, '*');
 	
->>>>>>> refs/remotes/origin/main
 		cout << "Login page" << endl;
 		printLine();
 		cout << "<0> enter user: " << usr << endl;
