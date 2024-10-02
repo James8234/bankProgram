@@ -12,6 +12,7 @@ const int SCREEN_SIZE = 120;
 class bankAccountType; //forward declear
 class doublyLinkedListType;
 class nodeType;
+class userAccount;
 
 using namespace std;
 
@@ -33,7 +34,7 @@ void printAccountInfo(nodeType *node);
 void printLine();
 void accountUI(doublyLinkedListType *&accountsList, nodeType *&node);
 //add delete and edit accounts
-void addAccount(doublyLinkedListType *&accountsList);
+void addAccount(userAccount *&initialUser);
 //void deleteAccount();
 //void editAccount();
 

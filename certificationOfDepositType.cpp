@@ -112,7 +112,7 @@ void certificationOfDepositType::print()
 
 string certificationOfDepositType::getAccountType() const
 {
-	return "Certification of deposit account";
+	return "certificationOfDepositType";
 }
 
 

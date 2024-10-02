@@ -35,7 +35,7 @@ int main()
 
 
 	vector<userAccount*> userList; //make sure the account is recognized here
-	userAccount initialUser; //constructor with default values wwill be used
+	userAccount *initialUser; //constructor with default values wwill be used
 
 	//there should be a function for login here
 	int index = 0;
@@ -53,10 +53,10 @@ int main()
 		
 			
 			//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
-			index = initialUser.displayLoginMenu(userList);
+			index = initialUser->displayLoginMenu(userList);
 //			cout << "The index as been returned" << index << endl;
 //			cin.ignore(100000 , '\n');
-	
+
 			if(index <= -1)
 				throw std::runtime_error(" ");
 		
@@ -65,6 +65,7 @@ int main()
 		{
 			//this gets the linked list. a function is needed to read in the text file
 			accountsList = userList[index]->getLinkList();
+			initialUser = userList[index];
 		}
 		else
 		{
@@ -100,7 +101,7 @@ int main()
 		}
 		else if(userChoice == 1)
 		{
-			addAccount(accountsList);
+			addAccount(initialUser);
 		}
 		else if(userChoice == 0)
 		{
@@ -121,7 +122,7 @@ int main()
 
 	}
 	
-	initialUser.deleteAllAccounts(userList);
+	initialUser->deleteAllAccounts(userList);
 
 	return 0;
 } //int main()

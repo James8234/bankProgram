@@ -105,5 +105,5 @@ void serviceChargeCheckingType::print()
 
 string serviceChargeCheckingType::getAccountType() const 
 {
-	return "Service charge checking account";
+	return "serviceChargeCheckingType";
 }

@@ -2,9 +2,14 @@
 #include "header.h"
 #include "doublyLinkedListType.h"
 #include "userAccount.h"
-
-
-
+#include "bankAccountType.h"
+#include "savingsAccountType.h"
+#include "certificationOfDepositType.h"
+#include "checkingAccountType.h"
+#include "highInterestSavingsType.h"
+#include "serviceChargeCheckingType.h"
+#include "highInterestCheckingType.h"
+#include "noServiceChargeCheckingType.h"
 
 /**
  * Function voidCreateAccountFile
@@ -32,9 +37,7 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
 	ofstream userfile(newAccountFile);
 	
 	userfile.close();
-
 	//write a function readUserBankInfo which will set the linkedList
-	
 }
 
 /**
@@ -47,7 +50,7 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
  * text.
  */
 
-void readAccountFile(vector<userAccount*> userList, int index)
+void readAccountFile(vector<userAccount*> &userList, int index)
 {
 	string name = userList[index]->getUsername();
 	string filepath = "./data/" + name + ".dat";	
@@ -57,7 +60,11 @@ void readAccountFile(vector<userAccount*> userList, int index)
 	string username = "";
 	string strBalance = "";
 	string userId = "";
-	bankAccountType *newAccount = nullptr;
+	//position varibales
+	size_t firstPosition = 0;
+	size_t secondPosition = 0;
+	size_t thiredPosition = 0;
+//	bankAccountType *newAccount = nullptr;
 
 
 	ifstream outfile(filepath.c_str(), ios::app);
@@ -66,27 +73,116 @@ void readAccountFile(vector<userAccount*> userList, int index)
 	{
 		while(getline(outfile, line))
 		{
-			if(strObject == "savingsAccount")
+
+
+			//position returns the position from the start of the line
+			firstPosition = line.find(':');
+			secondPosition = line.find(':', firstPosition + 1);
+			thiredPosition = line.find(':', secondPosition + 1); 
+
+			if(firstPosition != string::npos && secondPosition != string::npos)
 			{
-				
+				//./substr(start, end)
+				strObject = line.substr(0, firstPosition);
+				username = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
+				strBalance = line.substr(secondPosition + 1, thiredPosition - secondPosition - firstPosition - 2);
+				userId = line.substr(thiredPosition + 1);
 			}
+
+			//create a function that gets the object type from strObject
+//			newAccount = createAccount();
 				//once the object is read in
-				userList[index]->getLinkList()->createNodeType(newAccount);
-	
-		}
-	}
+			if(createAccountObject(strObject, username, strBalance, userId) != nullptr)
+			{
+				userList[index]->getLinkList()->createNodeType(createAccountObject(strObject, username, strBalance, userId));
+			}
+		}//while(getline(outfile, line))
+	}//if(outfile)
 	else
 	{
 		cout << "error was not able to open file : " << filepath << endl;
 		cout << "enter anything to continue ->: " << endl;
 		cin.ignore(100000 , '\n');
 	}
-
-
 	outfile.close();
 
 }
 
+//the purpose of this function is to return a pointer to the objcet provided a string
+bankAccountType *createAccountObject(string strObject, string username, string strBalance, string userId)
+{
+	double num = 0;
+
+	try
+	{
+		num = stod(strBalance);
+	}
+	catch(const std::invalid_argument& e)
+	{
+		cout << "error can not convert balance to int" << endl;
+		num = 0;
+	}
+
+//	c0out << " the strObject is " << strObject << endl;
+
+	if(strObject == "savingsAccountType")
+	{
+		return new savingsAccountType(username, userId, num);
+	}
+	else if(strObject == "certificationOfDepositType")
+	{
+		return new certificationOfDepositType(username, userId, num);
+	}
+	else if(strObject == "highInterestSavingsType")
+	{
+		return new highInterestSavingsType(username, userId, num);
+	}
+	else if(strObject == "serviceChargeCheckingType")
+	{
+		return new serviceChargeCheckingType(username, userId, num);
+	}
+	else if(strObject == "highInterestCheckingType")
+	{
+		return new highInterestCheckingType(username, userId, num);
+	}
+	else if(strObject == "noServiceChargeCheckingType")
+	{
+		return new noServiceChargeCheckingType(username, userId, num);
+	}
+	else
+	{
+		cout << "error" << endl;
+	}
+
+	//if no account was found
+	return nullptr;
+
+}
+
+/**
+ * Function createBankAccount
+ * The purpose of this function is to add the created account to the text file
+ * the user will add a object string, string username, string userPassword, double balance
+ * the balance will be converted to balance and object string will be connected to the object
+ */
+void createBankAccount(userAccount *initialUser, string strObject, string username, string userId, int bal)
+{
+	string newBankAccountInfo = " ";
+	string accountFile = "./data/" + initialUser->getUsername() + ".dat";
+
+	string balance = std::to_string(bal);
+
+	newBankAccountInfo = strObject + ":" + username + ":" + balance + ":" + userId;
+
+	ofstream outfile(accountFile.c_str(), ios::app);
+
+	if(outfile)
+	{
+		outfile << newBankAccountInfo << endl;
+	}
+
+	outfile.close();
+}
 
 
 /**

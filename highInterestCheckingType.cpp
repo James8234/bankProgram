@@ -73,5 +73,5 @@ void highInterestCheckingType::print()
 
 string highInterestCheckingType::getAccountType() const
 {
-	return "High interest checking account";
+	return "highInterestCheckingType";
 }

@@ -63,5 +63,5 @@ void savingsAccountType::print()
 
 string savingsAccountType::getAccountType() const
 {
-	return "SavingAccount";
+	return "savingsAccountType";
 }

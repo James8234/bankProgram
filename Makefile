@@ -34,7 +34,7 @@ printMainMenu.o: printMainMenu.cpp header.h
 
 doublyLinkedListType.o: doublyLinkedListType.cpp doublyLinkedListType.h nodeType.h bankAccountType.h 
 
-addAccount.o: addAccount.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h doublyLinkedListType.h
+addAccount.o: addAccount.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h doublyLinkedListType.h managerAccount.h userAccount.h
 
 nodeType.o: nodeType.cpp nodeType.h
 
@@ -48,7 +48,8 @@ printLine.o: printLine.cpp header.h
 
 userAccount.o: userAccount.cpp userAccount.h header.h managerAccount.h
 
-managerAccount.o: managerAccount.cpp managerAccount.h header.h doublyLinkedListType.h userAccount.h
+managerAccount.o: managerAccount.cpp managerAccount.h header.h doublyLinkedListType.h userAccount.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h managerAccount.h
+
 
 # Clean up
 clean:

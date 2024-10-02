@@ -52,7 +52,22 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
  * id
  */
 
-void readAccountFile(vector<userAccount*> &userList);
+void readAccountFile(vector<userAccount*> &userList, int index);
+
+/**
+ * FUNCTION createBankAccount
+ *
+ * The purpose of this functino is to add your bank account info to the text file data base.
+ */
+
+void createBankAccount(userAccount *initialUser, string strObject, string username, string userId, int bal);
+
+/**
+ * Function bankAccountType *createAccounts
+ * The purpose of this function is to create the bank account reading it in from the file data base. then It creats an node with its at a member.
+ */
+
+bankAccountType *createAccountObject(string strObject, string username, string strBalance, string userId);
 
 //void createAccountFile();
 

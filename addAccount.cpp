@@ -6,6 +6,8 @@
 #include "highInterestCheckingType.h"
 #include "certificationOfDepositType.h"
 #include "doublyLinkedListType.h"
+#include "userAccount.h"
+#include "managerAccount.h"
 #include <random>
 #include <ctime>
 
@@ -49,7 +51,7 @@ void printAddAccounts(string acNum, string name, double balance, string accountT
    cout << "please enter a number here-->: ";  // Ask user what they want to modify
 }
 
-void addAccount(doublyLinkedListType *&accountsList)
+void addAccount(userAccount *&initialUser)
 {
    //variables
 	string name = "EMPTY ";
@@ -189,7 +191,10 @@ void addAccount(doublyLinkedListType *&accountsList)
 					// Add the new account to the list
 					if(correctData == true)
 					{
-						accountsList->createNodeType(newAccount);
+						//adds to the text data base
+						createBankAccount(initialUser, newAccount->getAccountType(), name, accountNumber, balance);
+						//adds to memory
+						initialUser->getLinkList()->createNodeType(newAccount);
 						exitAddAccount = true;//exits after account is create
 					}
 					else 

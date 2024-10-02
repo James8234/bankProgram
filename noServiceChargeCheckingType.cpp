@@ -94,5 +94,5 @@ void noServiceChargeCheckingType::print()
 
 string noServiceChargeCheckingType::getAccountType() const
 {
-	return "No Service charge checking account" ;
+	return "noServiceChargeCheckingType" ;
 }

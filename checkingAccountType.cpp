@@ -17,5 +17,5 @@ checkingAccountType::checkingAccountType(const checkingAccountType &object)
 
 string checkingAccountType::getAccountType() const
 {
-	return "Checking account";
+	return "checkingAccountType";
 }
