@@ -29,10 +29,10 @@ void accountList();
 void printMainMenu();
 void printAcctMenu();
 void printAddAcctMenu();
-void printAccountList(doublyLinkedListType *accountsList);
+void printAccountList(userAccount *initialUser);
 void printAccountInfo(nodeType *node);
 void printLine();
-void accountUI(doublyLinkedListType *&accountsList, nodeType *&node);
+void accountUI(userAccount *&initialUser, nodeType *&node);
 //add delete and edit accounts
 void addAccount(userAccount *&initialUser);
 //void deleteAccount();

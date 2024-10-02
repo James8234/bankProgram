@@ -38,11 +38,11 @@ addAccount.o: addAccount.cpp header.h savingsAccountType.h highInterestSavingsTy
 
 nodeType.o: nodeType.cpp nodeType.h
 
-printAccountList.o: printAccountList.cpp header.h nodeType.h doublyLinkedListType.h
+printAccountList.o: printAccountList.cpp header.h nodeType.h doublyLinkedListType.h userAccount.h
 
 printAccountInfo.o: printAccountInfo.cpp header.h nodeType.h doublyLinkedListType.h
 
-accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h
+accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h userAccount.h
 
 printLine.o: printLine.cpp header.h
 

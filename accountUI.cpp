@@ -1,6 +1,7 @@
 #include "header.h"
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
+#include "userAccount.h"
 
 /**
  * @file accountUI.cpp
@@ -21,7 +22,7 @@
  * return void
  */
 
-void accountUI(doublyLinkedListType *&accountList, nodeType *&node)
+void accountUI(userAccount *&initialUser, nodeType *&node)
 {
 	int choice = 0;
 	int amount = 0;
@@ -29,6 +30,7 @@ void accountUI(doublyLinkedListType *&accountList, nodeType *&node)
 
 	while(node != nullptr && !(exitProgram))
 	{
+		//clear the screen
 		cout << "\033c";
 
 		printAccountInfo(node);
@@ -49,10 +51,10 @@ void accountUI(doublyLinkedListType *&accountList, nodeType *&node)
 				node->data->deposit(amount);
 				break;
 			case 4:
-				accountList->editAccount(node);
+				initialUser->getLinkList()->editAccount(node);
 				break;
 			case 5:
-				accountList->deleteAccount(node);
+				initialUser->getLinkList()->deleteAccount(node);
 				exitProgram = true;
 				break;
 			case 6:
@@ -61,12 +63,8 @@ void accountUI(doublyLinkedListType *&accountList, nodeType *&node)
 			default :
 				cout << "An input error has occured" << endl;
 
-		}
+		}//switch(choice)
 
+	}//while(node != nullptr && !(exitProgram))
 
-	}
-
-
-
-
-}
+}//void

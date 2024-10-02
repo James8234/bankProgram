@@ -30,21 +30,15 @@ int main()
 	int totalNodes = 0;
 	//memory variables
 	nodeType *nodeAddress = nullptr;
-	doublyLinkedListType *accountsList = nullptr;
-
-
-
 	vector<userAccount*> userList; //make sure the account is recognized here
 	userAccount *initialUser; //constructor with default values wwill be used
 
 	//there should be a function for login here
 	int index = 0;
 
+	//This function reads in the text dataa base
 	readCredatialsFile(userList);
 	
-//	userList[0].print();
-
-//	return 0;
 
 	try
 	{
@@ -54,18 +48,15 @@ int main()
 			
 			//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
 			index = initialUser->displayLoginMenu(userList);
-//			cout << "The index as been returned" << index << endl;
-//			cin.ignore(100000 , '\n');
 
 			if(index <= -1)
 				throw std::runtime_error(" ");
 		
-		
+		//This statement gets the index of the desired account and stores it in a userAccount object to pass arount
 		if(userList[index]->getLinkList() != nullptr)
 		{
 			//this gets the linked list. a function is needed to read in the text file
-			accountsList = userList[index]->getLinkList();
-			initialUser = userList[index];
+			initialUser = userList[index]; //this can replace the doublyLinkedList object being passed arount because it holds it
 		}
 		else
 		{
@@ -79,7 +70,7 @@ int main()
 
 	   cout << "\033c"; //clears to screen
 
-		printAccountList(accountsList);
+		printAccountList(initialUser);
 	
 		totalNodes = nodeType::getNodeCount();
 
@@ -87,16 +78,17 @@ int main()
 
 		if(userChoice >= 2)
 		{
-			nodeAddress = accountsList->getAccountByIndex(userChoice);
+			//this function gets the desired bankaccount
+			nodeAddress = initialUser->getLinkList()->getAccountByIndex(userChoice);
 
 			if(nodeAddress != nullptr)
 			{
-				accountUI(accountsList, nodeAddress);
+				accountUI(initialUser, nodeAddress);
 			}
 			else
 			{
 				cout << "A null was returned enter anything to continue" << endl;
-				cin.ignore(10000 , '\n');
+				cin.ignore(100000 , '\n');
 			}
 		}
 		else if(userChoice == 1)

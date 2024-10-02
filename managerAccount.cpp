@@ -12,6 +12,31 @@
 #include "noServiceChargeCheckingType.h"
 
 /**
+ * Function
+ * This function will get the updated linkedList from memory after using edit account and update the text file data base
+ */
+
+void updateBankAccount(userAccount *initialUser)
+{
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/**
  * Function voidCreateAccountFile
  * 
  * The function will create an user bank file connected to thier account

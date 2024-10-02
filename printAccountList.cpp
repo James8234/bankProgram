@@ -1,10 +1,11 @@
 #include "header.h"
 #include "doublyLinkedListType.h"
 #include "nodeType.h"
+#include "userAccount.h"
 
-void printAccountList(doublyLinkedListType *accountList)
+void printAccountList(userAccount *initialUser)
 {
-	nodeType *current = accountList->getHead();
+	nodeType *current = initialUser->getLinkList()->getHead();
 	int userChoice = 0;
 	int index = 0;
 	int row = 2;
