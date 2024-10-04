@@ -20,6 +20,8 @@ class highInterestSavingsType: public savingsAccountType
 
 		virtual std::string getAccountType() const override;
 
+	~highInterestSavingsType() override {}
+
 	virtual bankAccountType *clone() const override
 	{
 		return new highInterestSavingsType(*this);

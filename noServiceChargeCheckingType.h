@@ -23,6 +23,8 @@ class noServiceChargeCheckingType: public checkingAccountType
 		virtual void createMonthlyStatement();
 		virtual void print() override;
 		virtual std::string getAccountType() const override;
+	
+		~noServiceChargeCheckingType() override {}
 
 		virtual bankAccountType *clone() const override
 		{

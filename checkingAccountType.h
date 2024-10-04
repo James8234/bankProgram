@@ -12,6 +12,8 @@ class checkingAccountType: public bankAccountType
 		//copy constructor
 		checkingAccountType(const checkingAccountType &object);
 
+		~checkingAccountType() override {}
+
       virtual void writeCheck(double amount) = 0;
 
 		virtual bankAccountType *clone() const override = 0;

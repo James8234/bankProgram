@@ -10,7 +10,7 @@
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
 #include "userAccount.h"
-#include "managerAccount.h"
+#include "fileManager.h"
 #include <stdexcept>
 
 
@@ -56,7 +56,7 @@ int main()
 		if(userList[index]->getLinkList() != nullptr)
 		{
 			//this gets the linked list. a function is needed to read in the text file
-			initialUser = userList[index]; //this can replace the doublyLinkedList object being passed arount because it holds it
+			initialUser = userList[index]; 
 		}
 		else
 		{

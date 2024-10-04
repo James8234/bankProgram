@@ -1,7 +1,5 @@
-#ifndef MANAGERACCOUNT_H
-#define MANAGERACCOUNT_H
-
-
+#ifndef FILEMANAGER_H
+#define FILEMANAGER_H
 
 #include <iostream>
 #include <fstream> // for file handling
@@ -76,13 +74,15 @@ bankAccountType *createAccountObject(string strObject, string username, string s
  * one person can update at a time.
  */
 
-void updateBankAccunt(userAccount *initialUser);
+void updateBankAccountFile(userAccount *&initialUser);
 
 
 //void createAccountFile();
 
 //this function reads the data from namedat into the linkedList which is a member of userAccount
 //void readNamedatFile();
+string convertDoubleToString(double bankBalance);
+
 
 #endif
 

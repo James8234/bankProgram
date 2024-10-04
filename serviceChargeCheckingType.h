@@ -25,6 +25,8 @@ class serviceChargeCheckingType: public checkingAccountType
 		virtual void print() override;
 		virtual std::string getAccountType() const override;
 
+		~serviceChargeCheckingType() {}
+
 		virtual bankAccountType *clone() const override
 		{
 			return new serviceChargeCheckingType(*this);

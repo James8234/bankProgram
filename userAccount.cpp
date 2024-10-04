@@ -1,12 +1,13 @@
 //#include "counteract.h"
 #include "userAccount.h"
-#include "managerAccount.h"
+#include "fileManager.h"
 #include "header.h"
 
 #include <termios.h>
 #include <unistd.h>
 
-int getch() {
+int getch() 
+{
     int ch;
     // struct to hold the terminal settings
     struct termios old_settings, new_settings;
@@ -28,7 +29,8 @@ int getch() {
 }
 
 // Function to hide the password input and return the entered password
-string hidePassword() {
+string hidePassword() 
+{
     string hiddenPassword;
     int ch;
 
@@ -179,6 +181,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 									
 				if(index >= 0)
 				{
+					users[index]->setLinkedListType(new doublyLinkedListType);
 					return index; //returns the index of the uesr account
 					exitProgram = true;
 				}
@@ -225,7 +228,6 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	string usr;
 	string pswd;
 	string id;
-	doublyLinkedListType *newLinkList;
 	int index = 0;
 
 	//get user input
@@ -246,8 +248,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	//checks if the account already exist. returns a findAccountIndex returns a -1 when it dose not already exist
 	if(0 > index && index != -2)
 	{
-		newLinkList = new doublyLinkedListType;
-      users.emplace_back(new userAccount(usr, pswd, id, newLinkList));
+      users.emplace_back(new userAccount(usr, pswd, id, new doublyLinkedListType));
 		createAccountFile(users, usr, pswd, id);
 		index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
 	}
@@ -339,5 +340,16 @@ void userAccount::print()
 	cout << "The password" << password << endl;
 	cout << "The id " << id << endl;
 	cout << "\033[0m";
+}
+
+void userAccount::setLinkedListType(doublyLinkedListType *newList)
+{
+	if(linkList != nullptr)
+	{
+		delete linkList;
+	}
+
+	linkList = newList;
+
 }
 

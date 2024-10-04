@@ -20,6 +20,8 @@ class highInterestCheckingType: public noServiceChargeCheckingType
 		virtual void print() override;
 		virtual std::string getAccountType() const override;
 
+		~highInterestCheckingType() override {}
+
 		virtual bankAccountType *clone() const override
 		{
 			return new highInterestCheckingType(*this);

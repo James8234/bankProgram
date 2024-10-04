@@ -3,14 +3,14 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o managerAccount.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o fileManager.o
 
 default: run
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h managerAccount.h
+main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h
 
 bankAccountType.o: bankAccountType.cpp bankAccountType.h
 
@@ -32,9 +32,9 @@ checkVaildInteger.o: checkVaildInteger.cpp header.h
 
 printMainMenu.o: printMainMenu.cpp header.h
 
-doublyLinkedListType.o: doublyLinkedListType.cpp doublyLinkedListType.h nodeType.h bankAccountType.h 
+doublyLinkedListType.o: doublyLinkedListType.cpp doublyLinkedListType.h nodeType.h bankAccountType.h userAccount.h fileManager.h
 
-addAccount.o: addAccount.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h doublyLinkedListType.h managerAccount.h userAccount.h
+addAccount.o: addAccount.cpp header.h savingsAccountType.h highInterestSavingsType.h noServiceChargeCheckingType.h highInterestCheckingType.h certificationOfDepositType.h doublyLinkedListType.h fileManager.h userAccount.h
 
 nodeType.o: nodeType.cpp nodeType.h
 
@@ -42,13 +42,13 @@ printAccountList.o: printAccountList.cpp header.h nodeType.h doublyLinkedListTyp
 
 printAccountInfo.o: printAccountInfo.cpp header.h nodeType.h doublyLinkedListType.h
 
-accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h userAccount.h
+accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h
 
 printLine.o: printLine.cpp header.h
 
-userAccount.o: userAccount.cpp userAccount.h header.h managerAccount.h
+userAccount.o: userAccount.cpp userAccount.h header.h fileManager.h
 
-managerAccount.o: managerAccount.cpp managerAccount.h header.h doublyLinkedListType.h userAccount.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h managerAccount.h
+fileManager.o: fileManager.cpp fileManager.h header.h doublyLinkedListType.h userAccount.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h
 
 
 # Clean up

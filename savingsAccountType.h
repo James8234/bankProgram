@@ -21,6 +21,7 @@ public:
 	//copy constructor
 	savingsAccountType(const savingsAccountType& object);
 
+	~savingsAccountType() override {}
 
 
 	virtual bankAccountType* clone() const override

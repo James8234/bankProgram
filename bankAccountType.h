@@ -18,7 +18,7 @@ public:
    virtual void createMonthlyStatement() = 0;
    virtual void print();
 	virtual double getMinimumBalance();
-	virtual ~bankAccountType() {} //virtual destructor for proper cleanup
+	virtual ~bankAccountType() {} //virtual destructor for proper cleanup -must need for deleting one node
 
 	//constructor
 	virtual bankAccountType* clone() const = 0;

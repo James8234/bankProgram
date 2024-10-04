@@ -2,6 +2,8 @@
 #include "nodeType.h"
 #include "doublyLinkedListType.h"
 #include "bankAccountType.h"
+#include "userAccount.h"
+#include "fileManager.h"
 #include <iostream>
 
 const int doublyLinkedListType::ACCOUNT_OFFSET = 2;
@@ -24,6 +26,8 @@ doublyLinkedListType::~doublyLinkedListType()
 //	cout << "Within doublelinkedlist deconstructor " << endl;
 
 	deleteNodeType();
+//	cout << "deleteNodeType has been called" << endl;
+//	cin.ignore(10000 , '\n');
 //	cout << "After delete node type has been called " << endl;
 }
 
@@ -65,6 +69,7 @@ void doublyLinkedListType::createNodeType(bankAccountType *objData)
  * @function traverseLinkedList
  * @brief
  * This function purpose is traverse the link list
+ * and output the
  */
 
 void doublyLinkedListType::traverseLinkedList()
@@ -134,7 +139,7 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 		{
 			tail = current->prev; //update the tail before deleting it
 		}
-		
+		delete current->data;
 		delete current;
 		nodeType::decNodeCount();
 	}

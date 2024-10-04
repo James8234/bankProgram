@@ -27,6 +27,7 @@ class userAccount
 		string getUsername();
 		string getPassword();
 		doublyLinkedListType* getLinkList();
+		void setLinkedListType(doublyLinkedListType* newList);
 
 		//print functions
 		void print();

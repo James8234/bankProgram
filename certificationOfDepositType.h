@@ -26,6 +26,8 @@ class certificationOfDepositType: public bankAccountType
 
         virtual void print() override;
 
+		~certificationOfDepositType() override {}
+
 		virtual bankAccountType *clone() const override
 		{
 			return new certificationOfDepositType(*this);

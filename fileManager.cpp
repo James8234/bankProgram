@@ -1,4 +1,4 @@
-#include "managerAccount.h"
+#include "fileManager.h"
 #include "header.h"
 #include "doublyLinkedListType.h"
 #include "userAccount.h"
@@ -14,25 +14,71 @@
 /**
  * Function
  * This function will get the updated linkedList from memory after using edit account and update the text file data base
+ * This function will create an copy of the text file and replace it with the updated info
  */
 
-void updateBankAccount(userAccount *initialUser)
+void updateBankAccountFile(userAccount *&initialUser)
 {
 
+	//variables
+	string username = " ";
+	double bankBalance = 0;
+	string userBalance = " ";
+	string userID = " ";
+	string userType = " ";
+	string line = " ";
+	string filepath = " ";
 
+	nodeType *currentPtr = nullptr;
+	string name1 = initialUser->getUsername();
 
+	filepath = "./data/" + name1 + ".dat";
 
+	//open the files
+	ifstream file(filepath.c_str());
+	ofstream temp("./data/temp.dat");
 
+	if(!file.is_open())
+	{
+		cerr << "Error unable to open input file" << filepath << endl;
+		cin.ignore(100000 , '\n');
+	}
 
+	if(!temp.is_open())
+	{
+		cerr << "Error unable to open output file for writing" << endl;
+		cin.ignore(10000 , '\n');
+	}
 
+	currentPtr = initialUser->getLinkList()->getHead();
+	
+	while(currentPtr != nullptr && currentPtr->data != nullptr)	
+	{
+		//get the member variables of the class
+		userType 	= currentPtr->data->getAccountType();
+		username 	= currentPtr->data->getName();
+		bankBalance = currentPtr->data->getBalance();
+		userBalance = convertDoubleToString(bankBalance);
+		userID 		= currentPtr->data->getAccountNumber();
 
+		//create the class in textfile
+		line = userType + ":" + username + ":" + userBalance + ":" + userID;
+
+		temp << line << endl;
+
+		currentPtr = currentPtr->next;
+	}
+
+	file.close();
+	temp.close();
+	remove(filepath.c_str());
+	if(rename("./data/temp.dat", filepath.c_str()) != 0)
+	{
+		cerr << "error unable to rename temp file" << endl;
+		cin.ignore(10000 , '\n');
+	}
 
 }
-
-
-
-
-
 
 
 
@@ -89,10 +135,19 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 	size_t firstPosition = 0;
 	size_t secondPosition = 0;
 	size_t thiredPosition = 0;
-//	bankAccountType *newAccount = nullptr;
+	//temp variable
+	bankAccountType *newAccount = nullptr;
 
+	//set the doublyLinkedList
+
+	
+
+//	cout << "The readAccountFile has been called " << endl;
+//	cin.ignore(10000 , '\n');
 
 	ifstream outfile(filepath.c_str(), ios::app);
+
+	
 
 	if(outfile)
 	{
@@ -117,9 +172,18 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 			//create a function that gets the object type from strObject
 //			newAccount = createAccount();
 				//once the object is read in
-			if(createAccountObject(strObject, username, strBalance, userId) != nullptr)
+			newAccount = createAccountObject(strObject, username, strBalance, userId);
+			if(newAccount != nullptr)
 			{
-				userList[index]->getLinkList()->createNodeType(createAccountObject(strObject, username, strBalance, userId));
+				if(userList[index]->getLinkList() != nullptr)
+				{
+					userList[index]->getLinkList()->createNodeType(newAccount);
+				}
+				else
+				{
+					userList[index]->setLinkedListType(new doublyLinkedListType);
+					userList[index]->getLinkList()->createNodeType(newAccount);
+				}
 			}
 		}//while(getline(outfile, line))
 	}//if(outfile)
@@ -130,6 +194,8 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 		cin.ignore(100000 , '\n');
 	}
 	outfile.close();
+	//clean up the temp variables
+	delete newAccount;
 
 }
 
@@ -194,6 +260,8 @@ void createBankAccount(userAccount *initialUser, string strObject, string userna
 {
 	string newBankAccountInfo = " ";
 	string accountFile = "./data/" + initialUser->getUsername() + ".dat";
+
+	//set the doublyLinkedList when the user has created an account
 
 	string balance = std::to_string(bal);
 
@@ -277,8 +345,8 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 			userName = line.substr(0, firstPosition);
 			userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
 			userId = line.substr(secondPosition + 1);
-			//creates the elements of the vector
-   		accountList.emplace_back(new userAccount(userName,userPassword,userId,new doublyLinkedListType));
+			//creates the elements of the vector. Note the doublyLinkedList is set to nullptr to not create not needed objects
+   		accountList.emplace_back(new userAccount(userName,userPassword,userId,nullptr));
 		}
 
 	}
@@ -291,4 +359,25 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 //		cout << "password: " << accountList[index].getPassword() << endl;
 //		index++;
 //	} 
+}
+
+
+//the purpose of this function is to return a double from a string and if a expection happens its made zero
+string convertDoubleToString(double bankBalance)
+{
+	string strNum = "0";
+
+	try
+	{
+		strNum = to_string(bankBalance);
+	}
+	catch(const std::invalid_argument& e)
+	{
+		cout << "error can not convert balance to int" << endl;
+		cin.ignore(10000 , '\n');
+		strNum = "0";
+	}
+
+	return strNum;
+
 }
