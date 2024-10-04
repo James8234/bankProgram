@@ -2,6 +2,7 @@
 #include "userAccount.h"
 #include "fileManager.h"
 #include "header.h"
+#include "deactivateAccount.h"
 
 #include <termios.h>
 #include <unistd.h>
@@ -270,6 +271,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 	int index = -1;
    int choice;
 	bool exitProgram = false;
+	deactivateAccount deactivateService;
 
 	do 
 	{
@@ -300,7 +302,15 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 					return index;	
 				}	
             break;
-			case 3:	               
+			case 3:
+				if (index > -1) {
+					deactivateService.deactivateUserAccount(*users[index]);
+				}
+				else {
+					cout << "You must be logged in to deactivate an account." << endl;
+				}
+			break;
+			case 4:
 				cout << "Exiting...\n";						
 				exitProgram = true;                
 				break;           
@@ -324,7 +334,8 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-   cout << "3. Exit\n";
+   cout << "3. Deactivate account\n";
+	cout << "4. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
    cout << "Enter your choice: -->: ";
@@ -342,6 +353,7 @@ void userAccount::print()
 	cout << "\033[0m";
 }
 
+<<<<<<< HEAD
 void userAccount::setLinkedListType(doublyLinkedListType *newList)
 {
 	if(linkList != nullptr)
@@ -353,3 +365,8 @@ void userAccount::setLinkedListType(doublyLinkedListType *newList)
 
 }
 
+=======
+userAccount::userAccount() {
+	isActive = true;  // set account as active when a user is created
+}
+>>>>>>> refs/remotes/origin/main

@@ -1,4 +1,4 @@
-#ifndef USEREACCOUNT_H_
+#ifndef USERACCOUNT_H_
 #define USERACCOUNT_H_
 
 #include<string>
@@ -17,6 +17,9 @@ class userAccount
 		string userType;
 
 		doublyLinkedListType *linkList;
+
+	bool isActive; // deactivateAccount function
+	userAccount();
 
 
 		//constructors
