@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o managerAccount.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o managerAccount.o deactivateAccount.o
 
 default: run
 
@@ -46,9 +46,11 @@ accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h userAccoun
 
 printLine.o: printLine.cpp header.h
 
-userAccount.o: userAccount.cpp userAccount.h header.h managerAccount.h
+userAccount.o: userAccount.cpp userAccount.h header.h managerAccount.h deactivateAccount.h deactivateAccount.cpp
 
 managerAccount.o: managerAccount.cpp managerAccount.h header.h doublyLinkedListType.h userAccount.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h managerAccount.h
+
+deactivateAccount.o: deactivateAccount.cpp deactivateAccount.h userAccount.h header.h
 
 
 # Clean up
