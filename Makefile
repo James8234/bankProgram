@@ -3,14 +3,14 @@ CFLAGS = -Wall -Werror -Wpedantic -std=c++20
 CC = g++ 
 
 # Object files
-OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o fileManager.o deactivateAccount.o
+OBJECTS = bankAccountType.o certificationOfDepositType.o checkingAccountType.o highInterestSavingsType.o main.o savingsAccountType.o serviceChargeCheckingType.o highInterestCheckingType.o noServiceChargeCheckingType.o checkVaildInteger.o printMainMenu.o doublyLinkedListType.o addAccount.o nodeType.o printAccountList.o printAccountInfo.o accountUI.o printLine.o userAccount.o fileManager.o deactivateAccount.o bankEmployee.o
 
 default: run
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h
+main.o: main.cpp header.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h deactivateAccount.h bankEmployee.o
 
 bankAccountType.o: bankAccountType.cpp bankAccountType.h
 
@@ -51,6 +51,8 @@ userAccount.o: userAccount.cpp userAccount.h header.h fileManager.h deactivateAc
 fileManager.o: fileManager.cpp fileManager.h header.h doublyLinkedListType.h userAccount.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h
 
 deactivateAccount.o: deactivateAccount.cpp deactivateAccount.h userAccount.h header.h
+
+bankEmployee.o: bankEmployee.cpp bankEmployee.h
 
 
 # Clean up

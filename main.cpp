@@ -12,6 +12,7 @@
 #include "userAccount.h"
 #include "fileManager.h"
 #include "bankEmployee.h"
+#include "deactivateAccount.h"
 #include <stdexcept>
 
 
@@ -75,7 +76,7 @@ int main()
 					}
 					else if(userChoice == 2)
 					{
-						deactivateUserAccount(account);
+						deactivateAccount(account);
 					}
 					else if(userChoice == 0)
 					{

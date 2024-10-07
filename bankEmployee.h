@@ -1,5 +1,5 @@
-#ifndef BANK_EMPLOYEE_H
-#define BANK_EMPLOYEE_H
+#ifndef BANKEMPLOYEE_H
+#define BANKEMPLOYEE_H
 
 #include "userAccount.h"
 #include<iostream>
