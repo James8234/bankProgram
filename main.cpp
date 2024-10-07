@@ -11,6 +11,7 @@
 #include "doublyLinkedListType.h"
 #include "userAccount.h"
 #include "fileManager.h"
+#include "bankEmployee.h"
 #include <stdexcept>
 
 
@@ -51,6 +52,37 @@ int main()
 
 			if(index <= -1)
 				throw std::runtime_error(" ");
+
+			bankEmployee* employee = dynamic_cast<bankEmployee*>(initialUser);
+			if (employee != nullptr)
+			{
+				do
+				{
+					cout << "\033c";
+					cout << "Bank Employee Menu: " << endl;
+					cout << "<1> View all user accounts" << endl;
+					cout << "<2> Deactivate a user account" << endl;
+					cout << "<0> Logout" << endl;
+
+					userChoice = checkVaildInteger(2,0);
+
+					if (userChoice == 1)
+					{
+						employee->viewAllaccounts(userList);
+					}
+					else if(userChoice == 2)
+					{
+						deactivateUserAccount(account);
+					}
+					else if(userChoice == 0)
+					{
+						exitProgram = true;
+					}
+
+				} while (!exitProgram);
+				
+			}
+
 		
 		//This statement gets the index of the desired account and stores it in a userAccount object to pass arount
 		if(userList[index]->getLinkList() != nullptr)

@@ -55,7 +55,8 @@ void deleteAllAccounts(vector<userAccount*> &userList);
 
 
 		//deconstructor
-		~userAccount() {}
+	virtual ~userAccount() {}
+	
 	private:
 
 
