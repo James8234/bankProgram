@@ -9,9 +9,9 @@ using namespace std;
 
 bankAccountType::bankAccountType(string n, string acctNumber, double bal)
 {
-        name = n;
-        accountNumber = acctNumber;
-        balance = bal;
+	name = n;
+	accountNumber = acctNumber;
+	balance = bal;
 }
 
 string bankAccountType::getAccountNumber()

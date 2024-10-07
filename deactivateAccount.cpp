@@ -1,4 +1,6 @@
 #include "deactivateAccount.h"
+#include "userAccount.h"
+#include "header.h"
 #include <iostream>
 
 using namespace std;
