@@ -353,7 +353,6 @@ void userAccount::print()
 	cout << "\033[0m";
 }
 
-<<<<<<< HEAD
 void userAccount::setLinkedListType(doublyLinkedListType *newList)
 {
 	if(linkList != nullptr)
@@ -365,8 +364,9 @@ void userAccount::setLinkedListType(doublyLinkedListType *newList)
 
 }
 
-=======
-userAccount::userAccount() {
+
+userAccount::userAccount() 
+{
 	isActive = true;  // set account as active when a user is created
 }
->>>>>>> refs/remotes/origin/main
+
