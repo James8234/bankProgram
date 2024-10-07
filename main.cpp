@@ -31,7 +31,10 @@ int main()
 	//memory variables
 	nodeType *nodeAddress = nullptr;
 	vector<userAccount*> userList; //make sure the account is recognized here
-	userAccount *initialUser; //constructor with default values wwill be used
+	userAccount *initialUser = nullptr; //constructor with default values wwill be used
+
+	//This memeory variable store the transactionHistory
+//	const vector<transaction> & transactionHistory
 
 	//there should be a function for login here
 	int index = 0;

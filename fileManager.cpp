@@ -173,6 +173,7 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 //			newAccount = createAccount();
 				//once the object is read in
 			newAccount = createAccountObject(strObject, username, strBalance, userId);
+
 			if(newAccount != nullptr)
 			{
 				if(userList[index]->getLinkList() != nullptr)
@@ -184,6 +185,8 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 					userList[index]->setLinkedListType(new doublyLinkedListType);
 					userList[index]->getLinkList()->createNodeType(newAccount);
 				}
+				//clean up the pointer in the loop
+				delete newAccount;
 			}
 		}//while(getline(outfile, line))
 	}//if(outfile)
@@ -194,9 +197,6 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 		cin.ignore(100000 , '\n');
 	}
 	outfile.close();
-	//clean up the temp variables
-	delete newAccount;
-
 }
 
 //the purpose of this function is to return a pointer to the objcet provided a string

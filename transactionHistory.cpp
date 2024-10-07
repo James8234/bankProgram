@@ -11,16 +11,21 @@ transaction::transaction(string t, int amt, int id)
 	: type(t), amount(amt), transactionID(id) {
 }
 
-void displayTransactionHistory(const vector<transaction>& transactionHistory) {
+void displayTransactionHistory(const vector<transaction>& transactionHistory)
+{
 	// const vector<transaction>& transactionHistory = node->data->getTransactionHistory();
 
-	if (transactionHistory.empty()) {
+	if (transactionHistory.empty())
+	{
 		cout << "No transactions to display." << endl;
 	} 
-	else {
+	else 
+	{
 		cout << setfill('=') << setw(50) << "" << setfill(' ') << endl;
 		cout << "Transaction History:" << endl;
-		for (const auto& t : transactionHistory) {
+		//the t variables stores the object 
+		for (const auto& t : transactionHistory)
+		{
 			cout << "Transaction #" << t.transactionID + 1 << ": " << t.type << " of amount $" << t.amount << endl;
 		}
 	}

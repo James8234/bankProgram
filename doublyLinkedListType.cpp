@@ -141,6 +141,7 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 		}
 		delete current->data;
 		delete current;
+		current = nullptr;
 		nodeType::decNodeCount();
 	}
 	else
