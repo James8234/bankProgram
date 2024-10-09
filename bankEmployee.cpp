@@ -5,7 +5,7 @@ void bankEmployee::viewAllaccounts(const vector<userAccount*>& users)
     cout << "Displaying all user accounts: " << endl;
     for(const auto& user : users)
     {
-        cout << "Username: " << user->getUsername() << ", ID: " << user->id << ", Type: " << user->userType << endl;
+        cout << "Username: " << user->getUsername() << ", ID: " << user->getID() << ", Type: "  <<  getUserType() << endl; 
     }
 }
 
@@ -14,11 +14,14 @@ int bankEmployee::loginAccount(vector<userAccount*>& users)
     string usr, pswd;
     cout << "Enter username: ";
     cin >> usr;
+	cin.ignore(100000 , '\n');
     cout << "Enter password: ";
     cin >> pswd;
+	cin.ignore(100000 , '\n');
 
     int index = findAccountIndex(users, usr, pswd);
-    if (index >= 0 && users[index]->userType == "bankEmployee")
+
+    if (index >= 0 && users[index]->getUserType() == "bankEmployee")
     {
         cout << "Bank Employee login successful!" << endl;
         return index;

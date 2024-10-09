@@ -60,6 +60,11 @@ userAccount::userAccount(const string& usr, const string& pswd, string userId, d
 	linkList = newLinkList;
 }
 
+string userAccount::getUserType()
+{
+	return userType;
+}
+
 bool userAccount::getIsActive()
 {
 	return isActive;

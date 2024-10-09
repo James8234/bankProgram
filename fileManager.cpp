@@ -10,6 +10,7 @@
 #include "serviceChargeCheckingType.h"
 #include "highInterestCheckingType.h"
 #include "noServiceChargeCheckingType.h"
+#include <filesystem>
 
 /**
  * Function
@@ -287,6 +288,7 @@ void createSubdirectory()
 	//Specify the subdirectory and flie name
 	string subdirectory = "./data/";
 	string filename     = "credentials.dat";
+	string secondFileName = "./data/bankEmployeeCredentials.dat";
 	
 	//creates the subdirectory if it doesn't exist
 	if(mkdir(subdirectory.c_str(), 0777) == -1)
@@ -297,6 +299,17 @@ void createSubdirectory()
 			//return 1; ends program
 		}
 	}
+
+	
+	//This if statment creates the text file if it doesn't exist
+	if(!(filesystem::exists(secondFileName)))
+	{
+		ofstream temp(secondFileName.c_str());
+
+		temp.close();
+	}
+
+
 }
 
 

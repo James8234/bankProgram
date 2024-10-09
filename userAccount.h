@@ -31,6 +31,7 @@ class userAccount
    	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr);
 	
 		//geters
+		string getUserType();
 		bool  getIsActive();
 		string getUsername();
 		string getPassword();
