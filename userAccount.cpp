@@ -60,6 +60,11 @@ userAccount::userAccount(const string& usr, const string& pswd, string userId, d
 	linkList = newLinkList;
 }
 
+bool userAccount::getIsActive()
+{
+	return isActive;
+}
+
 string userAccount::getUsername()
 {
 	return username;
@@ -68,6 +73,11 @@ string userAccount::getUsername()
 string userAccount::getPassword()
 {
 	return password;
+}
+
+string userAccount::getID() const
+{
+	return id;
 }
 
 doublyLinkedListType* userAccount::getLinkList()

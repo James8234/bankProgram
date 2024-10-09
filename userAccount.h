@@ -10,16 +10,20 @@ using namespace std;
 
 class userAccount
 {
-	public:
+
+
+	protected:
 		string username;
 	   string password;
 	   string id;
 		string userType;
 
 		doublyLinkedListType *linkList;
+		bool isActive; // deactivateAccount function
 
-	bool isActive; // deactivateAccount function
-	userAccount();
+	public:
+
+		userAccount();
 
 
 		//constructors
@@ -27,8 +31,10 @@ class userAccount
    	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr);
 	
 		//geters
+		bool  getIsActive();
 		string getUsername();
 		string getPassword();
+		string getID() const;
 		doublyLinkedListType* getLinkList();
 		void setLinkedListType(doublyLinkedListType* newList);
 

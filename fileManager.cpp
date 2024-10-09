@@ -30,7 +30,7 @@ void updateBankAccountFile(userAccount *&initialUser)
 	string filepath = " ";
 
 	nodeType *currentPtr = nullptr;
-	string name1 = initialUser->getUsername();
+	string name1 = initialUser->getID();
 
 	filepath = "./data/" + name1 + ".dat";
 
@@ -72,6 +72,7 @@ void updateBankAccountFile(userAccount *&initialUser)
 	file.close();
 	temp.close();
 	remove(filepath.c_str());
+
 	if(rename("./data/temp.dat", filepath.c_str()) != 0)
 	{
 		cerr << "error unable to rename temp file" << endl;
@@ -93,7 +94,7 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
 {
 	string subdirectory = "./data/credentials.dat";
 	string newAccountInfo = username + ":" + userPassword + ":" + userId;
-	string newAccountFile = "./data/" + username + ".dat";
+	string newAccountFile = "./data/" + userId + ".dat";
 
 	ofstream outfile(subdirectory.c_str(), ios::app);
 
@@ -123,14 +124,14 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
 
 void readAccountFile(vector<userAccount*> &userList, int index)
 {
-	string name = userList[index]->getUsername();
+	string name = userList[index]->getID();
 	string filepath = "./data/" + name + ".dat";	
 	string line = " ";
 	//variables
 	string strObject = " ";
-	string username = "";
-	string strBalance = "";
-	string userId = "";
+	string username = " ";
+	string strBalance = " ";
+	string userId = " ";
 	//position varibales
 	size_t firstPosition = 0;
 	size_t secondPosition = 0;
@@ -138,18 +139,12 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 	//temp variable
 	bankAccountType *newAccount = nullptr;
 
-	//set the doublyLinkedList
-
-	
-
-//	cout << "The readAccountFile has been called " << endl;
-//	cin.ignore(10000 , '\n');
 
 	ifstream outfile(filepath.c_str(), ios::app);
 
 	
 
-	if(outfile)
+	if(outfile) //check if the file is open
 	{
 		while(getline(outfile, line))
 		{
@@ -206,7 +201,7 @@ bankAccountType *createAccountObject(string strObject, string username, string s
 
 	try
 	{
-		num = stod(strBalance);
+		num = stod(strBalance); //convert from string to double
 	}
 	catch(const std::invalid_argument& e)
 	{
@@ -259,7 +254,7 @@ bankAccountType *createAccountObject(string strObject, string username, string s
 void createBankAccount(userAccount *initialUser, string strObject, string username, string userId, int bal)
 {
 	string newBankAccountInfo = " ";
-	string accountFile = "./data/" + initialUser->getUsername() + ".dat";
+	string accountFile = "./data/" + initialUser->getID() + ".dat";
 
 	//set the doublyLinkedList when the user has created an account
 
