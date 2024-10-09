@@ -83,6 +83,8 @@ void updateBankAccountFile(userAccount *&initialUser);
 //void readNamedatFile();
 string convertDoubleToString(double bankBalance);
 
+void updateAccountFile(const vector<userAccount*>& accountList);
+
 
 #endif
 

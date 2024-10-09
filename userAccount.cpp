@@ -52,12 +52,13 @@ string hidePassword()
 }
 
 
-userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList)
+userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active)
 {
 	username = usr;
 	password = pswd;
 	id = userId;
 	linkList = newLinkList;
+	isActive = active;
 }
 
 string userAccount::getUserType()
@@ -65,10 +66,9 @@ string userAccount::getUserType()
 	return userType;
 }
 
-bool userAccount::getIsActive()
-{
-	return isActive;
-}
+//bool userAccount::getIsActive() const {
+//	return isActive;
+//}
 
 string userAccount::getUsername()
 {
@@ -318,12 +318,8 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				}	
             break;
 			case 3:
-				if (index > -1) {
-					deactivateService.deactivateUserAccount(*users[index]);
-				}
-				else {
-					cout << "You must be logged in to deactivate an account." << endl;
-				}
+			cout << "\033c";
+			deactivateAccountMenu(users);
 			break;
 			case 4:
 				cout << "Exiting...\n";						
@@ -349,7 +345,7 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-   cout << "3. Deactivate account\n";
+   cout << "3. Deactivate/Reactivate account\n";
 	cout << "4. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
@@ -384,4 +380,44 @@ userAccount::userAccount()
 {
 	isActive = true;  // set account as active when a user is created
 }
+
+void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
+    int choice;
+	
+	// displays list of accounts that shows their active/inactive status
+    cout << "List of accounts:\n";
+    for (size_t i = 0; i < users.size(); i++) {
+        cout << i + 1 << ". " << users[i]->getUsername() 
+             << " (Status: " << (users[i]->getIsActive() ? "active" : "inactive") << ")\n";
+    }
+
+    cout << "Select an account to deactivate/reactivate (0 to cancel): ";
+    cin >> choice;
+
+    if (choice <= 0 || choice > users.size()) {
+        cout << "Invalid or cancelled.\n";
+        return;
+    }
+
+    userAccount* selectedAccount = users[choice - 1]; // get the account selected by the user
+
+	// if the selected account is active, deactivate it
+	// if not, reactivate the account
+    if (selectedAccount->getIsActive()) {
+        selectedAccount->setIsActive(false);
+        cout << "Account " << selectedAccount->getUsername() << " has been deactivated.\n";
+    } else {
+        selectedAccount->setIsActive(true);
+        cout << "Account " << selectedAccount->getUsername() << " has been reactivated.\n";
+    }
+
+    //updates the credentials file with new account status
+    updateAccountFile(users);
+}
+
+// getter
+string userAccount::getUserId() {
+	return userId;
+}
+
 
