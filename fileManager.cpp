@@ -31,9 +31,9 @@ void updateBankAccountFile(userAccount *&initialUser)
 	string filepath = " ";
 
 	nodeType *currentPtr = nullptr;
-	string name1 = initialUser->getID();
+	string id1 = initialUser->getID();
 
-	filepath = "./data/" + name1 + ".dat";
+	filepath = "./data/" + id1 + ".dat";
 
 	//open the files
 	ifstream file(filepath.c_str());
@@ -82,8 +82,76 @@ void updateBankAccountFile(userAccount *&initialUser)
 
 }
 
+/**
+ * Function
+ * This function will update the vector from memory after using edit useraccount and update the text file data base
+ * This function will create an copy of the text file and replace it with the updated info
+ */
+
+void updateCredentialsFile(vector<userAccount*> &userList)
+{
+
+	//variables
+	string username = " ";
+	string userpassword = " ";
+	string userID = " ";
+	//temp variables
+	string line = " ";
+	string filepath = "./data/credentials.dat";
+	int index = 0;
+	size_t elements = 0;
+
+	elements = userList.size();
 
 
+	//open the files
+	ifstream file(filepath.c_str());
+	ofstream temp("./data/temp.dat");
+
+	if(!file.is_open())
+	{
+		cerr << "Error unable to open input file" << filepath << endl;
+		cin.ignore(100000 , '\n');
+		return;
+	}
+
+	if(!temp.is_open())
+	{
+		cerr << "Error unable to open output file for writing" << endl;
+		cin.ignore(10000 , '\n');
+		return;
+	}
+	
+	//this try statment handles exceptions like file corruption
+	
+	
+	
+	while(elements > index)	
+	{
+		//get the member variables of the class
+		username 	 = userList[index]->getUsername();
+		userpassword = userList[index]->getPassword();
+		userID 		 = userList[index]->getID(); 
+
+		//create the class in textfile
+		line = username + ":" + userpassword + ":" + userID;
+
+		temp << line << endl;
+
+		index++;
+	}
+
+	file.close();
+	temp.close();
+	remove(filepath.c_str());
+
+	if(rename("./data/temp.dat", filepath.c_str()) != 0)
+	{
+		cerr << "error unable to rename temp file" << endl;
+		cin.ignore(10000 , '\n');
+	}
+
+}
 /**
  * Function voidCreateAccountFile
  * 
@@ -358,15 +426,6 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 		}
 
 	}
-//	int elementCount = accountList.size();
-//	int index = 0;
-
-//	while(index < elementCount)
-//	{
-//		cout << "name: " <<	accountList[index].getUsername() << endl;
-//		cout << "password: " << accountList[index].getPassword() << endl;
-//		index++;
-//	} 
 }
 
 

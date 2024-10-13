@@ -6,7 +6,7 @@
 #include "fileManager.h"
 #include <iostream>
 
-const int doublyLinkedListType::ACCOUNT_OFFSET = 2;
+//const int doublyLinkedListType::ACCOUNT_OFFSET = 2;
 
 /**
  * file doublyLinkedListType.cpp
@@ -182,7 +182,7 @@ nodeType* doublyLinkedListType::getAccountByIndex(int accountIndex)
 {
 	nodeType *current = head;
 	nodeType *previous = nullptr;
-	accountIndex = accountIndex - ACCOUNT_OFFSET; //gets the accerate index sense the user choice start at one
+	accountIndex = accountIndex; //gets the accerate index sense the user choice start at one
 	int index = 0;
 
 	while(accountIndex >= index && current != nullptr)

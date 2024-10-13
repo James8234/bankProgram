@@ -68,6 +68,14 @@ void createBankAccount(userAccount *initialUser, string strObject, string userna
 bankAccountType *createAccountObject(string strObject, string username, string strBalance, string userId);
 
 /**
+ * Function updateCredentialsFile
+ * The purpose of this function sis to update the text file data base for credentials.dat using the vector
+ */
+
+
+void updateCredentialsFile(vector<userAccount*> &userList);
+
+/**
  * Function updateBankAccount
  * The purpose of this function is to update the text file data base using the linkedList in memory to create an
  * copy and replace the text file with updated information. There should be some type of lock to this system so

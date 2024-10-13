@@ -6,35 +6,20 @@
 void printAccountList(userAccount *initialUser)
 {
 	nodeType *current = initialUser->getLinkList()->getHead();
-	int userChoice = 0;
-	int index = 0;
-	int row = 2;
-	int totalAccounts = 0;
+	size_t index = 0;
+	size_t row 	 = 0;
+	size_t totalAccounts = 0;
+
+	//clear the screen
+	cout << "\033c";
 
 	cout << "Saucy Banking " << endl;
 	printLine();
 	cout << "Select an Account!" << endl;
 	printLine();
-	cout << "<0> Exit account: " << endl;
-	cout << "<1> Create an account: " << endl;
-	
+
+
 	totalAccounts = nodeType::getNodeCount();
-
-
-//	cout << "The account list will be output" << endl;
-//	cin.ignore(10000 , '\n');
-
-//	if(current == nullptr)
-//	{
-//		cout << "The current varible is nullptr";
-//		cin.ignore(10000 , '\n');
-//	}
-
-//	if(accountList->getHead() == nullptr)
-//	{
-//		cout << "head variable is null" << endl;
-//		cin.ignore(10000 , '\n');
-//	}
 
 	while(totalAccounts >= index && current != nullptr)
 	{
@@ -45,6 +30,5 @@ void printAccountList(userAccount *initialUser)
 	}
 	
 	printLine();
-	cout << "Please enter a number here -->: ";
-	
+	cout << "Please enter a number here -->: ";	
 }

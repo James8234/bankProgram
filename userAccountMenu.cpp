@@ -1,0 +1,72 @@
+#include "header.h"
+#include "userAccount.h"
+#include "doublyLinkedListType.h"
+
+
+void userAccountMenu(userAccount *initialUser)
+{
+
+	size_t userChoice = 0;
+	size_t totalNodes = 0;
+	size_t index = 0;
+	bool exitProgram = false;
+	nodeType *nodeAddress = nullptr;
+
+
+	do 
+	{
+	   cout << "\033c"; //clears to screen
+    
+		printAccountMenu();
+		totalNodes = nodeType::getNodeCount();
+		userChoice = checkVaildInteger(4, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
+	 
+		switch(userChoice)
+		{
+			case 0 :
+				exitProgram = true;
+				break;
+			case 1 :
+				addAccount(initialUser);
+				break;
+			case 2 :
+				if(totalNodes > 0)
+				{
+					printAccountList(initialUser);
+					index = checkVaildInteger(totalNodes, 0);	
+			
+   	      	nodeAddress = initialUser->getLinkList()->getAccountByIndex(index);
+	
+			  		if (nodeAddress != nullptr) 
+					{
+  		      		accountUI(initialUser, nodeAddress);
+  	      		} 
+					else
+					{
+	            	cout << "A null was returned enter anything to continue" << endl;
+	           		 cin.ignore(100000, '\n');
+	        		}
+				}
+				else
+				{
+					cout << "Sorry there are no accounts enter anything to contine --> ";
+					cin.ignore(100000 , '\n');
+				}
+				break;
+			case 3 :
+//				editUserAccount();
+				break;
+			case 4 :
+//				deleteUserAccount();
+				break;
+			default :
+				cout << "Input Error " << endl;
+				cin.ignore(1000000 , '\n');
+		}//switch(userChoice)
+
+//once the user has selceted an bank account it will return its index and get the nodeAddress
+
+
+	} while (!(exitProgram));
+
+}

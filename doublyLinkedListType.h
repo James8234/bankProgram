@@ -35,7 +35,7 @@ class doublyLinkedListType
 		nodeType *head;
 		nodeType *tail;
 
-		static const int ACCOUNT_OFFSET; //const value = 2
+//		static const int ACCOUNT_OFFSET; //const value = 2
 
 		bool lookUpAccount(string acctNum);
 

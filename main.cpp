@@ -31,7 +31,7 @@ int main()
 	bool exitProgram = false;
 	int totalNodes = 0;
 	//memory variables
-	nodeType *nodeAddress = nullptr;
+//	nodeType *nodeAddress = nullptr;
 	vector<userAccount*> userList; //make sure the account is recognized here
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
@@ -101,42 +101,46 @@ int main()
 
 	exitProgram = false; // sets it back to false
 
-	do
-	{
+	//menu
+	userAccountMenu(initialUser);
 
-	   cout << "\033c"; //clears to screen
+	//this is the menu
+//	do
+//	{
 
-		printAccountList(initialUser);
+//	   cout << "\033c"; //clears to screen
+
+//		printAccountList(initialUser);
 	
-		totalNodes = nodeType::getNodeCount();
+//		totalNodes = nodeType::getNodeCount();
 
-		userChoice = checkVaildInteger(totalNodes + 1, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
+//		userChoice = checkVaildInteger(totalNodes + 1, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 
-		if(userChoice >= 2)
-		{
+//		if(userChoice >= 2)
+//		{
 			//this function gets the desired bankaccount
-			nodeAddress = initialUser->getLinkList()->getAccountByIndex(userChoice);
+//			nodeAddress = initialUser->getLinkList()->getAccountByIndex(userChoice);
 
-			if(nodeAddress != nullptr)
-			{
-				accountUI(initialUser, nodeAddress);
-			}
-			else
-			{
-				cout << "A null was returned enter anything to continue" << endl;
-				cin.ignore(100000 , '\n');
-			}
-		}
-		else if(userChoice == 1)
-		{
-			addAccount(initialUser);
-		}
-		else if(userChoice == 0)
-		{
-			exitProgram = true;
-		}
-
-	}while(!(exitProgram));
+//			if(nodeAddress != nullptr)
+//			{
+//				accountUI(initialUser, nodeAddress);
+//			}
+//			else
+//			{
+//				cout << "A null was returned enter anything to continue" << endl;
+//				cin.ignore(100000 , '\n');
+//			}
+//		}
+//		else if(userChoice == 1)
+//		{
+//			addAccount(initialUser);
+//		}
+//		else if(userChoice == 0)
+//		{
+//			exitProgram = true;
+//		}
+//
+//	}while(!(exitProgram));
 
 	} //while(index >= 0)
 

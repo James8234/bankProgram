@@ -24,10 +24,15 @@ void account(doublyLinkedListType &accountsList);
 
 //main menu
 void accountList();
+void userAccountMenu(userAccount *initialUserss);
+void userAccountMenu(userAccount *initialUser);
 
 //menu's
 void printMainMenu();
 void printAcctMenu();
+
+void printAccountMenu();
+
 void printAddAcctMenu();
 void printAccountList(userAccount *initialUser);
 void printAccountInfo(nodeType *node);
