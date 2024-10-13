@@ -18,6 +18,7 @@ public:
 
     void viewAllaccounts(const vector<userAccount*>& users);
     int loginAccount(vector<userAccount*>& users);
+    void bankEmployeeMenu();
 
     ~bankEmployee() {}
 };

@@ -28,21 +28,28 @@ class userAccount
 
 		//constructors
 		//	User();
-   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr);
+   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true);
 	
 		//geters
-		string getUserType();
-		bool  getIsActive();
 		string getUsername();
+		// bool  getIsActive();
+		string getUserType();
 		string getPassword();
 		string getID() const;
 		doublyLinkedListType* getLinkList();
 		void setLinkedListType(doublyLinkedListType* newList);
 
+		string getUserId(); // getter for userid
+
+		bool getIsActive() const { return isActive; } // getter for isActive
+		void setIsActive(bool active) { isActive = active; } // setter for isActive
+
 		//print functions
 		void print();
 		void printLoginAccount(string usr, string pass);
 		void printMainMenu();
+
+		void deactivateAccountMenu(vector<userAccount*>& users);
 	
 		int loginAccount(vector<userAccount*> &users);
 	
@@ -65,7 +72,7 @@ void deleteAllAccounts(vector<userAccount*> &userList);
 	virtual ~userAccount() {}
 	
 	private:
-
+		string userId;
 
 };
 

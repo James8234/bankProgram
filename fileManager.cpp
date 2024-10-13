@@ -402,30 +402,44 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 	//position variables
 	size_t firstPosition = 0;
 	size_t secondPosition = 0;
+	size_t thirdPosition = 0;
 	//opens the file
-	ifstream infile(filepath.c_str(), ios::app);
+	//ifstream infile(filepath.c_str(), ios::app);
+
+	ifstream infile(filepath.c_str());
 	
 	if(!(infile.is_open()))
 	{
-		cout << "file did not open" ;	
+		cout << "file did not open";	
 	}
 
 	while(getline(infile, line))
 	{
 		firstPosition = line.find(':');
 		secondPosition = line.find(':', firstPosition + 1);
+		thirdPosition = line.find(':', secondPosition + 1);
+		// gets the username, password, and userid based on the positions
+		if (firstPosition != string::npos && secondPosition != string::npos) {
+            userName = line.substr(0, firstPosition);
+            userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
+            userId = line.substr(secondPosition + 1, (thirdPosition != string::npos) ? thirdPosition - secondPosition - 1 : string::npos);
 
-		if(firstPosition != string::npos && secondPosition != string::npos)
-		{
-			//./substr(start, end)
-			userName = line.substr(0, firstPosition);
-			userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
-			userId = line.substr(secondPosition + 1);
-			//creates the elements of the vector. Note the doublyLinkedList is set to nullptr to not create not needed objects
-   		accountList.emplace_back(new userAccount(userName,userPassword,userId,nullptr));
-		}
+            bool isActive = true; // the account is active by default
+
+            // if a third position exists check if the account is active/inactive
+            if (thirdPosition != string::npos) {
+                string status = line.substr(thirdPosition + 1);
+                isActive = (status == "active");
+            }
+				// adds the user account to the account list
+            accountList.emplace_back(new userAccount(userName, userPassword, userId, nullptr, isActive));
+        }
 
 	}
+<<<<<<< HEAD
+=======
+	infile.close();
+>>>>>>> refs/remotes/origin/main
 }
 
 
@@ -447,4 +461,22 @@ string convertDoubleToString(double bankBalance)
 
 	return strNum;
 
+}
+
+// updates the credentials file with deactiavte/activated status
+void updateAccountFile(const vector<userAccount*>& accountList) {
+    string filepath = "./data/credentials.dat";
+    ofstream outfile(filepath.c_str());
+
+    if (!outfile.is_open()) {
+        cout << "file did not open" << endl;
+        return;
+    }
+
+    for (const auto& account : accountList) {
+        string status = account->getIsActive() ? "active" : "inactive";
+        outfile << account->getUsername() << ":" << account->getPassword() << ":" << account->getUserId() << ":" << status << endl;
+    }
+
+    outfile.close();
 }
