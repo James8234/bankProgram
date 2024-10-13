@@ -40,7 +40,7 @@ void bankEmployee::bankEmployeeMenu()
 	cout << "1. View all user accounts\n";
 	cout << "2. Deactivate a user accounts\n";
 	cout << "3. Reactivate a user account\n";
-	cout << "4. Logout\n"
+	cout << "4. Logout\n";
 	printLine();
 	cout << "\033[5;1;32m";
 	cout << "Enter your choice: -->: ";

@@ -436,10 +436,9 @@ void readCredatialsFile(vector<userAccount*> &accountList)
         }
 
 	}
-<<<<<<< HEAD
-=======
+
 	infile.close();
->>>>>>> refs/remotes/origin/main
+
 }
 
 
