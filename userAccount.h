@@ -30,6 +30,10 @@ class userAccount
 		//	User();
    	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true);
 	
+		//setters
+		void setUsername(string tempUsername);
+		void setPassword(string tempPassword);
+
 		//geters
 		string getUsername();
 		// bool  getIsActive();
@@ -48,6 +52,8 @@ class userAccount
 		void print();
 		void printLoginAccount(string usr, string pass);
 		void printMainMenu();
+		void printEditUserAccount(string tempName, string tempPassword);
+
 
 		void deactivateAccountMenu(vector<userAccount*>& users);
 	
@@ -60,6 +66,14 @@ class userAccount
 		int findAccountIndex(vector<userAccount*> users, string username, string password);
 
 	   bool validLogin(const string& usr, const string& pswd, string id);
+		
+		/**
+		 *	FUNCTION editUserAccount
+		 *
+  		 * The purpose of this function is to allow the user to edit their userAccount info
+		 */
+
+		void editUserAccount(userAccount *initialUser);
 
 /**
  * FUNCTION void deleteAllAccounts

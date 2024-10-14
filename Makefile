@@ -56,7 +56,7 @@ bankEmployee.o: bankEmployee.cpp bankEmployee.h
 
 printAccountMenu.o: printAccountMenu.cpp header.h
 
-userAccountMenu.o: userAccountMenu.cpp header.h doublyLinkedListType.h userAccount.h
+userAccountMenu.o: userAccountMenu.cpp header.h doublyLinkedListType.h userAccount.h fileManager.h
 
 
 # Clean up

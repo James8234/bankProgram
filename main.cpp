@@ -102,7 +102,7 @@ int main()
 	exitProgram = false; // sets it back to false
 
 	//menu
-	userAccountMenu(initialUser);
+	userAccountMenu(initialUser, userList);
 
 	//this is the menu
 //	do

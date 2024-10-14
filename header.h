@@ -24,8 +24,8 @@ void account(doublyLinkedListType &accountsList);
 
 //main menu
 void accountList();
-void userAccountMenu(userAccount *initialUserss);
-void userAccountMenu(userAccount *initialUser);
+
+void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList);
 
 //menu's
 void printMainMenu();

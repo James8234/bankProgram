@@ -1,9 +1,10 @@
 #include "header.h"
 #include "userAccount.h"
 #include "doublyLinkedListType.h"
+#include  "fileManager.h"
 
 
-void userAccountMenu(userAccount *initialUser)
+void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 {
 
 	size_t userChoice = 0;
@@ -19,7 +20,7 @@ void userAccountMenu(userAccount *initialUser)
     
 		printAccountMenu();
 		totalNodes = nodeType::getNodeCount();
-		userChoice = checkVaildInteger(4, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
+		userChoice = checkVaildInteger(3, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 	 
 		switch(userChoice)
 		{
@@ -54,15 +55,18 @@ void userAccountMenu(userAccount *initialUser)
 				}
 				break;
 			case 3 :
-//				editUserAccount();
+				initialUser->editUserAccount(initialUser);
+				updateCredentialsFile(userList);
 				break;
-			case 4 :
+//			case 4 :
 //				deleteUserAccount();
-				break;
+//				break;
 			default :
 				cout << "Input Error " << endl;
 				cin.ignore(1000000 , '\n');
 		}//switch(userChoice)
+
+	
 
 //once the user has selceted an bank account it will return its index and get the nodeAddress
 

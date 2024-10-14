@@ -4,6 +4,7 @@
 
 void printAccountInfo(nodeType *node)
 {
+	cout << "\033[1;32m";
 	printLine();
 	cout << "<#> " << node->data->getAccountType() << endl;
 	printLine();
@@ -19,7 +20,9 @@ void printAccountInfo(nodeType *node)
 	cout << "<5> Delete account" << endl;
 	cout << "<6> Exit account" << endl;
 	printLine();
+	cout << "\033[5;1;32m";
 	cout << "Please enter a number here-->: " ;
+	cout << "\033[0m";
 
 }
 

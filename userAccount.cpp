@@ -7,6 +7,91 @@
 #include <termios.h>
 #include <unistd.h>
 
+/**
+ * The purpose of this edit function is to update the user name and password when the user has choicen
+ */
+
+void userAccount::editUserAccount(userAccount *initialUser)
+{
+	string tempName = initialUser->getUsername();
+	string tempPassword = initialUser->getPassword();
+	bool exitProgram = false;
+	bool unsavedData = false;
+	int choice = 0;
+	char exit;
+
+	while(initialUser != nullptr && !(exitProgram))
+	{
+		cout << "\033c"; //clears the screen
+		printEditUserAccount(tempName, tempPassword);
+
+		choice = checkVaildInteger(5, -1);
+
+		switch(choice)
+		{
+			case 0:
+				getline(cin,tempName);
+				unsavedData = true;
+				break;
+			case 1:
+				getline(cin, tempPassword);
+				unsavedData = true;
+				break;
+			case 2:
+				unsavedData = false;
+				exitProgram = true;
+				initialUser->setUsername(tempName);
+				initialUser->setPassword(tempPassword);
+			case 3:
+				if(unsavedData == true)
+				{
+					cout << "Are you sure you want to leave unsaved data? <Y/N> ";
+					cin.get(exit);
+					exit = toupper(exit);
+					cin.ignore(10000 , '\n');
+					
+					if(exit == 'Y')
+					{
+						exitProgram = true;
+					}
+				}
+				else
+				{
+					exitProgram = true;
+				}
+		} //switch(choice)
+
+	} //while(node != nullptr && !(exitProgram))
+
+} //editAccount
+
+void userAccount::printEditUserAccount(string tempName, string tempPassword)
+{
+	cout << "\033[1;32m";
+	cout << "Edit your user account " << endl;
+	printLine();
+	cout << "<0> Name    -> " << tempName << endl;
+	cout << "<1> Account -> " << tempPassword << endl;
+	cout << "<2> SaveData" << endl;
+	cout << "<3> Exit" << endl;
+	printLine();
+	cout << "\033[5;1;32m";
+	cout << "Please enter here ->: ";
+	cout << "\033[0m";
+}
+
+
+void userAccount::setUsername(string tempUsername)
+{
+	username = tempUsername;
+}
+
+void userAccount::setPassword(string tempPassword)
+{
+	password = tempPassword;
+}
+
+
 int getch() 
 {
     int ch;
@@ -219,7 +304,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 void userAccount::printLoginAccount(string usr, string pass) //prints the ui for login
 {
 
-		cout << "\033[1;32m";
+		cout << "\033[1;32m"; // for green light
 
 		string str;
       int length = pass.length();
@@ -232,6 +317,7 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 		cout << "<2> push user/password " << endl;
 		cout << "<3> exit login " << endl;
 		printLine();
+		cout << "\033[5;1;32m";
 		cout << "please enter a number -->:" << endl;
 		cout << "\033[0m";
 }
@@ -299,6 +385,9 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 
 		switch (choice) 
 		{      
+			case 0:
+				exitProgram = true;
+				break;
 			case 1:               
 				index = createAccount(users);
 				if(index > -1)
@@ -312,26 +401,17 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
             if(index > -1)
 				{
 					readAccountFile(users, index);
-//					cout << "The readAccountfile has been called" << endl;
-//0					cin.ignore(10000 , '\n');
 					return index;	
 				}	
             break;
 			case 3:
-			cout << "\033c";
-			deactivateAccountMenu(users);
-			break;
-			case 4:
-				cout << "Exiting...\n";						
-				exitProgram = true;                
-				break;           
+				cout << "\033c";
+				deactivateAccountMenu(users);
+				break;
 			default:
 				cout << "Invalid choice! Please try again.\n";	
 		}//switch(chioce)
 	
-//		cout << "The index is " << index << endl;
-//		cin.ignore(10000 , '\n');
-
 	} while (!(exitProgram));
 	
 	return -1;
@@ -346,7 +426,7 @@ void userAccount::printMainMenu()
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
    cout << "3. Deactivate/Reactivate account\n";
-	cout << "4. Exit\n";
+	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
    cout << "Enter your choice: -->: ";
