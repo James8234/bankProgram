@@ -425,7 +425,7 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-   cout << "3. Banke Employee";
+   cout << "3. Bank Employee\n";
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
@@ -468,7 +468,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
     cout << "List of accounts:\n";
     for (size_t i = 0; i < users.size(); i++) {
         cout << i + 1 << ". " << users[i]->getUsername() 
-             << " (Status: " << (users[i]->getIsActive() ? "active" : "inactive") << ")\n";
+             << " (Status: " << (users[i]->getIsActive() ? "ACTIVE" : "INACTIVE") << ")\n";
     }
 
     cout << "Select an account to deactivate/reactivate (0 to cancel): ";
