@@ -7,14 +7,14 @@ void printAccountMenu()
 	printLine();
 	cout << "Select an Account!" << endl;
 	printLine();
-	cout << "<0> Exit account: " << endl;
-	cout << "<1> Create a Bank Account: " << endl;
-	cout << "<2> Select Bank Account: " << endl;
-	cout << "<3> Edit User Account: " << endl;
+	cout << "<0> Exit Account " << endl;
+	cout << "<1> Create a Bank Account " << endl;
+	cout << "<2> Select Bank Account " << endl;
+	cout << "<3> Edit User Account " << endl;
 //	cout << "<4> Delete user Account: " << endl;
 	printLine();
 	cout << "\033[5;1;32m";
-	cout << "Please enter a number here -->: ";
+	cout << "Enter your choice -->: ";
 	cout << "\033[0m"; //sets back to white
 	
 }
