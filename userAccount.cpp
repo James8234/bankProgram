@@ -381,7 +381,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 
 		printMainMenu();
 
-     	choice = checkVaildInteger(4 , 0);
+     	choice = checkVaildInteger(5 , 0);
 
 		switch (choice) 
 		{      
@@ -406,7 +406,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
             break;
 			case 3:
 				cout << "\033c";
-				deactivateAccountMenu(users);
+				bankEmployeeMenu(users);
 				break;
 			default:
 				cout << "Invalid choice! Please try again.\n";	
@@ -425,7 +425,7 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-   cout << "3. Deactivate/Reactivate account\n";
+   cout << "3. Banke Employee";
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
@@ -500,4 +500,70 @@ string userAccount::getUserId() {
 	return userId;
 }
 
+void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
+    bool exitMenu = false;
+    int choice = 0;
 
+    while (!exitMenu) {
+        cout << "\033[1;32m"; // Green color
+        cout << "Bank Employee Menu:\n";
+        cout << "1. View All User Accounts\n";
+        cout << "2. Deactivate/Reactivate a User Account\n";
+        cout << "3. Logout\n";
+        printLine();
+        cout << "\033[5;1;32m"; // Blink and green color
+        cout << "Enter your choice: -->: ";
+        cout << "\033[0m"; // Reset color
+
+        choice = getUserChoice(1, 4);
+
+        switch (choice) {
+            case 1:
+                viewAllUserAccounts(users);
+                break;
+            case 2:
+                deactivateAccountMenu(users);
+            case 3:
+                exitMenu = true;
+                cout << "Logging out...\n";
+                break;
+            default:
+                cout << "Invalid choice! Please try again.\n";
+        }
+
+        if (!exitMenu) {
+            cout << "Press Enter to continue...";
+            cin.get(); // Wait for user to press Enter
+        }
+    }
+}
+
+int userAccount::getUserChoice(int min, int max) const {
+    int choice;
+    while (true) {
+        cin >> choice;
+        if (cin.fail() || choice < min || choice > max) {
+            cin.clear();
+            cin.ignore(10000, '\n'); 
+            cout << "Invalid input. Please enter a number between " << min << " and " << max << ": ";
+        } else {
+            cin.ignore(10000, '\n'); 
+            break;
+        }
+    }
+    return choice;
+}
+
+void userAccount::viewAllUserAccounts(const vector<userAccount*>& users) const {
+    cout << "\033[1;34m"; // Blue color
+    cout << "List of User Accounts:\n";
+    printLine();
+    cout << "ID\tUsername\tStatus\n";
+    printLine();
+    for (const auto& user : users) {
+        cout << user->getID() << "\t" 
+             << user->getUsername() << "\t\t" 
+             << (user->getIsActive() ? "Active" : "Inactive") << "\n";
+    }
+    cout << "\033[0m"; // Reset color
+}
