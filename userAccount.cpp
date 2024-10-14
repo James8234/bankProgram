@@ -312,13 +312,13 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 	
 		cout << "Login page" << endl;
 		printLine();
-		cout << "<0> enter user: " << usr << endl;
-		cout << "<1> enter a password: " << pass << endl;
-		cout << "<2> push user/password " << endl;
-		cout << "<3> exit login " << endl;
+		cout << "<0> Enter User: " << usr << endl;
+		cout << "<1> Enter Password: " << pass << endl;
+		cout << "<2> Push User/Password " << endl;
+		cout << "<3> Exit " << endl;
 		printLine();
 		cout << "\033[5;1;32m";
-		cout << "please enter a number -->:" << endl;
+		cout << "Please Enter a Number -->:" << endl;
 		cout << "\033[0m";
 }
 
@@ -356,7 +356,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	}
 	else
 	{
-		cout << "Sorry the account already exist. Enter anything to continue ->" << endl;
+		cout << "Sorry, the account already exists. Enter anything to continue ->" << endl;
 		index = -1; //to make sure it dosn't pick an account 
 		cin.ignore(10000 , '\n');
 	}
@@ -429,7 +429,7 @@ void userAccount::printMainMenu()
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
-   cout << "Enter your choice: -->: ";
+   cout << "Enter your choice -->: ";
 	cout << "\033[0m";
 }
 
