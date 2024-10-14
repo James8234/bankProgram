@@ -66,6 +66,13 @@ class userAccount
 		int findAccountIndex(vector<userAccount*> users, string username, string password);
 
 	   bool validLogin(const string& usr, const string& pswd, string id);
+
+	   void bankEmployeeMenu(vector<userAccount*>& users);
+
+	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
+
+	   int getUserChoice(int min, int max) const;
+
 		
 		/**
 		 *	FUNCTION editUserAccount
