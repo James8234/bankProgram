@@ -452,11 +452,7 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-<<<<<<< HEAD
-   cout << "3. Banke Employee\n";
-=======
    cout << "3. Bank Employee\n";
->>>>>>> refs/remotes/origin/main
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
