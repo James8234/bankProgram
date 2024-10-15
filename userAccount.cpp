@@ -335,13 +335,13 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 	
 		cout << "Login page" << endl;
 		printLine();
-		cout << "<0> enter user: " << usr << endl;
-		cout << "<1> enter a password: " << pass << endl;
-		cout << "<2> push user/password " << endl;
-		cout << "<3> exit login " << endl;
+		cout << "<0> Enter User: " << usr << endl;
+		cout << "<1> Enter Password: " << pass << endl;
+		cout << "<2> Push User/Password " << endl;
+		cout << "<3> Exit " << endl;
 		printLine();
 		cout << "\033[5;1;32m";
-		cout << "please enter a number -->:" << endl;
+		cout << "Please Enter a Number -->:" << endl;
 		cout << "\033[0m";
 }
 
@@ -379,7 +379,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	}
 	else
 	{
-		cout << "Sorry the account already exist. Enter anything to continue ->" << endl;
+		cout << "Sorry, the account already exists. Enter anything to continue ->" << endl;
 		index = -1; //to make sure it dosn't pick an account 
 		cin.ignore(10000 , '\n');
 	}
@@ -452,11 +452,15 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
+<<<<<<< HEAD
    cout << "3. Banke Employee\n";
+=======
+   cout << "3. Bank Employee\n";
+>>>>>>> refs/remotes/origin/main
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
-   cout << "Enter your choice: -->: ";
+   cout << "Enter your choice -->: ";
 	cout << "\033[0m";
 }
 
@@ -495,7 +499,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
     cout << "List of accounts:\n";
     for (size_t i = 0; i < users.size(); i++) {
         cout << i + 1 << ". " << users[i]->getUsername() 
-             << " (Status: " << (users[i]->getIsActive() ? "active" : "inactive") << ")\n";
+             << " (Status: " << (users[i]->getIsActive() ? "ACTIVE" : "INACTIVE") << ")\n";
     }
 
     cout << "Select an account to deactivate/reactivate (0 to cancel): ";
