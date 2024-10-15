@@ -28,7 +28,7 @@ class userAccount
 
 		//constructors
 		//	User();
-   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true);
+   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true, string userTypes = " ");
 	
 		//setters
 		void setUsername(string tempUsername);
@@ -80,7 +80,7 @@ class userAccount
   		 * The purpose of this function is to allow the user to edit their userAccount info
 		 */
 
-		void editUserAccount(userAccount *initialUser);
+		void editUserAccount(userAccount *initialUser, vector<userAccount*> &userList);
 
 /**
  * FUNCTION void deleteAllAccounts

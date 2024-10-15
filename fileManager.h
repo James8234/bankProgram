@@ -6,6 +6,8 @@
 #include <sys/stat.h> // for mkdir
 #include <sys/types.h> // for mode_t
 #include <cstring> // for strerror
+#include <unistd.h>
+#include <sys/file.h>
 #include "header.h"
 //#include "userAccount.h"
 using namespace std;
@@ -16,6 +18,11 @@ class userAccount;
 
 //void create the subdirectory if it doesn't exist
 void createSubdirectory();
+
+//dead lock system
+bool lockFile(int fd);
+bool unlockFile(int fd);
+
 
 /**
  * FUNCTION void readCredateialsFile

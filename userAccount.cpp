@@ -11,7 +11,7 @@
  * The purpose of this edit function is to update the user name and password when the user has choicen
  */
 
-void userAccount::editUserAccount(userAccount *initialUser)
+void userAccount::editUserAccount(userAccount *initialUser, vector<userAccount*> &userList)
 {
 	string tempName = initialUser->getUsername();
 	string tempPassword = initialUser->getPassword();
@@ -19,6 +19,26 @@ void userAccount::editUserAccount(userAccount *initialUser)
 	bool unsavedData = false;
 	int choice = 0;
 	char exit;
+
+	string filepath = "./data/credentials.dat";
+
+	int fd = open(filepath.c_str(), O_RDWR);
+
+	if(fd == -1)
+	{
+		cout << "Error file could not open" << endl;
+		cin.ignore(100000 , '\n');
+		return;
+	}
+
+	if(!lockFile(fd))
+	{
+		cout << "The file is locked by another process." << endl;
+		close(fd);
+		cin.ignore(1000000 , '\n');
+		return;
+	}
+
 
 	while(initialUser != nullptr && !(exitProgram))
 	{
@@ -62,6 +82,8 @@ void userAccount::editUserAccount(userAccount *initialUser)
 		} //switch(choice)
 
 	} //while(node != nullptr && !(exitProgram))
+
+	updateCredentialsFile(userList); //update the text file database
 
 } //editAccount
 
@@ -137,13 +159,14 @@ string hidePassword()
 }
 
 
-userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active)
+userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active, string userTypes)
 {
 	username = usr;
 	password = pswd;
 	id = userId;
 	linkList = newLinkList;
 	isActive = active;
+	userType = userTypes;
 }
 
 string userAccount::getUserType()
@@ -397,7 +420,11 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				}
             break;
          case 2:
+//cout << "check" << endl;
+//cin.ignore(10000 , '\n');
 				index = loginAccount(users);
+//cout << "index is " << index << endl;
+//cin.ignore(10000 , '\n');
             if(index > -1)
 				{
 					readAccountFile(users, index);
@@ -425,7 +452,7 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-   cout << "3. Banke Employee";
+   cout << "3. Banke Employee\n";
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
