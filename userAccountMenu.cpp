@@ -58,6 +58,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				}
 				break;
 			case 3 :
+				//gets data up to date
 				num = initialUser->findAccountIndex( userList, initialUser->getUsername(), initialUser->getPassword());
 				initialUser->deleteAllAccounts(userList);
 				readCredatialsFile(userList);

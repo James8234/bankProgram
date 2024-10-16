@@ -35,13 +35,7 @@ int main()
 	vector<userAccount*> userList; //make sure the account is recognized here
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
-
-//	bankEmployee employee;
-
-//	userList.push_back(&employee);
-	
-
-	//This memeory variable store the transactionHistory
+//This memeory variable store the transactionHistory
 //	const vector<transaction> & transactionHistory
 
 	//there should be a function for login here
@@ -49,8 +43,6 @@ int main()
 
 	//This function reads in the text data base
 	readCredatialsFile(userList);
-	
-//	userList.push_back(&employee);
 
 	while(index >= 0)
 	{
