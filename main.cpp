@@ -50,7 +50,7 @@ int main()
 
 	//This function reads in the text data base
 	readCredatialsFile(userList);
-	readEmployeeCredatialsFiles(employeeList);
+	readEmployeeCredatialsFile(employeeList);
 	
 //	userList.push_back(&employee);
 
