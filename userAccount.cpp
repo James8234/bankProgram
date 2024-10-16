@@ -305,9 +305,16 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 									
 				if(index >= 0)
 				{
-					users[index]->setLinkedListType(new doublyLinkedListType);
-					return index; //returns the index of the uesr account
-					exitProgram = true;
+					if (!users[index]->getIsActive()) {
+						cout << "Your account is deactivated. Please reactivate it to login." << endl;
+						cin.ignore(10000, '\n');
+						break;
+					}
+				users[index]->setLinkedListType(new doublyLinkedListType);
+				return index;
+				exitProgram = true;
+					
+					
 				}
 				else
 				{
@@ -535,6 +542,7 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
     int choice = 0;
 
     while (!exitMenu) {
+		  cout << "\033c";
         cout << "\033[1;32m"; // Green color
         cout << "Bank Employee Menu:\n";
         cout << "1. View All User Accounts\n";
