@@ -541,27 +541,77 @@ void updateAccountFile(const vector<userAccount*>& accountList) {
 }
 
 
-void deleteAccountFile(vector<userAccount*> &userList, const string &userId) {
-    string bankFilePath = "./data/" + userId + ".dat";
+void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete)
+{
+    // File path for credentials
+    string filepath = "./data/credentials.dat";
+    ifstream file(filepath.c_str());
+    ofstream temp("./data/temp.dat");
 
-    // Find and remove the user from the list
-    auto it = std::remove_if(userList.begin(), userList.end(),
-                             [&userId](userAccount* user) { return user->getID() == userId; });
+    // Error handling if the file cannot be opened
+    if (!file.is_open())
+    {
+        cerr << "Error: Unable to open input file " << filepath << endl;
+        return;
+    }
 
-    if (it != userList.end()) {
-        // Remove the user from memory
-        userList.erase(it, userList.end());
+    if (!temp.is_open())
+    {
+        cerr << "Error: Unable to open output file for writing" << endl;
+        return;
+    }
 
-        // Delete the bank account file
-        if (remove(bankFilePath.c_str()) == 0) {
-            cout << "Bank account file deleted successfully." << endl;
-        } else {
-            cerr << "Error deleting bank account file." << endl;
+    bool userFound = false;  // Track if the user was found and deleted
+    string line;
+
+    // Loop through the credentials file
+    while (getline(file, line))
+    {
+        // Split the line into parts
+        size_t firstColon = line.find(':');
+        size_t secondColon = line.find(':', firstColon + 1);
+
+        // If there are less than 2 colons, skip this line
+        if (firstColon == string::npos || secondColon == string::npos) {
+            continue;  // skip malformed line
         }
 
-        // Update the credentials file
-        updateAccountFile(userList);
-    } else {
-        cout << "Error: User not found!" << endl;
+        // Extract user ID
+        string userID = line.substr(secondColon + 1);
+
+        // Check if the user ID matches the one to delete
+        if (userID == userIdToDelete)
+        {
+            userFound = true;  // Mark that the user was found
+            cout << "User with ID " << userIdToDelete << " has been deleted." << endl;
+            continue;  // Skip writing this line to temp file
+        }
+
+        // Write the line to the temp file if it's not the user to delete
+        temp << line << endl;
     }
+
+    // Close both files
+    file.close();
+    temp.close();
+
+    // If the user was not found, notify
+    if (!userFound) {
+        cout << "User with ID " << userIdToDelete << " was not found." << endl;
+    }
+
+    // Remove the original credentials file
+    remove(filepath.c_str());
+
+    // Rename the temporary file to the original credentials file
+    if (rename("./data/temp.dat", filepath.c_str()) != 0)
+    {
+        cerr << "Error: Unable to rename temp file" << endl;
+    }
+
+    // Wait for user input before continuing
+    cout << "Press any key to continue...";
+    cin.clear(); // Clear any error flags
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore leftover characters in the input buffer
+    cin.get(); // Wait for user input
 }
