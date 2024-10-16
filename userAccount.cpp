@@ -508,6 +508,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 
     userAccount* selectedAccount = users[choice - 1]; // get the account selected by the user
 
+
 	// if the selected account is active, deactivate it
 	// if not, reactivate the account
     if (selectedAccount->getIsActive()) {
@@ -517,6 +518,8 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
         selectedAccount->setIsActive(true);
         cout << "Account " << selectedAccount->getUsername() << " has been reactivated.\n";
     }
+
+	 cin.get();
 
     //updates the credentials file with new account status
     updateAccountFile(users);
@@ -546,10 +549,13 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
 
         switch (choice) {
             case 1:
+					 cout << "\033c";
                 viewAllUserAccounts(users);
                 break;
             case 2:
+					 cout << "\033c";
                 deactivateAccountMenu(users);
+					 break;
             case 3:
                 exitMenu = true;
                 cout << "Logging out...\n";
@@ -590,7 +596,7 @@ void userAccount::viewAllUserAccounts(const vector<userAccount*>& users) const {
     for (const auto& user : users) {
         cout << user->getID() << "\t" 
              << user->getUsername() << "\t\t" 
-             << (user->getIsActive() ? "Active" : "Inactive") << "\n";
+             << (user->getIsActive() ? "ACTIVE" : "INACTIVE") << "\n";
     }
     cout << "\033[0m"; // Reset color
 }
