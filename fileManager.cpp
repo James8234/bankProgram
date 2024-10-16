@@ -622,7 +622,7 @@ void createEmployeeObject(const string& accountType, const string& username, con
 
 void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index)
 {
-	string name = employee;
+	string name = "employee";
 	string filepath = "./data/" + name + "_bankEmployeeCredentials.dat";	
 	string line = " ";
 	//position varibales
@@ -649,10 +649,10 @@ void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index)
 			{
 					string accountType = line.substr(0, firstPosition);
 					string username = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
-					string password = line.substr(secondPosition + 1, thirdPosition - secondosition - 1);
+					string password = line.substr(secondPosition + 1, thirdPosition - secondPosition - 1);
 					string userId = line.substr(thirdPosition + 1);
 
-					createEmployeeObject(accountType, username, password, userId);
+					createEmployeeObject(accountType, username, password, userId, nullptr);
 			} else {
 							cout << "Invalid line format: " << line << endl;
 					}
@@ -707,7 +707,7 @@ void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
                 isActive = (status == "active");
             }
 				// adds the user account to the account list
-            accountList.emplace_back(new  bankEmployee(userName, userPassword, userId, nullptr, isActive));
+            accountList.emplace_back(new bankEmployee(userName, userPassword, userId, nullptr, isActive));
         }
 
 	}
