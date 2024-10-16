@@ -10,6 +10,7 @@
 #include "serviceChargeCheckingType.h"
 #include "highInterestCheckingType.h"
 #include "noServiceChargeCheckingType.h"
+#include "bankEmployee.h"
 #include <filesystem>
 //#include <unistd.h>
 //#include <sys/file.h>
