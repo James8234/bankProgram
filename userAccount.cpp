@@ -439,8 +439,11 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				}	
             break;
 			case 3:
-				cout << "\033c";
-				bankEmployeeMenu(users);
+				index = employeeLoginAccount(employees);
+				if (index > -1)
+				{
+							bankeEmployeeMenu(users);
+				}
 				break;
 			default:
 				cout << "Invalid choice! Please try again.\n";	
@@ -608,3 +611,70 @@ void userAccount::viewAllUserAccounts(const vector<userAccount*>& users) const {
     }
     cout << "\033[0m"; // Reset color
 }
+
+int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
+{
+   //variables
+	bool exitProgram = false;
+	string usr = " ";
+	string pass = " ";
+   int choice = 0;
+	int index = -1;
+
+	//gets memory up to date
+	deleteAllAccounts(employees);
+	readCredatialsFile(employees);
+
+
+   while(!(exitProgram))
+   {
+		//clears the screen
+		cout << "\033c";
+
+		//prints the UI
+		printLoginAccount(usr, pass);
+		
+		//gets the user input
+		choice = checkVaildInteger(4, -1);
+
+		switch(choice)
+		{
+			case 0:
+				cout << "Enter user name here ->: ";
+				getline(cin,usr);
+         	break;
+			case 1:
+				cout << "Enter password here ->: ";
+         	pass = hidePassword();
+            break;
+         case 2:
+				index = findAccountIndex(employees, usr , pass);
+									
+				if(index >= 0)
+				{
+					if (!users[index]->getIsActive()) {
+						cout << "Your account is deactivated. Please reactivate it to login." << endl;
+						cin.ignore(10000, '\n');
+						break;
+					}
+				employees[index]->setLinkedListType(new doublyLinkedListType);
+				return index;
+				exitProgram = true;
+					
+					
+				}
+				else
+				{
+					cout << "The username or password is Incorrect enter anything to continue" << endl;
+					cin.ignore(10000 , '\n');
+				}
+									
+				break;
+			case 3:
+         	exitProgram = true;
+      }//switch(choice)
+
+	}// while
+	return -1; //used to end the program if no account is selected
+}
+
