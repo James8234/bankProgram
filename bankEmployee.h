@@ -21,6 +21,8 @@ public:
     void bankEmployeeMenu();
 
     ~bankEmployee() {}
+protected:
+
 };
 
 

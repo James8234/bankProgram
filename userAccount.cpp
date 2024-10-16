@@ -11,7 +11,7 @@
  * The purpose of this edit function is to update the user name and password when the user has choicen
  */
 
-void userAccount::editUserAccount(userAccount *initialUser)
+void userAccount::editUserAccount(userAccount *initialUser, vector<userAccount*> &userList)
 {
 	string tempName = initialUser->getUsername();
 	string tempPassword = initialUser->getPassword();
@@ -19,6 +19,26 @@ void userAccount::editUserAccount(userAccount *initialUser)
 	bool unsavedData = false;
 	int choice = 0;
 	char exit;
+
+	string filepath = "./data/credentials.dat";
+
+	int fd = open(filepath.c_str(), O_RDWR);
+
+	if(fd == -1)
+	{
+		cout << "Error file could not open" << endl;
+		cin.ignore(100000 , '\n');
+		return;
+	}
+
+	if(!lockFile(fd))
+	{
+		cout << "The file is locked by another process." << endl;
+		close(fd);
+		cin.ignore(1000000 , '\n');
+		return;
+	}
+
 
 	while(initialUser != nullptr && !(exitProgram))
 	{
@@ -62,6 +82,8 @@ void userAccount::editUserAccount(userAccount *initialUser)
 		} //switch(choice)
 
 	} //while(node != nullptr && !(exitProgram))
+
+	updateCredentialsFile(userList); //update the text file database
 
 } //editAccount
 
@@ -137,13 +159,14 @@ string hidePassword()
 }
 
 
-userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active)
+userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active, string userTypes)
 {
 	username = usr;
 	password = pswd;
 	id = userId;
 	linkList = newLinkList;
 	isActive = active;
+	userType = userTypes;
 }
 
 string userAccount::getUserType()
@@ -312,13 +335,13 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 	
 		cout << "Login page" << endl;
 		printLine();
-		cout << "<0> enter user: " << usr << endl;
-		cout << "<1> enter a password: " << pass << endl;
-		cout << "<2> push user/password " << endl;
-		cout << "<3> exit login " << endl;
+		cout << "<0> Enter User: " << usr << endl;
+		cout << "<1> Enter Password: " << pass << endl;
+		cout << "<2> Push User/Password " << endl;
+		cout << "<3> Exit " << endl;
 		printLine();
 		cout << "\033[5;1;32m";
-		cout << "please enter a number -->:" << endl;
+		cout << "Please Enter a Number -->:" << endl;
 		cout << "\033[0m";
 }
 
@@ -356,7 +379,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	}
 	else
 	{
-		cout << "Sorry the account already exist. Enter anything to continue ->" << endl;
+		cout << "Sorry, the account already exists. Enter anything to continue ->" << endl;
 		index = -1; //to make sure it dosn't pick an account 
 		cin.ignore(10000 , '\n');
 	}
@@ -381,7 +404,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 
 		printMainMenu();
 
-     	choice = checkVaildInteger(4 , 0);
+     	choice = checkVaildInteger(5 , 0);
 
 		switch (choice) 
 		{      
@@ -397,7 +420,11 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				}
             break;
          case 2:
+//cout << "check" << endl;
+//cin.ignore(10000 , '\n');
 				index = loginAccount(users);
+//cout << "index is " << index << endl;
+//cin.ignore(10000 , '\n');
             if(index > -1)
 				{
 					readAccountFile(users, index);
@@ -406,7 +433,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
             break;
 			case 3:
 				cout << "\033c";
-				deactivateAccountMenu(users);
+				bankEmployeeMenu(users);
 				break;
 			default:
 				cout << "Invalid choice! Please try again.\n";	
@@ -425,11 +452,11 @@ void userAccount::printMainMenu()
 	printLine();
 	cout << "1. Create an account\n";
    cout << "2. Login\n";
-   cout << "3. Deactivate/Reactivate account\n";
+   cout << "3. Bank Employee\n";
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
-   cout << "Enter your choice: -->: ";
+   cout << "Enter your choice -->: ";
 	cout << "\033[0m";
 }
 
@@ -468,7 +495,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
     cout << "List of accounts:\n";
     for (size_t i = 0; i < users.size(); i++) {
         cout << i + 1 << ". " << users[i]->getUsername() 
-             << " (Status: " << (users[i]->getIsActive() ? "active" : "inactive") << ")\n";
+             << " (Status: " << (users[i]->getIsActive() ? "ACTIVE" : "INACTIVE") << ")\n";
     }
 
     cout << "Select an account to deactivate/reactivate (0 to cancel): ";
@@ -500,4 +527,70 @@ string userAccount::getUserId() {
 	return userId;
 }
 
+void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
+    bool exitMenu = false;
+    int choice = 0;
 
+    while (!exitMenu) {
+        cout << "\033[1;32m"; // Green color
+        cout << "Bank Employee Menu:\n";
+        cout << "1. View All User Accounts\n";
+        cout << "2. Deactivate/Reactivate a User Account\n";
+        cout << "3. Logout\n";
+        printLine();
+        cout << "\033[5;1;32m"; // Blink and green color
+        cout << "Enter your choice: -->: ";
+        cout << "\033[0m"; // Reset color
+
+        choice = getUserChoice(1, 4);
+
+        switch (choice) {
+            case 1:
+                viewAllUserAccounts(users);
+                break;
+            case 2:
+                deactivateAccountMenu(users);
+            case 3:
+                exitMenu = true;
+                cout << "Logging out...\n";
+                break;
+            default:
+                cout << "Invalid choice! Please try again.\n";
+        }
+
+        if (!exitMenu) {
+            cout << "Press Enter to continue...";
+            cin.get(); // Wait for user to press Enter
+        }
+    }
+}
+
+int userAccount::getUserChoice(int min, int max) const {
+    int choice;
+    while (true) {
+        cin >> choice;
+        if (cin.fail() || choice < min || choice > max) {
+            cin.clear();
+            cin.ignore(10000, '\n'); 
+            cout << "Invalid input. Please enter a number between " << min << " and " << max << ": ";
+        } else {
+            cin.ignore(10000, '\n'); 
+            break;
+        }
+    }
+    return choice;
+}
+
+void userAccount::viewAllUserAccounts(const vector<userAccount*>& users) const {
+    cout << "\033[1;34m"; // Blue color
+    cout << "List of User Accounts:\n";
+    printLine();
+    cout << "ID\tUsername\tStatus\n";
+    printLine();
+    for (const auto& user : users) {
+        cout << user->getID() << "\t" 
+             << user->getUsername() << "\t\t" 
+             << (user->getIsActive() ? "Active" : "Inactive") << "\n";
+    }
+    cout << "\033[0m"; // Reset color
+}

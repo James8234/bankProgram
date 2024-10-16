@@ -10,6 +10,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 	size_t userChoice = 0;
 	size_t totalNodes = 0;
 	size_t index = 0;
+	int num = 0;
 	bool exitProgram = false;
 	nodeType *nodeAddress = nullptr;
 
@@ -31,7 +32,9 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				addAccount(initialUser);
 				break;
 			case 2 :
-				if(totalNodes > 0)
+				updateBankAccountFile(initialUser);
+
+				if(totalNodes > 0 && initialUser->getLinkList() != nullptr)
 				{
 					printAccountList(initialUser);
 					index = checkVaildInteger(totalNodes, 0);	
@@ -55,8 +58,13 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				}
 				break;
 			case 3 :
-				initialUser->editUserAccount(initialUser);
-				updateCredentialsFile(userList);
+				num = initialUser->findAccountIndex( userList, initialUser->getUsername(), initialUser->getPassword());
+				initialUser->deleteAllAccounts(userList);
+				readCredatialsFile(userList);
+				initialUser = userList[num];
+				readAccountFile(userList, num);
+				initialUser->editUserAccount(initialUser, userList);
+//				updateCredentialsFile(userList);
 				break;
 //			case 4 :
 //				deleteUserAccount();
@@ -65,8 +73,6 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				cout << "Input Error " << endl;
 				cin.ignore(1000000 , '\n');
 		}//switch(userChoice)
-
-	
 
 //once the user has selceted an bank account it will return its index and get the nodeAddress
 

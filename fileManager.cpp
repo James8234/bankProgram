@@ -11,6 +11,55 @@
 #include "highInterestCheckingType.h"
 #include "noServiceChargeCheckingType.h"
 #include <filesystem>
+//#include <unistd.h>
+//#include <sys/file.h>
+
+/**
+ * Function isFileLocked
+ */
+
+
+//bool isFileLocked(const string& filename)
+//{
+//	int fd = open(filename.c_str(), O_RDWR); 
+//	if(fd == -1)
+//	{
+//		cout << "Error file could not open" << endl;
+//		return false;
+//	}
+
+	//try to lock the file for writing
+	//Note that the person who locks the file uses LOCK_EX
+	//and the person who is locked out uses LOCK_NB
+//	if(flock(fd, LOCK_EX | LOCK_NB) == -1)
+//	{
+//		cout << "File is locked by ____:" << endl;
+//		close(fd);
+//		return true;
+//	}
+
+//	cout << "file is not locked" << endl;
+
+	//unlock the file when done
+//	flock(fd, LOCK_UN);
+//	close(fd);
+//	return false;
+//}
+
+bool lockFile(int fd)
+{
+	if(flock(fd, LOCK_EX | LOCK_NB) == -1)
+	{ 
+		return false; // meaning the file is locked
+	}
+	return true; //Acquire an exclusive lock
+}	
+
+bool unlockFile(int fd)
+{
+	return flock(fd, LOCK_UN); //Release the lock
+}
+
 
 /**
  * Function
@@ -67,6 +116,9 @@ void updateBankAccountFile(userAccount *&initialUser)
 
 		temp << line << endl;
 
+//		cout << "update is working" << line << endl;
+//		cin.ignore(10000 , '\n');
+
 		currentPtr = currentPtr->next;
 	}
 
@@ -106,6 +158,14 @@ void updateCredentialsFile(vector<userAccount*> &userList)
 
 	//open the files
 	ifstream file(filepath.c_str());
+
+//	if(isFileLocked(filepath))
+//	{
+//		cout << "Error the credentials file is currently locked. Please try again. " << endl;
+//		cin.ignore(10000 , '\n');
+//		return;
+//	}
+
 	ofstream temp("./data/temp.dat");
 
 	if(!file.is_open())

@@ -35,126 +35,52 @@ int main()
 	vector<userAccount*> userList; //make sure the account is recognized here
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
+
+//	bankEmployee employee;
+
+//	userList.push_back(&employee);
+	
+
 	//This memeory variable store the transactionHistory
 //	const vector<transaction> & transactionHistory
 
 	//there should be a function for login here
 	int index = 0;
 
-	//This function reads in the text dataa base
+	//This function reads in the text data base
 	readCredatialsFile(userList);
 	
+//	userList.push_back(&employee);
 
-	try
+	while(index >= 0)
 	{
-		while(index >= 0)
-		{
 		
 			
-			//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
-			index = initialUser->displayLoginMenu(userList);
+		//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
+		index = initialUser->displayLoginMenu(userList);
 
-			if(index <= -1)
-				throw std::runtime_error(" ");
-
-			bankEmployee* employee = dynamic_cast<bankEmployee*>(initialUser);
-			if (employee != nullptr)
+		if(index >= 0)
+		{
+			//This statement gets the index of the desired account and stores it in a userAccount object to pass arount
+			if(userList[index]->getLinkList() != nullptr)
 			{
-				do
-				{
-					cout << "\033c";
-					cout << "Bank Employee Menu: " << endl;
-					cout << "<1> View all user accounts" << endl;
-					cout << "<2> Deactivate a user account" << endl;
-					cout << "<0> Logout" << endl;
-
-					userChoice = checkVaildInteger(2,0);
-
-					if (userChoice == 1)
-					{
-						employee->viewAllaccounts(userList);
-					}
-					else if(userChoice == 2)
-					{
-						deactivateAccount(account);
-					}
-					else if(userChoice == 0)
-					{
-						exitProgram = true;
-					}
-
-				} while (!exitProgram);
-				
+				//this gets the linked list. a function is needed to read in the text file
+				initialUser = userList[index]; 
+			}
+			else
+			{
+				cout << "Error: linked list pointer is null" << endl; //just to prevent crashes
+				return 0;
 			}
 
-		
-		//This statement gets the index of the desired account and stores it in a userAccount object to pass arount
-		if(userList[index]->getLinkList() != nullptr)
-		{
-			//this gets the linked list. a function is needed to read in the text file
-			initialUser = userList[index]; 
-		}
-		else
-		{
-			cout << "Error: linked list pointer is null" << endl; //just to prevent crashes
-		}
+			//menu for managering your useraccount or bankaccount this is ment for a user
+			userAccountMenu(initialUser, userList);
 
-	exitProgram = false; // sets it back to false
-
-	//menu
-	userAccountMenu(initialUser, userList);
-
-	//this is the menu
-//	do
-//	{
-
-//	   cout << "\033c"; //clears to screen
-
-//		printAccountList(initialUser);
-	
-//		totalNodes = nodeType::getNodeCount();
-
-//		userChoice = checkVaildInteger(totalNodes + 1, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
-
-//		if(userChoice >= 2)
-//		{
-			//this function gets the desired bankaccount
-//			nodeAddress = initialUser->getLinkList()->getAccountByIndex(userChoice);
-
-//			if(nodeAddress != nullptr)
-//			{
-//				accountUI(initialUser, nodeAddress);
-//			}
-//			else
-//			{
-//				cout << "A null was returned enter anything to continue" << endl;
-//				cin.ignore(100000 , '\n');
-//			}
-//		}
-//		else if(userChoice == 1)
-//		{
-//			addAccount(initialUser);
-//		}
-//		else if(userChoice == 0)
-//		{
-//			exitProgram = true;
-//		}
-//
-//	}while(!(exitProgram));
+		}//if(index >= 0)
 
 	} //while(index >= 0)
 
-	}
-
-	catch(const std::runtime_error &e)
-	{
-
-	}
-	catch(...)
-	{
-
-	}
-	
+	//clean up
 	initialUser->deleteAllAccounts(userList);
 
 	return 0;
