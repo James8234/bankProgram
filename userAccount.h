@@ -72,6 +72,8 @@ class userAccount
 	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
 
 	   int getUserChoice(int min, int max) const;
+				
+				int employeeLoginAccount(vector<userAccount*>& users);
 
 		
 		/**
