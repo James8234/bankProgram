@@ -479,3 +479,29 @@ void updateAccountFile(const vector<userAccount*>& accountList) {
 
     outfile.close();
 }
+
+
+void deleteAccountFile(vector<userAccount*> &userList, const string &userId) {
+    string bankFilePath = "./data/" + userId + ".dat";
+
+    // Find and remove the user from the list
+    auto it = std::remove_if(userList.begin(), userList.end(),
+                             [&userId](userAccount* user) { return user->getID() == userId; });
+
+    if (it != userList.end()) {
+        // Remove the user from memory
+        userList.erase(it, userList.end());
+
+        // Delete the bank account file
+        if (remove(bankFilePath.c_str()) == 0) {
+            cout << "Bank account file deleted successfully." << endl;
+        } else {
+            cerr << "Error deleting bank account file." << endl;
+        }
+
+        // Update the credentials file
+        updateAccountFile(userList);
+    } else {
+        cout << "Error: User not found!" << endl;
+    }
+}

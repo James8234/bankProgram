@@ -25,4 +25,3 @@ void printAccountInfo(nodeType *node)
 	cout << "\033[0m";
 
 }
-

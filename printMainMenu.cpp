@@ -33,4 +33,3 @@ void printMainMenu()
 	cout << setw((SCREEN_SIZE - s5.size())/2) << " " << s5;
 	cout << right;
 }
-

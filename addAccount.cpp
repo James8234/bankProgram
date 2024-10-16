@@ -239,6 +239,4 @@ void addAccount(userAccount *&initialUser)
 	}while (!exitAddAccount);
 
 	delete newAccount; //clean up
-};
-
-
+}

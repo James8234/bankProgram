@@ -94,6 +94,9 @@ string convertDoubleToString(double bankBalance);
 void updateAccountFile(const vector<userAccount*>& accountList);
 
 
+//this function deletes users from their files
+void deleteAccountFile(vector<userAccount*> &userList, const string &userId)
+
 #endif
 
 
