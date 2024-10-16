@@ -343,7 +343,7 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 		cout << "Login page" << endl;
 		printLine();
 		cout << "<0> Enter User: " << usr << endl;
-		cout << "<1> Enter Password: " << pass << endl;
+		cout << "<1> Enter Password: " << str << endl;
 		cout << "<2> Push User/Password " << endl;
 		cout << "<3> Exit " << endl;
 		printLine();
