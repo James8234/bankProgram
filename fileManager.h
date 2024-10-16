@@ -102,7 +102,8 @@ void updateAccountFile(const vector<userAccount*>& accountList);
 
 
 //this function deletes users from their files
-void deleteAccountFile(vector<userAccount*> &userList, const string &userId)
+void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete);
+
 
 #endif
 
