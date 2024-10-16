@@ -10,6 +10,7 @@
 #include "serviceChargeCheckingType.h"
 #include "highInterestCheckingType.h"
 #include "noServiceChargeCheckingType.h"
+#include "bankEmployee.h"
 #include <filesystem>
 //#include <unistd.h>
 //#include <sys/file.h>
@@ -538,4 +539,180 @@ void updateAccountFile(const vector<userAccount*>& accountList) {
     }
 
     outfile.close();
+}
+
+
+void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete)
+{
+    // File path for credentials
+    string filepath = "./data/credentials.dat";
+    ifstream file(filepath.c_str());
+    ofstream temp("./data/temp.dat");
+
+    // Error handling if the file cannot be opened
+    if (!file.is_open())
+    {
+        cerr << "Error: Unable to open input file " << filepath << endl;
+        return;
+    }
+
+    if (!temp.is_open())
+    {
+        cerr << "Error: Unable to open output file for writing" << endl;
+        return;
+    }
+
+    bool userFound = false;  // Track if the user was found and deleted
+    string line;
+
+    // Loop through the credentials file
+    while (getline(file, line))
+    {
+        // Split the line into parts
+        size_t firstColon = line.find(':');
+        size_t secondColon = line.find(':', firstColon + 1);
+
+        // If there are less than 2 colons, skip this line
+        if (firstColon == string::npos || secondColon == string::npos) {
+            continue;  // skip malformed line
+        }
+
+        // Extract user ID
+        string userID = line.substr(secondColon + 1);
+
+        // Check if the user ID matches the one to delete
+        if (userID == userIdToDelete)
+        {
+            userFound = true;  // Mark that the user was found
+            cout << "User with ID " << userIdToDelete << " has been deleted." << endl;
+            continue;  // Skip writing this line to temp file
+        }
+
+        // Write the line to the temp file if it's not the user to delete
+        temp << line << endl;
+    }
+
+    // Close both files
+    file.close();
+    temp.close();
+
+    // If the user was not found, notify
+    if (!userFound) {
+        cout << "User with ID " << userIdToDelete << " was not found." << endl;
+    }
+
+    // Remove the original credentials file
+    remove(filepath.c_str());
+
+    // Rename the temporary file to the original credentials file
+    if (rename("./data/temp.dat", filepath.c_str()) != 0)
+    {
+        cerr << "Error: Unable to rename temp file" << endl;
+    }
+
+    // Wait for user input before continuing
+    cout << "Press any key to continue...";
+    cin.clear(); // Clear any error flags
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore leftover characters in the input buffer
+    cin.get(); // Wait for user input
+}
+
+void createEmployeeObject(const string& accountType, const string& username, const string& password, const string& userId, userAccount* user){
+
+}
+
+void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index)
+{
+	string name = "employee";
+	string filepath = "./data/" + name + "_bankEmployeeCredentials.dat";	
+	string line = " ";
+	//position varibales
+	size_t firstPosition = 0;
+	size_t secondPosition = 0;
+	size_t thirdPosition = 0;
+	//temp variable
+
+
+	ifstream infile(filepath.c_str());
+
+	
+
+	if(infile) //check if the file is open
+	{
+		while(getline(infile, line))
+		{
+			//position returns the position from the start of the line
+			firstPosition = line.find(':');
+			secondPosition = line.find(':', firstPosition + 1);
+			thirdPosition = line.find(':', secondPosition + 1); 
+
+			if(firstPosition != string::npos && secondPosition != string::npos && thirdPosition != string::npos)
+			{
+					string accountType = line.substr(0, firstPosition);
+					string username = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
+					string password = line.substr(secondPosition + 1, thirdPosition - secondPosition - 1);
+					string userId = line.substr(thirdPosition + 1);
+
+					createEmployeeObject(accountType, username, password, userId, nullptr);
+			} else {
+							cout << "Invalid line format: " << line << endl;
+					}
+		}
+	} else {
+					cout << "Error: Unable to open file: " << filepath << endl;
+			}
+	
+	infile.close();
+}
+
+void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
+{
+	//sets the dirtory
+//"./data/credentials.dat"
+	string filepath = "./data/bankEmployeeCredentials.dat";
+	string line = " ";
+	//account temp member variables
+	string userName = " ";
+	string userPassword = " ";
+	string userId = " ";
+	//position variables
+	size_t firstPosition = 0;
+	size_t secondPosition = 0;
+	size_t thirdPosition = 0;
+	//opens the file
+	//ifstream infile(filepath.c_str(), ios::app);
+
+	ifstream infile(filepath.c_str());
+	
+	if(!(infile.is_open()))
+	{
+		cout << "file did not open";	
+	}
+
+	while(getline(infile, line))
+	{
+		firstPosition = line.find(':');
+		secondPosition = line.find(':', firstPosition + 1);
+		thirdPosition = line.find(':', secondPosition + 1);
+		// gets the username, password, and userid based on the positions
+		if (firstPosition != string::npos && secondPosition != string::npos) {
+            userName = line.substr(0, firstPosition);
+            userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
+            userId = line.substr(secondPosition + 1, (thirdPosition != string::npos) ? thirdPosition - secondPosition - 1 : string::npos);
+
+            bool isActive = true; // the account is active by default
+
+            // if a third position exists check if the account is active/inactive
+            if (thirdPosition != string::npos) {
+                string status = line.substr(thirdPosition + 1);
+                isActive = (status == "active");
+            }
+				// adds the user account to the account list
+            accountList.emplace_back(new bankEmployee(userName, userPassword, userId, nullptr, isActive));
+        }
+
+	}
+
+	infile.close();
+
 }

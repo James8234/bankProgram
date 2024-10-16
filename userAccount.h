@@ -59,7 +59,7 @@ class userAccount
 	
 		int loginAccount(vector<userAccount*> &users);
 	
-	   int displayLoginMenu(vector<userAccount*>& users);
+	   int displayLoginMenu(vector<userAccount*>& users, vector <userAccount*>& employees);
 	
 	   int createAccount(vector<userAccount*>& users);
 	
@@ -72,6 +72,8 @@ class userAccount
 	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
 
 	   int getUserChoice(int min, int max) const;
+				
+				int employeeLoginAccount(vector<userAccount*>& users);
 
 		
 		/**

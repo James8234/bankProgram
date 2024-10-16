@@ -51,4 +51,3 @@ int checkVaildInteger(int max, int min)
 
 	return num;
 }
-

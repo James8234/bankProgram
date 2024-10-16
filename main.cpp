@@ -33,6 +33,7 @@ int main()
 	//memory variables
 //	nodeType *nodeAddress = nullptr;
 	vector<userAccount*> userList; //make sure the account is recognized here
+	vector<userAccount*> employeeList;
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
 //This memeory variable store the transactionHistory
@@ -43,13 +44,19 @@ int main()
 
 	//This function reads in the text data base
 	readCredatialsFile(userList);
+<<<<<<< HEAD
+=======
+	readEmployeeCredatialsFile(employeeList);
+	
+//	userList.push_back(&employee);
+>>>>>>> refs/remotes/origin/main
 
 	while(index >= 0)
 	{
 		
 			
 		//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
-		index = initialUser->displayLoginMenu(userList);
+		index = initialUser->displayLoginMenu(userList, employeeList);
 
 		if(index >= 0)
 		{

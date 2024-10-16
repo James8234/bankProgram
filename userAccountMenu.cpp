@@ -21,7 +21,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
     
 		printAccountMenu();
 		totalNodes = nodeType::getNodeCount();
-		userChoice = checkVaildInteger(3, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
+		userChoice = checkVaildInteger(4, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 	 
 		switch(userChoice)
 		{
@@ -67,9 +67,33 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				initialUser->editUserAccount(initialUser, userList);
 //				updateCredentialsFile(userList);
 				break;
-//			case 4 :
-//				deleteUserAccount();
-//				break;
+			case 4 :
+                                // Delete account
+                        	cout << "Are you sure you want to delete your account? (y/n): ";
+                        	char confirmation;
+                        	cin >> confirmation;
+
+                        	if (confirmation == 'y' || confirmation == 'Y')
+                        	{
+                                        // Prompt user to enter user ID to delete
+                			string userIdToDelete;
+                			cout << "Enter the User ID you want to delete: ";
+                			cin >> userIdToDelete;
+
+                			deleteUserCredential(userList, userIdToDelete);
+
+                                	// Notify user of deletion
+                                	cout << "Your account has been deleted successfully." << endl;
+
+                                	// Exit the loop to redirect user to login or main menu
+                                	exitProgram = true;
+                        	}
+                        	else
+                        	{
+                                	cout << "Account deletion canceled." << endl;
+                        	}
+                                break;
+
 			default :
 				cout << "Input Error " << endl;
 				cin.ignore(1000000 , '\n');

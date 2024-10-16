@@ -114,5 +114,3 @@ string certificationOfDepositType::getAccountType() const
 {
 	return "certificationOfDepositType";
 }
-
-
