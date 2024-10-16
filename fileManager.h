@@ -104,6 +104,12 @@ void updateAccountFile(const vector<userAccount*>& accountList);
 //this function deletes users from their files
 void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete);
 
+void creatEmployeeObject(const string& strObject, const string& username, const string& strBalance, const string& userid);
+
+void readEmployeeCredatialsFile(vector<userAccount*> &userList);
+
+void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index);
+
 
 #endif
 
