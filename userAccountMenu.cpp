@@ -21,7 +21,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
     
 		printAccountMenu();
 		totalNodes = nodeType::getNodeCount();
-		userChoice = checkVaildInteger(3, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
+		userChoice = checkVaildInteger(4, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 	 
 		switch(userChoice)
 		{
