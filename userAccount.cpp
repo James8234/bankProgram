@@ -442,7 +442,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				index = employeeLoginAccount(employees);
 				if (index > -1)
 				{
-							bankeEmployeeMenu(users);
+							bankEmployeeMenu(users);
 				}
 				break;
 			default:
@@ -652,7 +652,7 @@ int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
 									
 				if(index >= 0)
 				{
-					if (!users[index]->getIsActive()) {
+					if (!employees[index]->getIsActive()) {
 						cout << "Your account is deactivated. Please reactivate it to login." << endl;
 						cin.ignore(10000, '\n');
 						break;
