@@ -397,7 +397,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 /**
  * Function DisplayLoginMenu
  */
-int userAccount::displayLoginMenu(vector<userAccount*> &users)
+int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccount*>& employees)
 {
 	int index = -1;
    int choice;
@@ -623,7 +623,7 @@ int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
 
 	//gets memory up to date
 	deleteAllAccounts(employees);
-	readCredatialsFile(employees);
+	readEmployeeCredatialsFile(employees);
 
 
    while(!(exitProgram))
