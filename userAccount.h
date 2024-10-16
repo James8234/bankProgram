@@ -59,7 +59,7 @@ class userAccount
 	
 		int loginAccount(vector<userAccount*> &users);
 	
-	   int displayLoginMenu(vector<userAccount*>& users, vector <userAccount*>* employees);
+	   int displayLoginMenu(vector<userAccount*>& users, vector <userAccount*>& employees);
 	
 	   int createAccount(vector<userAccount*>& users);
 	
