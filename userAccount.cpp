@@ -439,10 +439,12 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				}	
             break;
 			case 3:
+cout << "caled the employee login" << endl;
+cin.ignore(10000 , '\n');
 				index = employeeLoginAccount(employees);
 				if (index > -1)
 				{
-							bankEmployeeMenu(users);
+					bankEmployeeMenu(users);
 				}
 				break;
 			default:

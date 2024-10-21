@@ -44,12 +44,11 @@ int main()
 
 	//This function reads in the text data base
 	readCredatialsFile(userList);
-<<<<<<< HEAD
-=======
+
 	readEmployeeCredatialsFile(employeeList);
 	
 //	userList.push_back(&employee);
->>>>>>> refs/remotes/origin/main
+
 
 	while(index >= 0)
 	{

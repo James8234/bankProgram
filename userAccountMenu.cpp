@@ -32,7 +32,12 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				addAccount(initialUser);
 				break;
 			case 2 :
-				updateBankAccountFile(initialUser);
+				num = initialUser->findAccountIndex( userList, initialUser->getUsername(), initialUser->getPassword());
+				initialUser->deleteAllAccounts(userList);
+				readCredatialsFile(userList);
+				initialUser = userList[num];
+	
+				readAccountFile(userList, num);
 
 				if(totalNodes > 0 && initialUser->getLinkList() != nullptr)
 				{
