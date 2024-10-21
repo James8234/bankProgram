@@ -43,7 +43,7 @@ void readCredatialsFile(vector<userAccount*> &userList);
  * update the memory and check if the account being created already exist. The function will output an updated vector
  * and database
  */
-void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId);
+void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId, string userType);
 
 /**
  * FUNCTION void readAccountFile

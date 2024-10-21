@@ -158,20 +158,22 @@ string hidePassword()
     return hiddenPassword;
 }
 
-
-userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active, string userTypes)
+//constructor
+userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active)
 {
 	username = usr;
 	password = pswd;
 	id = userId;
 	linkList = newLinkList;
 	isActive = active;
-	userType = userTypes;
 }
 
-string userAccount::getUserType()
+/**
+ * The purpose of this function is to get the class type to construct when reading in a text file. Or updating a text file and need to input the class type
+ */
+string userAccount::getClassName()
 {
-	return userType;
+	return "userAccount";
 }
 
 //bool userAccount::getIsActive() const {
@@ -270,7 +272,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
    //variables
 	bool exitProgram = false;
 	string usr = " ";
-	string pass = " ";
+	string pass = "";
    int choice = 0;
 	int index = -1;
 
@@ -302,26 +304,21 @@ int userAccount::loginAccount(vector<userAccount*> &users)
             break;
          case 2:
 				index = findAccountIndex(users, usr , pass);
-									
-				if(index >= 0)
+				if(index >= 0 && users[index]->getIsActive())
 				{
-					if (!users[index]->getIsActive()) {
-						cout << "Your account is deactivated. Please reactivate it to login." << endl;
-						cin.ignore(10000, '\n');
-						break;
-					}
-				users[index]->setLinkedListType(new doublyLinkedListType);
-				return index;
-				exitProgram = true;
-					
-					
+					users[index]->setLinkedListType(new doublyLinkedListType);
+					return index; //exit loop
+				}
+				else if(!(users[index]->getIsActive()))
+				{
+					cout << "Your account is deactivated. Please reactivate it to login." << endl;
+					cin.ignore(10000, '\n');
 				}
 				else
 				{
 					cout << "The username or password is Incorrect enter anything to continue" << endl;
 					cin.ignore(10000 , '\n');
 				}
-									
 				break;
 			case 3:
          	exitProgram = true;
@@ -337,7 +334,7 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 		cout << "\033[1;32m"; // for green light
 
 		string str;
-      int length = pass.length();
+      int length = pass.length(); //the password has one length before entering
       str = string(length, '*');
 	
 		cout << "Login page" << endl;
@@ -360,6 +357,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	string usr;
 	string pswd;
 	string id;
+	string userType = "userAccount";
 	int index = 0;
 
 	//get user input
@@ -381,7 +379,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	if(0 > index && index != -2)
 	{
       users.emplace_back(new userAccount(usr, pswd, id, new doublyLinkedListType));
-		createAccountFile(users, usr, pswd, id);
+		createAccountFile(users, usr, pswd, id, userType);
 		index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
 	}
 	else
@@ -430,8 +428,6 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 //cout << "check" << endl;
 //cin.ignore(10000 , '\n');
 				index = loginAccount(users);
-//cout << "index is " << index << endl;
-//cin.ignore(10000 , '\n');
             if(index > -1)
 				{
 					readAccountFile(users, index);
@@ -439,8 +435,8 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				}	
             break;
 			case 3:
-cout << "caled the employee login" << endl;
-cin.ignore(10000 , '\n');
+//cout << "caled the employee login" << endl;
+//cin.ignore(10000 , '\n');
 				index = employeeLoginAccount(employees);
 				if (index > -1)
 				{

@@ -32,7 +32,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				addAccount(initialUser);
 				break;
 			case 2 :
-				num = initialUser->findAccountIndex( userList, initialUser->getUsername(), initialUser->getPassword());
+				num = initialUser->findAccountIndex(userList, initialUser->getUsername(), initialUser->getPassword());
 				initialUser->deleteAllAccounts(userList);
 				readCredatialsFile(userList);
 				initialUser = userList[num];

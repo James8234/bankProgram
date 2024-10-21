@@ -76,7 +76,7 @@ void updateBankAccountFile(userAccount *&initialUser)
 	double bankBalance = 0;
 	string userBalance = " ";
 	string userID = " ";
-	string userType = " ";
+	string bankAccountType = " ";
 	string line = " ";
 	string filepath = " ";
 
@@ -106,14 +106,14 @@ void updateBankAccountFile(userAccount *&initialUser)
 	while(currentPtr != nullptr && currentPtr->data != nullptr)	
 	{
 		//get the member variables of the class
-		userType 	= currentPtr->data->getAccountType();
-		username 	= currentPtr->data->getName();
-		bankBalance = currentPtr->data->getBalance();
-		userBalance = convertDoubleToString(bankBalance);
-		userID 		= currentPtr->data->getAccountNumber();
+		bankAccountType 	= currentPtr->data->getAccountType();
+		username 			= currentPtr->data->getName();
+		bankBalance 		= currentPtr->data->getBalance();
+		userBalance 		= convertDoubleToString(bankBalance);
+		userID 				= currentPtr->data->getAccountNumber();
 
 		//create the class in textfile
-		line = userType + ":" + username + ":" + userBalance + ":" + userID;
+		line = bankAccountType + ":" + username + ":" + userBalance + ":" + userID;
 
 		temp << line << endl;
 
@@ -153,19 +153,11 @@ void updateCredentialsFile(vector<userAccount*> &userList)
 	string filepath = "./data/credentials.dat";
 	int index = 0;
 	size_t elements = 0;
+	string userType = " ";
 
 	elements = userList.size();
-
-
 	//open the files
 	ifstream file(filepath.c_str());
-
-//	if(isFileLocked(filepath))
-//	{
-//		cout << "Error the credentials file is currently locked. Please try again. " << endl;
-//		cin.ignore(10000 , '\n');
-//		return;
-//	}
 
 	ofstream temp("./data/temp.dat");
 
@@ -192,10 +184,11 @@ void updateCredentialsFile(vector<userAccount*> &userList)
 		//get the member variables of the class
 		username 	 = userList[index]->getUsername();
 		userpassword = userList[index]->getPassword();
-		userID 		 = userList[index]->getID(); 
+		userID 		 = userList[index]->getID();
+		userType		 = userList[index]->getClassName();
 
 		//create the class in textfile
-		line = username + ":" + userpassword + ":" + userID;
+		line = userType + ":" + username + ":" + userpassword + ":" + userID;
 
 		temp << line << endl;
 
@@ -218,12 +211,13 @@ void updateCredentialsFile(vector<userAccount*> &userList)
  * 
  * The function will create an user bank file connected to thier account
  * And then it will login the user into this text file
+ * When the user creates an account they will need to select an account
  */
 
-void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId)
+void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId, string userType)
 {
 	string subdirectory = "./data/credentials.dat";
-	string newAccountInfo = username + ":" + userPassword + ":" + userId;
+	string newAccountInfo = userType + ":" + username + ":" + userPassword + ":" + userId;
 	string newAccountFile = "./data/" + userId + ".dat";
 
 	ofstream outfile(subdirectory.c_str(), ios::app);
@@ -278,8 +272,6 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 	{
 		while(getline(outfile, line))
 		{
-
-
 			//position returns the position from the start of the line
 			firstPosition = line.find(':');
 			secondPosition = line.find(':', firstPosition + 1);
@@ -453,17 +445,19 @@ void createSubdirectory()
 void readCredatialsFile(vector<userAccount*> &accountList)
 {
 	//sets the dirtory
-//"./data/credentials.dat"
+	//"./data/credentials.dat"
 	string filepath = "./data/credentials.dat";
 	string line = " ";
 	//account temp member variables
-	string userName = " ";
-	string userPassword = " ";
-	string userId = " ";
+	string userType 		= " ";
+	string userName 		= " ";
+	string userPassword  = " ";
+	string userId 			= " ";
 	//position variables
-	size_t firstPosition = 0;
-	size_t secondPosition = 0;
-	size_t thirdPosition = 0;
+	size_t firstPosition  = 0;  // userType
+	size_t secondPosition = 0; //userName
+	size_t thirdPosition  = 0;  // userpassword
+	size_t fourthPosition = 0; // user id
 	//opens the file
 	//ifstream infile(filepath.c_str(), ios::app);
 
@@ -479,21 +473,34 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 		firstPosition = line.find(':');
 		secondPosition = line.find(':', firstPosition + 1);
 		thirdPosition = line.find(':', secondPosition + 1);
-		// gets the username, password, and userid based on the positions
-		if (firstPosition != string::npos && secondPosition != string::npos) {
-            userName = line.substr(0, firstPosition);
-            userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
-            userId = line.substr(secondPosition + 1, (thirdPosition != string::npos) ? thirdPosition - secondPosition - 1 : string::npos);
+		fourthPosition = line.find(':', thirdPosition + 1);
 
+		// gets the username, password, and userid based on the positions
+		if (firstPosition != string::npos && secondPosition != string::npos)
+		{
+            userType 	 = line.substr(0, firstPosition);
+            userName 	 = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
+            userPassword = line.substr(secondPosition + 1, thirdPosition - secondPosition - 1);
+				userId       = line.substr(thirdPosition + 1, fourthPosition - thirdPosition - 1);
+				
             bool isActive = true; // the account is active by default
 
             // if a third position exists check if the account is active/inactive
-            if (thirdPosition != string::npos) {
+            if (thirdPosition != string::npos) 
+				{
                 string status = line.substr(thirdPosition + 1);
                 isActive = (status == "active");
             }
-				// adds the user account to the account list
-            accountList.emplace_back(new userAccount(userName, userPassword, userId, nullptr, isActive));
+
+				// depending if they are a cient or bank employee
+				if(userType == "userAccount")
+				{
+            	accountList.emplace_back(new userAccount(userName, userPassword, userId, nullptr, isActive));
+				}
+				else
+				{
+					accountList.emplace_back(new bankEmployee(userName, userPassword, userId, nullptr, isActive));
+				}
         }
 
 	}

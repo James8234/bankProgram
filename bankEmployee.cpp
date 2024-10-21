@@ -1,12 +1,16 @@
-
 #include "bankEmployee.h"
+
+string bankEmployee::getClassName()
+{
+	return "bankEmployee";
+}
 
 void bankEmployee::viewAllaccounts(const vector<userAccount*>& users)
 {
     cout << "Displaying all user accounts: " << endl;
     for(const auto& user : users)
     {
-        cout << "Username: " << user->getUsername() << ", ID: " << user->getID() << ", Type: "  <<  getUserType() << endl; 
+        cout << "Username: " << user->getUsername() << ", ID: " << user->getID() << ", Type: "  <<  getClassName() << endl; 
     }
 }
 
@@ -22,7 +26,7 @@ int bankEmployee::loginAccount(vector<userAccount*>& users)
 
     int index = findAccountIndex(users, usr, pswd);
 
-    if (index >= 0 && users[index]->getUserType() == "bankEmployee")
+    if (index >= 0 && users[index]->getClassName() == "bankEmployee")
     {
         cout << "Bank Employee login successful!" << endl;
         return index;

@@ -16,7 +16,6 @@ class userAccount
 		string username;
 	   string password;
 	   string id;
-		string userType;
 
 		doublyLinkedListType *linkList;
 		bool isActive; // deactivateAccount function
@@ -28,16 +27,16 @@ class userAccount
 
 		//constructors
 		//	User();
-   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true, string userTypes = " ");
+   	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true);
 	
 		//setters
 		void setUsername(string tempUsername);
 		void setPassword(string tempPassword);
 
 		//geters
+		virtual string getClassName(); //The purpose of this function is to update the text file and prints its userType
 		string getUsername();
 		// bool  getIsActive();
-		string getUserType();
 		string getPassword();
 		string getID() const;
 		doublyLinkedListType* getLinkList();
