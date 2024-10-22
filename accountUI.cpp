@@ -46,12 +46,12 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 			case 2:
 				amount = checkVaildInteger(node->data->getBalance(), -1); //withdraw
 				node->data->withdraw(amount);
-
+				updateBankAccountFile(initialUser);
 				break;
 			case 3:
 				amount = checkVaildInteger(10000, -1);
 				node->data->deposit(amount);
-//				updateBankAccountFile(initialUser);
+				updateBankAccountFile(initialUser);
 				break;
 			case 4:
 				initialUser->getLinkList()->editAccount(node);

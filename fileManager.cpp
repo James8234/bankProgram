@@ -47,16 +47,21 @@
 //	return false;
 //}
 
-bool lockFile(int fd)
+
+
+bool lockFile(int &fd)
 {
 	if(flock(fd, LOCK_EX | LOCK_NB) == -1)
 	{ 
 		return false; // meaning the file is locked
 	}
+
+//	cout << "The file has been locked" << endl;
+//	cin.ignore(10000 , '\n');
 	return true; //Acquire an exclusive lock
 }	
 
-bool unlockFile(int fd)
+bool unlockFile(int &fd)
 {
 	return flock(fd, LOCK_UN); //Release the lock
 }
@@ -117,9 +122,6 @@ void updateBankAccountFile(userAccount *&initialUser)
 
 		temp << line << endl;
 
-//		cout << "update is working" << line << endl;
-//		cin.ignore(10000 , '\n');
-
 		currentPtr = currentPtr->next;
 	}
 
@@ -132,7 +134,6 @@ void updateBankAccountFile(userAccount *&initialUser)
 		cerr << "error unable to rename temp file" << endl;
 		cin.ignore(10000 , '\n');
 	}
-
 }
 
 /**
@@ -176,9 +177,6 @@ void updateCredentialsFile(vector<userAccount*> &userList)
 	}
 	
 	//this try statment handles exceptions like file corruption
-	
-	
-	
 	while(elements > index)	
 	{
 		//get the member variables of the class
@@ -364,7 +362,6 @@ bankAccountType *createAccountObject(string strObject, string username, string s
 
 	//if no account was found
 	return nullptr;
-
 }
 
 /**
@@ -429,8 +426,6 @@ void createSubdirectory()
 
 		temp.close();
 	}
-
-
 }
 
 
@@ -447,7 +442,7 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 	//sets the dirtory
 	//"./data/credentials.dat"
 	string filepath = "./data/credentials.dat";
-	string line = " ";
+	string line     = " ";
 	//account temp member variables
 	string userType 		= " ";
 	string userName 		= " ";
@@ -470,32 +465,32 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 
 	while(getline(infile, line))
 	{
-		firstPosition = line.find(':');
-		secondPosition = line.find(':', firstPosition + 1);
-		thirdPosition = line.find(':', secondPosition + 1);
-		fourthPosition = line.find(':', thirdPosition + 1);
+		firstPosition  = line.find(':');
+		secondPosition = line.find(':', firstPosition  + 1);
+		thirdPosition  = line.find(':', secondPosition + 1);
+		fourthPosition = line.find(':', thirdPosition  + 1);
 
 		// gets the username, password, and userid based on the positions
 		if (firstPosition != string::npos && secondPosition != string::npos)
 		{
             userType 	 = line.substr(0, firstPosition);
-            userName 	 = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
-            userPassword = line.substr(secondPosition + 1, thirdPosition - secondPosition - 1);
-				userId       = line.substr(thirdPosition + 1, fourthPosition - thirdPosition - 1);
+            userName 	 = line.substr(firstPosition  + 1, secondPosition - firstPosition  - 1);
+            userPassword = line.substr(secondPosition + 1, thirdPosition  - secondPosition - 1);
+				userId       = line.substr(thirdPosition  + 1, fourthPosition - thirdPosition  - 1);
 				
             bool isActive = true; // the account is active by default
 
             // if a third position exists check if the account is active/inactive
-            if (thirdPosition != string::npos) 
-				{
-                string status = line.substr(thirdPosition + 1);
-                isActive = (status == "active");
-            }
+  //          if (thirdPosition != string::npos) 
+//				{
+  //              string status = line.substr(thirdPosition + 1);
+ //               isActive = (status == "active");
+//            }
 
 				// depending if they are a cient or bank employee
 				if(userType == "userAccount")
 				{
-            	accountList.emplace_back(new userAccount(userName, userPassword, userId, nullptr, isActive));
+	           	accountList.emplace_back(new userAccount(userName, userPassword, userId, nullptr, isActive));
 				}
 				else
 				{

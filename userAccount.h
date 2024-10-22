@@ -10,13 +10,10 @@ using namespace std;
 
 class userAccount
 {
-
-
 	protected:
 		string username;
 	   string password;
 	   string id;
-
 		doublyLinkedListType *linkList;
 		bool isActive; // deactivateAccount function
 
@@ -24,6 +21,10 @@ class userAccount
 
 		userAccount();
 
+
+		//dead lock functions -- this function locks on both user accounts
+		virtual bool lockBankAccounts(const userAccount *initialUser);
+		virtual void unlockBankAccounts(const userAccount *initialUser);
 
 		//constructors
 		//	User();

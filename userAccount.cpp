@@ -8,6 +8,73 @@
 #include <unistd.h>
 
 /**
+ * FUNCTION lockBankAccounts
+ *
+ * The purpose of this function is to lock the bank accounts file so that only one computer can edit it at a time
+ */
+
+bool userAccount::lockBankAccounts(const userAccount *initialUser)
+{
+	string userID = initialUser->getID();
+
+	string filepath = "./data/" + userID + ".dat";
+
+	int fd = open(filepath.c_str(), O_RDWR);
+
+	if(fd == -1)
+	{
+//		cout << "Error file could not open" << endl;
+//		cin.ignore(1000 , '\n');
+		return 0;
+	}
+
+	if(!lockFile(fd)) //should return true when it locks the file
+	{
+		cout << "The file is locked by another process." << endl;
+		close(fd);
+		cin.ignore(1000000 , '\n');
+		return 0;
+	}
+
+//cout << "the file is unlocked" << endl;
+//cin.ignore(10000 , '\n');
+
+
+	return 1; //file is unlocked
+}
+
+/**
+ * FUNCTION unlockBankAccounts
+ *
+ * The purpose of this function is to unlock the bank accounts file so that a second person can open the file
+ */
+
+void userAccount::unlockBankAccounts(const userAccount *initialUser)
+{
+	string userID = initialUser->getID();
+
+	string filepath = "./data/" + userID + ".dat";
+
+	int fd = open(filepath.c_str(), O_RDWR);
+
+	if(fd == -1)
+	{
+		cerr << "Error file could not open" << filepath << endl;
+		cin.ignore(10000 , '\n');
+		return;
+	}
+
+cout << "the file has been unlocked now" << endl;
+cin.ignore(10000 , '\n');
+
+	unlockFile(fd);
+
+	close(fd);
+}
+
+
+
+/**
  * The purpose of this edit function is to update the user name and password when the user has choicen
  */
 
@@ -304,15 +371,19 @@ int userAccount::loginAccount(vector<userAccount*> &users)
             break;
          case 2:
 				index = findAccountIndex(users, usr , pass);
-				if(index >= 0 && users[index]->getIsActive())
+
+				if(index >= 0)
 				{
-					users[index]->setLinkedListType(new doublyLinkedListType);
-					return index; //exit loop
-				}
-				else if(!(users[index]->getIsActive()))
-				{
-					cout << "Your account is deactivated. Please reactivate it to login." << endl;
-					cin.ignore(10000, '\n');
+					if(users[index]->getIsActive())
+					{
+						users[index]->setLinkedListType(new doublyLinkedListType);
+						return index; //exit loop
+					}
+					else
+					{
+						cout << "Your account is deactivated. Please reactivate it to login." << endl;
+						cin.ignore(10000, '\n');
+					}
 				}
 				else
 				{

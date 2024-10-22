@@ -20,8 +20,11 @@ class userAccount;
 void createSubdirectory();
 
 //dead lock system
-bool lockFile(int fd);
-bool unlockFile(int fd);
+bool lockFile(int &fd);
+bool unlockFile(int &fd);
+
+
+
 
 
 /**
