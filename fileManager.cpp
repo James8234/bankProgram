@@ -66,7 +66,6 @@ bool unlockFile(int &fd)
 	return flock(fd, LOCK_UN); //Release the lock
 }
 
-
 /**
  * Function
  * This function will get the updated linkedList from memory after using edit account and update the text file data base

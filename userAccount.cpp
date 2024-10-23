@@ -1,9 +1,8 @@
 //#include "counteract.h"
-#include "userAccount.h"
 #include "fileManager.h"
 #include "header.h"
 #include "deactivateAccount.h"
-
+#include "tools.h"
 #include <termios.h>
 #include <unistd.h>
 
@@ -36,10 +35,6 @@ bool userAccount::lockBankAccounts(const userAccount *initialUser)
 		return 0;
 	}
 
-//cout << "the file is unlocked" << endl;
-//cin.ignore(10000 , '\n');
-
-
 	return 1; //file is unlocked
 }
 
@@ -63,9 +58,6 @@ void userAccount::unlockBankAccounts(const userAccount *initialUser)
 		cin.ignore(10000 , '\n');
 		return;
 	}
-
-cout << "the file has been unlocked now" << endl;
-cin.ignore(10000 , '\n');
 
 	unlockFile(fd);
 
@@ -370,6 +362,8 @@ int userAccount::loginAccount(vector<userAccount*> &users)
          	pass = hidePassword();
             break;
          case 2:
+				//hash the password to find it in the data base
+				pass = hasher(pass);
 				index = findAccountIndex(users, usr , pass);
 
 				if(index >= 0)
@@ -434,7 +428,12 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	//get user input
 	cout << "Enter a username: ";
 	getline(cin, usr);
+
 	pswd = hidePassword();
+
+	// hash the password for storage
+	pswd = hasher(pswd);
+
 	id = generateRandomAccountNumber();
 
 	//gets memory up to date
