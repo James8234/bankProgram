@@ -86,7 +86,7 @@ double totalPrimeNumbers(int num)
 	int index = 0;
 	int elements = 0;
 	double total = 0;
-	int maxPrimes = num / 10;
+	int maxPrimes = num / 2;
 
 	//This function gets the prime numbers a odd number will need to divide into prime numbers
 	neededPrime = generatePrimes(num , maxPrimes);
@@ -96,6 +96,12 @@ double totalPrimeNumbers(int num)
 	//ICV is when the number has reached zero
 	while(num > 1)
 	{
+//cout << "IS loop stuck here" << endl;
+//cout << "This is the number" << num << endl;
+//cout << "THis is the current prime numner" << neededPrime[index] << endl;
+//cin.ignore(1000 , '\n');
+
+
 		if(elements <= index)
 		{
 			index = 0;
@@ -142,6 +148,8 @@ double totalPrimeNumbers(int num)
 		index++;
 	}
 
+
+//	cout << "Get the prime:" << endl;
 	return total;
 }
 
@@ -165,6 +173,8 @@ string hasher(string input)
 		totalASCII = totalASCII + static_cast<int>(c);
 	}
 
+
+//	cout << "hasher has ran" << endl;
 	//this number gets the hash value + the salt and add them together
 	double hashPass = totalPrimeNumbers(totalASCII); // + getPrimeNumbers(25);
 	//convets the double to a string
