@@ -1,7 +1,11 @@
 #include "header.h"
+//#include <locale>
+//#include <codecvt>
+
 
 void printAccountMenu()
 {
+
 	cout << "\033[1;32m";
 	cout << "Saucy Banking " << endl;
 	printLine();
@@ -11,10 +15,12 @@ void printAccountMenu()
 	cout << "<1> Create a Bank Account " << endl;
 	cout << "<2> Select Bank Account " << endl;
 	cout << "<3> Edit User Account " << endl;
-	cout << "<4> Delete user Account: " << endl;
+	cout << "<4> Transfer Money: " << endl;
 	printLine();
 	cout << "\033[5;1;32m";
 	cout << "Enter your choice -->: ";
 	cout << "\033[0m"; //sets back to white
+//	cout << "──────────────────────────" << endl;
+// setw(120) << setfill('─') << " " << endl;
 	
 }

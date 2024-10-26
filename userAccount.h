@@ -21,6 +21,8 @@ class userAccount
 
 		userAccount();
 
+		//This function allows the user to trasfer balance between bank accounts.
+		friend void transferBetweenBankAccounts(userAccount *initialUser);
 
 		//dead lock functions -- this function locks on both user accounts
 		virtual bool lockBankAccounts(const userAccount *initialUser);
@@ -73,7 +75,7 @@ class userAccount
 
 	   int getUserChoice(int min, int max) const;
 				
-				int employeeLoginAccount(vector<userAccount*>& users);
+		int employeeLoginAccount(vector<userAccount*>& users);
 
 		
 		/**
@@ -84,15 +86,15 @@ class userAccount
 
 		void editUserAccount(userAccount *initialUser, vector<userAccount*> &userList);
 
-/**
- * FUNCTION void deleteAllAccounts
- * clean functino
- */
-void deleteAllAccounts(vector<userAccount*> &userList);
+		/**
+		 * FUNCTION void deleteAllAccounts
+		 * clean functino
+		 */
+		void deleteAllAccounts(vector<userAccount*> &userList);
 
 
 		//deconstructor
-	virtual ~userAccount() {}
+		virtual ~userAccount() {}
 	
 	private:
 		string userId;

@@ -20,6 +20,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 	   cout << "\033c"; //clears to screen
     
 		printAccountMenu();
+
 		totalNodes = nodeType::getNodeCount();
 		userChoice = checkVaildInteger(4, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 	 
@@ -84,29 +85,19 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 
 				break;
 			case 4 :
-           	// Delete account
-         	cout << "Are you sure you want to delete your account? (y/n): ";
-            char confirmation;
-				cin >> confirmation;
-
-				if (confirmation == 'y' || confirmation == 'Y')
+				if(initialUser->lockBankAccounts(initialUser)) // this function locked the file and returns false when locked
 				{
-					// Prompt user to enter user ID to delete
-					string userIdToDelete;
-					cout << "Enter the User ID you want to delete: ";
-					cin >> userIdToDelete;
+					if(nodeType::getNodeCount() > 1)
+					{
+						transferBetweenBankAccounts(initialUser);
+					}
+					else
+					{
+						cout << "Please create two account to transfer between" << endl;
+						cin.ignore(10000 , '\n');
+					}
 
-					deleteUserCredential(userList, userIdToDelete);
-
-					// Notify user of deletion
-					cout << "Your account has been deleted successfully." << endl;
-
-					// Exit the loop to redirect user to login or main menu
-					exitProgram = true;
-				}
-				else
-				{
-					cout << "Account deletion canceled." << endl;
+					initialUser->unlockBankAccounts(initialUser); //unlocks the text file
 				}
 				break;
 			default :

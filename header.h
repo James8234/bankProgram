@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <vector>
 #include <fstream>
+#include <string>
 
 //global variables
 const int SCREEN_SIZE = 120;

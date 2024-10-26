@@ -7,6 +7,119 @@
 #include <unistd.h>
 
 /**
+ * FUNCTION transferBetweenBankAccounts
+ *
+ * This function is ment to allow the user to transfer between accounts.
+ * It will save the node address of the two bank accounts. The requirements 
+ * IS that the user has more than one account and that they can not select the 
+ * same account twice. They must also have a balance to transfer.
+ */
+
+void transferBetweenBankAccounts(userAccount *initialUser)
+{
+	bool exitFunction = false;
+	int  userChoice = 0;
+	int index = 0;
+	int totalNodes = 0;
+	int amount = 0;
+	string fromAccountType  = "";
+	string fromAccountName  = "";
+	int fromAccountBalance  = 0;
+	string toAccountType 	= "";
+	string toAccountName    = "";
+	int 	 toAccountBalance = 0;
+	nodeType *fromNode = nullptr;
+	nodeType *toNode   = nullptr;
+
+	totalNodes = nodeType::getNodeCount();
+
+	while(!(exitFunction))
+	{
+		//clear the screen
+		cout << "\033c";
+
+		cout << "Transfer money between bank accounts" << endl;
+		cout << "------------------------------------" << endl;
+		cout << "<0> exit  "   << endl;
+		cout << "<1> from: "   << fromAccountType << " " << fromAccountName << endl;
+		cout << "<2> To: "     << toAccountType   << " " << toAccountName   << endl;
+		cout << "<3> amount: " << amount << endl;
+		cout << "<4> push" 	  << endl;
+		cout << "------------------------------------" << endl;
+		cout << "Enter your choice -->:";
+
+		userChoice = checkVaildInteger(5 , 0);
+
+		switch(userChoice)
+		{
+			case 0:
+				exitFunction = true;
+				break;
+			case 1:
+				printAccountList(initialUser);
+				index = checkVaildInteger(totalNodes, 0);
+//				if(initialUser->getLinkList() != nullptr)
+//				{
+					fromNode = initialUser->getLinkList()->getAccountByIndex(index);
+					fromAccountType	 = fromNode->data->getAccountType();
+					fromAccountName	 = fromNode->data->getName();
+					fromAccountBalance = fromNode->data->getBalance();
+//				else
+//				{
+
+//				}
+				break;
+			case 2:
+				printAccountList(initialUser);
+				index = checkVaildInteger(totalNodes, 0);
+				toNode = initialUser->getLinkList()->getAccountByIndex(index);
+				toAccountType	  = toNode->data->getAccountType();
+				toAccountName	  = toNode->data->getName();
+				toAccountBalance = toNode->data->getBalance();
+				break;
+			case 3:
+				if(fromAccountBalance > 0)
+				{
+					amount = checkVaildInteger(fromAccountBalance, 0);
+				}
+				else
+				{
+					cout << "Sorry you don't have money to transfer" << endl;
+					cin.ignore(10000 , '\n');
+				}
+				break;
+			case 4:
+				if(fromNode != toNode)
+				{
+					if(fromNode !=nullptr && toNode != nullptr)
+					{
+						fromNode->data->withdraw(amount);
+						toNode->data->deposit(amount);
+						exitFunction = true;
+						updateBankAccountFile(initialUser);
+					}
+					else
+					{
+						cout << "Please enter both accounts" << endl;
+						cin.ignore(1000 , '\n');
+					}
+				}
+				else
+				{
+					cout << "Error. enter anything to contiue -->:" << endl;
+					cin.ignore(100000 , '\n');
+				}
+				break;
+			default:
+				cerr << "An input error has happened" << endl;
+		}//switch(userChoice)
+	}//while(!(exitFunction))
+}
+
+//print
+
+
+/**
  * FUNCTION lockBankAccounts
  *
  * The purpose of this function is to lock the bank accounts file so that only one computer can edit it at a time
