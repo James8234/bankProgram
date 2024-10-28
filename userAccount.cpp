@@ -6,6 +6,9 @@
 #include <termios.h>
 #include <unistd.h>
 
+//void printTransferBetweenBankAccounts
+
+
 /**
  * FUNCTION transferBetweenBankAccounts
  *
@@ -41,12 +44,22 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 		cout << "Transfer money between bank accounts" << endl;
 		cout << "------------------------------------" << endl;
 		cout << "<0> exit  "   << endl;
-		cout << "<1> from: "   << fromAccountType << " " << fromAccountName << endl;
-		cout << "<2> To: "     << toAccountType   << " " << toAccountName   << endl;
-		cout << "<3> amount: " << amount << endl;
+		cout << "<1> from: "
+		<< left
+		<< setw(25)
+		<< fromAccountType << " : " 
+		<< setw(15) 
+		<<fromAccountName << "|$ " << fromAccountBalance << " | " << endl;
+		cout << "<2> To:   "
+		<< setw(25)
+		<< toAccountType   << " : " 
+		<< setw(15) 
+		<< toAccountName   << "|$ " << toAccountBalance << " |" << endl;
+		cout << "<3> amount: $" << amount << endl;
 		cout << "<4> push" 	  << endl;
 		cout << "------------------------------------" << endl;
 		cout << "Enter your choice -->:";
+		cout << right;
 
 		userChoice = checkVaildInteger(5 , 0);
 

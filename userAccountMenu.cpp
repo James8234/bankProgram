@@ -93,7 +93,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 					}
 					else
 					{
-						cout << "Please create two account to transfer between" << endl;
+						cout << "Please create two accounts to transfer between. Enter anything to continue..." << endl;
 						cin.ignore(10000 , '\n');
 					}
 
