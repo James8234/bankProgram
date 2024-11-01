@@ -565,12 +565,12 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	//gets memory up to date
 	deleteAllAccounts(users);
 	readCredatialsFile(users);
-                
+
 	index = findAccountIndex(users, usr, pswd);
 
 //	cout << "in create account function ->: " << index << endl;
 //	cin.ignore(10000 , '\n');
-				
+
 	//checks if the account already exist. returns a findAccountIndex returns a -1 when it dose not already exist
 	if(0 > index && index != -2)
 	{
@@ -816,8 +816,8 @@ int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
 	int index = -1;
 
 	//gets memory up to date
-	deleteAllAccounts(employees);
-	readEmployeeCredatialsFile(employees);
+//	deleteAllAccounts(employees);
+//	readEmployeeCredatialsFile(employees);
 
 
    while(!(exitProgram))

@@ -45,15 +45,19 @@ int main()
 	//This function reads in the text data base
 	readCredatialsFile(userList);
 
-	readEmployeeCredatialsFile(employeeList);
-	
+//	readEmployeeCredatialsFile(employeeList);
+//		initialUser->deleteAllAccounts(userList);
+
 //	userList.push_back(&employee);
 
 
+	//print the logo page
+	printLogo();
+
 	while(index >= 0)
 	{
-		
-			
+
+
 		//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
 		index = initialUser->displayLoginMenu(userList, employeeList);
 
@@ -80,6 +84,10 @@ int main()
 
 	//clean up
 	initialUser->deleteAllAccounts(userList);
+//	initialUser->getLinkList()->deleteNodeType();
+//	delete initialUser;
+//	cout << "delete All accounts " << endl;
+//	cin.ignore(1000 , '\n');
 
 	return 0;
 } //int main()

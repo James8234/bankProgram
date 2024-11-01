@@ -109,9 +109,9 @@ void deleteUserCredential(vector<userAccount*> &userList, const string &userIdTo
 
 void creatEmployeeObject(const string& strObject, const string& username, const string& strBalance, const string& userid);
 
-void readEmployeeCredatialsFile(vector<userAccount*> &userList);
+//void readEmployeeCredatialsFile(vector<userAccount*> &userList);
 
-void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index);
+//void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index);
 
 
 #endif

@@ -44,6 +44,8 @@ void addAccount(userAccount *&initialUser);
 //void deleteAccount();
 //void editAccount();
 
+void printLogo();
+
 //utils function
 string generateRandomAccountNumber();
 

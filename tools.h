@@ -12,4 +12,5 @@ double totalPrimeNumbers(int num);
 
 vector<int> generatePrimes(int n, int maxPrimes);
 
+
 #endif

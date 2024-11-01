@@ -6,8 +6,10 @@
 
 using namespace std;
 
-void deactivateAccount::deactivateUserAccount(userAccount& account) {
- 		if (account.getIsActive()) {
+void deactivateAccount::deactivateUserAccount(userAccount& account)
+ {
+ 		if (account.getIsActive()) 
+		{
 		account.setIsActive(false);
 		cout << "The account has been deactivated." << endl;
 

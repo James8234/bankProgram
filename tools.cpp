@@ -15,6 +15,7 @@
 //salt
 #include <random>
 #include <string>
+#include <fstream>
 //string to acII to bits
 //#include <bitset>
 
@@ -192,4 +193,31 @@ string hasher(string input)
 	}
 
 	return hashStr;
+}
+
+/**
+ *  displayLogo()
+ */
+
+void printLogo()
+{
+	cout << "\033c";
+	ifstream logoFile("logoFile.txt");
+	string line;
+	
+	if(logoFile.is_open())
+	{
+		while(getline(logoFile, line))
+		{
+			cout << line << endl;
+		}
+
+		logoFile.close();
+	}
+	else
+	{
+		cout << "error file logoFile.txt was not able to open" << endl;
+	}
+
+	cin.ignore(100000 , '\n');
 }

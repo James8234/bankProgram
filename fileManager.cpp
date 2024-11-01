@@ -665,7 +665,7 @@ void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index)
 	
 	infile.close();
 }
-
+/*
 void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
 {
 	//sets the dirtory
@@ -717,3 +717,6 @@ void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
 	infile.close();
 
 }
+*/
+
+
