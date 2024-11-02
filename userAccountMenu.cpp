@@ -39,7 +39,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				initialUser->deleteAllAccounts(userList);
 				readCredatialsFile(userList);
 				initialUser = userList[num];
-				readAccountFile(userList, num);
+				readBankAccountFile(userList, num);
 
 				if(initialUser->lockBankAccounts(initialUser)) // this function locked the file and returns false when locked
 				{
@@ -80,7 +80,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				// gets the object of the choicen index
 				initialUser = userList[num];
 				// reads the bank accouts for the index
-				readAccountFile(userList, num);
+				readBankAccountFile(userList, num);
 				initialUser->editUserAccount(initialUser, userList);
 
 				break;

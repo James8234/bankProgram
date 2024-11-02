@@ -71,16 +71,11 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 			case 1:
 				printAccountList(initialUser);
 				index = checkVaildInteger(totalNodes, 0);
-//				if(initialUser->getLinkList() != nullptr)
-//				{
+
 					fromNode = initialUser->getLinkList()->getAccountByIndex(index);
 					fromAccountType	 = fromNode->data->getAccountType();
 					fromAccountName	 = fromNode->data->getName();
 					fromAccountBalance = fromNode->data->getBalance();
-//				else
-//				{
-
-//				}
 				break;
 			case 2:
 				printAccountList(initialUser);
@@ -254,7 +249,7 @@ void userAccount::editUserAccount(userAccount *initialUser, vector<userAccount*>
 					cin.get(exit);
 					exit = toupper(exit);
 					cin.ignore(10000 , '\n');
-					
+
 					if(exit == 'Y')
 					{
 						exitProgram = true;
@@ -473,7 +468,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 
 		//prints the UI
 		printLoginAccount(usr, pass);
-		
+
 		//gets the user input
 		choice = checkVaildInteger(4, -1);
 
@@ -540,16 +535,17 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 		cout << "\033[0m";
 }
 
-
+// createAccount creates the userAccount object during account creation
 
 int userAccount::createAccount(vector<userAccount*> &users)
 {
 	//variables
-	string usr;
-	string pswd;
-	string id;
-	string userType = "userAccount";
-	int index = 0;
+	string usr 		  = "";
+	string pswd 	  = "";
+	string id 		  = "";
+	string userType  = "userAccount";
+	string strActive = "1";
+	int index 		  = 0;
 
 	//get user input
 	cout << "Enter a username: ";
@@ -575,7 +571,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	if(0 > index && index != -2)
 	{
       users.emplace_back(new userAccount(usr, pswd, id, new doublyLinkedListType));
-		createAccountFile(users, usr, pswd, id, userType);
+		createAccountFile(users, usr, pswd, id, userType, strActive);
 		index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
 	}
 	else
@@ -616,7 +612,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				index = createAccount(users);
 				if(index > -1)
 				{
-					readAccountFile(users, index);
+					readBankAccountFile(users, index);
 					return index;
 				}
             break;
@@ -626,7 +622,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				index = loginAccount(users);
             if(index > -1)
 				{
-					readAccountFile(users, index);
+					readBankAccountFile(users, index);
 					return index;	
 				}	
             break;

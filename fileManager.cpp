@@ -15,39 +15,6 @@
 //#include <unistd.h>
 //#include <sys/file.h>
 
-/**
- * Function isFileLocked
- */
-
-
-//bool isFileLocked(const string& filename)
-//{
-//	int fd = open(filename.c_str(), O_RDWR); 
-//	if(fd == -1)
-//	{
-//		cout << "Error file could not open" << endl;
-//		return false;
-//	}
-
-	//try to lock the file for writing
-	//Note that the person who locks the file uses LOCK_EX
-	//and the person who is locked out uses LOCK_NB
-//	if(flock(fd, LOCK_EX | LOCK_NB) == -1)
-//	{
-//		cout << "File is locked by ____:" << endl;
-//		close(fd);
-//		return true;
-//	}
-
-//	cout << "file is not locked" << endl;
-
-	//unlock the file when done
-//	flock(fd, LOCK_UN);
-//	close(fd);
-//	return false;
-//}
-
-
 
 bool lockFile(int &fd)
 {
@@ -143,17 +110,19 @@ void updateBankAccountFile(userAccount *&initialUser)
 
 void updateCredentialsFile(vector<userAccount*> &userList)
 {
-
 	//variables
-	string username = " ";
-	string userpassword = " ";
-	string userID = " ";
+	string userType 		= " ";
+	string userName 		= " ";
+	string userPassword  = " ";
+	string userId 			= " ";
+	string strActive		= " ";
+	bool	 userActive 	= 0;
+
 	//temp variables
 	string line = " ";
 	string filepath = "./data/credentials.dat";
 	int index = 0;
 	size_t elements = 0;
-	string userType = " ";
 
 	elements = userList.size();
 	//open the files
@@ -179,13 +148,15 @@ void updateCredentialsFile(vector<userAccount*> &userList)
 	while(elements > index)	
 	{
 		//get the member variables of the class
-		username 	 = userList[index]->getUsername();
-		userpassword = userList[index]->getPassword();
-		userID 		 = userList[index]->getID();
 		userType		 = userList[index]->getClassName();
+		userName 	 = userList[index]->getUsername();
+		userPassword = userList[index]->getPassword();
+		userId 		 = userList[index]->getID();
+		userActive	 = userList[index]->getIsActive();
+		strActive	 = userActive ? "1" : "0"; // true or false
 
 		//create the class in textfile
-		line = userType + ":" + username + ":" + userpassword + ":" + userID;
+		line = userType + ":" + userName + ":" + userPassword + ":" + userId + ":" + strActive;
 
 		temp << line << endl;
 
@@ -211,10 +182,10 @@ void updateCredentialsFile(vector<userAccount*> &userList)
  * When the user creates an account they will need to select an account
  */
 
-void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId, string userType)
+void createAccountFile(vector<userAccount*> &userList, string username, string userPassword, string userId, string userType, string strActive)
 {
 	string subdirectory = "./data/credentials.dat";
-	string newAccountInfo = userType + ":" + username + ":" + userPassword + ":" + userId;
+	string newAccountInfo = userType + ":" + username + ":" + userPassword + ":" + userId + ":" + strActive;
 	string newAccountFile = "./data/" + userId + ".dat";
 
 	ofstream outfile(subdirectory.c_str(), ios::app);
@@ -243,7 +214,7 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
  * text.
  */
 
-void readAccountFile(vector<userAccount*> &userList, int index)
+void readBankAccountFile(vector<userAccount*> &userList, int index)
 {
 	string name = userList[index]->getID();
 	string filepath = "./data/" + name + ".dat";	
@@ -254,7 +225,7 @@ void readAccountFile(vector<userAccount*> &userList, int index)
 	string strBalance = " ";
 	string userId = " ";
 	//position varibales
-	size_t firstPosition = 0;
+	size_t firstPosition  = 0;
 	size_t secondPosition = 0;
 	size_t thiredPosition = 0;
 	//temp variable
@@ -405,8 +376,8 @@ void createSubdirectory()
 	//Specify the subdirectory and flie name
 	string subdirectory = "./data/";
 	string filename     = "credentials.dat";
-	string secondFileName = "./data/bankEmployeeCredentials.dat";
-	
+//	string secondFileName = "./data/bankEmployeeCredentials.dat";
+
 	//creates the subdirectory if it doesn't exist
 	if(mkdir(subdirectory.c_str(), 0777) == -1)
 	{
@@ -417,14 +388,14 @@ void createSubdirectory()
 		}
 	}
 
-	
-	//This if statment creates the text file if it doesn't exist
-	if(!(filesystem::exists(secondFileName)))
-	{
-		ofstream temp(secondFileName.c_str());
 
-		temp.close();
-	}
+	//This if statment creates the text file if it doesn't exist
+//	if(!(filesystem::exists(secondFileName)))
+//	{
+//		ofstream temp(secondFileName.c_str());
+
+//		temp.close();
+//	}
 }
 
 
@@ -447,11 +418,14 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 	string userName 		= " ";
 	string userPassword  = " ";
 	string userId 			= " ";
+	string strActive		= " ";
+	bool	 userActive 	= 0;
 	//position variables
 	size_t firstPosition  = 0;  // userType
 	size_t secondPosition = 0; //userName
 	size_t thirdPosition  = 0;  // userpassword
 	size_t fourthPosition = 0; // user id
+	size_t fifthPosition	 = 0; // user Active
 	//opens the file
 	//ifstream infile(filepath.c_str(), ios::app);
 
@@ -468,16 +442,18 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 		secondPosition = line.find(':', firstPosition  + 1);
 		thirdPosition  = line.find(':', secondPosition + 1);
 		fourthPosition = line.find(':', thirdPosition  + 1);
+		fifthPosition  = line.find(':', fourthPosition   + 1);
 
 		// gets the username, password, and userid based on the positions
 		if (firstPosition != string::npos && secondPosition != string::npos)
-		{
+		{							// line.substr(totalLength + ':' , totalLength - length - ':' )
             userType 	 = line.substr(0, firstPosition);
             userName 	 = line.substr(firstPosition  + 1, secondPosition - firstPosition  - 1);
             userPassword = line.substr(secondPosition + 1, thirdPosition  - secondPosition - 1);
 				userId       = line.substr(thirdPosition  + 1, fourthPosition - thirdPosition  - 1);
-				
-            bool isActive = true; // the account is active by default
+				strActive	 = line.substr(fourthPosition + 1, fifthPosition  - fourthPosition - 1);
+
+            bool isActive = (strActive == "1"); // 1 returns true while other is false
 
             // if a third position exists check if the account is active/inactive
   //          if (thirdPosition != string::npos) 
@@ -720,3 +696,34 @@ void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
 */
 
 
+/**
+ * Function isFileLocked
+ */
+
+
+//bool isFileLocked(const string& filename)
+//{
+//	int fd = open(filename.c_str(), O_RDWR); 
+//	if(fd == -1)
+//	{
+//		cout << "Error file could not open" << endl;
+//		return false;
+//	}
+
+	//try to lock the file for writing
+	//Note that the person who locks the file uses LOCK_EX
+	//and the person who is locked out uses LOCK_NB
+//	if(flock(fd, LOCK_EX | LOCK_NB) == -1)
+//	{
+//		cout << "File is locked by ____:" << endl;
+//		close(fd);
+//		return true;
+//	}
+
+//	cout << "file is not locked" << endl;
+
+	//unlock the file when done
+//	flock(fd, LOCK_UN);
+//	close(fd);
+//	return false;
+//}
