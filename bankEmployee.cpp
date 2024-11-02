@@ -38,14 +38,15 @@ int bankEmployee::loginAccount(vector<userAccount*>& users)
     }
 }
 
-void bankEmployee::bankEmployeeMenu()
+void bankEmployee::bankEmployeeMenus()
 {
 	cout << "\033[1;32m";
 	cout << "Banke Employee menu:\n";
 	cout << "1. View all user accounts\n";
 	cout << "2. Deactivate a user accounts\n";
 	cout << "3. Reactivate a user account\n";
-	cout << "4. Logout\n";
+	cout << "4. Create an user account\n";
+	cout << "0. Logout\n";
 	printLine();
 	cout << "\033[5;1;32m";
 	cout << "Enter your choice: -->: ";

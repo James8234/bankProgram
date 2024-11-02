@@ -467,7 +467,7 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 				{
 	           	accountList.emplace_back(new userAccount(userName, userPassword, userId, nullptr, isActive));
 				}
-				else
+				else if(userType == "bankEmployee")
 				{
 					accountList.emplace_back(new bankEmployee(userName, userPassword, userId, nullptr, isActive));
 				}

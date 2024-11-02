@@ -3,11 +3,6 @@
 #include "header.h"
 #include "deactivateAccount.h"
 #include "tools.h"
-#include <termios.h>
-#include <unistd.h>
-
-//void printTransferBetweenBankAccounts
-
 
 /**
  * FUNCTION transferBetweenBankAccounts
@@ -293,51 +288,6 @@ void userAccount::setPassword(string tempPassword)
 	password = tempPassword;
 }
 
-
-int getch() 
-{
-    int ch;
-    // struct to hold the terminal settings
-    struct termios old_settings, new_settings;
-    // take default setting in old_settings
-    tcgetattr(STDIN_FILENO, &old_settings);
-    // make of copy of it (Read my previous blog to know
-    // more about how to copy struct)
-    new_settings = old_settings;
-    // change the settings for by disabling ECHO mode
-    // read man page of termios.h for more settings info
-    new_settings.c_lflag &= ~(ICANON | ECHO);
-    // apply these new settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &new_settings);
-    // now take the input in this mode
-    ch = getchar();
-    // reset back to default settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &old_settings);
-    return ch;
-}
-
-// Function to hide the password input and return the entered password
-string hidePassword() 
-{
-    string hiddenPassword;
-    int ch;
-
-    cout << "Enter password: ";
-    while ((ch = getch()) != '\n') {
-        if (ch == 127 || ch == 8) {  // handle backspace
-            if (!hiddenPassword.empty()) {
-                hiddenPassword.pop_back();
-                cout << "\b \b";  // Erase the last character
-            }
-        } else {
-            hiddenPassword += ch;
-            cout << "*";  // Print '*' for each character entered
-        }
-    }
-    cout << endl;  // Move to the next line after password input
-    return hiddenPassword;
-}
-
 //constructor
 userAccount::userAccount(const string& usr, const string& pswd, string userId, doublyLinkedListType *newLinkList, bool active)
 {
@@ -408,9 +358,6 @@ void userAccount::deleteAllAccounts(vector<userAccount*> &userList)
 	//reset the vector back to an empty state
 	userList.clear();
 }
-
-
-
 
 bool userAccount::validLogin(const string &usr, const string &pswd, string id)
 {
@@ -594,47 +541,35 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 	bool exitProgram = false;
 	deactivateAccount deactivateService;
 
-	do 
+	do
 	{
 		//clear the screen
 		cout << "\033c";
 
 		printMainMenu();
 
-     	choice = checkVaildInteger(5 , 0);
+     	choice = checkVaildInteger(2 , 0);
 
-		switch (choice) 
-		{      
+		switch (choice)
+		{
 			case 0:
 				exitProgram = true;
 				break;
-			case 1:               
-				index = createAccount(users);
+         case 1:
+				index = loginAccount(users);
 				if(index > -1)
 				{
-					readBankAccountFile(users, index);
-					return index;
+            	if(users[index]->getClassName() == "userAccount")
+					{
+						readBankAccountFile(users, index);
+						return index;	
+					}
+					else
+					{
+						bankEmployeeMenu(users);
+					}
 				}
             break;
-         case 2:
-//cout << "check" << endl;
-//cin.ignore(10000 , '\n');
-				index = loginAccount(users);
-            if(index > -1)
-				{
-					readBankAccountFile(users, index);
-					return index;	
-				}	
-            break;
-			case 3:
-//cout << "caled the employee login" << endl;
-//cin.ignore(10000 , '\n');
-				index = employeeLoginAccount(employees);
-				if (index > -1)
-				{
-					bankEmployeeMenu(users);
-				}
-				break;
 			default:
 				cout << "Invalid choice! Please try again.\n";	
 		}//switch(chioce)
@@ -650,9 +585,7 @@ void userAccount::printMainMenu()
 	cout << "\033[1;32m";
 	cout << "Welcome! Choose an option:\n";
 	printLine();
-	cout << "1. Create an account\n";
-   cout << "2. Login\n";
-   cout << "3. Bank Employee\n";
+   cout << "1. Login\n";
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";
@@ -733,6 +666,7 @@ string userAccount::getUserId() {
 void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
     bool exitMenu = false;
     int choice = 0;
+	 int index = 0;
 
     while (!exitMenu) {
 		  cout << "\033c";
@@ -740,15 +674,20 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
         cout << "Bank Employee Menu:\n";
         cout << "1. View All User Accounts\n";
         cout << "2. Deactivate/Reactivate a User Account\n";
-        cout << "3. Logout\n";
+		  cout << "3. create an user account\n";
+        cout << "0. Logout\n";
         printLine();
         cout << "\033[5;1;32m"; // Blink and green color
         cout << "Enter your choice: -->: ";
         cout << "\033[0m"; // Reset color
 
-        choice = getUserChoice(1, 4);
+        choice = getUserChoice(0, 3);
 
-        switch (choice) {
+        switch (choice)
+		  {
+				case 0:
+					exitMenu = true;
+					break;
             case 1:
 					 cout << "\033c";
                 viewAllUserAccounts(users);
@@ -757,10 +696,12 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
 					 cout << "\033c";
                 deactivateAccountMenu(users);
 					 break;
-            case 3:
-                exitMenu = true;
-                cout << "Logging out...\n";
-                break;
+				case 3:
+					index = createAccount(users);
+					if(index > -1)
+					{
+						readBankAccountFile(users, index);
+					}
             default:
                 cout << "Invalid choice! Please try again.\n";
         }
