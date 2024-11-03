@@ -137,7 +137,7 @@ bool userAccount::lockBankAccounts(const userAccount *initialUser)
 {
 	string userID = initialUser->getID();
 
-	string filepath = "./data/" + userID + ".dat";
+	string filepath = "./data/" + userID + "_bankAccountInfo.dat";
 
 	int fd = open(filepath.c_str(), O_RDWR);
 
@@ -169,13 +169,13 @@ void userAccount::unlockBankAccounts(const userAccount *initialUser)
 {
 	string userID = initialUser->getID();
 
-	string filepath = "./data/" + userID + ".dat";
+	string filepath = "./data/" + userID + "_bankAccountInfo.dat";
 
 	int fd = open(filepath.c_str(), O_RDWR);
 
 	if(fd == -1)
 	{
-		cerr << "Error file could not open" << filepath << endl;
+		cerr << "Error file could not open " << filepath << endl;
 		cin.ignore(10000 , '\n');
 		return;
 	}

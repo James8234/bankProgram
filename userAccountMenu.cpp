@@ -40,7 +40,6 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 				readCredatialsFile(userList);
 				initialUser = userList[num];
 				readBankAccountFile(userList, num);
-
 				if(initialUser->lockBankAccounts(initialUser)) // this function locked the file and returns false when locked
 				{
 					if(totalNodes > 0 && initialUser->getLinkList() != nullptr) //checks if there are accounts 
@@ -68,6 +67,10 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 						cin.ignore(100000 , '\n');
 					}
 				} //if(lockBankAccount(initialUser))
+				else
+				{
+					cout << "file may be locked" << endl;
+				}
 				break;
 			case 3 :
 				//gets data up to date

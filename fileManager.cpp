@@ -36,6 +36,65 @@ bool unlockFile(int &fd)
 }
 
 /**
+ * FUNCTION lockBankAccounts
+ *
+ * The purpose of this function is to lock the bank accounts file so that only one computer can edit it at a time
+ */
+/*
+bool lockBankAccounts(const userAccount *initialUser)
+{
+        string userID = initialUser->getID();
+
+        string filepath = "./data/" + userID + "_bankAccountInfo.dat";
+
+        int fd = open(filepath.c_str(), O_RDWR);
+
+        if(fd == -1)
+        {
+//              cout << "Error file could not open" << endl;
+//              cin.ignore(1000 , '\n');
+                return 0;
+        }
+
+        if(!lockFile(fd)) //should return true when it locks the file
+        {
+                cout << "The file is locked by another process." << endl;
+                close(fd);
+                cin.ignore(1000000 , '\n');
+                return 0;
+        }
+
+        return 1; //file is unlocked
+}
+*/
+/**
+ * FUNCTION unlockBankAccounts
+ *
+ * The purpose of this function is to unlock the bank accounts file so that a second person can open the file
+ */
+/*
+void unlockBankAccounts(const userAccount *initialUser)
+{
+        string userID = initialUser->getID();
+
+        string filepath = "./data/" + userID + ".dat";
+
+        int fd = open(filepath.c_str(), O_RDWR);
+
+        if(fd == -1)
+        {
+                cerr << "Error file could not open" << filepath << endl;
+                cin.ignore(10000 , '\n');
+                return;
+        }
+
+        unlockFile(fd);
+
+        close(fd);
+}
+*/
+
+/**
  * Function
  * This function will get the updated linkedList from memory after using edit account and update the text file data base
  * This function will create an copy of the text file and replace it with the updated info
@@ -56,7 +115,7 @@ void updateBankAccountFile(userAccount *&initialUser)
 	nodeType *currentPtr = nullptr;
 	string id1 = initialUser->getID();
 
-	filepath = "./data/" + id1 + ".dat";
+	filepath = "./data/" + id1 + "_bankAccountInfo.dat";
 
 	//open the files
 	ifstream file(filepath.c_str());
@@ -188,7 +247,7 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
 {
 	string subdirectory = "./data/credentials.dat";
 	string newAccountInfo = userType + ":" + username + ":" + userPassword + ":" + userId + ":" + strActive;
-	string newAccountFile = "./data/" + userId + ".dat";
+	string newAccountFile = "./data/" + userId + "_bankAccountInfo.dat";
 
 	ofstream outfile(subdirectory.c_str(), ios::app);
 
@@ -218,9 +277,9 @@ void createAccountFile(vector<userAccount*> &userList, string username, string u
 
 void readBankAccountFile(vector<userAccount*> &userList, int index)
 {
-	string name = userList[index]->getID();
-	string filepath = "./data/" + name + ".dat";	
-	string line = " ";
+	string userID = userList[index]->getID();
+	string filepath = "./data/" + userID + "_bankAccountInfo.dat";	
+	string line = "";
 	//variables
 	string strObject = " ";
 	string username = " ";
@@ -345,7 +404,7 @@ bankAccountType *createAccountObject(string strObject, string username, string s
 void createBankAccount(userAccount *initialUser, string strObject, string username, string userId, int bal)
 {
 	string newBankAccountInfo = " ";
-	string accountFile = "./data/" + initialUser->getID() + ".dat";
+	string accountFile = "./data/" + initialUser->getID() + "_bankAccountInfo.dat";
 
 	//set the doublyLinkedList when the user has created an account
 
@@ -377,6 +436,7 @@ void createSubdirectory()
 {
 	//Specify the subdirectory and flie name
 	string subdirectory = "./data/";
+	string secondSubdirectory = "./logs/";
 	string filename     = "credentials.dat";
 //	string secondFileName = "./data/bankEmployeeCredentials.dat";
 
@@ -390,6 +450,13 @@ void createSubdirectory()
 		}
 	}
 
+	if(mkdir(secondSubdirectory.c_str(), 0777) == -1)
+	{
+		if(errno != EEXIST)
+		{
+			cerr << "Error creating dirtory" << strerror(errno) << endl;
+		}
+	}
 
 	//This if statment creates the text file if it doesn't exist
 //	if(!(filesystem::exists(secondFileName)))
@@ -741,9 +808,9 @@ void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
 //	}
 //}
 
-
+    //logActivity("Withdrawal of $" + to_string(amount) + " from account " + node->data->getAccountType() + " [" + node->data->getName() + "]");
 // function to log activity
-void logActivity(const string &activity) {
+void logActivity(string &activity) {
 	ofstream logFile("bankLog.txt");
 	if (logFile.is_open()) {
 		time_t now = time(nullptr); // this gets the current time
