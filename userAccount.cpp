@@ -3,6 +3,7 @@
 #include "header.h"
 #include "deactivateAccount.h"
 #include "tools.h"
+#include "userAccount.h"
 
 /**
  * FUNCTION transferBetweenBankAccounts
@@ -100,6 +101,10 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 						toNode->data->deposit(amount);
 						exitFunction = true;
 						updateBankAccountFile(initialUser);
+
+						// log transfer
+						string activity = "Transfer of $" + to_string(amount) + " from " + fromAccountName + " to " + toAccountName;
+						logActivity(activity);
 					}
 					else
 					{
@@ -520,6 +525,10 @@ int userAccount::createAccount(vector<userAccount*> &users)
       users.emplace_back(new userAccount(usr, pswd, id, new doublyLinkedListType));
 		createAccountFile(users, usr, pswd, id, userType, strActive);
 		index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
+		
+		// log acc creation
+		string activity = "Account created for user: " + usr + " ID: " + id;
+		logActivity(activity);
 	}
 	else
 	{
@@ -647,9 +656,18 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
     if (selectedAccount->getIsActive()) {
         selectedAccount->setIsActive(false);
         cout << "Account " << selectedAccount->getUsername() << " has been deactivated.\n";
+
+		// log acc deactivation
+		string activity = "Account deactivated for user: " + selectedAccount->getUsername();
+		logActivity(activity);
+	
     } else {
         selectedAccount->setIsActive(true);
         cout << "Account " << selectedAccount->getUsername() << " has been reactivated.\n";
+
+		// log acc reactivation
+		string activity = "Account reactivated for user: " + selectedAccount->getUsername();
+		logActivity(activity);
     }
 
 	 cin.get();

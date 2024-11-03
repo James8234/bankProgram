@@ -12,6 +12,8 @@
 #include "noServiceChargeCheckingType.h"
 #include "bankEmployee.h"
 #include <filesystem>
+#include <fstream>
+#include <ctime>
 //#include <unistd.h>
 //#include <sys/file.h>
 
@@ -727,3 +729,25 @@ void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
 //	close(fd);
 //	return false;
 //}
+
+
+//void logActivity(const string &activity) {
+//	ofstream logFile("bankLog.txt");
+//
+//	if (logFile.is_open()) {
+//		time_t now = time(nullptr);
+//		logFile << ctime(&now) << " - " << activity << endl;
+//		logFile.close();
+//	}
+//}
+
+
+// function to log activity
+void logActivity(const string &activity) {
+	ofstream logFile("bankLog.txt");
+	if (logFile.is_open()) {
+		time_t now = time(nullptr); // this gets the current time
+		logFile << ctime(&now) << " - " << activity << endl; // writes the current time and the activity to the file
+		logFile.close();
+	}
+}
