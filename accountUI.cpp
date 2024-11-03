@@ -47,11 +47,15 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 				amount = checkVaildInteger(node->data->getBalance(), -1); //withdraw
 				node->data->withdraw(amount);
 				updateBankAccountFile(initialUser);
+				// log withdrawal
+				logActivity("Withdrawal of $" + to_string(amount) + " from account " + node->data->getAccountType() + " [" + node->data->getName() + "]");
 				break;
 			case 3:
 				amount = checkVaildInteger(10000, -1);
 				node->data->deposit(amount);
 				updateBankAccountFile(initialUser);
+				// log deposit
+				logActivity("Deposit of $" + to_string(amount) + " to account " + node->data->getAccountType() + " [" + node->data->getName() + "]");
 				break;
 			case 4:
 				initialUser->getLinkList()->editAccount(node);
