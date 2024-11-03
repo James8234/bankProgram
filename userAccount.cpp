@@ -104,7 +104,7 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 
 						// log transfer
 						string activity = "Transfer of $" + to_string(amount) + " from " + fromAccountName + " to " + toAccountName;
-						logActivity(activity);
+						logActivity(initialUser->getID(), activity);
 					}
 					else
 					{
@@ -528,7 +528,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 		
 		// log acc creation
 		string activity = "Account created for user: " + usr + " ID: " + id;
-		logActivity(activity);
+		logActivity(this->getID(), activity);
 	}
 	else
 	{
@@ -659,7 +659,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 
 		// log acc deactivation
 		string activity = "Account deactivated for user: " + selectedAccount->getUsername();
-		logActivity(activity);
+		logActivity(this->getID(), activity);
 	
     } else {
         selectedAccount->setIsActive(true);
@@ -667,7 +667,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 
 		// log acc reactivation
 		string activity = "Account reactivated for user: " + selectedAccount->getUsername();
-		logActivity(activity);
+		logActivity(this->getID(), activity);
     }
 
 	 cin.get();
