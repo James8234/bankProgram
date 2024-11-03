@@ -802,6 +802,7 @@ void createLogDirectory(const string& userID) {
 
 	if (!filesystem::exists(userLogDir)) {		// checks if the directory exists
 		filesystem::create_directories(userLogDir);
+		cout << "Created directory for: " << userLogDir << endl;
 	}
 }
 
@@ -812,7 +813,7 @@ void logActivity(const string& userID, const string& activity) {
 
 	string filepath = "./logs/" + userID + "/" + userID + "_bankLog.dat";	// define the path to the log file using the user id
 
-	ofstream logFile(filepath);
+	ofstream logFile(filepath, ios::app);
 	if (logFile.is_open()) {
 		time_t now = time(nullptr); // this gets the current time
 		logFile << ctime(&now) << " - " << activity << endl; // writes the current time and the activity to the file
