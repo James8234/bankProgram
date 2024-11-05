@@ -690,6 +690,7 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
 		  cout << "\033c";
         cout << "\033[1;32m"; // Green color
         cout << "Bank Employee Menu:\n";
+		  printLine();
         cout << "1. View All User Accounts\n";
         cout << "2. Deactivate/Reactivate a User Account\n";
 		  cout << "3. create an user account\n";
@@ -761,6 +762,7 @@ void userAccount::viewAllUserAccounts(const vector<userAccount*>& users) const {
     cout << "\033[0m"; // Reset color
 }
 
+/*
 int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
 {
    //variables
@@ -826,4 +828,4 @@ int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
 	}// while
 	return -1; //used to end the program if no account is selected
 }
-
+*/
