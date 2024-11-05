@@ -5,6 +5,8 @@
 #include<iostream>
 #include<vector>
 #include "doublyLinkedListType.h"
+#include "nodeType.h"
+#include <limits>
 
 using namespace std;
 
@@ -16,6 +18,8 @@ class userAccount
 	   string id;
 		doublyLinkedListType *linkList;
 		bool isActive; // deactivateAccount function
+    	vector<nodeType*> accounts;
+		string userId;
 
 	public:
 
@@ -31,7 +35,7 @@ class userAccount
 		//constructors
 		//	User();
    	 userAccount(const string& usr = " ", const string& pswd = " ", string userId = " ", doublyLinkedListType *newLinkList = nullptr, bool active = true);
-	
+
 		//setters
 		void setUsername(string tempUsername);
 		void setPassword(string tempPassword);
@@ -69,15 +73,42 @@ class userAccount
 
 	   bool validLogin(const string& usr, const string& pswd, string id);
 
-	   void bankEmployeeMenu(vector<userAccount*>& users);
+   	void bankEmployeeMenu(vector<userAccount*>& users);
+   	void bankEmployeeMenus();
 
-	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
+	   	void viewAllUserAccounts(const vector<userAccount*>& users) const;
 
-	   int getUserChoice(int min, int max) const;
+	   	int getUserChoice(int min, int max) const;
 				
 		int employeeLoginAccount(vector<userAccount*>& users);
 
-		
+		vector<nodeType*>& getAccounts();
+
+	    void addAccount(nodeType* account);
+
+		void depositToAccount(int accountIndex, double amount);
+
+		void depositToUserAccount(vector<userAccount*>& users, int userIndex);
+
+		void withdraw(std::vector<userAccount*>& users, int userIndex);
+
+		    double balance; // Assuming this is public, or create a getter
+
+   	 	// Getter method if balance is private
+   		 double getBalance() const {
+        	return balance;
+    	}
+
+    // Method for withdrawal
+    	void withdraw(double amount) {
+        	if (amount <= balance) {
+            balance -= amount;
+        	}
+    	}
+
+		void transferFunds(std::vector<userAccount*>& users);
+
+		void printAccountList();
 		/**
 		 *	FUNCTION editUserAccount
 		 *
@@ -95,9 +126,6 @@ class userAccount
 
 		//deconstructor
 		virtual ~userAccount() {}
-	
-	private:
-		string userId;
 
 };
 

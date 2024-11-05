@@ -30,6 +30,8 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 	bool exitProgram = false;
 	string activity = "";
 
+	string userID = initialUser->getID();
+
 	while(node != nullptr && !(exitProgram))
 	{
 		//clear the screen
@@ -50,7 +52,7 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 				updateBankAccountFile(initialUser);
 				// log withdrawal
 				activity = "Withdrawal of $" + to_string(amount) + " from account " + node->data->getAccountType() + " [" + node->data->getName() + "]";
-				logActivity(activity);
+				logActivity(initialUser->getID(), activity);
 				break;
 			case 3:
 				amount = checkVaildInteger(10000, -1);
@@ -58,7 +60,7 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 				updateBankAccountFile(initialUser);
 				// log deposit
 				activity = "Deposit of $" + to_string(amount) + " to account " + node->data->getAccountType() + " [" + node->data->getName() + "]";
-				logActivity(activity);
+				logActivity(initialUser->getID(), activity);
 				break;
 			case 4:
 				initialUser->getLinkList()->editAccount(node);

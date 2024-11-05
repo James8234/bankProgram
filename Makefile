@@ -46,13 +46,13 @@ accountUI.o: accountUI.cpp header.h nodeType.h doublyLinkedListType.h userAccoun
 
 printLine.o: printLine.cpp header.h
 
-userAccount.o: userAccount.cpp userAccount.h header.h fileManager.h deactivateAccount.h deactivateAccount.cpp tools.h
+userAccount.o: userAccount.cpp userAccount.h header.h fileManager.h deactivateAccount.h deactivateAccount.cpp tools.h bankEmployee.h
 
 fileManager.o: fileManager.cpp fileManager.h header.h doublyLinkedListType.h userAccount.h bankAccountType.h certificationOfDepositType.h checkingAccountType.h highInterestSavingsType.h savingsAccountType.h serviceChargeCheckingType.h highInterestCheckingType.h noServiceChargeCheckingType.h nodeType.h doublyLinkedListType.h userAccount.h fileManager.h
 
 deactivateAccount.o: deactivateAccount.cpp deactivateAccount.h userAccount.h header.h
 
-bankEmployee.o: bankEmployee.cpp bankEmployee.h
+bankEmployee.o: bankEmployee.cpp bankEmployee.h fileManager.h
 
 printAccountMenu.o: printAccountMenu.cpp header.h
 

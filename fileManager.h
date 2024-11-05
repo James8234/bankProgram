@@ -98,7 +98,7 @@ void updateBankAccountFile(userAccount *&initialUser);
  * Function LogActivity
  * The purpose of this function is to log withdraw and despoits from an user account.
  */
-void logActivity(string &activity);
+void logActivity(const string& userID, const string& activity);
 
 //void createAccountFile();
 

@@ -31,6 +31,9 @@ class doublyLinkedListType
 		//copy constructor
 		doublyLinkedListType(const doublyLinkedListType* type);
 
+		size_t getNodeCount();
+
+
 	private:
 		nodeType *head;
 		nodeType *tail;

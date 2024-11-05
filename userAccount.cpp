@@ -4,6 +4,10 @@
 #include "deactivateAccount.h"
 #include "tools.h"
 #include "userAccount.h"
+#include "bankAccountType.h"
+#include "doublyLinkedListType.h"
+#include "bankEmployee.h"
+
 
 /**
  * FUNCTION transferBetweenBankAccounts
@@ -103,8 +107,9 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 						updateBankAccountFile(initialUser);
 
 						// log transfer
+						string userId = " ";
 						string activity = "Transfer of $" + to_string(amount) + " from " + fromAccountName + " to " + toAccountName;
-						logActivity(activity);
+						logActivity(userId, activity);
 					}
 					else
 					{
@@ -175,7 +180,7 @@ void userAccount::unlockBankAccounts(const userAccount *initialUser)
 
 	if(fd == -1)
 	{
-		cerr << "Error file could not open " << filepath << endl;
+		cerr << "Error file could not open" << filepath << endl;
 		cin.ignore(10000 , '\n');
 		return;
 	}
@@ -528,7 +533,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 		
 		// log acc creation
 		string activity = "Account created for user: " + usr + " ID: " + id;
-		logActivity(activity);
+		logActivity(userId, activity);
 	}
 	else
 	{
@@ -570,11 +575,15 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				{
             	if(users[index]->getClassName() == "userAccount")
 					{
+//cout << "the account is userAccount -->" << users[index]->getClassName() << endl;
+//cin.ignore(100000 , '\n');
 						readBankAccountFile(users, index);
 						return index;	
 					}
 					else
 					{
+//cout << "the account is bankEmployee" << endl;
+//cin.ignore(10000 , '\n');
 						bankEmployeeMenu(users);
 					}
 				}
@@ -659,7 +668,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 
 		// log acc deactivation
 		string activity = "Account deactivated for user: " + selectedAccount->getUsername();
-		logActivity(activity);
+		logActivity(userId, activity);
 	
     } else {
         selectedAccount->setIsActive(true);
@@ -667,7 +676,7 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 
 		// log acc reactivation
 		string activity = "Account reactivated for user: " + selectedAccount->getUsername();
-		logActivity(activity);
+		logActivity(userId, activity);
     }
 
 	 cin.get();
@@ -680,152 +689,3 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 string userAccount::getUserId() {
 	return userId;
 }
-
-void userAccount::bankEmployeeMenu(vector<userAccount*>& users) {
-    bool exitMenu = false;
-    int choice = 0;
-	 int index = 0;
-
-    while (!exitMenu) {
-		  cout << "\033c";
-        cout << "\033[1;32m"; // Green color
-        cout << "Bank Employee Menu:\n";
-		  printLine();
-        cout << "1. View All User Accounts\n";
-        cout << "2. Deactivate/Reactivate a User Account\n";
-		  cout << "3. create an user account\n";
-        cout << "0. Logout\n";
-        printLine();
-        cout << "\033[5;1;32m"; // Blink and green color
-        cout << "Enter your choice: -->: ";
-        cout << "\033[0m"; // Reset color
-
-        choice = getUserChoice(0, 3);
-
-        switch (choice)
-		  {
-				case 0:
-					exitMenu = true;
-					break;
-            case 1:
-					 cout << "\033c";
-                viewAllUserAccounts(users);
-                break;
-            case 2:
-					 cout << "\033c";
-                deactivateAccountMenu(users);
-					 break;
-				case 3:
-					index = createAccount(users);
-					if(index > -1)
-					{
-						readBankAccountFile(users, index);
-					}
-            default:
-                cout << "Invalid choice! Please try again.\n";
-        }
-
-        if (!exitMenu) {
-            cout << "Press Enter to continue...";
-            cin.get(); // Wait for user to press Enter
-        }
-    }
-}
-
-int userAccount::getUserChoice(int min, int max) const {
-    int choice;
-    while (true) {
-        cin >> choice;
-        if (cin.fail() || choice < min || choice > max) {
-            cin.clear();
-            cin.ignore(10000, '\n'); 
-            cout << "Invalid input. Please enter a number between " << min << " and " << max << ": ";
-        } else {
-            cin.ignore(10000, '\n'); 
-            break;
-        }
-    }
-    return choice;
-}
-
-void userAccount::viewAllUserAccounts(const vector<userAccount*>& users) const {
-    cout << "\033[1;34m"; // Blue color
-    cout << "List of User Accounts:\n";
-    printLine();
-    cout << "ID\tUsername\tStatus\n";
-    printLine();
-    for (const auto& user : users) {
-        cout << user->getID() << "\t" 
-             << user->getUsername() << "\t\t" 
-             << (user->getIsActive() ? "ACTIVE" : "INACTIVE") << "\n";
-    }
-    cout << "\033[0m"; // Reset color
-}
-
-/*
-int userAccount::employeeLoginAccount(vector<userAccount*> &employees)
-{
-   //variables
-	bool exitProgram = false;
-	string usr = " ";
-	string pass = " ";
-   int choice = 0;
-	int index = -1;
-
-	//gets memory up to date
-//	deleteAllAccounts(employees);
-//	readEmployeeCredatialsFile(employees);
-
-
-   while(!(exitProgram))
-   {
-		//clears the screen
-		cout << "\033c";
-
-		//prints the UI
-		printLoginAccount(usr, pass);
-		
-		//gets the user input
-		choice = checkVaildInteger(4, -1);
-
-		switch(choice)
-		{
-			case 0:
-				cout << "Enter user name here ->: ";
-				getline(cin,usr);
-         	break;
-			case 1:
-				cout << "Enter password here ->: ";
-         	pass = hidePassword();
-            break;
-         case 2:
-				index = findAccountIndex(employees, usr , pass);
-									
-				if(index >= 0)
-				{
-					if (!employees[index]->getIsActive()) {
-						cout << "Your account is deactivated. Please reactivate it to login." << endl;
-						cin.ignore(10000, '\n');
-						break;
-					}
-				employees[index]->setLinkedListType(new doublyLinkedListType);
-				return index;
-				exitProgram = true;
-					
-					
-				}
-				else
-				{
-					cout << "The username or password is Incorrect enter anything to continue" << endl;
-					cin.ignore(10000 , '\n');
-				}
-									
-				break;
-			case 3:
-         	exitProgram = true;
-      }//switch(choice)
-
-	}// while
-	return -1; //used to end the program if no account is selected
-}
-*/

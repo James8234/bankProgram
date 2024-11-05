@@ -325,6 +325,16 @@ void doublyLinkedListType::deleteNodeType()
 	
 }
 
+size_t doublyLinkedListType::getNodeCount() {
+    size_t count = 0;
+    nodeType* currentNode = head; // Assuming head points to the first node
+    while (currentNode != nullptr) {
+        count++;
+        currentNode = currentNode->next; // Assuming next points to the next node
+    }
+    return count;
+}
+
 /**
  * copy constructor
  */
