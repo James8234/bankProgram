@@ -12,7 +12,27 @@ class nodeType
 	bankAccountType *data;
 	nodeType *prev;
 
-	
+	std::string accountType;
+    double balance;
+
+	nodeType() : accountType(""), balance(0.0) {}
+
+    // Parameterized constructor
+    nodeType(std::string type, double initialBalance) : accountType(type), balance(initialBalance) {}
+    
+    void deposit(double amount) {
+        balance += amount;
+    }
+
+	    // Withdraw method to decrease the balance
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            std::cout << "Insufficient balance or invalid amount.\n";
+        }
+    }
+
  	~nodeType() 
 	{
 //		if(data)
