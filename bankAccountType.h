@@ -11,6 +11,7 @@ public:
 	std::string getAccountNumber();
 	void setAccountNumber(std::string num);
    double getBalance();
+   void setBalance(double newBalance);
    std::string getName();
    void setName(std::string n);
    virtual void withdraw(double amount);
