@@ -70,8 +70,6 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
 				cout << "please select an account -->: ";
 				index = checkVaildInteger(elements, 0);
 
-
-
 //            	index = loginAccount(users);
 
             	if (index >= 0 && index < users.size()) 
@@ -85,7 +83,12 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
                break;
             case 3:  // Withdraw from User Account
               cout << "\033c";
-              index = loginAccount(users); // Get the index of the user
+//              index = loginAccount(users); // Get the index of the user
+				viewAllUserAccounts(users);
+				cout << "please select an account -->: ";
+				index = checkVaildInteger(elements, 0);
+
+
               if (index != -1) 
 				  { // Check if login was successful
               		withdraw(users, index); // Call the withdraw method
@@ -165,6 +168,7 @@ void userAccount::addAccount(nodeType* account)
         accounts.push_back(account);
 }
 
+/*
 void userAccount::depositToAccount(int accountIndex, double amount)
 {
         if (accountIndex >= 0 && accountIndex < accounts.size()) 
@@ -174,42 +178,34 @@ void userAccount::depositToAccount(int accountIndex, double amount)
             cout << "Invalid account selection." << endl;
         }
 }
-
+*/
+//The purpose of this funtion is to allow the bank employee to desposit money to a user account
 void userAccount::depositToUserAccount(vector<userAccount*>& users, int userIndex)
 {
 	int index = 0;
 	int totalNodes = doublyLinkedListType::getNodeCount();
 	nodeType *bankAccount = nullptr;
 	double amount = 0;
-    if (userIndex < 0 || userIndex >= users.size())
+
+	// gets the usere input
+   userAccount* initialUser = users[userIndex];
+
+	if(initialUser->getClassName() == "bankEmployee")
 	{
-        cout << "Invalid user index." << endl;
-        return;
-    }
-
-    userAccount* initialUser = users[userIndex];
-	cout << "The account you have selected is " << initialUser->getUsername() << endl;
-
-
-    vector<nodeType*>& userAccounts = initialUser->getAccounts();
-
-
-	//this function loads the user bank info in
-	readBankAccountFile(users, userIndex);
-
-	
-
-
-
-    if (totalNodes < 0)
-	 {
+		cout << "sorry you can't select an bankEmplyee" << endl;
+		return;
+	}
+  if (totalNodes < 0 || userIndex < 0)
+	{
         cout << "No accounts available for this user." << endl;
         return;
     }
 
+	//this function loads the user bank info in
+	readBankAccountFile(users, userIndex);
+
 	printAccountList(initialUser);
 	index = checkVaildInteger(totalNodes, 0);
-
 
 //	findAccountByIndex(index);
 	bankAccount = initialUser->getLinkList()->getAccountByIndex(index);
@@ -223,85 +219,55 @@ void userAccount::depositToUserAccount(vector<userAccount*>& users, int userInde
 
 	updateBankAccountFile(initialUser);
 
-/*
-
-    // Display available accounts
-    cout << "Select an account to deposit into:\n";
-    for (size_t i = 0; i < userAccounts.size(); ++i)
-	 {
-        cout << i << ". " << userAccounts[i]->accountType << " (Balance: $" << userAccounts[i]->balance << ")\n";
-    }
-
-    int accountChoice = -1;
-    cout << "Enter the account number to deposit into: ";
-    cin >> accountChoice;
-
-    if (cin.fail() || accountChoice < 0 || accountChoice >= userAccounts.size()) 
-	{
-        cin.clear(); // Clear the error flag
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore the rest of the line
-        cout << "Invalid selection. Please try again." << endl;
-        return;
-    }
-    // Get deposit amount
-    double depositAmount;
-    cout << "Enter the amount to deposit: $";
-    cin >> depositAmount;
-
-    // Clear input buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    // Deposit to the selected account
-    user->depositToAccount(accountChoice, depositAmount);
-*/
+	//Log the info
+   std::string activity = "deposit: " + to_string(amount);
+	logActivity(initialUser->getUserId(), activity); // Assuming a method to log activities
 }
 
 void userAccount::withdraw(std::vector<userAccount*>& users, int userIndex)
- {
-    if (userIndex < 0 || userIndex >= users.size()) {
-        std::cout << "Invalid user index.\n";
+{
+
+	int index = 0;
+	int totalNodes = doublyLinkedListType::getNodeCount();
+	nodeType *bankAccount = nullptr;
+	double amount = 0;
+
+	// gets the usere input
+   userAccount* initialUser = users[userIndex];
+
+	if(initialUser->getClassName() == "bankEmployee")
+	{
+		cout << "sorry you can't select an bankEmplyee" << endl;
+		return;
+	}
+
+   if (totalNodes < 0 || userIndex < 0)
+	{
+        cout << "No accounts available for this user." << endl;
         return;
-    }
+   }
 
-    userAccount* currentUser = users[userIndex]; // Get the user account
-    nodeType* accountNode = nullptr;
-    double withdrawalAmount = 0.0;
-    size_t totalAccounts = currentUser->getLinkList()->getNodeCount(); // Get the count of accounts
+	//this function loads the user bank info in
+	readBankAccountFile(users, userIndex);
 
-    if (totalAccounts == 0) {
-        std::cout << "No accounts available for withdrawal.\n";
-        return;
-    }
+	printAccountList(initialUser);
+	index = checkVaildInteger(totalNodes, 0);
 
-    // Display the user's accounts
-    printAccountList(currentUser); // Print the list of accounts
+//	findAccountByIndex(index);
+	bankAccount = initialUser->getLinkList()->getAccountByIndex(index);
 
-    // Get the account index to withdraw from
-    int accountIndex = checkVaildInteger(totalAccounts, 0); // Your function to validate integer input
-    accountNode = currentUser->getLinkList()->getAccountByIndex(accountIndex);
+	cout << "Enter the ammount to deposit -->";
+	amount = checkVaildInteger(bankAccount->data->getBalance(), 0);
 
-    if (accountNode == nullptr) {
-        std::cout << "Selected account not found.\n";
-        return;
-    }
+	bankAccount->data->deposit(amount);
+	cout << "your new balance is " << bankAccount->data->getBalance() << endl;
+	cin.ignore(10000 , '\n');
 
-    // Ask for withdrawal amount
-    std::cout << "Enter amount to withdraw: ";
-    std::cin >> withdrawalAmount;
-
-    // Validate withdrawal amount
-    if (withdrawalAmount <= 0 || withdrawalAmount > accountNode->balance) { // Use balance directly
-        std::cout << "Invalid withdrawal amount.\n";
-        return;
-    }
-
-    // Perform withdrawal
-    accountNode->withdraw(withdrawalAmount); // Directly call withdraw method
-    std::cout << "Withdrawal successful! New balance: " << accountNode->balance << "\n"; // Use balance directly
+	updateBankAccountFile(initialUser);
 
     // Log the withdrawal activity if needed
-    std::string activity = "Withdrawn: " + std::to_string(withdrawalAmount);
-    logActivity(currentUser->getUserId(), activity); // Assuming a method to log activities
+    std::string activity = "Withdrawn: " + std::to_string(amount);
+    logActivity(initialUser->getUserId(), activity); // Assuming a method to log activities
 
 }
 
