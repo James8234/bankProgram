@@ -454,19 +454,42 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 				{
 					if(users[index]->getIsActive())
 					{
+						string activity = "Logged in";
+						logActivity(users[index]->getID(), activity);
 						users[index]->setLinkedListType(new doublyLinkedListType);
 						return index; //exit loop
 					}
 					else
 					{
+						string activity = "Login Failed. Account deactivated.";
+						logActivity(users[index]->getID(), activity);
 						cout << "Your account is deactivated. Please reactivate it to login." << endl;
 						cin.ignore(10000, '\n');
 					}
 				}
 				else
 				{
-					cout << "The username or password is Incorrect enter anything to continue" << endl;
-					cin.ignore(10000 , '\n');
+					//checks if the account name exists for the purpose of logging
+					bool accountNameExists = false;
+					for(size_t i = 0; i < users.size(); ++i)
+					{
+						accountNameExists = true;
+						index = i;
+						break;
+					}
+					if(!accountNameExists)
+					{
+						cout << "The username or password is Incorrect enter anything to continue" << endl;
+						cin.ignore(10000 , '\n');
+					}
+					else if(accountNameExists)
+					{
+						//logs if user is correct but password is incorrect
+						string activity = "Login attempt failed. Incorrect password";
+						logActivity(users[index]->getID(), activity);
+						cout << "The username or password is Incorrect enter anything to continue" << endl;
+						cin.ignore(10000, '\n');
+					}
 				}
 				break;
 			case 3:
@@ -568,7 +591,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 
 		printMainMenu();
 
-     	choice = checkVaildInteger(1 , 0);
+     	choice = checkVaildInteger(2 , 0);
 
 		switch (choice)
 		{
@@ -577,17 +600,26 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				break;
          case 1:
 				index = loginAccount(users);
-				if(index > -1)
+				if(index > -1 && users[index]->getClassName() == "userAccount")
 				{
-            	if(users[index]->getClassName() == "userAccount")
-					{
-						readBankAccountFile(users, index);
-						return index;	
-					}
-					else
-					{
-						bankEmployeeMenu(users);
-					}
+					readBankAccountFile(users, index);
+					return index;	
+				}
+				else
+				{
+					cout  << "invalid" << endl;
+					//bankEmployeeMenu(users);
+				}
+				break;
+			case 2:
+				index = loginAccount(users);
+				if (index > -1 && users[index]->getClassName() == "bankEmployee")
+				{
+					bankEmployeeMenu(users, index);
+				}
+				else
+				{
+					cout << "invalid" << endl;
 				}
             break;
 			default:
@@ -605,7 +637,8 @@ void userAccount::printMainMenu()
 	cout << "\033[1;32m";
 	cout << "Welcome! Choose an option:\n";
 	printLine();
-   cout << "1. Login\n";
+	cout << "2. Employee Login\n";
+   cout << "1. User Login\n";
 	cout << "0. Exit\n";
 	printLine();
 	cout << "\033[5;1;32m";

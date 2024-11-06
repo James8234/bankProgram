@@ -14,7 +14,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 	int num = 0;
 	bool exitProgram = false;
 	nodeType *nodeAddress = nullptr;
-
+	string activity = "logged out";
 
 	do 
 	{
@@ -28,6 +28,8 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 		switch(userChoice)
 		{
 			case 0 :
+				//logs when the user logged out
+				logActivity(initialUser->getID(), activity);
 				exitProgram = true;
 				break;
 			case 1 :

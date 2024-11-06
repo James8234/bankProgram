@@ -25,12 +25,13 @@ void userAccount::bankEmployeeMenus()
 	cout << "\033[0m";
 }
 
-void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
+void userAccount::bankEmployeeMenu(vector<userAccount*>& users, int employeeIndex)
 {
     bool exitMenu = false;
     int choice = 0;
     int index = -1;
 	int elements = users.size();
+	string activity = "Logged out";
 
 	while (!exitMenu)
 	{
@@ -55,6 +56,8 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
        switch (choice)
 		 {
             case 0:
+					 //logs the logout
+					 logActivity(users[employeeIndex]->getID(), activity);
                 exitMenu = true;
                 break;
             case 1:
