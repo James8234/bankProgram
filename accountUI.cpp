@@ -39,7 +39,7 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 
 		printAccountInfo(node);
 	
-		choice = checkVaildInteger(6 , 0);
+		choice = checkVaildInteger(5 , 0);
 		
 		switch(choice)
 		{
@@ -78,7 +78,7 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 				initialUser->getLinkList()->deleteAccount(node);
 				exitProgram = true;
 				break;
-			case 6:
+			case 0:
 				exitProgram = true;
 				break;
 			default :

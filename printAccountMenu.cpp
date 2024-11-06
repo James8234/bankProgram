@@ -11,7 +11,7 @@ void printAccountMenu()
 	printLine();
 	cout << "Select an Account!" << endl;
 	printLine();
-	cout << "<0> Exit Account " << endl;
+	cout << "<0> Logout " << endl;
 	cout << "<1> Create a Bank Account " << endl;
 	cout << "<2> Select Bank Account " << endl;
 	cout << "<3> Edit User Account " << endl;

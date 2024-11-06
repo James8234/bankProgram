@@ -240,20 +240,20 @@ void userAccount::editUserAccount(userAccount *initialUser, vector<userAccount*>
 
 		switch(choice)
 		{
-			case 0:
+			case 1:
 				getline(cin,tempName);
 				unsavedData = true;
 				break;
-			case 1:
+			case 2:
 				getline(cin, tempPassword);
 				unsavedData = true;
 				break;
-			case 2:
+			case 3:
 				unsavedData = false;
 				exitProgram = true;
 				initialUser->setUsername(tempName);
 				initialUser->setPassword(tempPassword);
-			case 3:
+			case 0:
 				if(unsavedData == true)
 				{
 					cout << "Are you sure you want to leave unsaved data? <Y/N> ";
@@ -283,10 +283,10 @@ void userAccount::printEditUserAccount(string tempName, string tempPassword)
 	cout << "\033[1;32m";
 	cout << "Edit your user account " << endl;
 	printLine();
-	cout << "<0> Name    -> " << tempName << endl;
-	cout << "<1> Account -> " << tempPassword << endl;
-	cout << "<2> SaveData" << endl;
-	cout << "<3> Exit" << endl;
+	cout << "<0> Exit" << endl;
+	cout << "<1> Name    -> " << tempName << endl;
+	cout << "<2> Account -> " << tempPassword << endl;
+	cout << "<3> SaveData" << endl;
 	printLine();
 	cout << "\033[5;1;32m";
 	cout << "Please enter here ->: ";
@@ -437,15 +437,15 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 
 		switch(choice)
 		{
-			case 0:
+			case 1:
 				cout << "Enter user name here ->: ";
 				getline(cin,usr);
          	break;
-			case 1:
+			case 2:
 				cout << "Enter password here ->: ";
          	pass = hidePassword();
             break;
-         case 2:
+         case 3:
 				//hash the password to find it in the data base
 				pass = hasher(pass);
 				index = findAccountIndex(users, usr , pass);
@@ -492,7 +492,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 					}
 				}
 				break;
-			case 3:
+			case 0:
          	exitProgram = true;
       }//switch(choice)
 
@@ -511,10 +511,10 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 	
 		cout << "Login page" << endl;
 		printLine();
-		cout << "<0> Enter User: " << usr << endl;
-		cout << "<1> Enter Password: " << str << endl;
-		cout << "<2> Push User/Password " << endl;
-		cout << "<3> Exit " << endl;
+		cout << "<0> Exit " << endl;
+		cout << "<1> Enter User: " << usr << endl;
+		cout << "<2> Enter Password: " << str << endl;
+		cout << "<3> Push User/Password " << endl;
 		printLine();
 		cout << "\033[5;1;32m";
 		cout << "Please Enter a Number -->:" << endl;
@@ -637,9 +637,9 @@ void userAccount::printMainMenu()
 	cout << "\033[1;32m";
 	cout << "Welcome! Choose an option:\n";
 	printLine();
-	cout << "2. Employee Login\n";
+	cout << "0. Exit Program\n";
    cout << "1. User Login\n";
-	cout << "0. Exit\n";
+	cout << "2. Employee Login\n";
 	printLine();
 	cout << "\033[5;1;32m";
    cout << "Enter your choice -->: ";

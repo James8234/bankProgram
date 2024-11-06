@@ -14,11 +14,11 @@ void userAccount::bankEmployeeMenus()
 {
 	cout << "\033[1;32m";
 	cout << "Banke Employee menu:\n";
+	cout << "0. Logout\n";
 	cout << "1. View all user accounts\n";
 	cout << "2. Deactivate a user accounts\n";
 	cout << "3. Reactivate a user account\n";
 	cout << "4. Create an user account\n";
-	cout << "0. Logout\n";
 	printLine();
 	cout << "\033[5;1;32m";
 	cout << "Enter your choice: -->: ";
@@ -39,13 +39,13 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users, int employeeInde
     	cout << "\033[1;32m"; // Green color
     	cout << "Bank Employee Menu: hello\n";
     	printLine();
+        cout << "0. Logout\n";
     	cout << "1. View All User Accounts\n";
       cout << "2. Deposit to User Account\n";
         cout << "3. Withdraw from User Account\n";
         cout << "4. Transfer from User Accounts\n";
         cout << "5. Deactivate/Reactivate a User Account\n";
         cout << "6. Create a User Account\n";
-        cout << "0. Logout\n";
         printLine();
         cout << "\033[5;1;32m"; // Blink and green color
         cout << "Enter your choice: -->: ";
