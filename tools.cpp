@@ -18,6 +18,14 @@
 //string to acII to bits
 //#include <bitset>
 
+void printErrorMessage(string problem)
+{
+	cout << problem + " enter anything to continue -->";
+	cin.clear();
+	cin.ignore(100000 , '\n');
+}
+
+
 string generateSalt(int length)
 {
 	string salt;

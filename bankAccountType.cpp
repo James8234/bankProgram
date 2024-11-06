@@ -41,12 +41,12 @@ void bankAccountType::setAccountNumber(string num)
 
 void bankAccountType::withdraw(double amount)
 {
-        balance = balance - amount;
+   balance = balance - amount;
 }
 
 void bankAccountType::deposit(double amount)
 {
-        balance = balance + amount;
+   balance = balance + amount;
 }
 
 void bankAccountType::print()

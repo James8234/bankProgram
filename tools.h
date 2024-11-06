@@ -9,6 +9,13 @@
 #include <unistd.h>
 using namespace std;
 
+/*
+ * FUNCTION printErrorMessage
+ * The purpose of this function is to provide an reuseable error message. That promts the user to enter anything and clear the cin error state
+ */
+void printErrorMessage(string problem);
+
+
 string hasher(string input);
 
 double totalPrimeNumbers(int num);

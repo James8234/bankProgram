@@ -20,7 +20,7 @@ void printAccountList(userAccount *initialUser)
 	printLine();
 
 
-	totalAccounts = nodeType::getNodeCount();
+	totalAccounts = doublyLinkedListType::getNodeCount();
 	
 	while(totalAccounts >= index && current != nullptr)
 	{

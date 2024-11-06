@@ -18,7 +18,7 @@ class userAccount
 	   string id;
 		doublyLinkedListType *linkList;
 		bool isActive; // deactivateAccount function
-    	vector<nodeType*> accounts;
+   	vector<nodeType*> accounts;
 		string userId;
 
 	public:
@@ -27,6 +27,8 @@ class userAccount
 
 		//This function allows the user to trasfer balance between bank accounts.
 		friend void transferBetweenBankAccounts(userAccount *initialUser);
+		friend void printTransferBetweenBankAccount(const string &fromAccountType, const string &fromAccountName, const int &fromAccountBalance,const string &toAccountType, const string &toAccountName, const int &toAccountBalance, const int &amount);
+//					   printTransferBetweenBankAccount();
 
 		//dead lock functions -- this function locks on both user accounts
 		virtual bool lockBankAccounts(const userAccount *initialUser);
@@ -65,7 +67,7 @@ class userAccount
 	
 		int loginAccount(vector<userAccount*> &users);
 	
-	   int displayLoginMenu(vector<userAccount*>& users, vector <userAccount*>& employees);
+	   int displayLoginMenu(vector<userAccount*>& users);
 	
 	   int createAccount(vector<userAccount*>& users);
 	
@@ -76,9 +78,9 @@ class userAccount
    	void bankEmployeeMenu(vector<userAccount*>& users);
    	void bankEmployeeMenus();
 
-	   	void viewAllUserAccounts(const vector<userAccount*>& users) const;
+	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
 
-	   	int getUserChoice(int min, int max) const;
+	   int getUserChoice(int min, int max) const;
 				
 		int employeeLoginAccount(vector<userAccount*>& users);
 
@@ -108,7 +110,7 @@ class userAccount
 
 		void transferFunds(std::vector<userAccount*>& users);
 
-		void printAccountList();
+//		void printAccountList();
 		/**
 		 *	FUNCTION editUserAccount
 		 *
@@ -126,7 +128,6 @@ class userAccount
 
 		//deconstructor
 		virtual ~userAccount() {}
-
 };
 
 

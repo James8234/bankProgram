@@ -13,7 +13,7 @@ class nodeType
 	nodeType *prev;
 
 	std::string accountType;
-    double balance;
+   double balance;
 
 	nodeType() : accountType(""), balance(0.0) {}
 
@@ -26,7 +26,7 @@ class nodeType
 
 	    // Withdraw method to decrease the balance
     void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
+       if (amount > 0 && amount <= balance) {
             balance -= amount;
         } else {
             std::cout << "Insufficient balance or invalid amount.\n";
@@ -43,13 +43,13 @@ class nodeType
 	}
 
 	//static variable functions
-	static int getNodeCount();
-	static void incNodeCount();
-	static void decNodeCount();	
+//	static int getNodeCount();
+//	static void incNodeCount();
+//	static void decNodeCount();	
 
 	private:
 
-	static int nodeCount;
+//	static int nodeCount;
 
 
 };

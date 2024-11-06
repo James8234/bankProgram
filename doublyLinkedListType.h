@@ -31,13 +31,20 @@ class doublyLinkedListType
 		//copy constructor
 		doublyLinkedListType(const doublyLinkedListType* type);
 
-		size_t getNodeCount();
+//		size_t getNodeCount();
+
+
+		//static variables to track number of accounts
+		static int getNodeCount();
+		static void incNodeCount();
+		static void decNodeCount();
 
 
 	private:
 		nodeType *head;
 		nodeType *tail;
 
+		static int nodeCount;
 //		static const int ACCOUNT_OFFSET; //const value = 2
 
 		bool lookUpAccount(string acctNum);

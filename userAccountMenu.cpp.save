@@ -1,8 +1,8 @@
 #include "header.h"
 #include "userAccount.h"
 #include "doublyLinkedListType.h"
-#include "fileManager.h"
-#include "tools.h"
+#include  "fileManager.h"
+#include "tools
 
 
 void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
@@ -22,7 +22,7 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
     
 		printAccountMenu();
 
-		totalNodes = doublyLinkedListType::getNodeCount();
+		totalNodes = nodeType::getNodeCount();
 		userChoice = checkVaildInteger(4, 0); //the +1 is because by check for vail integer dose not include the exact number but one off
 	 
 		switch(userChoice)
@@ -58,19 +58,20 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
   		      		} 
 						else
 						{
-							printErrorMessage("A null was returned");
+							printErrorMessage("A null was returned enter anything to continue");
 	       	 		}
 						initialUser->unlockBankAccounts(initialUser); //unlocks the text file
 					} //if(totalNodes > 0 && initialUser->getLinkList() != nullptr)
 					else
 					{
-						printErrorMessage("Sorry there are no accounts");
-
+						cout << "Sorry there are no accounts enter anything to contine --> ";
+						cin.ignore(100000 , '\n');
 					}
 				} //if(lockBankAccount(initialUser))
 				else
 				{
-					printErrorMessage("file is locked");
+					cout << "file may be locked" << endl;
+					cin.ignore(10000 , '\n');
 				}
 				break;
 			case 3 :
@@ -91,21 +92,22 @@ void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList)
 			case 4 :
 				if(initialUser->lockBankAccounts(initialUser)) // this function locked the file and returns false when locked
 				{
-					if(doublyLinkedListType::getNodeCount() > 1)
+					if(nodeType::getNodeCount() > 1)
 					{
 						transferBetweenBankAccounts(initialUser);
 					}
 					else
 					{
-						printErrorMessage("Please create two accounts to transfer between.");
+						cout << "Please create two accounts to transfer between. Enter anything to continue..." << endl;
+						cin.ignore(10000 , '\n');
 					}
 
 					initialUser->unlockBankAccounts(initialUser); //unlocks the text file
 				}
 				break;
 			default :
-				printErrorMessage("Input Error");
-
+				cout << "Input Error " << endl;
+				cin.ignore(1000000 , '\n');
 		}//switch(userChoice)
 
 //once the user has selceted an bank account it will return its index and get the nodeAddress

@@ -33,7 +33,7 @@ int main()
 	//memory variables
 //	nodeType *nodeAddress = nullptr;
 	vector<userAccount*> userList; //make sure the account is recognized here
-	vector<userAccount*> employeeList;
+//	vector<userAccount*> employeeList;
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
 //This memeory variable store the transactionHistory
@@ -59,7 +59,7 @@ int main()
 
 
 		//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
-		index = initialUser->displayLoginMenu(userList, employeeList);
+		index = initialUser->displayLoginMenu(userList);
 
 		if(index >= 0)
 		{

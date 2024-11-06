@@ -28,19 +28,18 @@ int checkVaildInteger(int max, int min)
 	
 	do
 	{
-	
+//		cout << "Enter your choice -->:";
 		if(!(cin >> num))
 		{
-			
 			cin.clear();
 			cin.ignore(10000 , '\n');
-			cout << "Error: please enter a integer" << endl;
+			cout << "Error: please enter a integer. Enter your choice -->: ";
 		}
 		else if(min > num || num > max)
 		{
-			cout << "Error: input is out of range. Please enter between: " << max << "/" << min << endl;
-		}		
-		else	
+			cout << "Error: input is out of range. Please enter between: " << max << "/" << min << " Enter your choice -->: ";
+		}
+		else
 		{
 			vaildInput = true;
 		}

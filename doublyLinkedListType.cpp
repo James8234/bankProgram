@@ -8,6 +8,23 @@
 
 //const int doublyLinkedListType::ACCOUNT_OFFSET = 2;
 
+int doublyLinkedListType::nodeCount = 0;
+
+void doublyLinkedListType::incNodeCount()
+{
+	nodeCount++;
+}
+
+void doublyLinkedListType::decNodeCount()
+{
+	nodeCount--;
+}
+
+int doublyLinkedListType::getNodeCount()
+{
+	return nodeCount;
+}
+
 /**
  * file doublyLinkedListType.cpp
  *
@@ -61,7 +78,7 @@ void doublyLinkedListType::createNodeType(bankAccountType *objData)
 		tail = newNode;
 	}
 	
-	nodeType::incNodeCount();
+	doublyLinkedListType::incNodeCount();
 
 }
 
@@ -142,7 +159,7 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 		delete current->data;
 		delete current;
 		current = nullptr;
-		nodeType::decNodeCount();
+		doublyLinkedListType::decNodeCount();
 	}
 	else
 	{
@@ -157,6 +174,7 @@ void doublyLinkedListType::deleteAccount(nodeType *&node)
 
 void doublyLinkedListType::printDeleteAccount(nodeType *node)
 {
+		cout << "\033[1;32m"; //makes the text green
 		cout << "Delete Account" << endl;
 		printLine();
 //		cout << node->data->getAccountType() << endl;
@@ -165,6 +183,7 @@ void doublyLinkedListType::printDeleteAccount(nodeType *node)
 		cout << node->data->getAccountNumber() << endl;
 		printLine();
 		cout << "Are you sure you want to delete your account <y/n> -->: ";
+		cout << "\033[0m";
 }
 
 
@@ -266,6 +285,7 @@ void doublyLinkedListType::editAccount(nodeType *&node)
 
 void doublyLinkedListType::printEditAccount(string tempName, string tempID)
 {
+	cout << "\033[1;32m"; // green text
 	cout << "Edit your account " << endl;	
 	printLine();
 	cout << "<0> Name    -> " << tempName << endl;
@@ -274,6 +294,7 @@ void doublyLinkedListType::printEditAccount(string tempName, string tempID)
 	cout << "<3> Exit" << endl;
 	printLine();
 	cout << "Please enter here ->: ";
+	cout << "\033[0m";
 }
 
 
@@ -324,7 +345,7 @@ void doublyLinkedListType::deleteNodeType()
 	}
 	
 }
-
+/*
 size_t doublyLinkedListType::getNodeCount() {
     size_t count = 0;
     nodeType* currentNode = head; // Assuming head points to the first node
@@ -334,7 +355,7 @@ size_t doublyLinkedListType::getNodeCount() {
     }
     return count;
 }
-
+*/
 /**
  * copy constructor
  */

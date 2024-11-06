@@ -8,6 +8,33 @@
 #include "doublyLinkedListType.h"
 #include "bankEmployee.h"
 
+//print printTransferAccount 
+//This prints the UI for transfering money
+
+void printTransferBetweenBankAccount(const string &fromAccountType, const string &fromAccountName, const int &fromAccountBalance,const string &toAccountType, const string &toAccountName, const int &toAccountBalance, const int &amount)
+{
+		cout << "\033[1;32m";
+		cout << "Transfer money between bank accounts" << endl;
+		cout << "------------------------------------" << endl;
+		cout << "<0> exit  "   << endl;
+		cout << "<1> from: "
+		<< left
+		<< setw(25)
+		<< fromAccountType << " : " 
+		<< setw(15) 
+		<< fromAccountName << "|$ " << fromAccountBalance << " | " << endl;
+		cout << "<2> To:   "
+		<< setw(25)
+		<< toAccountType   << " : " 
+		<< setw(15) 
+		<< toAccountName   << "|$ " << toAccountBalance << " |" << endl;
+		cout << "<3> amount: $" << amount << endl;
+		cout << "<4> push" 	  << endl;
+		cout << "------------------------------------" << endl;
+		cout << "Enter your choice -->:";
+		cout << right;
+		cout << "\033[0m";
+}
 
 /**
  * FUNCTION transferBetweenBankAccounts
@@ -34,32 +61,14 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 	nodeType *fromNode = nullptr;
 	nodeType *toNode   = nullptr;
 
-	totalNodes = nodeType::getNodeCount();
+	totalNodes = doublyLinkedListType::getNodeCount();
 
 	while(!(exitFunction))
 	{
 		//clear the screen
 		cout << "\033c";
 
-		cout << "Transfer money between bank accounts" << endl;
-		cout << "------------------------------------" << endl;
-		cout << "<0> exit  "   << endl;
-		cout << "<1> from: "
-		<< left
-		<< setw(25)
-		<< fromAccountType << " : " 
-		<< setw(15) 
-		<<fromAccountName << "|$ " << fromAccountBalance << " | " << endl;
-		cout << "<2> To:   "
-		<< setw(25)
-		<< toAccountType   << " : " 
-		<< setw(15) 
-		<< toAccountName   << "|$ " << toAccountBalance << " |" << endl;
-		cout << "<3> amount: $" << amount << endl;
-		cout << "<4> push" 	  << endl;
-		cout << "------------------------------------" << endl;
-		cout << "Enter your choice -->:";
-		cout << right;
+ 		printTransferBetweenBankAccount(fromAccountType, fromAccountName, fromAccountBalance, toAccountType, toAccountName, toAccountBalance, amount);
 
 		userChoice = checkVaildInteger(5 , 0);
 
@@ -128,9 +137,6 @@ void transferBetweenBankAccounts(userAccount *initialUser)
 		}//switch(userChoice)
 	}//while(!(exitFunction))
 }
-
-//print
-
 
 /**
  * FUNCTION lockBankAccounts
@@ -548,7 +554,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 /**
  * Function DisplayLoginMenu
  */
-int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccount*>& employees)
+int userAccount::displayLoginMenu(vector<userAccount*> &users)
 {
 	int index = -1;
    int choice;
@@ -562,7 +568,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 
 		printMainMenu();
 
-     	choice = checkVaildInteger(2 , 0);
+     	choice = checkVaildInteger(1 , 0);
 
 		switch (choice)
 		{
@@ -575,15 +581,11 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users, vector<userAccoun
 				{
             	if(users[index]->getClassName() == "userAccount")
 					{
-//cout << "the account is userAccount -->" << users[index]->getClassName() << endl;
-//cin.ignore(100000 , '\n');
 						readBankAccountFile(users, index);
 						return index;	
 					}
 					else
 					{
-//cout << "the account is bankEmployee" << endl;
-//cin.ignore(10000 , '\n');
 						bankEmployeeMenu(users);
 					}
 				}

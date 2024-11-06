@@ -47,6 +47,10 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 				node->data->print(); //view account
 				break;
 			case 2:
+				cout << "\033[5;1;32m";
+				printLine();
+				cout << "Enter amount -->: ";
+				cout << "\033[0m";
 				amount = checkVaildInteger(node->data->getBalance(), -1); //withdraw
 				node->data->withdraw(amount);
 				updateBankAccountFile(initialUser);
@@ -55,6 +59,10 @@ void accountUI(userAccount *&initialUser, nodeType *&node)
 				logActivity(initialUser->getID(), activity);
 				break;
 			case 3:
+				cout << "\033[5;1;32m";
+				printLine();
+				cout << "Enter amount -->: ";
+				cout << "\033[0m";
 				amount = checkVaildInteger(10000, -1);
 				node->data->deposit(amount);
 				updateBankAccountFile(initialUser);

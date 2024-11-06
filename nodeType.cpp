@@ -1,5 +1,6 @@
 #include "nodeType.h"
 
+/*
 int nodeType::nodeCount = 0;
 
 void nodeType::incNodeCount()
@@ -16,3 +17,4 @@ int nodeType::getNodeCount()
 {
 	return nodeCount;
 }
+*/

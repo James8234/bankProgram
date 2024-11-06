@@ -52,11 +52,11 @@ fileManager.o: fileManager.cpp fileManager.h header.h doublyLinkedListType.h use
 
 deactivateAccount.o: deactivateAccount.cpp deactivateAccount.h userAccount.h header.h
 
-bankEmployee.o: bankEmployee.cpp bankEmployee.h fileManager.h
+bankEmployee.o: bankEmployee.cpp bankEmployee.h fileManager.h tools.h userAccount.h header.h doublyLinkedListType.h
 
 printAccountMenu.o: printAccountMenu.cpp header.h
 
-userAccountMenu.o: userAccountMenu.cpp header.h doublyLinkedListType.h userAccount.h fileManager.h
+userAccountMenu.o: userAccountMenu.cpp header.h doublyLinkedListType.h userAccount.h fileManager.h tools.h
 
 tools.o: tools.cpp tools.h 
 
