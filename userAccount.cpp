@@ -617,7 +617,6 @@ void userAccount::printMainMenu()
 void userAccount::print()
 {
 	cout << "\033[1;32m";
-//	cout << "\033[1;32m";
 	cout << "The username" << username << endl;
 	cout << "The password" << password << endl;
 	cout << "The id " << id << endl;
@@ -641,39 +640,51 @@ userAccount::userAccount()
 	isActive = true;  // set account as active when a user is created
 }
 
-void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
+void userAccount::deactivateAccountMenu(vector<userAccount*>& users)
+{
     int choice;
-	
+	string userId = "";
+
 	// displays list of accounts that shows their active/inactive status
     cout << "List of accounts:\n";
-    for (size_t i = 0; i < users.size(); i++) {
+    for (size_t i = 0; i < users.size(); i++) 
+	 {
         cout << i + 1 << ". " << users[i]->getUsername() 
              << " (Status: " << (users[i]->getIsActive() ? "ACTIVE" : "INACTIVE") << ")\n";
     }
 
     cout << "Select an account to deactivate/reactivate (0 to cancel): ";
-    cin >> choice;
+    choice = checkVaildInteger(users.size(), 0);
 
-    if (choice <= 0 || choice > users.size()) {
+    if (choice <= 0 || choice > users.size()) 
+	 {
         cout << "Invalid or cancelled.\n";
         return;
     }
 
     userAccount* selectedAccount = users[choice - 1]; // get the account selected by the user
 
+	userId = selectedAccount->getID();
 
 	// if the selected account is active, deactivate it
 	// if not, reactivate the account
-    if (selectedAccount->getIsActive()) {
-        selectedAccount->setIsActive(false);
+   if(selectedAccount->getIsActive())
+	{
+        selectedAccount->setIsActive(0);
         cout << "Account " << selectedAccount->getUsername() << " has been deactivated.\n";
 
 		// log acc deactivation
+
+
 		string activity = "Account deactivated for user: " + selectedAccount->getUsername();
+//cout << "before log activity" << endl;
+//cin.ignore(10000 , '\n');
 		logActivity(userId, activity);
-	
-    } else {
-        selectedAccount->setIsActive(true);
+
+    }
+	 else 
+	 {
+        selectedAccount->setIsActive(1);
         cout << "Account " << selectedAccount->getUsername() << " has been reactivated.\n";
 
 		// log acc reactivation
@@ -681,10 +692,14 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users) {
 		logActivity(userId, activity);
     }
 
-	 cin.get();
+//	 cin.get();
+//cout << "before update account file" << endl;
+//cin.ignore(1000 ,'\n');
+
 
     //updates the credentials file with new account status
-    updateAccountFile(users);
+	updateCredentialsFile(users);
+ //   updateAccountFile(users);
 }
 
 // getter

@@ -572,7 +572,9 @@ string convertDoubleToString(double bankBalance)
 }
 
 // updates the credentials file with deactiavte/activated status
-void updateAccountFile(const vector<userAccount*>& accountList) {
+/*
+void updateAccountFile(const vector<userAccount*>& accountList) 
+{
     string filepath = "./data/credentials.dat";
     ofstream outfile(filepath.c_str());
 
@@ -588,7 +590,7 @@ void updateAccountFile(const vector<userAccount*>& accountList) {
 
     outfile.close();
 }
-
+*/
 
 void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete)
 {
@@ -664,6 +666,7 @@ void deleteUserCredential(vector<userAccount*> &userList, const string &userIdTo
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore leftover characters in the input buffer
     cin.get(); // Wait for user input
 }
+
 
 void createEmployeeObject(const string& accountType, const string& username, const string& password, const string& userId, userAccount* user){
 
