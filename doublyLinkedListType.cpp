@@ -343,7 +343,8 @@ void doublyLinkedListType::deleteNodeType()
 
 		current = nextNode;
 	}
-	
+	head = nullptr;
+	tail = nullptr;
 }
 /*
 size_t doublyLinkedListType::getNodeCount() {

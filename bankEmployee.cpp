@@ -10,7 +10,6 @@ string bankEmployee::getClassName()
 	return "bankEmployee";
 }
 
-
 void userAccount::bankEmployeeMenus()
 {
 	cout << "\033[1;32m";
@@ -25,7 +24,6 @@ void userAccount::bankEmployeeMenus()
 	cout << "Enter your choice: -->: ";
 	cout << "\033[0m";
 }
-
 
 void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
 {
@@ -124,7 +122,7 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
 
 
 int userAccount::getUserChoice(int min, int max) const
- {
+{
     int choice;
     while (true)
 	 {
@@ -218,9 +216,11 @@ void userAccount::depositToUserAccount(vector<userAccount*>& users, int userInde
 	cin.ignore(10000 , '\n');
 
 	updateBankAccountFile(initialUser);
+	initialUser->getLinkList()->deleteNodeType();
+
 
 	//Log the info
-   std::string activity = "deposit: " + to_string(amount);
+  std::string activity = "deposit: " + to_string(amount);
 	logActivity(initialUser->getUserId(), activity); // Assuming a method to log activities
 }
 
@@ -264,6 +264,7 @@ void userAccount::withdraw(std::vector<userAccount*>& users, int userIndex)
 	cin.ignore(10000 , '\n');
 
 	updateBankAccountFile(initialUser);
+	initialUser->getLinkList()->deleteNodeType();
 
     // Log the withdrawal activity if needed
     std::string activity = "Withdrawn: " + std::to_string(amount);

@@ -325,6 +325,7 @@ void readBankAccountFile(vector<userAccount*> &userList, int index)
 				if(userList[index]->getLinkList() != nullptr)
 				{
 					userList[index]->getLinkList()->createNodeType(newAccount);
+//					userList[index]->getLinkList()->incNodeCount();
 				}
 				else
 				{
