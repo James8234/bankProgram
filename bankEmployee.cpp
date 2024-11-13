@@ -101,7 +101,7 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users, int employeeInde
               break;
             case 4: // Transfer from User Accounts
                 cout << "\033c";
-		//transferFunds(users);
+		transferFunds(users);
                 break;
             case 5:
                 cout << "\033c";
