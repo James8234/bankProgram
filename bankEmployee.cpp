@@ -14,23 +14,24 @@ void userAccount::bankEmployeeMenus()
 {
 	cout << "\033[1;32m";
 	cout << "Banke Employee menu:\n";
+	cout << "0. Logout\n";
 	cout << "1. View all user accounts\n";
 	cout << "2. Deactivate a user accounts\n";
 	cout << "3. Reactivate a user account\n";
 	cout << "4. Create an user account\n";
-	cout << "0. Logout\n";
 	printLine();
 	cout << "\033[5;1;32m";
 	cout << "Enter your choice: -->: ";
 	cout << "\033[0m";
 }
 
-void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
+void userAccount::bankEmployeeMenu(vector<userAccount*>& users, int employeeIndex)
 {
     bool exitMenu = false;
     int choice = 0;
     int index = -1;
 	int elements = users.size();
+	string activity = "Logged out";
 
 	while (!exitMenu)
 	{
@@ -38,13 +39,13 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
     	cout << "\033[1;32m"; // Green color
     	cout << "Bank Employee Menu: hello\n";
     	printLine();
+        cout << "0. Logout\n";
     	cout << "1. View All User Accounts\n";
       cout << "2. Deposit to User Account\n";
         cout << "3. Withdraw from User Account\n";
         cout << "4. Transfer from User Accounts\n";
         cout << "5. Deactivate/Reactivate a User Account\n";
         cout << "6. Create a User Account\n";
-        cout << "0. Logout\n";
         printLine();
         cout << "\033[5;1;32m"; // Blink and green color
         cout << "Enter your choice: -->: ";
@@ -55,6 +56,8 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
        switch (choice)
 		 {
             case 0:
+					 //logs the logout
+					 logActivity(users[employeeIndex]->getID(), activity);
                 exitMenu = true;
                 break;
             case 1:
@@ -98,9 +101,13 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
               break;
             case 4: // Transfer from User Accounts
                 cout << "\033c";
+<<<<<<< HEAD
                 // Transfer logic here
 				cout << "transferFunds in progess..." << endl;
 //					transferFunds(users);
+=======
+		transferFunds(users);
+>>>>>>> refs/remotes/origin/main
                 break;
             case 5:
                 cout << "\033c";
@@ -239,7 +246,7 @@ void userAccount::withdraw(std::vector<userAccount*>& users, int userIndex)
 
 	if(initialUser->getClassName() == "bankEmployee")
 	{
-		cout << "sorry you can't select an bankEmplyee" << endl;
+		cout << "sorry you can't select an bankEmployee" << endl;
 		return;
 	}
 
@@ -258,10 +265,10 @@ void userAccount::withdraw(std::vector<userAccount*>& users, int userIndex)
 //	findAccountByIndex(index);
 	bankAccount = initialUser->getLinkList()->getAccountByIndex(index);
 
-	cout << "Enter the ammount to deposit -->";
+	cout << "Enter the ammount to withdraw -->";
 	amount = checkVaildInteger(bankAccount->data->getBalance(), 0);
 
-	bankAccount->data->deposit(amount);
+	bankAccount->data->withdraw(amount);
 	cout << "your new balance is " << bankAccount->data->getBalance() << endl;
 	cin.ignore(10000 , '\n');
 
@@ -291,14 +298,22 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     int sourceIndex = -1;
     int destinationIndex = -1;
     double transferAmount = 0.0;
+<<<<<<< HEAD
 	int totalNodes = doublyLinkedListType::getNodeCount();
 	int elements = users.size();
 
  // Step 1: Get Source User and Account
+=======
+    int totalNodes = doublyLinkedListType::getNodeCount();
+    int elements = users.size();
+
+    // Step 1: Get Source User and Account
+>>>>>>> refs/remotes/origin/main
     cout << "\033c";
     cout << "Select source user for transfer:\n";
     viewAllUserAccounts(users);
     cout << "Please select a source user index -->: ";
+<<<<<<< HEAD
     sourceIndex = checkVaildInteger(elements, 0);
 
  
@@ -310,10 +325,25 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
     
    if (sourceIndex < 0 || sourceIndex >= users.size() || sourceUser->getClassName() == "bankEmployee") {
+=======
+    sourceIndex = checkVaildInteger(elements - 1, 0);
+
+    if (sourceIndex < 0 || sourceIndex >= users.size() || initialUser->getClassName() == "bankEmployee") {
+>>>>>>> refs/remotes/origin/main
         std::cout << "Invalid source user. Exiting transfer.\n";
         return;
     }
 
+<<<<<<< HEAD
+=======
+    userAccount* sourceUser = users[sourceIndex];
+    readBankAccountFile(users, sourceIndex);
+    printAccountList(sourceUser);
+    
+    int sourceAccountIndex = checkVaildInteger(totalNodes - 1, 0);
+    nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
+    
+>>>>>>> refs/remotes/origin/main
 
     if (!sourceAccount) {
         std::cout << "Source account not found. Exiting transfer.\n";
@@ -325,7 +355,11 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     cout << "Select destination user for transfer:\n";
     viewAllUserAccounts(users);
     cout << "Please select a destination user index -->: ";
+<<<<<<< HEAD
     destinationIndex = checkVaildInteger(elements, 0);
+=======
+    destinationIndex = checkVaildInteger(elements - 1, 0);
+>>>>>>> refs/remotes/origin/main
 
     if (destinationIndex < 0 || destinationIndex >= users.size())
 	 {
@@ -357,10 +391,15 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     }
 
     // Step 4: Execute Transfer
+<<<<<<< HEAD
 	cout << "before transfer" << endl;
 	cin.ignore(10000 , '\n');
     sourceAccount->data->withdraw(transferAmount);
     destinationAccount->data->deposit(transferAmount);
+=======
+    sourceAccount->data->setBalance(sourceAccount->data->getBalance() - transferAmount);
+    destinationAccount->data->setBalance(destinationAccount->data->getBalance() + transferAmount);
+>>>>>>> refs/remotes/origin/main
 
 	// Display Transfer Success
     std::cout << "Transfer successful!\n";
@@ -372,5 +411,9 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     sourceUser->getLinkList()->deleteNodeType();
     updateBankAccountFile(destinationUser);
     destinationUser->getLinkList()->deleteNodeType();
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/main
 }
+

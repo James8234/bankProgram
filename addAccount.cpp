@@ -17,13 +17,13 @@ void printAddAcctMenu()
 	cout << "\033[1;32m"; //makes text green
 	cout << "What kind of account would you like? " << endl;
 	printLine();
+	cout << "0. Exit" << endl;
 	cout << "1. Savings Account" << endl;
 	cout << "2. High Interest Savings Account" << endl;
 	cout << "3. No Service Charge Checking Account" << endl;
 	cout << "4. Service Charge Checking Account" << endl;
 	cout << "5. High Interest Checking Account" << endl;
 	cout << "6. Certificate of Deposit Account" << endl;
-	cout << "7. Exit" << endl;
 	printLine();
 	cout << "\033[0m"; //sets colors back
 }
@@ -45,11 +45,11 @@ void printAddAccounts(string acNum, string name, double balance, string accountT
    cout << "------------------------" << endl;
    cout << "Account Number: " << acNum << endl;
 	printLine();
+	cout << "<0> Return to Account Menu" << endl;
    cout << "<1> Account Holder's Name:  " << name << endl;
    cout << "<2> Initial Balance:      $ " << balance << endl;
 	cout << "<3> Choose Account Type:    " << accountType << endl;
 	cout << "<4> Save Account" << endl;
-	cout << "<0> Return to Account Menu" << endl;
 	cout << "------------------------" << endl;
    cout << "please enter a number here-->: ";  // Ask user what they want to modify
 	cout << "\033[0m"; //makes white text
@@ -126,7 +126,7 @@ void addAccount(userAccount *&initialUser)
 				cout << "\033c";
 				printAddAcctMenu();  // Show account type options
 				cout << "Enter account type: ";
-				accountTypeChoice = checkVaildInteger(7, 1);
+				accountTypeChoice = checkVaildInteger(6, 0);
 				unsavedData = true;
 				break;
 

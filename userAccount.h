@@ -75,7 +75,7 @@ class userAccount
 
 	   bool validLogin(const string& usr, const string& pswd, string id);
 
-   	void bankEmployeeMenu(vector<userAccount*>& users);
+   	void bankEmployeeMenu(vector<userAccount*>& users, int employeeIndex);
    	void bankEmployeeMenus();
 
 	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
