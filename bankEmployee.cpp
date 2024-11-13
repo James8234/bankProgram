@@ -66,7 +66,7 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
 
 				viewAllUserAccounts(users);
 				cout << "please select an account -->: ";
-				index = checkVaildInteger(elements, 0);
+				index = checkVaildInteger(elements - 1, 0);
 
 //            	index = loginAccount(users);
 
@@ -99,6 +99,8 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users)
             case 4: // Transfer from User Accounts
                 cout << "\033c";
                 // Transfer logic here
+				cout << "transferFunds in progess..." << endl;
+//					transferFunds(users);
                 break;
             case 5:
                 cout << "\033c";
@@ -284,33 +286,34 @@ void userAccount::printAccountList() {
     }
 }
 */
-void userAccount::transferFunds(std::vector<userAccount*>& users) {
+void userAccount::transferFunds(std::vector<userAccount*>& users) 
+{
     int sourceIndex = -1;
     int destinationIndex = -1;
     double transferAmount = 0.0;
+	int totalNodes = doublyLinkedListType::getNodeCount();
+	int elements = users.size();
 
-    // Step 1: Get Source User and Account
-    std::cout << "\033c";
-    std::cout << "Select source user for transfer:\n";
-    sourceIndex = loginAccount(users);
+ // Step 1: Get Source User and Account
+    cout << "\033c";
+    cout << "Select source user for transfer:\n";
+    viewAllUserAccounts(users);
+    cout << "Please select a source user index -->: ";
+    sourceIndex = checkVaildInteger(elements, 0);
 
-    if (sourceIndex < 0 || sourceIndex >= users.size()) {
+ 
+    userAccount* sourceUser = users[sourceIndex];
+    readBankAccountFile(users, sourceIndex);
+    printAccountList(sourceUser);
+    
+    int sourceAccountIndex = checkVaildInteger(totalNodes, 0);
+    nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
+    
+   if (sourceIndex < 0 || sourceIndex >= users.size() || sourceUser->getClassName() == "bankEmployee") {
         std::cout << "Invalid source user. Exiting transfer.\n";
         return;
     }
 
-    userAccount* sourceUser = users[sourceIndex];
-    size_t totalAccountsSource = sourceUser->getLinkList()->getNodeCount();
-
-    if (totalAccountsSource == 0) {
-        std::cout << "No accounts available for the source user. Exiting transfer.\n";
-        return;
-    }
-
-    // Display source user's accounts
-    printAccountList(sourceUser);
-    int sourceAccountIndex = checkVaildInteger(totalAccountsSource - 1, 0);
-    nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
 
     if (!sourceAccount) {
         std::cout << "Source account not found. Exiting transfer.\n";
@@ -318,26 +321,23 @@ void userAccount::transferFunds(std::vector<userAccount*>& users) {
     }
 
     // Step 2: Get Destination User and Account
-    std::cout << "\033c";
-    std::cout << "Select destination user for transfer:\n";
-    destinationIndex = loginAccount(users);
+    cout << "\033c";
+    cout << "Select destination user for transfer:\n";
+    viewAllUserAccounts(users);
+    cout << "Please select a destination user index -->: ";
+    destinationIndex = checkVaildInteger(elements, 0);
 
-    if (destinationIndex < 0 || destinationIndex >= users.size()) {
+    if (destinationIndex < 0 || destinationIndex >= users.size())
+	 {
         std::cout << "Invalid destination user. Exiting transfer.\n";
         return;
     }
 
     userAccount* destinationUser = users[destinationIndex];
-    size_t totalAccountsDestination = destinationUser->getLinkList()->getNodeCount();
-
-    if (totalAccountsDestination == 0) {
-        std::cout << "No accounts available for the destination user. Exiting transfer.\n";
-        return;
-    }
-
-    // Display destination user's accounts
+    readBankAccountFile(users, destinationIndex);
     printAccountList(destinationUser);
-    int destinationAccountIndex = checkVaildInteger(totalAccountsDestination - 1, 0);
+    
+    int destinationAccountIndex = checkVaildInteger(totalNodes - 1, 0);
     nodeType* destinationAccount = destinationUser->getLinkList()->getAccountByIndex(destinationAccountIndex);
 
     if (!destinationAccount) {
@@ -346,20 +346,31 @@ void userAccount::transferFunds(std::vector<userAccount*>& users) {
     }
 
     // Step 3: Prompt for Transfer Amount
-    std::cout << "Enter the amount to transfer: ";
-    std::cin >> transferAmount;
+    cout << "Enter the amount to transfer: ";
+    cin >> transferAmount;
 
-    if (transferAmount <= 0 || transferAmount > sourceAccount->balance) {
+    if (cin.fail() || transferAmount <= 0 || transferAmount > sourceAccount->data->getBalance()) {
         std::cout << "Invalid amount. Exiting transfer.\n";
+        cin.clear();  // Clear the error flag
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore invalid input
         return;
     }
 
     // Step 4: Execute Transfer
-    sourceAccount->balance -= transferAmount;
-    destinationAccount->balance += transferAmount;
+	cout << "before transfer" << endl;
+	cin.ignore(10000 , '\n');
+    sourceAccount->data->withdraw(transferAmount);
+    destinationAccount->data->deposit(transferAmount);
 
-    // Display Transfer Success
+	// Display Transfer Success
     std::cout << "Transfer successful!\n";
-    std::cout << "New balance of source account: " << sourceAccount->balance << "\n";
-    std::cout << "New balance of destination account: " << destinationAccount->balance << "\n";
+    std::cout << "New balance of source account: " << sourceAccount->data->getBalance() << "\n";
+    std::cout << "New balance of destination account: " << destinationAccount->data->getBalance() << "\n";
+
+    // Update files and free memory
+    updateBankAccountFile(sourceUser);
+    sourceUser->getLinkList()->deleteNodeType();
+    updateBankAccountFile(destinationUser);
+    destinationUser->getLinkList()->deleteNodeType();
+
 }

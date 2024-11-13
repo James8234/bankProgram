@@ -502,6 +502,11 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 
 int userAccount::createAccount(vector<userAccount*> &users)
 {
+	//ICV
+	bool exitProgram = false;
+	int  userChoice  = 0;
+	bool savedData   = true;
+	char unsavedData;
 	//variables
 	string usr 		  = "";
 	string pswd 	  = "";
@@ -510,45 +515,85 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	string strActive = "1";
 	int index 		  = 0;
 
-	//get user input
-	cout << "Enter a username: ";
-	getline(cin, usr);
 
-	pswd = hidePassword();
-
-	// hash the password for storage
-	pswd = hasher(pswd);
-
-	id = generateRandomAccountNumber();
-
-	//gets memory up to date
-	deleteAllAccounts(users);
-	readCredatialsFile(users);
-
-	index = findAccountIndex(users, usr, pswd);
-
-//	cout << "in create account function ->: " << index << endl;
-//	cin.ignore(10000 , '\n');
-
-	//checks if the account already exist. returns a findAccountIndex returns a -1 when it dose not already exist
-	if(0 > index && index != -2)
+	while(!(exitProgram))
 	{
-      users.emplace_back(new userAccount(usr, pswd, id, new doublyLinkedListType));
-		createAccountFile(users, usr, pswd, id, userType, strActive);
-		index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
-		
-		// log acc creation
-		string activity = "Account created for user: " + usr + " ID: " + id;
-		logActivity(userId, activity);
-	}
-	else
-	{
-		cout << "Sorry, the account already exists. Enter anything to continue ->" << endl;
-		index = -1; //to make sure it dosn't pick an account 
-		cin.ignore(10000 , '\n');
-	}
+		cout << "\033c";
+		cout << "Welcome to client account creation" << endl;
+		printLine();
+		cout << "<0> exit account creation " << endl;
+		cout << "<1> Enter a user name     " << usr  << endl;
+		cout << "<2> Enter a password      " << pswd << endl;
+		cout << "<3> Create account 		  " << endl;
+		printLine();
+		cout << "Enter your choice here -->:";
 
-	return index;
+		userChoice = checkVaildInteger(3,0);
+
+		switch(userChoice)
+		{
+			case 0:
+				if(savedData)
+				{
+					exitProgram = true;
+				}
+				else
+				{
+					cout << "Are you sure if want to leave unsaved data?" << endl;
+					cout << "Enter <Y/N> ---->:" << endl;
+					cin.get(unsavedData);
+					cin.ignore(10000 , '\n');
+					unsavedData = toupper(unsavedData);
+					if(unsavedData = 'Y')
+						exitProgram = true;
+				}
+				break;
+			case 1:
+				cout << "Enter a username";
+				getline(cin, usr);
+				savedData = false; //makes sure the user dosn't leave with unsaved data
+				break;
+			case 2:
+				cout << "Enter a password";
+				pswd = hidePassword();
+				//hash the password for storage
+				pswd = hasher(pswd);
+				savedData = false;
+			case 3:
+				id = generateRandomAccountNumber();
+
+				//gets memory up to date
+				deleteAllAccounts(users);
+				readCredatialsFile(users);
+
+				index = findAccountIndex(users, usr, pswd);
+
+				//checks if the account already exist. returns a findAccountIndex returns a -1 when it dose not already exist
+				if(0 > index && index != -2)
+				{
+		   	   users.emplace_back(new userAccount(usr, pswd, id, new doublyLinkedListType));
+					createAccountFile(users, usr, pswd, id, userType, strActive);
+					index = findAccountIndex(users, usr, pswd); // to make sure it returns the index of the created account and brings the user to the bank account page
+
+					// log acc creation
+					string activity = "Account created for user: " + usr + " ID: " + id;
+					logActivity(userId, activity);
+					// exits after account is created
+					exitProgram = true;
+				}
+				else
+				{
+					cout << "Sorry, the account already exists. Enter anything to continue ->" << endl;
+					index = -1; //to make sure it dosn't pick an account 
+					cin.ignore(10000 , '\n');
+				}
+			break;
+		default:
+			cout << "Input error " << userChoice << endl;
+		}//switch(userChoice)
+
+	}//while(!(exitProgram))
+		return index;
 }
 
 /**

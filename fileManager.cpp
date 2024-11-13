@@ -814,17 +814,21 @@ void createLogDirectory(const string& userID) {
 
     //logActivity("Withdrawal of $" + to_string(amount) + " from account " + node->data->getAccountType() + " [" + node->data->getName() + "]");
 // function to log activity
-void logActivity(const string& userID, const string& activity) {
+void logActivity(const string& userID, const string& activity) 
+{
 	createLogDirectory(userID);
 
 	string filepath = "./logs/" + userID + "/" + userID + "_bankLog.dat";	// define the path to the log file using the user id
 
 	ofstream logFile(filepath, ios::app);
-	if (logFile.is_open()) {
+	if (logFile.is_open()) 
+	{
 		time_t now = time(nullptr); // this gets the current time
 		logFile << ctime(&now) << " - " << activity << endl; // writes the current time and the activity to the file
 		logFile.close();
-	} else {
+	}
+	 else
+	 {
 		cerr << "Could not open file for " << userID << endl;
 	}
 }
