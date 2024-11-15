@@ -558,7 +558,8 @@ int userAccount::createAccount(vector<userAccount*> &users)
 			case 0:
 				if(savedData)
 				{
-					exitProgram = true;
+	
+				exitProgram = true;
 				}
 				else
 				{
@@ -584,6 +585,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 				savedData = false;
 			case 3:
 				id = generateRandomAccountNumber();
+
 
 				//gets memory up to date
 				deleteAllAccounts(users);
@@ -652,21 +654,10 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				}
 				else
 				{
-					cout  << "invalid" << endl;
+					bankEmployeeMenu(users,index);
 					//bankEmployeeMenu(users);
 				}
 				break;
-			case 2:
-				index = loginAccount(users);
-				if (index > -1 && users[index]->getClassName() == "bankEmployee")
-				{
-					bankEmployeeMenu(users, index);
-				}
-				else
-				{
-					cout << "invalid" << endl;
-				}
-            break;
 			default:
 				cout << "Invalid choice! Please try again.\n";	
 		}//switch(chioce)
@@ -683,8 +674,8 @@ void userAccount::printMainMenu()
 	cout << "Welcome! Choose an option:\n";
 	printLine();
 	cout << "0. Exit Program\n";
-   cout << "1. User Login\n";
-	cout << "2. Employee Login\n";
+   cout << "1. Login\n";
+//	cout << "2. Employee Login\n";
 	printLine();
 	cout << "\033[5;1;32m";
    cout << "Enter your choice -->: ";

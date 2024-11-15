@@ -101,13 +101,10 @@ void userAccount::bankEmployeeMenu(vector<userAccount*>& users, int employeeInde
               break;
             case 4: // Transfer from User Accounts
                 cout << "\033c";
-<<<<<<< HEAD
                 // Transfer logic here
 				cout << "transferFunds in progess..." << endl;
-//					transferFunds(users);
-=======
-		transferFunds(users);
->>>>>>> refs/remotes/origin/main
+					transferFunds(users);
+
                 break;
             case 5:
                 cout << "\033c";
@@ -298,52 +295,46 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     int sourceIndex = -1;
     int destinationIndex = -1;
     double transferAmount = 0.0;
-<<<<<<< HEAD
+
 	int totalNodes = doublyLinkedListType::getNodeCount();
 	int elements = users.size();
 
  // Step 1: Get Source User and Account
-=======
-    int totalNodes = doublyLinkedListType::getNodeCount();
-    int elements = users.size();
 
-    // Step 1: Get Source User and Account
->>>>>>> refs/remotes/origin/main
+
     cout << "\033c";
     cout << "Select source user for transfer:\n";
     viewAllUserAccounts(users);
     cout << "Please select a source user index -->: ";
-<<<<<<< HEAD
+
     sourceIndex = checkVaildInteger(elements, 0);
 
- 
+
     userAccount* sourceUser = users[sourceIndex];
     readBankAccountFile(users, sourceIndex);
     printAccountList(sourceUser);
-    
+
     int sourceAccountIndex = checkVaildInteger(totalNodes, 0);
     nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
-    
+/*
    if (sourceIndex < 0 || sourceIndex >= users.size() || sourceUser->getClassName() == "bankEmployee") {
-=======
+
     sourceIndex = checkVaildInteger(elements - 1, 0);
 
     if (sourceIndex < 0 || sourceIndex >= users.size() || initialUser->getClassName() == "bankEmployee") {
->>>>>>> refs/remotes/origin/main
+
         std::cout << "Invalid source user. Exiting transfer.\n";
         return;
     }
+*/
 
-<<<<<<< HEAD
-=======
-    userAccount* sourceUser = users[sourceIndex];
+  //  userAccount* sourceUser = users[sourceIndex];
     readBankAccountFile(users, sourceIndex);
     printAccountList(sourceUser);
-    
-    int sourceAccountIndex = checkVaildInteger(totalNodes - 1, 0);
-    nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
-    
->>>>>>> refs/remotes/origin/main
+
+//    int sourceAccountIndex = checkVaildInteger(totalNodes - 1, 0);
+ //   nodeType* sourceAccount = sourceUser->getLinkList()->getAccountByIndex(sourceAccountIndex);
+
 
     if (!sourceAccount) {
         std::cout << "Source account not found. Exiting transfer.\n";
@@ -355,11 +346,9 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     cout << "Select destination user for transfer:\n";
     viewAllUserAccounts(users);
     cout << "Please select a destination user index -->: ";
-<<<<<<< HEAD
-    destinationIndex = checkVaildInteger(elements, 0);
-=======
+
     destinationIndex = checkVaildInteger(elements - 1, 0);
->>>>>>> refs/remotes/origin/main
+
 
     if (destinationIndex < 0 || destinationIndex >= users.size())
 	 {
@@ -391,15 +380,15 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     }
 
     // Step 4: Execute Transfer
-<<<<<<< HEAD
+
 	cout << "before transfer" << endl;
 	cin.ignore(10000 , '\n');
     sourceAccount->data->withdraw(transferAmount);
     destinationAccount->data->deposit(transferAmount);
-=======
+
     sourceAccount->data->setBalance(sourceAccount->data->getBalance() - transferAmount);
     destinationAccount->data->setBalance(destinationAccount->data->getBalance() + transferAmount);
->>>>>>> refs/remotes/origin/main
+
 
 	// Display Transfer Success
     std::cout << "Transfer successful!\n";
@@ -411,9 +400,6 @@ void userAccount::transferFunds(std::vector<userAccount*>& users)
     sourceUser->getLinkList()->deleteNodeType();
     updateBankAccountFile(destinationUser);
     destinationUser->getLinkList()->deleteNodeType();
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/main
 }
 
