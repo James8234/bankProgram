@@ -13,6 +13,7 @@
 #include "fileManager.h"
 #include "bankEmployee.h"
 #include "deactivateAccount.h"
+#include "UI.h"
 #include <stdexcept>
 
 
@@ -26,6 +27,9 @@ int main()
 	//makes sure it exist and can be make to slove corrup files
 	createSubdirectory();
 
+	// ncurses i
+	initscr();
+
 	//variables
    int userChoice = 0;
 	bool exitProgram = false;
@@ -36,27 +40,17 @@ int main()
 //	vector<userAccount*> employeeList;
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
-//This memeory variable store the transactionHistory
-//	const vector<transaction> & transactionHistory
-
 	//there should be a function for login here
 	int index = 0;
 
 	//This function reads in the text data base
 	readCredatialsFile(userList);
 
-//	readEmployeeCredatialsFile(employeeList);
-//		initialUser->deleteAllAccounts(userList);
-
-//	userList.push_back(&employee);
-
-
 	//print the logo page
-	printLogo();
+//	printLogo();
 
 	while(index >= 0)
 	{
-
 
 		//this function gets the index of the user instead replace it with no index but a call to read in the doublyed liked list from the file
 		index = initialUser->displayLoginMenu(userList);
@@ -84,10 +78,9 @@ int main()
 
 	//clean up
 	initialUser->deleteAllAccounts(userList);
-//	initialUser->getLinkList()->deleteNodeType();
-//	delete initialUser;
-//	cout << "delete All accounts " << endl;
-//	cin.ignore(1000 , '\n');
+
+	//cleans ncurses memory
+//	endwin();
 
 	return 0;
 } //int main()

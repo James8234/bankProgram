@@ -17,6 +17,8 @@ class userAccount;
 
 using namespace std;
 
+
+
 //checking function
 int checkVaildInteger(int max, int min);
 
@@ -29,7 +31,7 @@ void accountList();
 void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList);
 
 //menu's
-void printMainMenu();
+//void printMainMenu();
 void printAcctMenu();
 
 void printAccountMenu();

@@ -15,15 +15,17 @@ using namespace std;
  */
 void printErrorMessage(string problem);
 
-
+// this function hashes the given password
 string hasher(string input);
 
+// this function converts the password into prime numbers and addes them together
 double totalPrimeNumbers(int num);
 
+// this function produces the needed prime numbers and stores them in a vector
 vector<int> generatePrimes(int n, int maxPrimes);
 
 //This function goes with hidepassword
-int getch();
+int hider();
 
 // Function to hide the password input and return the entered password
 string hidePassword();

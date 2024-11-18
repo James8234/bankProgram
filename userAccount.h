@@ -59,18 +59,22 @@ class userAccount
 		//print functions
 		void print();
 		void printLoginAccount(string usr, string pass);
-		void printMainMenu();
+//		void printMainMenu();
 		void printEditUserAccount(string tempName, string tempPassword);
 
-
+		// this function is for the bankemployee to disable user accounts
 		void deactivateAccountMenu(vector<userAccount*>& users);
-	
+
+		// this function is for the user to login and returns the user index
 		int loginAccount(vector<userAccount*> &users);
-	
+
+		// this function displays the correct displace with the index from loginAccount
 	   int displayLoginMenu(vector<userAccount*>& users);
-	
+
+		// this function allows the bankEmployee to create an user account for someone
 	   int createAccount(vector<userAccount*>& users);
-	
+
+		// this function returns the index of the usere given a usr and pass and the vector with credentials
 		int findAccountIndex(vector<userAccount*> users, string username, string password);
 
 	   bool validLogin(const string& usr, const string& pswd, string id);

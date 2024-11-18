@@ -7,6 +7,7 @@
 #include "bankAccountType.h"
 #include "doublyLinkedListType.h"
 #include "bankEmployee.h"
+#include "UI.h" //contains the UI functions
 
 //print printTransferAccount 
 //This prints the UI for transfering money
@@ -508,7 +509,7 @@ void userAccount::printLoginAccount(string usr, string pass) //prints the ui for
 		string str;
       int length = pass.length(); //the password has one length before entering
       str = string(length, '*');
-	
+
 		cout << "Login page" << endl;
 		printLine();
 		cout << "<0> Exit " << endl;
@@ -542,6 +543,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 	while(!(exitProgram))
 	{
 		cout << "\033c";
+		cout << "\033[1;32m";
 		cout << "Welcome to client account creation" << endl;
 		printLine();
 		cout << "<0> exit account creation " << endl;
@@ -550,6 +552,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 		cout << "<3> Create account 		  " << endl;
 		printLine();
 		cout << "Enter your choice here -->:";
+		cout << "\033[0m";
 
 		userChoice = checkVaildInteger(3,0);
 
@@ -558,8 +561,7 @@ int userAccount::createAccount(vector<userAccount*> &users)
 			case 0:
 				if(savedData)
 				{
-	
-				exitProgram = true;
+					exitProgram = true;
 				}
 				else
 				{
@@ -621,6 +623,9 @@ int userAccount::createAccount(vector<userAccount*> &users)
 		return index;
 }
 
+//print function
+//void print 
+
 /**
  * Function DisplayLoginMenu
  */
@@ -636,9 +641,15 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 		//clear the screen
 		cout << "\033c";
 
-		printMainMenu();
+		// display the menu
+	//	printMainMenu();
 
-     	choice = checkVaildInteger(2 , 0);
+
+		choice = printMainMenu();
+
+//		getch();
+//		endwin();
+//		exit(0);
 
 		switch (choice)
 		{
@@ -652,7 +663,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 					readBankAccountFile(users, index);
 					return index;	
 				}
-				else
+				else if(index > -1)
 				{
 					bankEmployeeMenu(users,index);
 					//bankEmployeeMenu(users);
@@ -668,19 +679,9 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 
 }
 
-void userAccount::printMainMenu()
-{
-	cout << "\033[1;32m";
-	cout << "Welcome! Choose an option:\n";
-	printLine();
-	cout << "0. Exit Program\n";
-   cout << "1. Login\n";
-//	cout << "2. Employee Login\n";
-	printLine();
-	cout << "\033[5;1;32m";
-   cout << "Enter your choice -->: ";
-	cout << "\033[0m";
-}
+
+
+
 
 
 void userAccount::print()

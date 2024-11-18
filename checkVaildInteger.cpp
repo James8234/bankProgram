@@ -33,11 +33,11 @@ int checkVaildInteger(int max, int min)
 		{
 			cin.clear();
 			cin.ignore(10000 , '\n');
-			cout << "Error: please enter a integer. Enter your choice -->: ";
+//			cout << "Error: please enter a integer. Enter your choice -->: ";
 		}
 		else if(min > num || num > max)
 		{
-			cout << "Error: input is out of range. Please enter between: " << max << "/" << min << " Enter your choice -->: ";
+//			cout << "Error: input is out of range. Please enter between: " << max << "/" << min << " Enter your choice -->: ";
 		}
 		else
 		{

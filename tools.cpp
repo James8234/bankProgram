@@ -104,11 +104,6 @@ double totalPrimeNumbers(int num)
 	//ICV is when the number has reached zero
 	while(num > 1)
 	{
-//cout << "IS loop stuck here" << endl;
-//cout << "This is the number" << num << endl;
-//cout << "THis is the current prime numner" << neededPrime[index] << endl;
-//cin.ignore(1000 , '\n');
-
 
 		if(elements <= index)
 		{
@@ -229,7 +224,7 @@ void printLogo()
 	cin.ignore(100000 , '\n');
 }
 
-int getch()
+int hider()
 {
     int ch;
     // struct to hold the terminal settings
@@ -258,7 +253,7 @@ string hidePassword()
     int ch;
 
     cout << "Enter password: ";
-    while ((ch = getch()) != '\n') {
+    while ((ch = hider()) != '\n') {
         if (ch == 127 || ch == 8) {  // handle backspace
             if (!hiddenPassword.empty()) {
                 hiddenPassword.pop_back();
