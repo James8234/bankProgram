@@ -58,7 +58,7 @@ class userAccount
 
 		//print functions
 		void print();
-		void printLoginAccount(string usr, string pass);
+//		void printLoginAccount(string usr, string pass);
 //		void printMainMenu();
 		void printEditUserAccount(string tempName, string tempPassword);
 
@@ -85,7 +85,7 @@ class userAccount
 	   void viewAllUserAccounts(const vector<userAccount*>& users) const;
 
 	   int getUserChoice(int min, int max) const;
-				
+
 		int employeeLoginAccount(vector<userAccount*>& users);
 
 		vector<nodeType*>& getAccounts();

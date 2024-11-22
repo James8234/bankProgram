@@ -415,7 +415,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 {
    //variables
 	bool exitProgram = false;
-	string usr = " ";
+	string usr = "";
 	string pass = "";
    int choice = 0;
 	int index = -1;
@@ -430,25 +430,19 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 		//clears the screen
 		cout << "\033c";
 
-		//prints the UI
-		printLoginAccount(usr, pass);
-
-		//gets the user input
-		choice = checkVaildInteger(4, -1);
+		//prints the UI and gets user choice
+		choice = printLoginAccount(usr, pass);
 
 		switch(choice)
 		{
-			case 1:
-				cout << "Enter user name here ->: ";
-				getline(cin,usr);
-         	break;
-			case 2:
-				cout << "Enter password here ->: ";
-         	pass = hidePassword();
-            break;
-         case 3:
+			case 0:
+         	exitProgram = true;
+			break;
+        case 3:
 				//hash the password to find it in the data base
+//			cout << "this is your pass " << pass << endl;
 				pass = hasher(pass);
+
 				index = findAccountIndex(users, usr , pass);
 
 				if(index >= 0)
@@ -480,7 +474,7 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 					}
 					if(!accountNameExists)
 					{
-						cout << "The username or password is Incorrect enter anything to continue" << endl;
+						cout << "The username or password is Incorrect enter anything to continue..." << endl;
 						cin.ignore(10000 , '\n');
 					}
 					else if(accountNameExists)
@@ -493,33 +487,13 @@ int userAccount::loginAccount(vector<userAccount*> &users)
 					}
 				}
 				break;
-			case 0:
-         	exitProgram = true;
+			default:
+				cout << "inpute error" << endl;
+				cin.ignore(1000 , '\n');
       }//switch(choice)
 
 	}// while
 	return -1; //used to end the program if no account is selected
-}
-
-void userAccount::printLoginAccount(string usr, string pass) //prints the ui for login
-{
-
-		cout << "\033[1;32m"; // for green light
-
-		string str;
-      int length = pass.length(); //the password has one length before entering
-      str = string(length, '*');
-
-		cout << "Login page" << endl;
-		printLine();
-		cout << "<0> Exit " << endl;
-		cout << "<1> Enter User: " << usr << endl;
-		cout << "<2> Enter Password: " << str << endl;
-		cout << "<3> Push User/Password " << endl;
-		printLine();
-		cout << "\033[5;1;32m";
-		cout << "Please Enter a Number -->:" << endl;
-		cout << "\033[0m";
 }
 
 // createAccount creates the userAccount object during account creation
@@ -641,15 +615,7 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 		//clear the screen
 		cout << "\033c";
 
-		// display the menu
-	//	printMainMenu();
-
-
 		choice = printMainMenu();
-
-//		getch();
-//		endwin();
-//		exit(0);
 
 		switch (choice)
 		{
@@ -670,19 +636,14 @@ int userAccount::displayLoginMenu(vector<userAccount*> &users)
 				}
 				break;
 			default:
-				cout << "Invalid choice! Please try again.\n";	
+				cout << "Invalid choice! Please try again.\n";
 		}//switch(chioce)
-	
+
 	} while (!(exitProgram));
-	
+
 	return -1;
 
 }
-
-
-
-
-
 
 void userAccount::print()
 {
@@ -761,12 +722,6 @@ void userAccount::deactivateAccountMenu(vector<userAccount*>& users)
 		string activity = "Account reactivated for user: " + selectedAccount->getUsername();
 		logActivity(userId, activity);
     }
-
-//	 cin.get();
-//cout << "before update account file" << endl;
-//cin.ignore(1000 ,'\n');
-
-
     //updates the credentials file with new account status
 	updateCredentialsFile(users);
  //   updateAccountFile(users);

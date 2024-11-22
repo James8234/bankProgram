@@ -199,11 +199,12 @@ void userAccount::depositToUserAccount(vector<userAccount*>& users, int userInde
 		cout << "sorry you can't select an bankEmplyee" << endl;
 		return;
 	}
-  if (totalNodes < 0 || userIndex < 0)
+
+	if (totalNodes < 0 || userIndex < 0)
 	{
-        cout << "No accounts available for this user." << endl;
-        return;
-    }
+		cout << "No accounts available for this user." << endl;
+		return;
+	}
 
 	//this function loads the user bank info in
 	readBankAccountFile(users, userIndex);

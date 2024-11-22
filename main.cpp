@@ -28,7 +28,7 @@ int main()
 	createSubdirectory();
 
 	// ncurses i
-	initscr();
+//	initscr();
 
 	//variables
    int userChoice = 0;
