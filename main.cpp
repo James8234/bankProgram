@@ -31,9 +31,9 @@ int main()
 //	initscr();
 
 	//variables
-   int userChoice = 0;
-	bool exitProgram = false;
-	int totalNodes = 0;
+ //  int userChoice = 0;
+//	bool exitProgram = false;
+//	int totalNodes = 0;
 	//memory variables
 //	nodeType *nodeAddress = nullptr;
 	vector<userAccount*> userList; //make sure the account is recognized here
