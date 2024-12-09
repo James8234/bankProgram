@@ -14,8 +14,7 @@
 #include <filesystem>
 #include <fstream>
 #include <ctime>
-//#include <unistd.h>
-//#include <sys/file.h>
+
 
 
 bool lockFile(int &fd)
@@ -34,65 +33,6 @@ bool unlockFile(int &fd)
 {
 	return flock(fd, LOCK_UN); //Release the lock
 }
-
-/**
- * FUNCTION lockBankAccounts
- *
- * The purpose of this function is to lock the bank accounts file so that only one computer can edit it at a time
- */
-/*
-bool lockBankAccounts(const userAccount *initialUser)
-{
-        string userID = initialUser->getID();
-
-        string filepath = "./data/" + userID + "_bankAccountInfo.dat";
-
-        int fd = open(filepath.c_str(), O_RDWR);
-
-        if(fd == -1)
-        {
-//              cout << "Error file could not open" << endl;
-//              cin.ignore(1000 , '\n');
-                return 0;
-        }
-
-        if(!lockFile(fd)) //should return true when it locks the file
-        {
-                cout << "The file is locked by another process." << endl;
-                close(fd);
-                cin.ignore(1000000 , '\n');
-                return 0;
-        }
-
-        return 1; //file is unlocked
-}
-*/
-/**
- * FUNCTION unlockBankAccounts
- *
- * The purpose of this function is to unlock the bank accounts file so that a second person can open the file
- */
-/*
-void unlockBankAccounts(const userAccount *initialUser)
-{
-        string userID = initialUser->getID();
-
-        string filepath = "./data/" + userID + ".dat";
-
-        int fd = open(filepath.c_str(), O_RDWR);
-
-        if(fd == -1)
-        {
-                cerr << "Error file could not open" << filepath << endl;
-                cin.ignore(10000 , '\n');
-                return;
-        }
-
-        unlockFile(fd);
-
-        close(fd);
-}
-*/
 
 /**
  * Function
@@ -459,13 +399,7 @@ void createSubdirectory()
 		}
 	}
 
-	//This if statment creates the text file if it doesn't exist
-//	if(!(filesystem::exists(secondFileName)))
-//	{
-//		ofstream temp(secondFileName.c_str());
-
-//		temp.close();
-//	}
+	
 }
 
 
@@ -525,12 +459,7 @@ void readCredatialsFile(vector<userAccount*> &accountList)
 
             bool isActive = (strActive == "1"); // 1 returns true while other is false
 
-            // if a third position exists check if the account is active/inactive
-  //          if (thirdPosition != string::npos) 
-//				{
-  //              string status = line.substr(thirdPosition + 1);
- //               isActive = (status == "active");
-//            }
+         
 
 				// depending if they are a cient or bank employee
 				if(userType == "userAccount")
@@ -572,26 +501,6 @@ string convertDoubleToString(double bankBalance)
 
 }
 
-// updates the credentials file with deactiavte/activated status
-/*
-void updateAccountFile(const vector<userAccount*>& accountList) 
-{
-    string filepath = "./data/credentials.dat";
-    ofstream outfile(filepath.c_str());
-
-    if (!outfile.is_open()) {
-        cout << "file did not open" << endl;
-        return;
-    }
-
-    for (const auto& account : accountList) {
-        string status = account->getIsActive() ? "active" : "inactive";
-        outfile << account->getUsername() << ":" << account->getPassword() << ":" << account->getUserId() << ":" << status << endl;
-    }
-
-    outfile.close();
-}
-*/
 
 void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete)
 {
@@ -716,92 +625,7 @@ void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index)
 	
 	infile.close();
 }
-/*
-void readEmployeeCredatialsFile(vector<userAccount*> &accountList)
-{
-	//sets the dirtory
-//"./data/credentials.dat"
-	string filepath = "./data/bankEmployeeCredentials.dat";
-	string line = " ";
-	//account temp member variables
-	string userName = " ";
-	string userPassword = " ";
-	string userId = " ";
-	//position variables
-	size_t firstPosition = 0;
-	size_t secondPosition = 0;
-	size_t thirdPosition = 0;
-	//opens the file
-	//ifstream infile(filepath.c_str(), ios::app);
 
-	ifstream infile(filepath.c_str());
-	
-	if(!(infile.is_open()))
-	{
-		cout << "file did not open";	
-	}
-
-	while(getline(infile, line))
-	{
-		firstPosition = line.find(':');
-		secondPosition = line.find(':', firstPosition + 1);
-		thirdPosition = line.find(':', secondPosition + 1);
-		// gets the username, password, and userid based on the positions
-		if (firstPosition != string::npos && secondPosition != string::npos) {
-            userName = line.substr(0, firstPosition);
-            userPassword = line.substr(firstPosition + 1, secondPosition - firstPosition - 1);
-            userId = line.substr(secondPosition + 1, (thirdPosition != string::npos) ? thirdPosition - secondPosition - 1 : string::npos);
-
-            bool isActive = true; // the account is active by default
-
-            // if a third position exists check if the account is active/inactive
-            if (thirdPosition != string::npos) {
-                string status = line.substr(thirdPosition + 1);
-                isActive = (status == "active");
-            }
-				// adds the user account to the account list
-            accountList.emplace_back(new bankEmployee(userName, userPassword, userId, nullptr, isActive));
-        }
-
-	}
-
-	infile.close();
-
-}
-*/
-
-
-/**
- * Function isFileLocked
- */
-
-
-//bool isFileLocked(const string& filename)
-//{
-//	int fd = open(filename.c_str(), O_RDWR); 
-//	if(fd == -1)
-//	{
-//		cout << "Error file could not open" << endl;
-//		return false;
-//	}
-
-	//try to lock the file for writing
-	//Note that the person who locks the file uses LOCK_EX
-	//and the person who is locked out uses LOCK_NB
-//	if(flock(fd, LOCK_EX | LOCK_NB) == -1)
-//	{
-//		cout << "File is locked by ____:" << endl;
-//		close(fd);
-//		return true;
-//	}
-
-//	cout << "file is not locked" << endl;
-
-	//unlock the file when done
-//	flock(fd, LOCK_UN);
-//	close(fd);
-//	return false;
-//}
 
 void createLogDirectory(const string& userID) {
 	string userLogDir = "./logs/" + userID;	// define the path for users log directory
