@@ -323,9 +323,6 @@ string userAccount::getClassName()
 	return "userAccount";
 }
 
-//bool userAccount::getIsActive() const {
-//	return isActive;
-//}
 
 string userAccount::getUsername()
 {
