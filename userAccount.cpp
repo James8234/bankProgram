@@ -1,4 +1,3 @@
-//#include "counteract.h"
 #include "fileManager.h"
 #include "header.h"
 #include "deactivateAccount.h"
