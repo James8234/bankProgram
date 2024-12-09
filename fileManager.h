@@ -9,11 +9,10 @@
 #include <unistd.h>
 #include <sys/file.h>
 #include "header.h"
-//#include "userAccount.h"
+
 using namespace std;
 
 //forward declear
-//#include "userAccount.h"
 class userAccount;
 
 //void create the subdirectory if it doesn't exist
@@ -100,7 +99,6 @@ void updateBankAccountFile(userAccount *&initialUser);
  */
 void logActivity(const string& userID, const string& activity);
 
-//void createAccountFile();
 
 //this function reads the data from namedat into the linkedList which is a member of userAccount
 //void readNamedatFile();
@@ -113,10 +111,6 @@ void updateAccountFile(const vector<userAccount*>& accountList);
 void deleteUserCredential(vector<userAccount*> &userList, const string &userIdToDelete);
 
 void creatEmployeeObject(const string& strObject, const string& username, const string& strBalance, const string& userid);
-
-//void readEmployeeCredatialsFile(vector<userAccount*> &userList);
-
-//void readEmployeeCredentialsFile(vector<userAccount*> &userList, int index);
 
 
 #endif
