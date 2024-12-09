@@ -316,6 +316,7 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 						{
 							pass.pop_back(); //removes the letter
 							hidepass.pop_back();
+							mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
 						}
 					}
 					else
