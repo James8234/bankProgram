@@ -31,7 +31,6 @@ void accountList();
 void userAccountMenu(userAccount *initialUser, vector<userAccount*> &userList);
 
 //menu's
-//void printMainMenu();
 void printAcctMenu();
 
 void printAccountMenu();
@@ -43,8 +42,6 @@ void printLine();
 void accountUI(userAccount *&initialUser, nodeType *&node);
 //add delete and edit accounts
 void addAccount(userAccount *&initialUser);
-//void deleteAccount();
-//void editAccount();
 
 void printLogo();
 
