@@ -1,22 +1,8 @@
-//#include <iostream>
-//using namespace std;
 #include "tools.h"
-//#include "header.h"
-//#include <cassert>
-//#include <fstream> // for file handling
-//#include <sys/stat.h> // for mkdir 
-//#include <sys/types.h> // for mode_t
-//#include <cstring> // for strerror
-//#include <bcrypt/BCrypt.hpp>
-//hashing header files
-//#include <openssl/sha.h>
-//#include <sstream>
-//#include <iomanip>
 //salt
 #include <random>
 #include <fstream>
 //string to acII to bits
-//#include <bitset>
 
 void printErrorMessage(string problem)
 {
