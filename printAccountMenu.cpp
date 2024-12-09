@@ -1,6 +1,5 @@
 #include "header.h"
-//#include <locale>
-//#include <codecvt>
+
 
 
 void printAccountMenu()
@@ -20,7 +19,6 @@ void printAccountMenu()
 	cout << "\033[5;1;32m";
 	cout << "Enter your choice -->: ";
 	cout << "\033[0m"; //sets back to white
-//	cout << "──────────────────────────" << endl;
-// setw(120) << setfill('─') << " " << endl;
+
 	
 }

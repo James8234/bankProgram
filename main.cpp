@@ -27,17 +27,9 @@ int main()
 	//makes sure it exist and can be make to slove corrup files
 	createSubdirectory();
 
-	// ncurses i
-//	initscr();
 
-	//variables
- //  int userChoice = 0;
-//	bool exitProgram = false;
-//	int totalNodes = 0;
-	//memory variables
-//	nodeType *nodeAddress = nullptr;
 	vector<userAccount*> userList; //make sure the account is recognized here
-//	vector<userAccount*> employeeList;
+
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used
 
 	//there should be a function for login here
@@ -46,8 +38,7 @@ int main()
 	//This function reads in the text data base
 	readCredatialsFile(userList);
 
-	//print the logo page
-//	printLogo();
+
 
 	while(index >= 0)
 	{

@@ -1,4 +1,3 @@
-//#include "counteract.h"
 #include "fileManager.h"
 #include "header.h"
 #include "deactivateAccount.h"
@@ -323,9 +322,6 @@ string userAccount::getClassName()
 	return "userAccount";
 }
 
-//bool userAccount::getIsActive() const {
-//	return isActive;
-//}
 
 string userAccount::getUsername()
 {

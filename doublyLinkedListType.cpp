@@ -40,12 +40,8 @@ doublyLinkedListType::doublyLinkedListType()
 
 doublyLinkedListType::~doublyLinkedListType()
 {
-//	cout << "Within doublelinkedlist deconstructor " << endl;
-
 	deleteNodeType();
-//	cout << "deleteNodeType has been called" << endl;
-//	cin.ignore(10000 , '\n');
-//	cout << "After delete node type has been called " << endl;
+
 }
 
 /**
@@ -346,25 +342,3 @@ void doublyLinkedListType::deleteNodeType()
 	head = nullptr;
 	tail = nullptr;
 }
-/*
-size_t doublyLinkedListType::getNodeCount() {
-    size_t count = 0;
-    nodeType* currentNode = head; // Assuming head points to the first node
-    while (currentNode != nullptr) {
-        count++;
-        currentNode = currentNode->next; // Assuming next points to the next node
-    }
-    return count;
-}
-*/
-/**
- * copy constructor
- */
-
-//doublyLinkedListType::doublyLinkedListType(const doublyLinkedListType &object)
-//{
-//	if(object
-
-
-
-//}
