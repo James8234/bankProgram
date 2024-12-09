@@ -260,6 +260,8 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 						if(!usr.empty())
 						{
 							usr.pop_back(); //removes the letter
+
+							mvwprintw(win, 4, ((xmax - s3.size()) / 2) + s3.size() + usr.size(), " "); // clears the previous character
 						}
 					}
 					else
@@ -316,6 +318,8 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 						{
 							pass.pop_back(); //removes the letter
 							hidepass.pop_back();
+
+							mvwprintw(win, 5, ((xmax - s4.size()) / 2) + s4.size() + hidepass.size(), " ");
 						}
 					}
 					else
