@@ -27,6 +27,7 @@ class userAccount
 
 		//This function allows the user to trasfer balance between bank accounts.
 		friend void transferBetweenBankAccounts(userAccount *initialUser);
+		//This function prints the UI to allows the uesr to navigate to transfer money between their bank accounts
 		friend void printTransferBetweenBankAccount(const string &fromAccountType, const string &fromAccountName, const int &fromAccountBalance,const string &toAccountType, const string &toAccountName, const int &toAccountBalance, const int &amount);
 //					   printTransferBetweenBankAccount();
 

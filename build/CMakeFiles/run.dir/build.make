@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cradley0/Documents/CS1C/ICA-1
+CMAKE_SOURCE_DIR = /home/colin/Documents/CS/bankProgram/build
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cradley0/Documents/CS1C/ICA-1/build
+CMAKE_BINARY_DIR = /home/colin/Documents/CS/bankProgram/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/run.dir/depend.make
@@ -69,449 +69,449 @@ include CMakeFiles/run.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/run.dir/flags.make
 
-CMakeFiles/run.dir/main.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/main.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/main.cpp
-CMakeFiles/run.dir/main.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/main.cpp.o -MF CMakeFiles/run.dir/main.cpp.o.d -o CMakeFiles/run.dir/main.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/main.cpp
-
-CMakeFiles/run.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/main.cpp > CMakeFiles/run.dir/main.cpp.i
-
-CMakeFiles/run.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/main.cpp -o CMakeFiles/run.dir/main.cpp.s
-
-CMakeFiles/run.dir/nodeType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/nodeType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/nodeType.cpp
-CMakeFiles/run.dir/nodeType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run.dir/nodeType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/nodeType.cpp.o -MF CMakeFiles/run.dir/nodeType.cpp.o.d -o CMakeFiles/run.dir/nodeType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/nodeType.cpp
-
-CMakeFiles/run.dir/nodeType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/nodeType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/nodeType.cpp > CMakeFiles/run.dir/nodeType.cpp.i
-
-CMakeFiles/run.dir/nodeType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/nodeType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/nodeType.cpp -o CMakeFiles/run.dir/nodeType.cpp.s
-
-CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/noServiceChargeCheckingType.cpp
-CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o -MF CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o.d -o CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/noServiceChargeCheckingType.cpp
-
-CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/noServiceChargeCheckingType.cpp > CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.i
-
-CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/noServiceChargeCheckingType.cpp -o CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.s
-
-CMakeFiles/run.dir/printAccountInfo.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/printAccountInfo.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/printAccountInfo.cpp
-CMakeFiles/run.dir/printAccountInfo.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/run.dir/printAccountInfo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/printAccountInfo.cpp.o -MF CMakeFiles/run.dir/printAccountInfo.cpp.o.d -o CMakeFiles/run.dir/printAccountInfo.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/printAccountInfo.cpp
-
-CMakeFiles/run.dir/printAccountInfo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/printAccountInfo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/printAccountInfo.cpp > CMakeFiles/run.dir/printAccountInfo.cpp.i
-
-CMakeFiles/run.dir/printAccountInfo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/printAccountInfo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/printAccountInfo.cpp -o CMakeFiles/run.dir/printAccountInfo.cpp.s
-
-CMakeFiles/run.dir/printAccountList.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/printAccountList.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/printAccountList.cpp
-CMakeFiles/run.dir/printAccountList.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/run.dir/printAccountList.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/printAccountList.cpp.o -MF CMakeFiles/run.dir/printAccountList.cpp.o.d -o CMakeFiles/run.dir/printAccountList.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/printAccountList.cpp
-
-CMakeFiles/run.dir/printAccountList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/printAccountList.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/printAccountList.cpp > CMakeFiles/run.dir/printAccountList.cpp.i
-
-CMakeFiles/run.dir/printAccountList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/printAccountList.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/printAccountList.cpp -o CMakeFiles/run.dir/printAccountList.cpp.s
-
-CMakeFiles/run.dir/printAccountMenu.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/printAccountMenu.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/printAccountMenu.cpp
-CMakeFiles/run.dir/printAccountMenu.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/run.dir/printAccountMenu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/printAccountMenu.cpp.o -MF CMakeFiles/run.dir/printAccountMenu.cpp.o.d -o CMakeFiles/run.dir/printAccountMenu.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/printAccountMenu.cpp
-
-CMakeFiles/run.dir/printAccountMenu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/printAccountMenu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/printAccountMenu.cpp > CMakeFiles/run.dir/printAccountMenu.cpp.i
-
-CMakeFiles/run.dir/printAccountMenu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/printAccountMenu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/printAccountMenu.cpp -o CMakeFiles/run.dir/printAccountMenu.cpp.s
-
-CMakeFiles/run.dir/printLine.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/printLine.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/printLine.cpp
-CMakeFiles/run.dir/printLine.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/run.dir/printLine.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/printLine.cpp.o -MF CMakeFiles/run.dir/printLine.cpp.o.d -o CMakeFiles/run.dir/printLine.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/printLine.cpp
-
-CMakeFiles/run.dir/printLine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/printLine.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/printLine.cpp > CMakeFiles/run.dir/printLine.cpp.i
-
-CMakeFiles/run.dir/printLine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/printLine.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/printLine.cpp -o CMakeFiles/run.dir/printLine.cpp.s
-
-CMakeFiles/run.dir/savingsAccountType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/savingsAccountType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/savingsAccountType.cpp
-CMakeFiles/run.dir/savingsAccountType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/run.dir/savingsAccountType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/savingsAccountType.cpp.o -MF CMakeFiles/run.dir/savingsAccountType.cpp.o.d -o CMakeFiles/run.dir/savingsAccountType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/savingsAccountType.cpp
-
-CMakeFiles/run.dir/savingsAccountType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/savingsAccountType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/savingsAccountType.cpp > CMakeFiles/run.dir/savingsAccountType.cpp.i
-
-CMakeFiles/run.dir/savingsAccountType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/savingsAccountType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/savingsAccountType.cpp -o CMakeFiles/run.dir/savingsAccountType.cpp.s
-
-CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/serviceChargeCheckingType.cpp
-CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o -MF CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o.d -o CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/serviceChargeCheckingType.cpp
-
-CMakeFiles/run.dir/serviceChargeCheckingType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/serviceChargeCheckingType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/serviceChargeCheckingType.cpp > CMakeFiles/run.dir/serviceChargeCheckingType.cpp.i
-
-CMakeFiles/run.dir/serviceChargeCheckingType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/serviceChargeCheckingType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/serviceChargeCheckingType.cpp -o CMakeFiles/run.dir/serviceChargeCheckingType.cpp.s
-
-CMakeFiles/run.dir/tools.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/tools.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/tools.cpp
-CMakeFiles/run.dir/tools.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/run.dir/tools.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/tools.cpp.o -MF CMakeFiles/run.dir/tools.cpp.o.d -o CMakeFiles/run.dir/tools.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/tools.cpp
-
-CMakeFiles/run.dir/tools.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/tools.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/tools.cpp > CMakeFiles/run.dir/tools.cpp.i
-
-CMakeFiles/run.dir/tools.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/tools.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/tools.cpp -o CMakeFiles/run.dir/tools.cpp.s
-
-CMakeFiles/run.dir/transactionHistory.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/transactionHistory.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/transactionHistory.cpp
-CMakeFiles/run.dir/transactionHistory.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/run.dir/transactionHistory.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/transactionHistory.cpp.o -MF CMakeFiles/run.dir/transactionHistory.cpp.o.d -o CMakeFiles/run.dir/transactionHistory.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/transactionHistory.cpp
-
-CMakeFiles/run.dir/transactionHistory.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/transactionHistory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/transactionHistory.cpp > CMakeFiles/run.dir/transactionHistory.cpp.i
-
-CMakeFiles/run.dir/transactionHistory.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/transactionHistory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/transactionHistory.cpp -o CMakeFiles/run.dir/transactionHistory.cpp.s
-
-CMakeFiles/run.dir/UI.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/UI.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/UI.cpp
-CMakeFiles/run.dir/UI.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/run.dir/UI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/UI.cpp.o -MF CMakeFiles/run.dir/UI.cpp.o.d -o CMakeFiles/run.dir/UI.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/UI.cpp
-
-CMakeFiles/run.dir/UI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/UI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/UI.cpp > CMakeFiles/run.dir/UI.cpp.i
-
-CMakeFiles/run.dir/UI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/UI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/UI.cpp -o CMakeFiles/run.dir/UI.cpp.s
-
-CMakeFiles/run.dir/userAccount.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/userAccount.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/userAccount.cpp
-CMakeFiles/run.dir/userAccount.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/run.dir/userAccount.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/userAccount.cpp.o -MF CMakeFiles/run.dir/userAccount.cpp.o.d -o CMakeFiles/run.dir/userAccount.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/userAccount.cpp
-
-CMakeFiles/run.dir/userAccount.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/userAccount.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/userAccount.cpp > CMakeFiles/run.dir/userAccount.cpp.i
-
-CMakeFiles/run.dir/userAccount.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/userAccount.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/userAccount.cpp -o CMakeFiles/run.dir/userAccount.cpp.s
-
-CMakeFiles/run.dir/userAccountMenu.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/userAccountMenu.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/userAccountMenu.cpp
-CMakeFiles/run.dir/userAccountMenu.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/run.dir/userAccountMenu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/userAccountMenu.cpp.o -MF CMakeFiles/run.dir/userAccountMenu.cpp.o.d -o CMakeFiles/run.dir/userAccountMenu.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/userAccountMenu.cpp
-
-CMakeFiles/run.dir/userAccountMenu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/userAccountMenu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/userAccountMenu.cpp > CMakeFiles/run.dir/userAccountMenu.cpp.i
-
-CMakeFiles/run.dir/userAccountMenu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/userAccountMenu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/userAccountMenu.cpp -o CMakeFiles/run.dir/userAccountMenu.cpp.s
-
-CMakeFiles/run.dir/accountUI.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/accountUI.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/accountUI.cpp
-CMakeFiles/run.dir/accountUI.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/run.dir/accountUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/accountUI.cpp.o -MF CMakeFiles/run.dir/accountUI.cpp.o.d -o CMakeFiles/run.dir/accountUI.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/accountUI.cpp
-
-CMakeFiles/run.dir/accountUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/accountUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/accountUI.cpp > CMakeFiles/run.dir/accountUI.cpp.i
-
-CMakeFiles/run.dir/accountUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/accountUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/accountUI.cpp -o CMakeFiles/run.dir/accountUI.cpp.s
-
-CMakeFiles/run.dir/addAccount.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/addAccount.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/addAccount.cpp
-CMakeFiles/run.dir/addAccount.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/run.dir/addAccount.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/addAccount.cpp.o -MF CMakeFiles/run.dir/addAccount.cpp.o.d -o CMakeFiles/run.dir/addAccount.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/addAccount.cpp
-
-CMakeFiles/run.dir/addAccount.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/addAccount.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/addAccount.cpp > CMakeFiles/run.dir/addAccount.cpp.i
-
-CMakeFiles/run.dir/addAccount.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/addAccount.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/addAccount.cpp -o CMakeFiles/run.dir/addAccount.cpp.s
-
-CMakeFiles/run.dir/bankAccountType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/bankAccountType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/bankAccountType.cpp
-CMakeFiles/run.dir/bankAccountType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/run.dir/bankAccountType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/bankAccountType.cpp.o -MF CMakeFiles/run.dir/bankAccountType.cpp.o.d -o CMakeFiles/run.dir/bankAccountType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/bankAccountType.cpp
-
-CMakeFiles/run.dir/bankAccountType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/bankAccountType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/bankAccountType.cpp > CMakeFiles/run.dir/bankAccountType.cpp.i
-
-CMakeFiles/run.dir/bankAccountType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/bankAccountType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/bankAccountType.cpp -o CMakeFiles/run.dir/bankAccountType.cpp.s
-
-CMakeFiles/run.dir/bankEmployee.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/bankEmployee.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/bankEmployee.cpp
-CMakeFiles/run.dir/bankEmployee.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/run.dir/bankEmployee.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/bankEmployee.cpp.o -MF CMakeFiles/run.dir/bankEmployee.cpp.o.d -o CMakeFiles/run.dir/bankEmployee.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/bankEmployee.cpp
-
-CMakeFiles/run.dir/bankEmployee.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/bankEmployee.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/bankEmployee.cpp > CMakeFiles/run.dir/bankEmployee.cpp.i
-
-CMakeFiles/run.dir/bankEmployee.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/bankEmployee.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/bankEmployee.cpp -o CMakeFiles/run.dir/bankEmployee.cpp.s
-
-CMakeFiles/run.dir/certificationOfDepositType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/certificationOfDepositType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/certificationOfDepositType.cpp
-CMakeFiles/run.dir/certificationOfDepositType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/run.dir/certificationOfDepositType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/certificationOfDepositType.cpp.o -MF CMakeFiles/run.dir/certificationOfDepositType.cpp.o.d -o CMakeFiles/run.dir/certificationOfDepositType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/certificationOfDepositType.cpp
-
-CMakeFiles/run.dir/certificationOfDepositType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/certificationOfDepositType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/certificationOfDepositType.cpp > CMakeFiles/run.dir/certificationOfDepositType.cpp.i
-
-CMakeFiles/run.dir/certificationOfDepositType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/certificationOfDepositType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/certificationOfDepositType.cpp -o CMakeFiles/run.dir/certificationOfDepositType.cpp.s
-
-CMakeFiles/run.dir/checkingAccountType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/checkingAccountType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/checkingAccountType.cpp
-CMakeFiles/run.dir/checkingAccountType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/run.dir/checkingAccountType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/checkingAccountType.cpp.o -MF CMakeFiles/run.dir/checkingAccountType.cpp.o.d -o CMakeFiles/run.dir/checkingAccountType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/checkingAccountType.cpp
-
-CMakeFiles/run.dir/checkingAccountType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/checkingAccountType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/checkingAccountType.cpp > CMakeFiles/run.dir/checkingAccountType.cpp.i
-
-CMakeFiles/run.dir/checkingAccountType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/checkingAccountType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/checkingAccountType.cpp -o CMakeFiles/run.dir/checkingAccountType.cpp.s
-
-CMakeFiles/run.dir/checkVaildInteger.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/checkVaildInteger.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/checkVaildInteger.cpp
-CMakeFiles/run.dir/checkVaildInteger.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/run.dir/checkVaildInteger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/checkVaildInteger.cpp.o -MF CMakeFiles/run.dir/checkVaildInteger.cpp.o.d -o CMakeFiles/run.dir/checkVaildInteger.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/checkVaildInteger.cpp
-
-CMakeFiles/run.dir/checkVaildInteger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/checkVaildInteger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/checkVaildInteger.cpp > CMakeFiles/run.dir/checkVaildInteger.cpp.i
-
-CMakeFiles/run.dir/checkVaildInteger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/checkVaildInteger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/checkVaildInteger.cpp -o CMakeFiles/run.dir/checkVaildInteger.cpp.s
-
-CMakeFiles/run.dir/deactivateAccount.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/deactivateAccount.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/deactivateAccount.cpp
-CMakeFiles/run.dir/deactivateAccount.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/run.dir/deactivateAccount.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/deactivateAccount.cpp.o -MF CMakeFiles/run.dir/deactivateAccount.cpp.o.d -o CMakeFiles/run.dir/deactivateAccount.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/deactivateAccount.cpp
-
-CMakeFiles/run.dir/deactivateAccount.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/deactivateAccount.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/deactivateAccount.cpp > CMakeFiles/run.dir/deactivateAccount.cpp.i
-
-CMakeFiles/run.dir/deactivateAccount.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/deactivateAccount.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/deactivateAccount.cpp -o CMakeFiles/run.dir/deactivateAccount.cpp.s
-
-CMakeFiles/run.dir/displayAccountDetails.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/displayAccountDetails.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/displayAccountDetails.cpp
-CMakeFiles/run.dir/displayAccountDetails.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/run.dir/displayAccountDetails.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/displayAccountDetails.cpp.o -MF CMakeFiles/run.dir/displayAccountDetails.cpp.o.d -o CMakeFiles/run.dir/displayAccountDetails.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/displayAccountDetails.cpp
-
-CMakeFiles/run.dir/displayAccountDetails.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/displayAccountDetails.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/displayAccountDetails.cpp > CMakeFiles/run.dir/displayAccountDetails.cpp.i
-
-CMakeFiles/run.dir/displayAccountDetails.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/displayAccountDetails.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/displayAccountDetails.cpp -o CMakeFiles/run.dir/displayAccountDetails.cpp.s
-
-CMakeFiles/run.dir/doublyLinkedListType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/doublyLinkedListType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/doublyLinkedListType.cpp
-CMakeFiles/run.dir/doublyLinkedListType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/run.dir/doublyLinkedListType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/doublyLinkedListType.cpp.o -MF CMakeFiles/run.dir/doublyLinkedListType.cpp.o.d -o CMakeFiles/run.dir/doublyLinkedListType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/doublyLinkedListType.cpp
-
-CMakeFiles/run.dir/doublyLinkedListType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/doublyLinkedListType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/doublyLinkedListType.cpp > CMakeFiles/run.dir/doublyLinkedListType.cpp.i
-
-CMakeFiles/run.dir/doublyLinkedListType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/doublyLinkedListType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/doublyLinkedListType.cpp -o CMakeFiles/run.dir/doublyLinkedListType.cpp.s
-
-CMakeFiles/run.dir/fileManager.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/fileManager.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/fileManager.cpp
-CMakeFiles/run.dir/fileManager.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/run.dir/fileManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/fileManager.cpp.o -MF CMakeFiles/run.dir/fileManager.cpp.o.d -o CMakeFiles/run.dir/fileManager.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/fileManager.cpp
-
-CMakeFiles/run.dir/fileManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/fileManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/fileManager.cpp > CMakeFiles/run.dir/fileManager.cpp.i
-
-CMakeFiles/run.dir/fileManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/fileManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/fileManager.cpp -o CMakeFiles/run.dir/fileManager.cpp.s
-
-CMakeFiles/run.dir/highInterestCheckingType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/highInterestCheckingType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/highInterestCheckingType.cpp
-CMakeFiles/run.dir/highInterestCheckingType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/run.dir/highInterestCheckingType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/highInterestCheckingType.cpp.o -MF CMakeFiles/run.dir/highInterestCheckingType.cpp.o.d -o CMakeFiles/run.dir/highInterestCheckingType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/highInterestCheckingType.cpp
-
-CMakeFiles/run.dir/highInterestCheckingType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/highInterestCheckingType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/highInterestCheckingType.cpp > CMakeFiles/run.dir/highInterestCheckingType.cpp.i
-
-CMakeFiles/run.dir/highInterestCheckingType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/highInterestCheckingType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/highInterestCheckingType.cpp -o CMakeFiles/run.dir/highInterestCheckingType.cpp.s
-
-CMakeFiles/run.dir/highInterestSavingsType.cpp.o: CMakeFiles/run.dir/flags.make
-CMakeFiles/run.dir/highInterestSavingsType.cpp.o: /home/cradley0/Documents/CS1C/ICA-1/highInterestSavingsType.cpp
-CMakeFiles/run.dir/highInterestSavingsType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/run.dir/highInterestSavingsType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/highInterestSavingsType.cpp.o -MF CMakeFiles/run.dir/highInterestSavingsType.cpp.o.d -o CMakeFiles/run.dir/highInterestSavingsType.cpp.o -c /home/cradley0/Documents/CS1C/ICA-1/highInterestSavingsType.cpp
-
-CMakeFiles/run.dir/highInterestSavingsType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/highInterestSavingsType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cradley0/Documents/CS1C/ICA-1/highInterestSavingsType.cpp > CMakeFiles/run.dir/highInterestSavingsType.cpp.i
-
-CMakeFiles/run.dir/highInterestSavingsType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/highInterestSavingsType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cradley0/Documents/CS1C/ICA-1/highInterestSavingsType.cpp -o CMakeFiles/run.dir/highInterestSavingsType.cpp.s
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o: /home/colin/Documents/CS/bankProgram/src/main.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o -c /home/colin/Documents/CS/bankProgram/src/main.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/src/main.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/src/main.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o: /home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o -c /home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o: /home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o -c /home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o: /home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o -c /home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o: /home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o -c /home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o: /home/colin/Documents/CS/bankProgram/UI/printLine.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o -c /home/colin/Documents/CS/bankProgram/UI/printLine.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/UI/printLine.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/UI/printLine.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o: /home/colin/Documents/CS/bankProgram/ultils/tools.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o -c /home/colin/Documents/CS/bankProgram/ultils/tools.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/ultils/tools.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/ultils/tools.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o: /home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o -c /home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o: /home/colin/Documents/CS/bankProgram/UI/UI.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o -c /home/colin/Documents/CS/bankProgram/UI/UI.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/UI/UI.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/UI/UI.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o: /home/colin/Documents/CS/bankProgram/user/userAccount.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o -c /home/colin/Documents/CS/bankProgram/user/userAccount.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/user/userAccount.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/user/userAccount.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o: /home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o -c /home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o: /home/colin/Documents/CS/bankProgram/user/accountUI.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o -c /home/colin/Documents/CS/bankProgram/user/accountUI.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/user/accountUI.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/user/accountUI.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o: /home/colin/Documents/CS/bankProgram/user/addAccount.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o -c /home/colin/Documents/CS/bankProgram/user/addAccount.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/user/addAccount.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/user/addAccount.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o: /home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o -c /home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o: /home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o -c /home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o: /home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o -c /home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o: /home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o -c /home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o: /home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o -c /home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o: /home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o -c /home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.s
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o: /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o: CMakeFiles/run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o -MF CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o.d -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o -c /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp > CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.i
+
+CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp -o CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.s
 
 # Object files for target run
 run_OBJECTS = \
-"CMakeFiles/run.dir/main.cpp.o" \
-"CMakeFiles/run.dir/nodeType.cpp.o" \
-"CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o" \
-"CMakeFiles/run.dir/printAccountInfo.cpp.o" \
-"CMakeFiles/run.dir/printAccountList.cpp.o" \
-"CMakeFiles/run.dir/printAccountMenu.cpp.o" \
-"CMakeFiles/run.dir/printLine.cpp.o" \
-"CMakeFiles/run.dir/savingsAccountType.cpp.o" \
-"CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o" \
-"CMakeFiles/run.dir/tools.cpp.o" \
-"CMakeFiles/run.dir/transactionHistory.cpp.o" \
-"CMakeFiles/run.dir/UI.cpp.o" \
-"CMakeFiles/run.dir/userAccount.cpp.o" \
-"CMakeFiles/run.dir/userAccountMenu.cpp.o" \
-"CMakeFiles/run.dir/accountUI.cpp.o" \
-"CMakeFiles/run.dir/addAccount.cpp.o" \
-"CMakeFiles/run.dir/bankAccountType.cpp.o" \
-"CMakeFiles/run.dir/bankEmployee.cpp.o" \
-"CMakeFiles/run.dir/certificationOfDepositType.cpp.o" \
-"CMakeFiles/run.dir/checkingAccountType.cpp.o" \
-"CMakeFiles/run.dir/checkVaildInteger.cpp.o" \
-"CMakeFiles/run.dir/deactivateAccount.cpp.o" \
-"CMakeFiles/run.dir/displayAccountDetails.cpp.o" \
-"CMakeFiles/run.dir/doublyLinkedListType.cpp.o" \
-"CMakeFiles/run.dir/fileManager.cpp.o" \
-"CMakeFiles/run.dir/highInterestCheckingType.cpp.o" \
-"CMakeFiles/run.dir/highInterestSavingsType.cpp.o"
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o" \
+"CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o"
 
 # External object files for target run
 run_EXTERNAL_OBJECTS =
 
-run: CMakeFiles/run.dir/main.cpp.o
-run: CMakeFiles/run.dir/nodeType.cpp.o
-run: CMakeFiles/run.dir/noServiceChargeCheckingType.cpp.o
-run: CMakeFiles/run.dir/printAccountInfo.cpp.o
-run: CMakeFiles/run.dir/printAccountList.cpp.o
-run: CMakeFiles/run.dir/printAccountMenu.cpp.o
-run: CMakeFiles/run.dir/printLine.cpp.o
-run: CMakeFiles/run.dir/savingsAccountType.cpp.o
-run: CMakeFiles/run.dir/serviceChargeCheckingType.cpp.o
-run: CMakeFiles/run.dir/tools.cpp.o
-run: CMakeFiles/run.dir/transactionHistory.cpp.o
-run: CMakeFiles/run.dir/UI.cpp.o
-run: CMakeFiles/run.dir/userAccount.cpp.o
-run: CMakeFiles/run.dir/userAccountMenu.cpp.o
-run: CMakeFiles/run.dir/accountUI.cpp.o
-run: CMakeFiles/run.dir/addAccount.cpp.o
-run: CMakeFiles/run.dir/bankAccountType.cpp.o
-run: CMakeFiles/run.dir/bankEmployee.cpp.o
-run: CMakeFiles/run.dir/certificationOfDepositType.cpp.o
-run: CMakeFiles/run.dir/checkingAccountType.cpp.o
-run: CMakeFiles/run.dir/checkVaildInteger.cpp.o
-run: CMakeFiles/run.dir/deactivateAccount.cpp.o
-run: CMakeFiles/run.dir/displayAccountDetails.cpp.o
-run: CMakeFiles/run.dir/doublyLinkedListType.cpp.o
-run: CMakeFiles/run.dir/fileManager.cpp.o
-run: CMakeFiles/run.dir/highInterestCheckingType.cpp.o
-run: CMakeFiles/run.dir/highInterestSavingsType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/src/main.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/nodeType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/noServiceChargeCheckingType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountInfo.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountList.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printAccountMenu.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/printLine.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/savingsAccountType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/serviceChargeCheckingType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/tools.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/logs/transactionHistory.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/UI.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccount.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/userAccountMenu.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/accountUI.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/user/addAccount.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/bankAccountType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/bankEmployee.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/certificationOfDepositType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/checkingAccountType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/checkVaildInteger.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankEmployee/deactivateAccount.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/UI/displayAccountDetails.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/dataStructures/doublyLinkedListType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/ultils/fileManager.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestCheckingType.cpp.o
+run: CMakeFiles/run.dir/home/colin/Documents/CS/bankProgram/bankAccounts/highInterestSavingsType.cpp.o
 run: CMakeFiles/run.dir/build.make
-run: /usr/lib64/libcurses.so
-run: /usr/lib64/libform.so
+run: /usr/lib/x86_64-linux-gnu/libcurses.so
+run: /usr/lib/x86_64-linux-gnu/libform.so
 run: CMakeFiles/run.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/colin/Documents/CS/bankProgram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable run"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -523,6 +523,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /home/cradley0/Documents/CS1C/ICA-1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cradley0/Documents/CS1C/ICA-1 /home/cradley0/Documents/CS1C/ICA-1 /home/cradley0/Documents/CS1C/ICA-1/build /home/cradley0/Documents/CS1C/ICA-1/build /home/cradley0/Documents/CS1C/ICA-1/build/CMakeFiles/run.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/colin/Documents/CS/bankProgram/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/colin/Documents/CS/bankProgram/build /home/colin/Documents/CS/bankProgram/build /home/colin/Documents/CS/bankProgram/build /home/colin/Documents/CS/bankProgram/build /home/colin/Documents/CS/bankProgram/build/CMakeFiles/run.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/run.dir/depend
 

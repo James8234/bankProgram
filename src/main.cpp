@@ -1,5 +1,5 @@
 #include "header.h"
-#include "bankAccountType.h"
+#include "./bankAccounts/bankAccountType.h"
 #include "certificationOfDepositType.h"
 #include "checkingAccountType.h"
 #include "highInterestSavingsType.h"
@@ -16,7 +16,6 @@
 #include "UI.h"
 #include <stdexcept>
 
-
  /**
  *
  *
@@ -24,10 +23,10 @@
 
 int main()
 {
-	//makes sure it exist and can be make to slove corrup files
+	//makes sure it exist and can be make to solve corrup files
 	createSubdirectory();
 
-
+	//This vector stores all the user accounts
 	vector<userAccount*> userList; //make sure the account is recognized here
 
 	userAccount *initialUser = nullptr; //constructor with default values wwill be used

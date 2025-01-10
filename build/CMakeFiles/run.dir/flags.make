@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/cradley0/Documents/CS1C/ICA-1
+CXX_INCLUDES = -I/home/colin/Documents/CS/bankProgram/build/.. -I/home/colin/Documents/CS/bankProgram/build/../bankAccounts -I/home/colin/Documents/CS/bankProgram/build/../user -I/home/colin/Documents/CS/bankProgram/build/../ultils -I/home/colin/Documents/CS/bankProgram/build/../bankEmployee -I/home/colin/Documents/CS/bankProgram/build/../UI -I/home/colin/Documents/CS/bankProgram/build/../dataStructures -I/home/colin/Documents/CS/bankProgram/build/../logs -I/home/colin/Documents/CS/bankProgram/build/../src
 
 CXX_FLAGS = -std=gnu++20
 

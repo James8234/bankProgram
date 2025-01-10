@@ -3,8 +3,8 @@
 void screenResize(WINDOW *&win, int &ymax, int &xmax)
 {
 		// checks if the screen has changed
-		int copy = xmax;
-		getmaxyx(stdscr, ymax, xmax);
+	int copy = xmax;
+	getmaxyx(stdscr, ymax, xmax);
 
 		if(xmax != copy)
 		{
@@ -84,8 +84,9 @@ void highlightPosition(WINDOW *&win, int position, array<string, N> choices, int
 			wattron(win, COLOR_PAIR(1));
 		else
 			wattron(win, COLOR_PAIR(4));
-		mvwprintw(win, i+starty, ((xmax - choices[i].size())/2), choices[i].c_str());
+		mvwprintw(win, i+starty, ((xmax - choices[i].size())/2), "%s", choices[i].c_str());
 		wattroff(win, COLOR_PAIR(1));
+		wattron(win, COLOR_PAIR(4));
 	}
 }
 
@@ -100,11 +101,18 @@ void highlightInput(WINDOW *&win, int position, array<string, N> choices, array<
 	for(int i = 0; i < choices.size(); i++)
 	{
 		if(i == position)
-			wattron(win, COLOR_PAIR(2));
+			wattron(win, COLOR_PAIR(1));
+		else
+			wattron(win, COLOR_PAIR(4));
 		mvwprintw(win, i+starty, ((xmax - choices[i].size())/2) , choices[i].c_str());
-		if(startIndex <= i || i <= endIndex);
-			mvwprintw(win, i+starty, (((xmax - choices[i].size())/2) + choices[i].size()), input[i].c_str());
-		wattroff(win, COLOR_PAIR(2));
+		if(startIndex <= i+starty || i+starty <= endIndex)
+		{
+			mvwprintw(win, i+starty, (((xmax - input[i].size())/2) + choices[i].size()), input[i].c_str());
+		}
+//mvwprintw(win, 25, 25, position);
+
+		wattroff(win, COLOR_PAIR(1));
+		wattroff(win, COLOR_PAIR(4));
 	}
 }
 
@@ -139,14 +147,15 @@ int printMainMenu()
 		screenResize(win, ymax, xmax);
 
 		// prints the UI
+
 		wattron(win, COLOR_PAIR(4));
-		mvwprintw(win, 1, ((xmax - s1.size())/2) , s1.c_str()); //.c_str() converts string to const *char
+		mvwprintw(win, 1, ((xmax - s1.size())/2) , "%s",  s1.c_str()); //.c_str() converts string to const *char
 		wattroff(win, COLOR_PAIR(4));
 
 		highlightPosition(win, position, choices, xmax, starty);
 
 		wattron(win, COLOR_PAIR(4));
-		mvwprintw(win, 6, ((xmax - s4.size())/2), s4.c_str());
+		mvwprintw(win, 6, ((xmax - s4.size())/2), "%s", s4.c_str());
 		wattroff(win, COLOR_PAIR(4));
 		wrefresh(win); //updates the information
 
@@ -213,13 +222,13 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 
 		// prints the UI
 		wattron(win, COLOR_PAIR(4));
-		mvwprintw(win, 1, ((xmax - s1.size())/2) , s1.c_str()); //.c_str() converts string to const *char
+		mvwprintw(win, 1, ((xmax - s1.size())/2) , "%s", s1.c_str()); //.c_str() converts string to const *char
 		wattroff(win, COLOR_PAIR(4));
 
 		highlightPosition(win, position, choices, xmax, starty);
 
 		wattron(win, COLOR_PAIR(4));
-		mvwprintw(win, 8, ((xmax - s6.size())/2), s6.c_str());
+		mvwprintw(win, 8, ((xmax - s6.size())/2), "%s",  s6.c_str());
 		wattroff(win, COLOR_PAIR(4));
 		wrefresh(win); //updates the information
 
@@ -245,12 +254,13 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 //				highlightInput(win, position, choices, input, xmax, starty, 1, 2);
 
 				wattron(win, COLOR_PAIR(2));
-				mvwprintw(win, 4, ((xmax - s3.size())/2) , s3.c_str());
-				mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), usr.c_str());
+				mvwprintw(win, 4, ((xmax - s3.size())/2) , "%s", s3.c_str());
+				mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), "%s", usr.c_str());
 				wattroff(win, COLOR_PAIR(2));
-
+				//highlightInput(win, position, choices, input, xmax, starty, 1, 2);
 				wrefresh(win);
-
+//getch();
+				//back space entered
 				while((ch = getch()) != '\n')
 				{
 					// update the UI
@@ -261,7 +271,7 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 						{
 							usr.pop_back(); //removes the letter
 
-							mvwprintw(win, 4, ((xmax - s3.size()) / 2) + s3.size() + usr.size(), " "); // clears the previous character
+							mvwprintw(win, 4, ((xmax - s3.size()) / 2) + s3.size() + usr.size(), " "); // clears the previous c
 						}
 					}
 					else
@@ -274,8 +284,8 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 //					highlightInput(win, position, choices, input, xmax, starty, 1, 2);
 
 					wattron(win, COLOR_PAIR(2));
-					mvwprintw(win, 4, ((xmax - s3.size())/2) , s3.c_str());
-					mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), usr.c_str());
+					mvwprintw(win, 4, ((xmax - s3.size())/2) , "%s", s3.c_str());
+					mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), "%s", usr.c_str());
 					wattroff(win, COLOR_PAIR(2));
 
 					wrefresh(win);
@@ -289,14 +299,14 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 		//		highLightChoice(win, position, choices, input, xmax, 3, startRow, endRow);
 //highlightInput(win, position, choices, input, xmax, starty, 1, 2);
 				wattron(win, COLOR_PAIR(1));
-				mvwprintw(win, 4, ((xmax - s3.size())/2) , s3.c_str());
-				mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), usr.c_str());
+				mvwprintw(win, 4, ((xmax - s3.size())/2) , "%s", s3.c_str());
+				mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), "%s", usr.c_str());
 				wattroff(win, COLOR_PAIR(1)); // turns off the color pair after use
 				wrefresh(win);
 
 			} //if(position = 1 && (c == KEY_ENTER || c == '\r' || c == '\n'))
 
-			mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), usr.c_str());
+			mvwprintw(win, 4, (((xmax - s3.size())/2) + s3.size()), "%s", usr.c_str());
 			wrefresh(win);
 
 			//this statment gets the password
@@ -304,8 +314,8 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 			{
 				//let the use know they have selected the line
 				wattron(win, COLOR_PAIR(2));
-				mvwprintw(win, 5, ((xmax - s4.size())/2) , s4.c_str());
-				mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
+				mvwprintw(win, 5, ((xmax - s4.size())/2) , "%s", s4.c_str());
+				mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), "%s", hidepass.c_str());
 				wattroff(win, COLOR_PAIR(2));
 				wrefresh(win);
 
@@ -318,12 +328,11 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 						{
 							pass.pop_back(); //removes the letter
 							hidepass.pop_back();
-<<<<<<< HEAD
-							mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
-=======
+
+//							mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
+
 
 							mvwprintw(win, 5, ((xmax - s4.size()) / 2) + s4.size() + hidepass.size(), " ");
->>>>>>> refs/remotes/origin/main
 						}
 					}
 					else
@@ -332,22 +341,22 @@ int printLoginAccount(string& usr, string& pass) //prints the ui
 						hidepass.push_back('*');
 					}
 					wattron(win, COLOR_PAIR(2));
-					mvwprintw(win, 5, ((xmax - s4.size())/2) , s4.c_str());
-					mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
+					mvwprintw(win, 5, ((xmax - s4.size())/2) , "%s", s4.c_str());
+					mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), "%s" , hidepass.c_str());
 					wattroff(win, COLOR_PAIR(2));
 					wrefresh(win);
 				}//while
 
 				//set text back
 				wattron(win, COLOR_PAIR(1));
-				mvwprintw(win, 5, ((xmax - s4.size())/2) , s4.c_str());
-				mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
+				mvwprintw(win, 5, ((xmax - s4.size())/2) , "%s", s4.c_str());
+				mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), "%s", hidepass.c_str());
 				wattroff(win, COLOR_PAIR(1)); //turns off the color pair afer use
 				wrefresh(win);
 
 			} //if(position = 1 && (c == KEY_ENTER || c == '\r' || c == '\n'))
 
-			mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), hidepass.c_str());
+			mvwprintw(win, 5, (((xmax - s4.size())/2) + s4.size()), "%s", hidepass.c_str());
 			wrefresh(win);
 
 		} //if(c == KEY_ENTER || c == '\r' || c == '\n')
