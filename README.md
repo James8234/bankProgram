@@ -6,7 +6,7 @@ checking balance, and generating reports. This project demonstrates proficiency 
 practices. It also emphasizes efficient function design and clear user interface flow.
 
 ## License
-This project is licensed under
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Features
 
