@@ -9,9 +9,17 @@ practices. It also emphasizes efficient function design and clear user interface
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Features
-
+- password hashing for secure authenication
+- text file database for data storage
+- bank employee tools
+- customer tools
 ## Installation
-
+- C++ : gcc
+- ncurses
+- cmake
+- bash
+## Usage
+~/program_location$ ./build/run.sh 
 ## Contact
 Colin Radley - colinx619@gmail.com
 GitHub: [https://github.com/James8234](https://github.com/James8234)
